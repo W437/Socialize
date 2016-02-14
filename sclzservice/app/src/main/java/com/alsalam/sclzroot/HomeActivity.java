@@ -6,10 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.sclzservice.R;
+import com.google.android.gms.maps.GoogleMap;
 
 public class HomeActivity extends Activity {
 
-    
+    private GoogleMap googleMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
