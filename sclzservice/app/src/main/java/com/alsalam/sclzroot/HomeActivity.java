@@ -9,7 +9,7 @@ import com.example.sclzservice.R;
 
 public class HomeActivity extends Activity {
 
-    private GoogleMap
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
