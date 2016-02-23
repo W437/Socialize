@@ -23,6 +23,16 @@
         <activity
             android:name=".ToDoActivity"
             android:label="@string/app_name">
+            <activity
+                android:name="com.alsalam.sclzroot.Activities.IntroActivity"
+                android:label="@string/title_activity_intro" />
+            <activity
+                android:name="com.alsalam.sclzroot.Activities.LoginActivity"
+                android:label="@string/title_activity_login" />
+            <activity
+                android:name="com.alsalam.sclzroot.Activities.HomeActivity"
+                android:label="@string/title_activity_home" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,17 +40,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.alsalam.sclzroot.IntroActivity"
-            android:label="@string/title_activity_intro"></activity>
+            android:name="com.alsalam.sclzroot.Activities.SettingsActivity"
+            android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.alsalam.sclzroot.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:name="com.alsalam.sclzroot.Activities.ProfileActivity"
+            android:label="@string/title_activity_profile" />
         <activity
-            android:name="com.alsalam.sclzroot.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
+            android:name="com.alsalam.sclzroot.Activities.StoriesActivity"
+            android:label="@string/title_activity_stories" />
         <activity
-            android:name="com.alsalam.sclzroot.TestActivity"
-            android:label="@string/title_activity_test"></activity>
+            android:name="com.alsalam.sclzroot.Activities.AddTaskActivity"
+            android:label="@string/title_activity_add_task" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity"
+            android:label="@string/title_activity_admin_panel"></activity>
     </application>
 
 </manifest>

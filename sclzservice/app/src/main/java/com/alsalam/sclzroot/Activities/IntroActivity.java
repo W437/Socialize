@@ -1,4 +1,4 @@
-package com.alsalam.sclzroot;
+package com.alsalam.sclzroot.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
