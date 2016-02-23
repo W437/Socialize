@@ -75,5 +75,6 @@
     <string name="title_activity_stories">StoriesActivity</string>
     <string name="title_activity_add_task">AddTaskActivit</string>
     <string name="title_activity_admin_panel">AdminPanelActivity</string>
+    <string name="title_activity_maram">MaramActivity</string>
 
 </resources>
