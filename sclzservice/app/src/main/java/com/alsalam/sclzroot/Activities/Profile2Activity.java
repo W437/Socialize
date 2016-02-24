@@ -18,7 +18,7 @@ public class Profile2Activity extends Activity {
     private EditText et3;
     private EditText et4;
     private EditText et5;
-
+     //kjkjkjk
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
