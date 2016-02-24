@@ -26,15 +26,15 @@ public class UserTbl {
     private String userPhone;
 
     public UserTbl(String id, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userEmail = userEmail;
-        this.userTafkeed = userTafkeed;
-        this.userAddress = userAddress;
-        this.userBirthday = userBirthday;
-        this.userGender = userGender;
-        this.userPhone = userPhone;
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setUserEmail(userEmail);
+        setUserTafkeed(userTafkeed);
+        setUserAddress(userAddress);
+        setUserBirthday(userBirthday);
+        setUserGender(userGender);
+        setUserPhone(userPhone);
     }
 
     public String getId() {
