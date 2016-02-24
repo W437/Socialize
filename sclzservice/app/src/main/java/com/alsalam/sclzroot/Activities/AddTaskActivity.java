@@ -12,6 +12,7 @@ public class AddTaskActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
         //maram
+        //kjkojh
     }
 
 }
