@@ -10,7 +10,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -22,23 +21,22 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ToDoActivity"
-            android:label="@string/app_name"/>
-            <activity
-                android:name="com.alsalam.sclzroot.Activities.IntroActivity"
-                android:label="@string/title_activity_intro" />
-            <activity
-                android:name="com.alsalam.sclzroot.Activities.LoginActivity"
-                android:label="@string/title_activity_login" />
-            <activity
-                android:name="com.alsalam.sclzroot.Activities.HomeActivity"
-                android:label="@string/title_activity_home" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.IntroActivity"
+            android:label="@string/title_activity_intro" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.HomeActivity"
+            android:label="@string/title_activity_home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name="com.alsalam.sclzroot.Activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -53,9 +51,19 @@
             android:label="@string/title_activity_add_task" />
         <activity
             android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity"
-            android:label="@string/title_activity_admin_panel">
-        </activity>
-
+            android:label="@string/title_activity_admin_panel" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.RegisterActivity"
+            android:label="@string/title_activity_register" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.AddEventActivity"
+            android:label="@string/title_activity_add_event" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.Profile2Activity"
+            android:label="@string/title_activity_profile2" />
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.EventInfoActivity"
+            android:label="@string/title_activity_event_info"></activity>
     </application>
 
 </manifest>

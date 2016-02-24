@@ -75,5 +75,9 @@
     <string name="title_activity_stories">StoriesActivity</string>
     <string name="title_activity_add_task">AddTaskActivit</string>
     <string name="title_activity_admin_panel">AdminPanelActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_add_event">AddEventActivity</string>
+    <string name="title_activity_profile2">Profile2Activity</string>
+    <string name="title_activity_event_info">EventInfoActivity</string>
 
 </resources>
