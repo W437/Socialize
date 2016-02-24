@@ -39,16 +39,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="First Name:"
-            android:id="@+id/textView2" />
+            android:id="@+id/tvName" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Last Name:"
-            android:id="@+id/textView3"
+            android:id="@+id/tvLName"
             android:layout_marginTop="46dp"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/tvName"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Location:"
-            android:id="@+id/textView6"
+            android:id="@+id/tvLoc"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Hobbies:"
-            android:id="@+id/textView7"
-            android:layout_below="@+id/textView6"
+            android:id="@+id/tvHob"
+            android:layout_below="@+id/tvLoc"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="42dp" />
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Gender:"
-            android:id="@+id/textView8"
+            android:id="@+id/tvGen"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -86,34 +86,43 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_above="@+id/textView3"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2" />
+            android:id="@+id/et1"
+            android:layout_above="@+id/tvLName"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_toEndOf="@+id/tvName" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2" />
+            android:id="@+id/et2"
+            android:layout_alignBottom="@+id/tvLName"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_toEndOf="@+id/tvName" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:layout_above="@+id/textView7"
-            android:layout_toRightOf="@+id/textView6"
-            android:layout_toEndOf="@+id/textView6" />
+            android:id="@+id/et3"
+            android:layout_above="@+id/tvHob"
+            android:layout_toRightOf="@+id/tvLoc"
+            android:layout_toEndOf="@+id/tvLoc" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
-            android:layout_alignBottom="@+id/textView7"
-            android:layout_toRightOf="@+id/textView7"
-            android:layout_toEndOf="@+id/textView7" />
+            android:id="@+id/et4"
+            android:layout_alignBottom="@+id/tvHob"
+            android:layout_toRightOf="@+id/tvHob"
+            android:layout_toEndOf="@+id/tvHob" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et5"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/tvLName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 </RelativeLayout>
