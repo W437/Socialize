@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.alsalam.sclzroot.Activities.LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="EMAIL OR USERNAME"
+        android:id="@+id/tvemail"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/et_MAIL"
+        android:layout_below="@+id/tvemail"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PASSWORD"
+        android:id="@+id/tvPass"
+        android:layout_below="@+id/et_MAIL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et_PASS"
+        android:layout_below="@+id/tvPass"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember Password"
+        android:id="@+id/checkBox"
+        android:layout_below="@+id/et_PASS"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp"
+        android:checked="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN"
+        android:id="@+id/btnSign"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignLeft="@+id/btnRegister"
+        android:layout_alignStart="@+id/btnRegister"
+        android:layout_alignRight="@+id/btnRegister"
+        android:layout_alignEnd="@+id/btnRegister" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:id="@+id/btnRegister"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tvPass"
+        android:layout_alignEnd="@+id/tvPass"
+        android:layout_alignLeft="@+id/tvPass"
+        android:layout_alignStart="@+id/tvPass" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up with Facebook"
+        android:id="@+id/btnFacebook"
+        android:layout_below="@+id/btnSign"
+        android:layout_alignLeft="@+id/tvemail"
+        android:layout_alignStart="@+id/tvemail" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up with Google+"
+        android:id="@+id/btnGoogle"
+        android:layout_above="@+id/btnRegister"
+        android:layout_alignLeft="@+id/btnFacebook"
+        android:layout_alignStart="@+id/btnFacebook"
+        android:layout_alignRight="@+id/btnFacebook"
+        android:layout_alignEnd="@+id/btnFacebook" />
+</RelativeLayout>
