@@ -6,20 +6,26 @@ import java.sql.Date;
  * Created by משתמש on 2/23/2016.
  */
 public class EventTbl {
+    @com.google.gson.annotations.SerializedName("id")
     private String id;
+    @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
+    @com.google.gson.annotations.SerializedName("eventBegin")
     private Date   eventBegin;
+    @com.google.gson.annotations.SerializedName("eventEnd")
     private Date   eventEnd;
+    @com.google.gson.annotations.SerializedName("hostId")
     private String hostId;
+    @com.google.gson.annotations.SerializedName("eventMaxParticipators")
     private int    eventMaxParticipators;
 
     public EventTbl(String id, String eventLocation, Date eventBegin, Date eventEnd, String hostId, int eventMaxParticipators) {
-        this.id = id;
-        this.eventLocation = eventLocation;
-        this.eventBegin = eventBegin;
-        this.eventEnd = eventEnd;
-        this.hostId = hostId;
-        this.eventMaxParticipators = eventMaxParticipators;
+        setId(id);
+        setEventLocation(eventLocation);
+        setEventBegin(eventBegin);
+        setEventEnd(eventEnd);
+        setHostId(hostId);
+        setEventMaxParticipators(eventMaxParticipators);
     }
 
     public String getId() {
