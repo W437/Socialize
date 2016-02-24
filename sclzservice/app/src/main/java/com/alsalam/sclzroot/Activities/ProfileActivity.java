@@ -1,6 +1,5 @@
 package com.alsalam.sclzroot.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -35,7 +34,7 @@ public class ProfileActivity extends Activity {
 
         spn_Day=(Spinner)findViewById(R.id.spn_Day);
         spn_Month=(Spinner)findViewById(R.id.spn_Month);
-        spn_Year=(Spinner)findViewById(R.id.spn_Year);
+        spn_Year=(Spinner)findViewById(R.id.tvBirthD);
 
         rdb_Male2=(RadioButton)findViewById(R.id.rdb_Male2);
         rdb_Female2=(RadioButton)findViewById(R.id.rdb_Female2);

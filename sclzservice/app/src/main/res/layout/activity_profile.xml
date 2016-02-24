@@ -15,9 +15,9 @@
         android:id="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/spn_Year"
-        android:layout_alignEnd="@+id/spn_Year"
-        android:layout_above="@+id/relativeLayout" />
+        android:layout_above="@+id/etFirstN"
+        android:layout_alignRight="@+id/tvBirthD"
+        android:layout_alignEnd="@+id/tvBirthD" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
 
     <ScrollView
         android:layout_width="500dp"
-        android:layout_height="800dp"
+        android:layout_height="750dp"
         android:id="@+id/scrollView2"
         android:layout_toEndOf="@+id/rdb_Female2"
         android:layout_alignParentLeft="true"
@@ -105,9 +105,10 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spn_Year"
+        android:id="@+id/tvBirthD"
         android:layout_alignTop="@+id/spn_Month"
-        android:layout_toRightOf="@+id/etLastN" />
+        android:layout_toRightOf="@+id/etLastN"
+        android:text="Birth Date :" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -119,8 +120,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="42dp"
-        android:layout_alignRight="@+id/spn_Year"
-        android:layout_alignEnd="@+id/spn_Year"
+        android:layout_alignRight="@+id/tvBirthD"
+        android:layout_alignEnd="@+id/tvBirthD"
         android:hint="Example@example.com" />
 
     <EditText
