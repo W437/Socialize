@@ -40,7 +40,7 @@ public class AddEventActivity extends Activity {
         rdb_female=(RadioButton)findViewById(R.id.rdb_female);//choosing gendet (female)
         spnType=(Spinner)findViewById(R.id.spnType);// choosing event type
 
-
+//kkkk
 
     }
 
