@@ -9,4 +9,163 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.alsalam.sclzroot.Activities.ProfileActivity">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/etFirstN"
+        android:layout_alignRight="@+id/tvBirthD"
+        android:layout_alignEnd="@+id/tvBirthD" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/tvFirstN"
+        android:id="@+id/relativeLayout"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="500dp"
+        android:layout_height="750dp"
+        android:id="@+id/scrollView2"
+        android:layout_toEndOf="@+id/rdb_Female2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/relativeLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="First Name :"
+        android:id="@+id/tvFirstN"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="149dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Last Name :"
+        android:id="@+id/tvLastN:"
+        android:layout_alignBottom="@+id/etLastN"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/etLastN"
+        android:layout_below="@+id/etFirstN"
+        android:layout_toRightOf="@+id/tvFirstN" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etFirstN"
+        android:layout_alignBottom="@+id/tvFirstN"
+        android:layout_toRightOf="@+id/tvFirstN"
+        android:layout_alignRight="@+id/etLastN"
+        android:layout_alignEnd="@+id/etLastN" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Birth Date :"
+        android:id="@+id/tvBirthD"
+        android:layout_below="@+id/tvLastN:"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spn_Day"
+        android:layout_below="@+id/tvBirthD"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/tvLastN:"
+        android:layout_alignEnd="@+id/tvLastN:" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spn_Month"
+        android:layout_alignBottom="@+id/spn_Day"
+        android:layout_toRightOf="@+id/spn_Day"
+        android:layout_alignRight="@+id/etLastN"
+        android:layout_alignEnd="@+id/etLastN" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvBirthD"
+        android:layout_alignTop="@+id/spn_Month"
+        android:layout_toRightOf="@+id/etLastN"
+        android:text="Birth Date :" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/et_mail2"
+        android:layout_below="@+id/spn_Day"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:layout_alignRight="@+id/tvBirthD"
+        android:layout_alignEnd="@+id/tvBirthD"
+        android:hint="Example@example.com" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et_pass2"
+        android:layout_below="@+id/et_mail2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/spn_Month"
+        android:layout_alignEnd="@+id/spn_Month"
+        android:hint="Password" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Male"
+        android:id="@+id/rdb_Male2"
+        android:layout_below="@+id/et_pass2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Female"
+        android:id="@+id/rdb_Female2"
+        android:layout_alignBottom="@+id/rdb_Male2"
+        android:layout_toRightOf="@+id/spn_Day"
+        android:layout_toEndOf="@+id/spn_Day"
+        android:checked="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/btnBack"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/rdb_Female2"
+        android:layout_toStartOf="@+id/rdb_Female2" />
+
 </RelativeLayout>

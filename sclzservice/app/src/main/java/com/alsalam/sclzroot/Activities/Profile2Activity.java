@@ -5,13 +5,12 @@ import android.app.Activity;
 
 import com.example.sclzservice.R;
 
-public class AddTaskActivity extends Activity {
+public class Profile2Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_task);
-        //maram
+        setContentView(R.layout.activity_profile2);
     }
 
 }
