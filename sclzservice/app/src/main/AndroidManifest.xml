@@ -53,7 +53,7 @@
             android:value="AIzaSyDPXzTcW9pWaGgUDG3vFT3Q5pS6GVtw1Vw" />
 
         <activity
-            android:name="com.alsalam.sclzroot.Activities.MapHomeActivity"
+            android:name="com.alsalam.sclzroot.Activities.HomeMapActivity"
             android:label="@string/title_activity_map_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

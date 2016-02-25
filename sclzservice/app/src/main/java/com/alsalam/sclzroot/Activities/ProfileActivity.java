@@ -23,33 +23,33 @@ public class ProfileActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        tvFirstN=(TextView)findViewById(R.id.tvFirstN);
-        tvBirthD=(TextView)findViewById(R.id.tvBirthD);//birthday date
-
-
-        etFirstN=(EditText)findViewById(R.id.etFirstN);// first name
-        etLastN=(EditText)findViewById(R.id.etLastN);// last name
-        et_mail2=(EditText)findViewById(R.id.et_mail2);//email that you want to edit
-        et_pass2=(EditText)findViewById(R.id.et_pass2);//password
-
-        spn_Day=(Spinner)findViewById(R.id.spn_Day);
-        spn_Month=(Spinner)findViewById(R.id.spn_Month);
-        spn_Year=(Spinner)findViewById(R.id.tvBirthD);
-
-        rdb_Male2=(RadioButton)findViewById(R.id.rdb_Male2);
-        rdb_Female2=(RadioButton)findViewById(R.id.rdb_Female2);
-
-        btnBack=(Button)findViewById(R.id.btnBack);
-
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Intent intent =new Intent (ProfileActivity.this,HomeActivity.class);
-               //  startActivity(intent);
-            }
-        });
+//        tvFirstN=(TextView)findViewById(R.id.tvFirstN);
+//        tvBirthD=(TextView)findViewById(R.id.tvBirthD);//birthday date
+//
+//
+//        etFirstN=(EditText)findViewById(R.id.etFirstN);// first name
+//        etLastN=(EditText)findViewById(R.id.etLastN);// last name
+//        et_mail2=(EditText)findViewById(R.id.et_mail2);//email that you want to edit
+//        et_pass2=(EditText)findViewById(R.id.et_pass2);//password
+//
+//        spn_Day=(Spinner)findViewById(R.id.spn_Day);
+//        spn_Month=(Spinner)findViewById(R.id.spn_Month);
+//        spn_Year=(Spinner)findViewById(R.id.spnYear);
+//
+//        rdb_Male2=(RadioButton)findViewById(R.id.rdb_Male2);
+//        rdb_Female2=(RadioButton)findViewById(R.id.rdb_Female2);
+//
+//        btnBack=(Button)findViewById(R.id.btnBack);
+//
+//
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //Intent intent =new Intent (ProfileActivity.this,HomeActivity.class);
+//               //  startActivity(intent);
+//            }
+//        });
     }
 
 }

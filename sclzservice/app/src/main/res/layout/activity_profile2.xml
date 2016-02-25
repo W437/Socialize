@@ -13,6 +13,7 @@
         android:layout_width="500dp"
         android:layout_height="250dp"
         android:id="@+id/img_Pic"
+        android:src="@drawable/ic_launcher"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -39,12 +40,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="First Name:"
-<<<<<<< Updated upstream
             android:id="@+id/tvName" />
-=======
-            android:id="@+id/textView2"
-            android:autoText="false" />
->>>>>>> Stashed changes
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,7 +51,6 @@
             android:id="@+id/tvLName"
             android:layout_marginTop="46dp"
             android:layout_below="@+id/tvName"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -101,8 +97,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/et2"
             android:layout_alignBottom="@+id/tvLName"
-            android:layout_toRightOf="@+id/tvName"
-            android:layout_toEndOf="@+id/tvName" />
+
+            android:layout_alignTop="@+id/tvLName" />
 
         <EditText
             android:layout_width="match_parent"
@@ -127,6 +123,16 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/tvLName"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_above="@+id/et2"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 

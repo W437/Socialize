@@ -97,5 +97,5 @@
         android:layout_alignStart="@+id/btnFacebook"
         android:layout_alignRight="@+id/btnFacebook"
         android:layout_alignEnd="@+id/btnFacebook"
-        android:background="#" />
+        />
 </RelativeLayout>
