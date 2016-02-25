@@ -24,8 +24,8 @@ public class ProfileActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         tvFirstN=(TextView)findViewById(R.id.tvFirstN);
-        tvLastN=(TextView)findViewById(R.id.tvLastN_);
         tvBirthD=(TextView)findViewById(R.id.tvBirthD);//birthday date
+
 
         etFirstN=(EditText)findViewById(R.id.etFirstN);// first name
         etLastN=(EditText)findViewById(R.id.etLastN);// last name

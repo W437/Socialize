@@ -146,5 +146,6 @@
         android:id="@+id/tvBirthD"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/etConfirm_pass" />
+        android:layout_below="@+id/etConfirm_pass"
+        android:autoText="false" />
 </RelativeLayout>
