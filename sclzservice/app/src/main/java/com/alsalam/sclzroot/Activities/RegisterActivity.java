@@ -1,7 +1,9 @@
 package com.alsalam.sclzroot.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -39,7 +41,22 @@ public class RegisterActivity extends Activity {
         rdbM=(RadioButton)findViewById(R.id.rdbM);// choosig female or male
 
         btnSubmit=(Button)findViewById(R.id.btnSubmit);
-     }
+
+
+         btnSubmit.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                  switch (v.getId()){
+                      case R.id.btnSubmit:
+                          Intent intent =new Intent(RegisterActivity.this,HomeActivity.class);
+                          startActivity(intent);
+                          break;
+
+                  }
+             }
+         });
+
+         }
 
 
 
