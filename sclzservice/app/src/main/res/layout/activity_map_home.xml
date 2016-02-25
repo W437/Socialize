@@ -1,8 +1,34 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.alsalam.sclzroot.Activities.MapHomeActivity">
+
+<fragment
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/map"
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.alsalam.sclzroot.Activities.MapHomeActivity" />
+    tools:context="com.alsalam.sclzroot.Activities.MapHomeActivity"
+    android:layout_above="@+id/scrollView5" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="251dp"
+        android:id="@+id/scrollView5"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" >
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView2" />
+    </ScrollView>
+</RelativeLayout>
