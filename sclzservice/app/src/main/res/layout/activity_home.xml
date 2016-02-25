@@ -14,11 +14,11 @@
         android:fillViewport="false"
         android:layout_x="28dp"
         android:layout_y="303dp" />
-
     <fragment
         android:layout_width="359dp"
         android:layout_height="359dp"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+        
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/mapFragment"
         android:layout_gravity="center_horizontal|top"
         android:layout_x="-72dp"
