@@ -11,6 +11,8 @@ public class ToDoItem {
     @com.google.gson.annotations.SerializedName("text")
     private String mText;
 
+    @com.google.gson.annotations.SerializedName("text3")
+    private String mText3;
     /**
      * Item Id
      */
@@ -29,6 +31,7 @@ public class ToDoItem {
     public ToDoItem() {
 
     }
+
 
     @Override
     public String toString() {
@@ -82,6 +85,10 @@ public class ToDoItem {
         mId = id;
     }
 
+    public final void setmText3(String mText3) {
+        this.mText3 = mText3;
+    }
+
     /**
      * Indicates if the item is marked as completed
      */
@@ -96,8 +103,5 @@ public class ToDoItem {
         mComplete = complete;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return o instanceof ToDoItem && ((ToDoItem) o).mId == mId;
-    }
+
 }

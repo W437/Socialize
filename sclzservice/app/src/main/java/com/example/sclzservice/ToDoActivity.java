@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -207,6 +208,7 @@ public class ToDoActivity extends Activity {
         final ToDoItem item = new ToDoItem();
 
         item.setText(mTextNewToDo.getText().toString());
+        item.setmText3("hiiiii");
         item.setComplete(false);
 
         // Insert the new item
@@ -225,6 +227,7 @@ public class ToDoActivity extends Activity {
                         }
                     });
                 } catch (final Exception e) {
+                    Log.d("TODOACT",e.getMessage()+"error");
                     createAndShowDialogFromTask(e, "Error");
                 }
                 return null;

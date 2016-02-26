@@ -7,7 +7,7 @@ import java.sql.Date;
  */
 public class UserTbl {
     @com.google.gson.annotations.SerializedName("id")
-    private String id;
+    private String mid;
     @com.google.gson.annotations.SerializedName("firstName")
     private String firstName;
     @com.google.gson.annotations.SerializedName("lastName")
@@ -37,12 +37,15 @@ public class UserTbl {
         setUserPhone(userPhone);
     }
 
+    public UserTbl() {
+    }
+
     public String getId() {
-        return id;
+        return mid;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.mid = id;
     }
 
     public String getFirstName() {
@@ -112,7 +115,7 @@ public class UserTbl {
     @Override
     public String toString() {
         return "UserTbl{" +
-                "id='" + id + '\'' +
+                "id='" + mid + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
