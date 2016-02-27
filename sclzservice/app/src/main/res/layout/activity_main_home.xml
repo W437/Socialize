@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.alsalam.sclzroot.Activities.MainHomeActivity">
+<android.support.design.widget.TabLayout
+    android:layout_width="match_parent"
+    android:id="@+id/tabs"
+    android:background="@color/primary"
+    app:tabIndicatorHeight="8dp"
+    app:tabIndicatorColor="@color/accent"
+    android:layout_height="?attr/actionBarSize">
+
+</android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_below="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/homepager">
+
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
