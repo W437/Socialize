@@ -41,4 +41,6 @@ public class RegisterActivity extends Activity {
         btnSubmit=(Button)findViewById(R.id.btnSubmit);
      }
 
+
+
 }
