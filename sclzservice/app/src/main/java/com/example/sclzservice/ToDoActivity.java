@@ -457,7 +457,7 @@ public class ToDoActivity extends Activity {
             });
 
             ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
-
+//kkkk
             Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
                 @Override
                 public void onFailure(Throwable e) {
