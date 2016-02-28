@@ -3,6 +3,7 @@ package com.alsalam.sclzroot.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.sclzservice.R;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
    private TextView tvemail,tvPass;
     private EditText et_MAIL,et_Pass;
     private Button btnSign,btnFacebook,btnGoogle,btnRegister;
@@ -21,7 +22,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
+    //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
         tvPass=(TextView)findViewById(R.id.tvPass);// Password
         et_MAIL=(EditText)findViewById(R.id.et_MAIL);// writing an email
         et_Pass=(EditText)findViewById(R.id.et_PASS);// password
@@ -30,6 +31,14 @@ public class LoginActivity extends Activity {
         btnGoogle=(Button)findViewById(R.id.btnGoogle);// Sing in with Google+ button
         btnRegister=(Button)findViewById(R.id.btnRegister);// Sing in button
 
+
+       btnSign.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(getBaseContext(),MainHomeActivity.class));
+               finish();
+           }
+       });
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
