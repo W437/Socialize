@@ -16,7 +16,7 @@ public class AddEventActivity extends Activity {
      private  Button btnDone;
      private RadioButton rdb_in,rdb_out,rdb_male,rdb_female;
      private Spinner spnType;
-    //koko
+    //kokololo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
