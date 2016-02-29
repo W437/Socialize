@@ -76,5 +76,6 @@
     <string name="title_activity_add_task">AddTaskActivit</string>
     <string name="title_activity_admin_panel">AdminPanelActivity</string>
     <string name="title_activity_map_home">Map</string>
+    <string name="title_activity_event_card">EventCard</string>
 
 </resources>

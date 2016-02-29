@@ -1,7 +1,6 @@
 package com.alsalam.sclzroot.MyFragments;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -37,7 +36,7 @@ public class AddEventFragment extends Fragment {
         tvselect_type=(TextView)view.findViewById(R.id.tvselect_type);// SelectType
         tvprop=(TextView)view.findViewById(R.id.tvprop);//event propirities
         tvLimit=(TextView)view.findViewById(R.id.tvLimit);// paricipants limit
-        tvLocation=(TextView)view.findViewById(R.id.tvLocation);// location
+        tvLocation=(TextView)view.findViewById(R.id.tvLocation2);// location
         tvGen=(TextView)view.findViewById(R.id.tvGen);// gender preference
         tvPurp=(TextView)view.findViewById(R.id.tvPurp);//  Event Purpose
         tvAge=(TextView)view.findViewById(R.id.tvAge);// Age Range
