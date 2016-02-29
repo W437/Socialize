@@ -18,7 +18,6 @@
         android:ems="10"
         android:hint="EMAIL OR USERNAME"
         android:id="@+id/et_MAIL"
-
         android:layout_centerHorizontal="true" />
     </android.support.design.widget.TextInputLayout>
 

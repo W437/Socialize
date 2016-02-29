@@ -7,194 +7,198 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.alsalam.sclzroot.Activities.AddEventActivity">
+    tools:context="com.alsalam.sclzroot.MyFragments.AddEventFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="SELECT EVENT TYPE"
+            android:id="@+id/tvselect_type"
+          />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="SELECT EVENT TYPE"
-        android:id="@+id/tvselect_type"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spnType"
+           />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnType"
-        android:layout_below="@+id/tvselect_type"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="PARTICIPANTS LIMIT :"
+            android:id="@+id/tvLimit" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PARTICIPANTS LIMIT :"
-        android:id="@+id/tvLimit"
-        android:layout_below="@+id/spnType"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="46dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="EVENT PROPERITIES"
+            android:id="@+id/tvprop"
+            />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="EVENT PROPERITIES"
-        android:id="@+id/tvprop"
-        android:layout_below="@+id/spnType"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/editText8"
+           />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText8"
-        android:layout_alignBottom="@+id/tvLimit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/tvLimit"
-        android:layout_toEndOf="@+id/tvLimit" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="10"
-        android:id="@+id/etBegT"
-        android:layout_below="@+id/tvLimit"
-        android:layout_alignRight="@+id/tvLimit"
-        android:layout_alignEnd="@+id/tvLimit"
-        android:layout_marginTop="40dp"
-        android:hint="BEGINNING TIME " />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="time"
+                android:ems="10"
+                android:id="@+id/etBegT"
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etEndT"
-        android:layout_alignTop="@+id/etBegT"
-        android:layout_toRightOf="@+id/tvprop"
-        android:layout_alignRight="@+id/editText8"
-        android:layout_alignEnd="@+id/editText8"
-        android:hint="ENDING TIME" />
+                android:hint="BEGINNING TIME "
+                android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="AGE RANGE :"
-        android:id="@+id/tvAge"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/etEndT"
+                android:layout_alignTop="@+id/etBegT"
+                android:layout_toRightOf="@+id/tvprop"
+                android:layout_alignRight="@+id/editText8"
+                android:layout_alignEnd="@+id/editText8"
+                android:hint="ENDING TIME"
+                android:layout_weight="1" />
+        </LinearLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etAge"
-        android:layout_alignBottom="@+id/tvAge"
-        android:layout_toRightOf="@+id/tvAge"
-        android:layout_alignRight="@+id/tvselect_type"
-        android:layout_alignEnd="@+id/tvselect_type" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="AGE RANGE :"
+            android:id="@+id/tvAge"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="LOCATION :"
-        android:id="@+id/tvLocation"
-        android:layout_below="@+id/etAge"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etAge"
+            android:layout_alignBottom="@+id/tvAge"
+            android:layout_toRightOf="@+id/tvAge"
+            android:layout_alignRight="@+id/tvselect_type"
+            android:layout_alignEnd="@+id/tvselect_type" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="INDOORS"
-        android:id="@+id/rdb_in"
-        android:layout_below="@+id/tvLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="LOCATION :"
+            android:id="@+id/tvLocation"
+            android:layout_below="@+id/etAge"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OUTDOORS"
-        android:id="@+id/rdb_out"
-        android:layout_alignTop="@+id/rdb_in"
-        android:layout_toRightOf="@+id/tvAge"
-        android:layout_toEndOf="@+id/tvAge"
-        android:checked="false" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INDOORS"
+            android:id="@+id/rdb_in"
+            android:layout_below="@+id/tvLocation"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="GENDER PREFERENCE"
-        android:id="@+id/tvGen"
-        android:layout_below="@+id/rdb_in"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OUTDOORS"
+            android:id="@+id/rdb_out"
+            android:layout_alignTop="@+id/rdb_in"
+            android:layout_toRightOf="@+id/tvAge"
+            android:layout_toEndOf="@+id/tvAge"
+            android:checked="false" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FEMALE"
-        android:id="@+id/rdb_female"
-        android:layout_below="@+id/tvGen"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="GENDER PREFERENCE"
+            android:id="@+id/tvGen"
+            android:layout_below="@+id/rdb_in"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MALE"
-        android:id="@+id/rdb_male"
-        android:layout_alignTop="@+id/rdb_female"
-        android:layout_toRightOf="@+id/rdb_in"
-        android:layout_toEndOf="@+id/rdb_in"
-        android:checked="false" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEMALE"
+            android:id="@+id/rdb_female"
+            android:layout_below="@+id/tvGen"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="EVENT PURPOSE"
-        android:id="@+id/tvPurp"
-        android:layout_below="@+id/rdb_female"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MALE"
+            android:id="@+id/rdb_male"
+            android:layout_alignTop="@+id/rdb_female"
+            android:layout_toRightOf="@+id/rdb_in"
+            android:layout_toEndOf="@+id/rdb_in"
+            android:checked="false" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etPurp"
-        android:layout_below="@+id/tvPurp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etEndT"
-        android:layout_alignEnd="@+id/etEndT"
-        android:layout_alignParentBottom="true"
-        android:hint="Write Here..." />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="EVENT PURPOSE"
+            android:id="@+id/tvPurp"
+            android:layout_below="@+id/rdb_female"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DONE"
-        android:id="@+id/btnDone"
-        android:layout_alignBottom="@+id/etPurp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPurp"
+            android:layout_below="@+id/tvPurp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/etEndT"
+            android:layout_alignEnd="@+id/etEndT"
+            android:layout_alignParentBottom="true"
+            android:hint="Write Here..." />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etLocation"
-        android:layout_above="@+id/rdb_in"
-        android:layout_toRightOf="@+id/rdb_female"
-        android:layout_alignRight="@+id/etAge"
-        android:layout_alignEnd="@+id/etAge" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DONE"
+            android:id="@+id/btnDone"
+            android:layout_alignBottom="@+id/etPurp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLocation"
+            android:layout_above="@+id/rdb_in"
+            android:layout_toRightOf="@+id/rdb_female"
+            android:layout_alignRight="@+id/etAge"
+            android:layout_alignEnd="@+id/etAge" />
+    </LinearLayout>
+
+</ScrollView>
+
 
 </RelativeLayout>
