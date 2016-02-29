@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.MyFragments;
 
 import android.os.Bundle;
+import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -41,10 +42,9 @@ public class Profile2Fragment extends Fragment {
         tvHob=(TextView)view.findViewById(R.id.tvHob);
         tvGen=(TextView)view.findViewById(R.id.tvGen);
         et1=(EditText)view.findViewById(R.id.et1);
-        et2=(EditText)view.findViewById(R.id.etLastN);
+        et2=(EditText)view.findViewById(R.id.et2);
         et3=(EditText)view.findViewById(R.id.et3);
-        et4=(EditText)view.findViewById(R.id.etHobbies);
-        et5=(EditText)view.findViewById(R.id.et5);
-    }
+        et4=(EditText)view.findViewById(R.id.et4);
+       }
 
 }
