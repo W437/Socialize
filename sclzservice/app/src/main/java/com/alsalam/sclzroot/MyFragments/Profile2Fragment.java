@@ -45,7 +45,6 @@ public class Profile2Fragment extends Fragment {
         et2=(EditText)view.findViewById(R.id.et2);
         et3=(EditText)view.findViewById(R.id.et3);
         et4=(EditText)view.findViewById(R.id.et4);
-        et5=(EditText)view.findViewById(R.id.et5);
-    }
+       }
 
 }

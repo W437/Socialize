@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TableLayout;
 
+import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.example.sclzservice.R;
@@ -28,10 +29,13 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
             //to do
-        fragments=new Fragment[2];
+        fragments=new Fragment[3];
         fragments[0]=new MapListFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
         fragments[1]=new Profile2Fragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+
+        fragments[2]=new AddEventFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
 
 

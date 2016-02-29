@@ -29,26 +29,41 @@
             android:id="@+id/spnType"
            />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="PARTICIPANTS LIMIT :"
-            android:id="@+id/tvLimit" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="EVENT PROPERITIES"
-            android:id="@+id/tvprop"
-            />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="40dp"
+            android:id="@+id/LIMITWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
 
         <EditText
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLimit"
+            android:hint="PARTICIPANTS LIMIT" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="40dp"
+            android:id="@+id/EVENTPROPERITIESWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/editText8"
-           />
+            android:id="@+id/etProp"
+            android:hint="EVENT PROPERITIES" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
@@ -56,8 +71,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
 
+
+
+            <android.support.design.widget.TextInputLayout
+                android:paddingTop="40dp"
+                android:id="@+id/BeginningWrapper"
+                android:layout_width="177dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
@@ -66,36 +90,62 @@
                 android:hint="BEGINNING TIME "
                 android:layout_weight="1" />
 
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:paddingTop="40dp"
+                android:id="@+id/EndingWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.57">
+
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etEndT"
-                android:layout_alignTop="@+id/etBegT"
-                android:layout_toRightOf="@+id/tvprop"
-                android:layout_alignRight="@+id/editText8"
-                android:layout_alignEnd="@+id/editText8"
                 android:hint="ENDING TIME"
                 android:layout_weight="1" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="AGE RANGE :"
-            android:id="@+id/tvAge"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
 
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="40dp"
+            android:id="@+id/AgeWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etAge"
-            android:layout_alignBottom="@+id/tvAge"
-            android:layout_toRightOf="@+id/tvAge"
-            android:layout_alignRight="@+id/tvselect_type"
-            android:layout_alignEnd="@+id/tvselect_type" />
+            android:hint="AGE RANGE " />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="40dp"
+            android:id="@+id/LocationWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLocation"
+            android:hint="EVENT&apos;S LOCATION" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,29 +153,31 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="LOCATION :"
             android:id="@+id/tvLocation"
-            android:layout_below="@+id/etAge"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+           />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="INDOORS"
-            android:id="@+id/rdb_in"
-            android:layout_below="@+id/tvLocation"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:checked="true" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OUTDOORS"
-            android:id="@+id/rdb_out"
-            android:layout_alignTop="@+id/rdb_in"
-            android:layout_toRightOf="@+id/tvAge"
-            android:layout_toEndOf="@+id/tvAge"
-            android:checked="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:orientation="horizontal">
+
+            <RadioButton
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="INDOORS"
+              android:id="@+id/rdb_in"
+              android:checked="true"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="OUTDOORS"
+                android:id="@+id/rdb_out"
+                 android:checked="false"
+                android:layout_weight="1" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,51 +185,45 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="GENDER PREFERENCE"
             android:id="@+id/tvGen"
-            android:layout_below="@+id/rdb_in"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
+           />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="horizontal">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FEMALE"
             android:id="@+id/rdb_female"
-            android:layout_below="@+id/tvGen"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:checked="false" />
+             android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MALE"
             android:id="@+id/rdb_male"
-            android:layout_alignTop="@+id/rdb_female"
-            android:layout_toRightOf="@+id/rdb_in"
-            android:layout_toEndOf="@+id/rdb_in"
             android:checked="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+    </LinearLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="40dp"
+            android:id="@+id/PURPOSEWrapperWrapper"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="EVENT PURPOSE"
-            android:id="@+id/tvPurp"
-            android:layout_below="@+id/rdb_female"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_gravity="center_horizontal">
+
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etPurp"
-            android:layout_below="@+id/tvPurp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/etEndT"
-            android:layout_alignEnd="@+id/etEndT"
-            android:layout_alignParentBottom="true"
-            android:hint="Write Here..." />
+            android:hint="EVENT PURPOSE" />
+
+
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="wrap_content"
@@ -188,14 +234,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/etLocation"
-            android:layout_above="@+id/rdb_in"
-            android:layout_toRightOf="@+id/rdb_female"
-            android:layout_alignRight="@+id/etAge"
-            android:layout_alignEnd="@+id/etAge" />
     </LinearLayout>
 
 </ScrollView>

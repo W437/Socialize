@@ -27,20 +27,17 @@ public class AddEventFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.activity_add_event,container,false);
         init(view);
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+       // return super.onCreateView(inflater, container, savedInstanceState);
+      return  view;
+     }
 
     protected void init(View view) {
 
 
 
         tvselect_type=(TextView)view.findViewById(R.id.tvselect_type);// SelectType
-        tvprop=(TextView)view.findViewById(R.id.tvprop);//event propirities
-        tvLimit=(TextView)view.findViewById(R.id.tvLimit);// paricipants limit
         tvLocation=(TextView)view.findViewById(R.id.tvLocation);// location
         tvGen=(TextView)view.findViewById(R.id.tvGen);// gender preference
-        tvPurp=(TextView)view.findViewById(R.id.tvPurp);//  Event Purpose
-        tvAge=(TextView)view.findViewById(R.id.tvAge);// Age Range
 
         etBegT=(EditText)view.findViewById(R.id.etBegT); // beginning time
         etEndT=(EditText)view.findViewById(R.id.etEndT);// ending Time
@@ -52,6 +49,8 @@ public class AddEventFragment extends Fragment {
         rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
         rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
         spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event type
+
+
 
 //kkkk
 

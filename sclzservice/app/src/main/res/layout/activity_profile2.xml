@@ -26,16 +26,18 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/img_Pic">
 
-    </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/scrollView3">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
 
-        <TextView
+             <LinearLayout
+                 android:orientation="horizontal"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"></LinearLayout>
+
+             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -43,97 +45,70 @@
             android:id="@+id/tvName" />
 
 
-        <TextView
+             <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+                 android:ems="10"
+            android:id="@+id/editText"
+            />
+
+             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Last Name:"
             android:id="@+id/tvLName"
-            android:layout_marginTop="46dp"
-            android:layout_below="@+id/tvName"
-            android:layout_alignParentStart="true" />
+            />
 
-        <TextView
+             <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et2"
+            />
+
+             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Location:"
             android:id="@+id/tvLoc"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            />
 
-        <TextView
+             <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et3"
+             />
+
+             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Hobbies:"
-            android:id="@+id/tvHob"
-            android:layout_below="@+id/tvLoc"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="42dp" />
+            android:id="@+id/tvHob" />
 
-        <TextView
+             <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et4"
+         />
+
+             <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Gender:"
-            android:id="@+id/tvGen"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/tvGen" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et1"
-            android:layout_above="@+id/tvLName"
-            android:layout_toRightOf="@+id/tvName"
-            android:layout_toEndOf="@+id/tvName" />
+             <EditText
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/et1"
+                 />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et2"
-            android:layout_alignBottom="@+id/tvLName"
 
-            android:layout_alignTop="@+id/tvLName" />
+         </LinearLayout>>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et3"
-            android:layout_above="@+id/tvHob"
-            android:layout_toRightOf="@+id/tvLoc"
-            android:layout_toEndOf="@+id/tvLoc" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et4"
-            android:layout_alignBottom="@+id/tvHob"
-            android:layout_toRightOf="@+id/tvHob"
-            android:layout_toEndOf="@+id/tvHob" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/et5"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/tvLName"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_above="@+id/et2"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
-
+    </ScrollView>
 </RelativeLayout>

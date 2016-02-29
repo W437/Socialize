@@ -24,39 +24,26 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        tvMail_Address=(TextView)findViewById(R.id.tvMail_address);// Email Address or Username
-        tvPass=(TextView)findViewById(R.id.tvPass);// Password
-        tvBD=(TextView)findViewById(R.id.tvBirthD);// birth date
+        tvMail_Address = (TextView) findViewById(R.id.tvMail_address);// Email Address or Username
+        tvPass = (TextView) findViewById(R.id.tvPass);// Password
+        tvBD = (TextView) findViewById(R.id.tvBirthD);// birth date
 
-        etMail_Address=(EditText)findViewById(R.id.etMail_address);//  type your email address
-        etUsername=(EditText)findViewById(R.id.etUsername);// tpe username
-        etPass=(EditText)findViewById(R.id.etPass);// type password
-        etConfirm_Pass= (EditText)findViewById(R.id.etConfirm_pass);// confirm your password
+        etMail_Address = (EditText) findViewById(R.id.etMail_address);//  type your email address
+        etUsername = (EditText) findViewById(R.id.etUsername);// tpe username
+        etPass = (EditText) findViewById(R.id.etPass);// type password
+        etConfirm_Pass = (EditText) findViewById(R.id.etConfirm_pass);// confirm your password
 
-        spnDay=(Spinner)findViewById(R.id.spnDay);// choosing birth day
-        spnMonth=(Spinner)findViewById(R.id.spnMonth);// choosing birth Month
-        spnYear=(Spinner)findViewById(R.id.spnYear);// choosing birth Year
+        spnDay = (Spinner) findViewById(R.id.spnDay);// choosing birth day
+        spnMonth = (Spinner) findViewById(R.id.spnMonth);// choosing birth Month
+        spnYear = (Spinner) findViewById(R.id.spnYear);// choosing birth Year
 
-        rdbF=(RadioButton)findViewById(R.id.rdbF);// choosing male or female
-        rdbM=(RadioButton)findViewById(R.id.rdbM);// choosig female or male
+        rdbF = (RadioButton) findViewById(R.id.rdbF);// choosing male or female
+        rdbM = (RadioButton) findViewById(R.id.rdbM);// choosig female or male
 
-        btnSubmit=(Button)findViewById(R.id.btnSubmit);
+        btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
 
-         btnSubmit.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                  switch (v.getId()){
-                      case R.id.btnSubmit:
-                          Intent intent =new Intent(RegisterActivity.this,HomeActivity.class);
-                          startActivity(intent);
-                          break;
-
-                  }
-             }
-         });
-
-         }
+    }
 
 
 
