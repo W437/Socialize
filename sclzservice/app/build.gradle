@@ -11,7 +11,7 @@ android {
         }
     }
     defaultConfig {
-      //  applicationId "com.example.zumoappname"
+        //  applicationId "com.example.zumoappname"
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
@@ -35,16 +35,18 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    // compile 'com.google.android.gms:play-services-location:8.4.0'
+    //   compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
     compile 'com.microsoft.azure:azure-mobile-android:3.0'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.google.guava:guava:18.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.google.android.gms:play-services-maps:8.4.0'
-    // compile 'com.google.android.gms:play-services-location:8.4.0'
-    //   compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:cardview-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
+    compile 'com.github.tibolte:agendacalendarview:1.0.3'
+    compile 'com.android.support:support-v4:23.2.0'
 }

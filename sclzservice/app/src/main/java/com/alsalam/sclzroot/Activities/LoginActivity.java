@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
     //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
-        tvPass=(TextView)findViewById(R.id.tvPass);// Password
+
         et_MAIL=(EditText)findViewById(R.id.et_MAIL);// writing an email
         et_Pass=(EditText)findViewById(R.id.et_PASS);// password
         btnSign=(Button)findViewById(R.id.btnSign);// Sing in button
