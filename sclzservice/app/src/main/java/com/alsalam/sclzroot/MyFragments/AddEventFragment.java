@@ -21,7 +21,6 @@ public class AddEventFragment extends Fragment {
      private  Button btnDone;
      private RadioButton rdb_in,rdb_out,rdb_male,rdb_female;
      private Spinner spnType;
-//lklk;kjjjllll
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
