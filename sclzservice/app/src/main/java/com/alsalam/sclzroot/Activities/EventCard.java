@@ -12,13 +12,18 @@ public class EventCard
     private String tvLocation2;
     private Button btMore;
 
-    public EventCard( String tvBegin2, String tvEventP2,String tvLocation2, Button btMore)
+
+
+    private long id;
+
+    public EventCard( String tvBegin2, String tvEventP2,String tvLocation2, Button btMore,long id)
     {
 
         this.tvBegin2 = tvBegin2;
         this.tvEventP2 = tvEventP2;
         this.tvLocation2 = tvLocation2;
         this.btMore = btMore;
+        this.id=id;
     }
 
     public String getTvBegin2() {
@@ -52,7 +57,13 @@ public class EventCard
     public void setBtMore(Button btMore) {
         this.btMore = btMore;
     }
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     @Override
     public String toString() {
         return "EventCard{" +
