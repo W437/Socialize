@@ -10,8 +10,8 @@
     tools:context="com.alsalam.sclzroot.MyFragments.Profile2Fragment">
 
     <ImageView
-        android:layout_width="500dp"
-        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
         android:id="@+id/img_Pic"
         android:src="@drawable/ic_launcher"
         android:layout_alignParentTop="true"

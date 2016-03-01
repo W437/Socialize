@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--
+    <!--
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         &lt;!&ndash; All customizations that are NOT specific to a particular API-level can go here. &ndash;&gt;
         <item name="android:colorPrimary">@color/primary</item>
@@ -16,4 +16,5 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-    </style></resources>
+    </style>
+</resources>

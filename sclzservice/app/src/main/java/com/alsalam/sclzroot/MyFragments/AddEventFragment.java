@@ -49,7 +49,7 @@ public class AddEventFragment extends Fragment {
         rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
         rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
         spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event type
-
+        btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
 
 
 //kkkk
