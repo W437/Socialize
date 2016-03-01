@@ -46,11 +46,11 @@ private Context context;
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView=inflater.inflate(R.layout.event_card_itm,parent,false);
-        TextView tvBegin2=(TextView)itemView.findViewById(R.id.tvBegin2);
+        TextView tvBegin2=(TextView)itemView.findViewById(R.id.tvLastN2);
         Button btMore=(Button)itemView.findViewById(R.id.btMore);
         TextView tvLocation2=(TextView)itemView.findViewById(R.id.tvLocation2);
 
-        TextView tvEventP2=(TextView)itemView.findViewById(R.id.tvEventP2);
+        TextView tvEventP2=(TextView)itemView.findViewById(R.id.tvFirstN);
         EventCard e=eventCards.get(position);
         tvBegin2.setText(e.getTvBegin2());
         tvEventP2.setText(e.getTvEventP2());

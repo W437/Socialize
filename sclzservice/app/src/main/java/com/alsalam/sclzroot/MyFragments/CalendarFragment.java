@@ -67,7 +67,7 @@ public class CalendarFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_calendar, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, update argument and hook method into UI event_itm
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
