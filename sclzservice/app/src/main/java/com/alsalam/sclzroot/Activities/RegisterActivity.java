@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.sclzservice.R;
 
 public class RegisterActivity extends Activity {
-     private TextView tvMail_Address, tvPass,tvBD,tvGender;
+     private TextView tvMail_Address, tvPass,tv_Birthday,tvGender;
      private EditText  etMail_Address,etUsername,etPass,etConfirm_Pass;
      private Spinner spnDay,spnMonth,spnYear;
      private RadioButton rdbM,rdbF;
@@ -24,9 +24,8 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        tvMail_Address = (TextView) findViewById(R.id.tvMail_address);// Email Address or Username
-        tvPass = (TextView) findViewById(R.id.tvPass);// Password
-        tvBD = (TextView) findViewById(R.id.tvBirthD);// birth date
+
+        tv_Birthday = (TextView) findViewById(R.id.tv_Birthday);// birth date
 
         etMail_Address = (EditText) findViewById(R.id.etMail_address);//  type your email address
         etUsername = (EditText) findViewById(R.id.etUsername);// tpe username

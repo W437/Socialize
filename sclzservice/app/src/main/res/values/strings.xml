@@ -78,4 +78,8 @@
     <string name="title_activity_map_home">Map</string>
     <string name="title_activity_event_card">EventCard</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_calendar_agenda">CalendarAgenda</string>
+
 </resources>

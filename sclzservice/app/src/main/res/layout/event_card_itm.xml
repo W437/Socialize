@@ -24,10 +24,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="contact det"
+                android:text="Event Title"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
-                android:textSize="14dp"/>
+                android:textSize="14dp"
+                android:allowUndo="false" />
 
             <TextView
                 android:id="@+id/tvLocation"
