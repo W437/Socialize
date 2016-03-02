@@ -3,7 +3,7 @@ package com.alsalam.sclzroot.TableManager;
 import java.sql.Date;
 
 /**
- * Created by משתמש on 2/23/2016.
+ * Created by משתמש on 2/23/2016
  */
 public class UserTbl {
     @com.google.gson.annotations.SerializedName("id")
