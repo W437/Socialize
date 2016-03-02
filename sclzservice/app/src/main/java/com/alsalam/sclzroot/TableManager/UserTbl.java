@@ -24,9 +24,13 @@ public class UserTbl {
     private String userGender;
     @com.google.gson.annotations.SerializedName("userPhone")
     private String userPhone;
+    @com.google.gson.annotations.SerializedName("userName")
+    private String userName;
+    @com.google.gson.annotations.SerializedName("userPassword")
+    private String userPassword;
 
-    public UserTbl(String id, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
-        setId(id);
+    public UserTbl(String mid, String userName, String userPassword, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
+        setId(mid);
         setFirstName(firstName);
         setLastName(lastName);
         setUserEmail(userEmail);
@@ -35,6 +39,15 @@ public class UserTbl {
         setUserBirthday(userBirthday);
         setUserGender(userGender);
         setUserPhone(userPhone);
+        setUserName(userName);
+        setUserPassword(userPassword);
+    }
+
+    public void userLogin(String id, String userName, String userPassword)
+    {
+        setId(mid);
+        setUserName(userName);
+        setUserPassword(userPassword);
     }
 
     public UserTbl() {
@@ -102,6 +115,22 @@ public class UserTbl {
 
     public void setUserGender(String userGender) {
         this.userGender = userGender;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getUserPhone() {

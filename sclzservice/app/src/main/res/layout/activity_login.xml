@@ -47,7 +47,8 @@
         android:id="@+id/checkBox"
 
         android:layout_marginTop="48dp"
-        android:checked="true" />
+        android:checked="true"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -71,17 +72,17 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign up with Facebook"
         android:id="@+id/btnFacebook"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign up with Google+"
         android:id="@+id/btnGoogle"
 
-        android:layout_gravity="center_horizontal" />
+        />
 </LinearLayout>
