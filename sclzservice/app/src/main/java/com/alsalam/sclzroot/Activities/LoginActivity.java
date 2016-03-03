@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.sclzservice.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
    private TextView tvemail,tvPass;
     private EditText et_MAIL,et_Pass;
     private Button btnSign,btnFacebook,btnGoogle,btnRegister;
@@ -74,5 +74,24 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i;
+        switch (v.getId())
+        {
+
+            case R.id.btnRegister:
+                i = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(i);// moving to Register Activity to sign up
+                break;
+            case R.id.btnSign:
+                if(true) {
+                    i = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(i);// moving to Register Activity to sign up
+                }
+        }
+
     }
 }
