@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.TableManager;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by משתמש on 2/23/2016.
@@ -27,6 +28,7 @@ public class EventTbl {
         setHostId(hostId);
         setEventMaxParticipators(eventMaxParticipators);
     }
+
 
     public String getId() {
         return id;

@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TableLayout;
 
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
@@ -37,10 +36,10 @@ public class MainHomeActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
 
         fragments[2]=new AddEventFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
         fragments[3]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
 
 
 
