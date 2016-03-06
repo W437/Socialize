@@ -41,7 +41,7 @@ public class MainHomeActivity extends AppCompatActivity {
         fragments[3]=new EventStoriesFragments();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
 
-
+//aaaaa
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
