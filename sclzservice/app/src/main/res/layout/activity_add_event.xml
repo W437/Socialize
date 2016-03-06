@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="SELECT EVENT TYPE"
             android:id="@+id/tvselect_type"
           />
@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etLimit"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:hint="PARTICIPANTS LIMIT" />
 
         </android.support.design.widget.TextInputLayout>
@@ -59,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/etProp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:hint="EVENT PROPERITIES" />
 
 
@@ -86,7 +88,7 @@
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/etBegT"
-
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="BEGINNING TIME "
                 android:layout_weight="1" />
 
@@ -105,6 +107,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:id="@+id/etEndT"
                 android:hint="ENDING TIME"
                 android:layout_weight="1" />
@@ -125,6 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etAge"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:hint="AGE RANGE " />
 
 
@@ -143,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etLocation"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:hint="EVENT&apos;S LOCATION" />
 
         </android.support.design.widget.TextInputLayout>
@@ -150,7 +155,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="LOCATION :"
             android:id="@+id/tvRole"
            />
@@ -182,7 +187,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="GENDER PREFERENCE"
             android:id="@+id/tvGen"
            />
@@ -220,6 +225,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etPurp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:hint="EVENT PURPOSE" />
 
 

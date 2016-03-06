@@ -12,9 +12,25 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
 public class AddEventFragment extends Fragment {
+
+    /**
+     * Mobile Service Client reference
+     */
+    private MobileServiceClient mClient;
+
+    /**
+     * Mobile Service Table used to access data
+     */
+    private MobileServiceTable<EventTbl> mToDoTable;
+
+
+
     private TextView tvselect_type,tvprop,tvLimit,tvLocation,tvGen,tvPurp,tvAge;
     private EditText etBegT,etEndT,etLocation,etPurp,etAge;
      private  Button btnDone;
