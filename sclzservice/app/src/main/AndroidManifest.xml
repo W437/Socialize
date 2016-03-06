@@ -32,12 +32,8 @@
         <activity
             android:name="com.alsalam.sclzroot.Activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity
-            android:name="com.alsalam.sclzroot.MyFragments.EventStoriesFragments"
-            android:label="@string/title_activity_stories" />
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.AddTaskActivity"
-            android:label="@string/title_activity_add_task" />
+
+
         <activity
             android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity"
             android:label="@string/title_activity_admin_panel" />

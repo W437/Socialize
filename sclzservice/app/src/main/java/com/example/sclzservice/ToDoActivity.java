@@ -97,7 +97,7 @@ public class ToDoActivity extends Activity {
 
             // Get the Mobile Service Table instance to use
 
-            mToDoTable = mClient.getTable(ToDoItem.class);
+             mToDoTable= mClient.getTable(ToDoItem.class);
 
             // Offline Sync
             //mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
