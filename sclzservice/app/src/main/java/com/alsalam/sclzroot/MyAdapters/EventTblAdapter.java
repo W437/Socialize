@@ -6,18 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
-import com.example.sclzservice.ToDoActivity;
-import com.example.sclzservice.ToDoItem;
-
-import java.util.ArrayList;
 
 /**
  * Created by bana on 01/03/2016.
@@ -56,14 +49,17 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         }
 
 
-        TextView tvBegin2=(TextView)row.findViewById(R.id.tvBegin);
+        TextView tvBegin2=(TextView)row.findViewById(R.id.tvAdress);
         Button btMore=(Button)row.findViewById(R.id.btMore);
-        TextView tvLocation2=(TextView)row.findViewById(R.id.tvLocation2);
+        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
+        TextView tvProfile=(TextView)row.findViewById(R.id.tvUserN);
 
         row.setTag(currentItem);
 
         tvBegin2.setText(currentItem.getEventBegin().toString());
-        tvLocation2.setText(currentItem.getEventLocation());
+       tvAdress2 .setText(currentItem.getAdress());
+        tvProfile.setText(currentItem.getTitle());
+
         return row;
     }
 

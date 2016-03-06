@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="Event Title"
+                android:text="User Name"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
@@ -34,7 +34,7 @@
                 android:id="@+id/tvRole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adress :"
+                android:text="User Role"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
@@ -42,10 +42,10 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/tvEventS"
+                android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EVENT Summary :"
+                android:text="Email "
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_above="@+id/tvEmail2"
@@ -54,8 +54,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="More "
-                android:id="@+id/btMore"
+                android:text="Extra"
+                android:id="@+id/btExtra"
                 android:layout_marginBottom="23dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
@@ -64,7 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BEGINNING TIME :"
+                android:text="Adress"
                 android:id="@+id/tvAdress"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvLastN2"
+                android:id="@+id/tvAdress2"
                 android:layout_below="@+id/tvAdress"
                 android:layout_alignParentEnd="true" />
 
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvAdress2"
+                android:id="@+id/tvRole2"
                 android:layout_below="@+id/tvRole"
                 android:layout_alignStart="@+id/tvRole" />
 
