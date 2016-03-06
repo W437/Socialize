@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
     /**
-     * Adapter context
+     *       Adapter context
      */
     Context mContext;
 
