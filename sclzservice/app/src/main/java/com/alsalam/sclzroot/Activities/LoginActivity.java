@@ -31,27 +31,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnGoogle=(Button)findViewById(R.id.btnGoogle);// Sing in with Google+ button
         btnRegister=(Button)findViewById(R.id.btnRegister);// Sing in button
 
-
-       btnSign.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(getBaseContext(),MainHomeActivity.class));
-               finish();
-           }
-       });
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()){
-                    case R.id.btnRegister:
-
-                        Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
-                        startActivity(intent);// moving to Register Activity to sign up
-                }
+        btnRegister.setOnClickListener(this);
+        btnSign.setOnClickListener(this);
 
 
-            }
-        });
     }
 
     @Override
@@ -78,18 +61,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Intent i;
         switch (v.getId())
         {
-
             case R.id.btnRegister:
-                i = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(i);// moving to Register Activity to sign up
+                startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
             case R.id.btnSign:
                 if(true) {
-                    i = new Intent(LoginActivity.this, RegisterActivity.class);
-                    startActivity(i);// moving to Register Activity to sign up
+                    startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                 }
         }
 

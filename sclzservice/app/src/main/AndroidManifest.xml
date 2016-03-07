@@ -21,6 +21,9 @@
             android:name="com.alsalam.sclzroot.Activities.IntroActivity"
             android:label="@string/title_activity_intro" />
         <activity
+            android:name="com.alsalam.sclzroot.Activities.RegisterActivity"
+            android:label="@string/title_activity_register" />
+        <activity
             android:name="com.alsalam.sclzroot.Activities.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>

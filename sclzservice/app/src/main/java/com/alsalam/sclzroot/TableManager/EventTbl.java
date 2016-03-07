@@ -11,7 +11,6 @@ public class EventTbl {
     private String id;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
-    private String adress;
     @com.google.gson.annotations.SerializedName("eventBegin")
     private Date   eventBegin;
     @com.google.gson.annotations.SerializedName("eventEnd")
@@ -20,18 +19,16 @@ public class EventTbl {
     private String hostId;
     @com.google.gson.annotations.SerializedName("eventMaxParticipators")
     private int    eventMaxParticipators;
-    private String title;
 
-    public EventTbl(String id, String eventLocation, String adress, Date eventBegin, Date eventEnd, String hostId, int eventMaxParticipators, String title) {
-        this.id = id;
-        this.eventLocation = eventLocation;
-        this.adress = adress;
-        this.eventBegin = eventBegin;
-        this.eventEnd = eventEnd;
-        this.hostId = hostId;
-        this.eventMaxParticipators = eventMaxParticipators;
-        this.title = title;
+    public EventTbl(String id, String eventLocation, Date eventBegin, Date eventEnd, String hostId, int eventMaxParticipators) {
+        setId(id);
+        setEventLocation(eventLocation);
+        setEventBegin(eventBegin);
+        setEventEnd(eventEnd);
+        setHostId(hostId);
+        setEventMaxParticipators(eventMaxParticipators);
     }
+
 
     public String getId() {
         return id;
@@ -47,14 +44,6 @@ public class EventTbl {
 
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
     }
 
     public Date getEventBegin() {
@@ -87,13 +76,5 @@ public class EventTbl {
 
     public void setEventMaxParticipators(int eventMaxParticipators) {
         this.eventMaxParticipators = eventMaxParticipators;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }

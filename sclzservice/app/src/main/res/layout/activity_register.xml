@@ -1,184 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:orientation="vertical"
     tools:context="com.alsalam.sclzroot.Activities.RegisterActivity">
 
 
-    <android.support.design.widget.TextInputLayout
-        android:paddingTop="40dp"
-        android:id="@+id/EMAILWrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/etMail_address"
-        android:hint="Example@example.com"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-
-        android:layout_centerHorizontal="true"
-
-        android:gravity="center_horizontal" />
-    </android.support.design.widget.TextInputLayout>
-
-
-
-    <android.support.design.widget.TextInputLayout
-
-        android:id="@+id/USERNaMEWrapper"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_gravity="center_horizontal">
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/etUsername"
-        android:hint="USERNAME"
-        android:layout_centerHorizontal="true"
-
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:gravity="center_horizontal" />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-
-
-    <android.support.design.widget.TextInputLayout
-        android:paddingTop="40dp"
-        android:id="@+id/PASSWORDWrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:ems="10"
-        >
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/etPass"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-
-        android:layout_centerHorizontal="true"
-
-        android:hint="PASSWORD" />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-
-    <android.support.design.widget.TextInputLayout
-
-        android:id="@+id/etConfirmWrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/etConfirm_pass"
-        android:hint="CONFIRM PASSWORD"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-
-        android:layout_centerHorizontal="true" />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="BIRTH DATE"
-        android:id="@+id/tv_Birthday" />
-
     <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="82dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ALL FIELDS ARE REQUIRED"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/FIRST_NAME_WRAPPER"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="20px"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etFirstName"
+                android:hint="FIRST NAME"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/LAST_NAME_WRAPPER"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etLastName"
+                android:hint="LAST NAME"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/EMAILWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/etMail_address"
+                android:hint="EMAIL ADDRESS"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+
+            android:id="@+id/USERNaMEWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:ems="10"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/etUsername"
+                android:hint="USERNAME"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/PASSWORDWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:ems="10" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:id="@+id/etPass"
+                android:hint="PASSWORD"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+
+            android:id="@+id/etConfirmWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/etConfirm_pass"
+                android:hint="CONFIRM PASSWORD"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+
+            android:id="@+id/etLocationWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/etLocation"
+                android:hint="LOCATION"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+
+            android:id="@+id/etPhoneNumberWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_gravity="center_horizontal">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPhonetic"
+                android:ems="10"
+                android:id="@+id/etPhone"
+                android:hint="PHONE NUMBER"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="BIRTH DATE"
+            android:id="@+id/tv_Birthday"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
             android:orientation="horizontal">
 
 
-    <Spinner
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnDay"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/spnYear"
-        android:layout_alignRight="@+id/tvBirthD"
-        android:layout_alignEnd="@+id/tvBirthD"
-        android:layout_below="@+id/tvBirthD"
-        android:layout_weight="1" />
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spnDay"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignBottom="@+id/spnYear"
+                android:layout_alignRight="@+id/tvBirthD"
+                android:layout_alignEnd="@+id/tvBirthD"
+                android:layout_below="@+id/tvBirthD"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
 
-    <Spinner
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnMonth"
-        android:layout_toRightOf="@+id/spnDay"
-        android:layout_below="@+id/etConfirm_pass"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1" />
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spnMonth"
+                android:layout_toRightOf="@+id/spnDay"
+                android:layout_below="@+id/etConfirm_pass"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
 
-    <Spinner
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnYear"
-        android:layout_alignTop="@+id/spnMonth"
-        android:layout_toRightOf="@+id/spnMonth"
-        android:layout_toEndOf="@+id/spnMonth"
-        android:layout_weight="1" />
-       </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="GENDER :"
-        android:id="@+id/tv_Gender"
-        android:layout_below="@+id/spnMonth"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal">
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spnYear"
+                android:layout_alignTop="@+id/spnMonth"
+                android:layout_toRightOf="@+id/spnMonth"
+                android:layout_toEndOf="@+id/spnMonth"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
 
-        <RadioButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="MALE"
-        android:id="@+id/rdbM"
-        android:checked="true"
-            android:layout_weight="0.51" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="GENDER"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal" />
 
-    <RadioButton
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Female"
-        android:id="@+id/rdbF"
-        android:checked="false"
-        android:layout_centerHorizontal="true"
-        android:layout_weight="1" />
-         </LinearLayout>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:id="@+id/rgGender">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:id="@+id/btnSubmit" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MALE"
+                android:id="@+id/rbMale"
+                android:checked="false" />
 
-</LinearLayout>
+            <Space
+                android:layout_width="68dp"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FEMALE"
+                android:id="@+id/rbFemale"
+                android:checked="false" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:id="@+id/btnSubmit"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</ScrollView>
