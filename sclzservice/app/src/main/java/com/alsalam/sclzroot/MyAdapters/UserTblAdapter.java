@@ -50,9 +50,16 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         }
 
 //
-//        TextView tvBegin2=(TextView)row.findViewById(R.id.tvBegin);
-//        Button btMore=(Button)row.findViewById(R.id.btMore);
-//        TextView tvLocation2=(TextView)row.findViewById(R.id.tvLocation2);
+          TextView tvUserN=(TextView)row.findViewById(R.id.tvUserN);
+          Button btExtra=(Button)row.findViewById(R.id.btExtra);
+          TextView tvRole=(TextView)row.findViewById(R.id.tvRole);
+         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
+          TextView tvEmail= (TextView)row.findViewById(R.id.tvEmail);
+        TextView tvEmail2= (TextView)row.findViewById(R.id.tvEmail2);
+        TextView tvAddress= (TextView)row.findViewById(R.id.tvAdress);
+        TextView tvAddress2= (TextView)row.findViewById(R.id.tvAdress2);
+
+
 //
 //        row.setTag(currentItem);
 //
