@@ -48,7 +48,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-
+//s
         TextView tvBegin2=(TextView)row.findViewById(R.id.tvAdress);
         Button btMore=(Button)row.findViewById(R.id.btMore);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
