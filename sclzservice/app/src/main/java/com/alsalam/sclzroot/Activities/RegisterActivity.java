@@ -71,8 +71,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     }
-   //jhkjhjhkjkhj
-
+   //jhkjhjhkjkhjsss
 
 
     public UserTbl getUserInfo()
