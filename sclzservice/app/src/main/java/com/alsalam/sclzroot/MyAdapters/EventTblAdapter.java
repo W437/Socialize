@@ -57,8 +57,8 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         row.setTag(currentItem);
 
         tvBegin2.setText(currentItem.getEventBegin().toString());
-       tvAdress2 .setText(currentItem.getAdress());
-        tvProfile.setText(currentItem.getTitle());
+       //tvAdress2 .setText(currentItem.getAdress());
+        //tvProfile.setText(currentItem.getTitle());
 
         return row;
     }
