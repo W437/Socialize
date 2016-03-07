@@ -99,7 +99,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         Log.d("test", user.toString());
         return user;
     }
-
+//s
 
     public boolean areFieldsEmpty()
     {
