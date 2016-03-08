@@ -23,9 +23,11 @@ import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
+import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
 import java.sql.Date;
+import java.util.Calendar;
 
 public class MainHomeActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -46,7 +48,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
         //to do
-        fragments=new Fragment[4];
+        fragments=new Fragment[5];
         fragments[0]=new MapListFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
@@ -58,7 +60,14 @@ public class MainHomeActivity extends AppCompatActivity {
 
         fragments[3]=new EventStoriesFragments();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
-
+        CaldroidFragment caldroidFragment = new CaldroidFragment();
+        Bundle args = new Bundle();
+        Calendar cal = Calendar.getInstance();
+        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        caldroidFragment.setArguments(args);
+        fragments[4]=caldroidFragment;
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
