@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
+import com.example.sclzservice.ToDoItem;
 
 /**
  * Created by bana on 01/03/2016.
@@ -62,5 +63,6 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         return row;
     }
+
 
 }
