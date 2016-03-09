@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -37,6 +38,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      private Button  btnSubmit;
      private MobileServiceClient mClient;
      private String userGender = "";
+     private ProgressBar mProgressBar;
 
 
 
@@ -121,6 +123,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 public void onCompleted(UserTbl entity, Exception exception, ServiceFilterResponse response) {
                     if(exception==null)
                     {
+
                         Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                         Log.d("AZURE DB", "SUCCESS! YAY!");
                         startActivity(new Intent(getBaseContext(), LoginActivity.class));
@@ -153,7 +156,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     Log.d("testa", "Clicked submit");
                 }
                 else {
-                    Toast.makeText(getBaseContext(),"FILL IN ALL FIELDS",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 }
                 break;
 
