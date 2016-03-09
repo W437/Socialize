@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
@@ -30,11 +31,17 @@ public class EventStoriesFragments extends Fragment
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> mToDoTable;
+    ListView  listView;
+    EventTblAdapter eventTblAdapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view =inflater.inflate(R.layout.events_stories,container,false);
-        init(view);
+
+        eventTblAdapter=new EventTblAdapter(getContext(),R.layout.event_card_itm);
+        listView= (ListView) view.findViewById(R.id.listView);
+        init();
+        listView.setAdapter(eventTblAdapter);
 
 
         try {
@@ -53,55 +60,61 @@ public class EventStoriesFragments extends Fragment
         return  view;
     }
 
-    private void init(View view)
+    private void init()
     {
-        final EventTblAdapter  mAdapter=new EventTblAdapter(getContext(),18 );
+        Log.d("INITBH"," init starts");
+
         new AsyncTask<Void, Void, Void>() {
 
             @Override
             protected Void doInBackground(Void... params) {
 
                 try {
+                    Log.d("INITBH","doInBackground ");
 
                     final MobileServiceList<EventTbl> result =  mToDoTable.execute().get();
+                    Log.d("INITBH",result.size()+" befor runonui size");
+
                     getActivity().runOnUiThread(new Runnable()
                     {
 
                         @Override
                         public void run()
                         {
-                            mAdapter.clear();
+                            eventTblAdapter.clear();
+                            Log.d("INITBH", result.size() + " size");
                             for (EventTbl item : result)
                             {
-                                mAdapter.add(item);
+                                eventTblAdapter.add(item);
+
                             }
                         }
                     });
                 }
                 catch (Exception exception)
                 {
-
+                    exception.printStackTrace();
                 }
                 return null;
             }
 
         }.execute();
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    final MobileServiceList<EventTbl> result =
-                            mToDoTable.where().field("complete").eq(false).execute().get();
-                    for (EventTbl item : result) {
-                        Log.i("Evnts", "Read object with ID " + item.getId());
-                    }
-                } catch (Exception exception)
-                {
-
-                }
-                return null;
-            }
-        }.execute();
+//        new AsyncTask<Void, Void, Void>() {
+//            @Override
+//            protected Void doInBackground(Void... params) {
+//                try {
+//                    final MobileServiceList<EventTbl> result =
+//                            mToDoTable.where().field("complete").eq(false).execute().get();
+//                    for (EventTbl item : result) {
+//                        Log.i("Evnts", "Read object with ID " + item.getId());
+//                    }
+//                } catch (Exception exception)
+//                {
+//
+//                }
+//                return null;
+//            }
+//        }.execute();
 
     }
 }
