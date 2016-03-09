@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,25 @@ public class UsersFragment extends Fragment {
                 return null;
 
 
+            }
+        }.execute();
+
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params)
+            {
+                try {
+                    final MobileServiceList<UserTbl> result =
+                            mToDoTable.where().field("complete").eq(false).execute().get();
+                    for (UserTbl item : result) {
+                        Log.i("Users", "Read object with ID " + item.getId());
+                    }
+                }
+                catch (Exception exception)
+                {
+
+                }
+                return null;
             }
         }.execute();
 

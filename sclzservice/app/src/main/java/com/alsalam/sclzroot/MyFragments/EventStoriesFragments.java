@@ -86,12 +86,22 @@ public class EventStoriesFragments extends Fragment
             }
 
         }.execute();
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<EventTbl> result =
+                            mToDoTable.where().field("complete").eq(false).execute().get();
+                    for (EventTbl item : result) {
+                        Log.i("Evnts", "Read object with ID " + item.getId());
+                    }
+                } catch (Exception exception)
+                {
 
-
-
-
-
-
+                }
+                return null;
+            }
+        }.execute();
 
     }
 }
