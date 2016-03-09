@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFFF">
+    android:background="#ffffffff">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -89,8 +89,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Button"
                 android:id="@+id/button"
-                android:background="#FFFFFFF"
-                android:src="@mipmap/ic_accept333_launcher"
+                android:background="#FFfFFF"
+                android:src="@mipmap/logo"
                 android:layout_alignTop="@+id/button2"
                 android:layout_alignStart="@+id/tvLastN2" />
 
@@ -99,8 +99,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Button"
                 android:id="@+id/button2"
-                android:background="#FFFFFFF"
-                android:src="@mipmap/ic_disAceept_launcher"
+                android:background="#ffffff"
+                android:src="@mipmap/logo"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true" />
 

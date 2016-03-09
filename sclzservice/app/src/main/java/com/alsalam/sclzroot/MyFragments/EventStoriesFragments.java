@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,10 +64,12 @@ public class EventStoriesFragments extends Fragment
                 try {
 
                     final MobileServiceList<EventTbl> result =  mToDoTable.execute().get();
-                    getActivity().runOnUiThread(new Runnable() {
+                    getActivity().runOnUiThread(new Runnable()
+                    {
 
                         @Override
-                        public void run() {
+                        public void run()
+                        {
                             mAdapter.clear();
                             for (EventTbl item : result)
                             {
@@ -81,7 +84,13 @@ public class EventStoriesFragments extends Fragment
                 }
                 return null;
             }
+
         }.execute();
+
+
+
+
+
 
 
     }
