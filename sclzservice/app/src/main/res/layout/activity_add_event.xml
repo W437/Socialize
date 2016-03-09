@@ -85,7 +85,6 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="time"
                 android:ems="10"
                 android:id="@+id/etBegT"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -171,7 +170,7 @@
               android:layout_height="wrap_content"
               android:text="INDOORS"
               android:id="@+id/rdb_in"
-              android:checked="true"
+              android:checked="false"
                 android:layout_weight="1" />
 
             <RadioButton

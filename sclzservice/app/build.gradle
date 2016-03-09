@@ -12,7 +12,7 @@ android {
     }
     defaultConfig {
         //  applicationId "com.example.zumoappname"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -48,5 +48,8 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:cardview-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
+
+    compile'com.roomorama:caldroid:3.0.1'
+
     compile 'com.android.support:support-v4:23.2.0'
 }
