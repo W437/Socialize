@@ -157,7 +157,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="LOCATION :"
-            android:id="@+id/tvRole"
+            android:id="@+id/tvAdrerss2"
            />
 
 

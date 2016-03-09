@@ -50,7 +50,7 @@ public class AddEventFragment extends Fragment {
 
 
         tvselect_type=(TextView)view.findViewById(R.id.tvselect_type);// SelectType
-        tvLocation=(TextView)view.findViewById(R.id.tvRole);// location
+        tvLocation=(TextView)view.findViewById(R.id.tvAdrerss2);// location
         tvGen=(TextView)view.findViewById(R.id.tvGen);// gender preference
 
         etBegT=(EditText)view.findViewById(R.id.etBegT); // beginning time

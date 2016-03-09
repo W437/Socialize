@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvUserN"
+                android:id="@+id/tvEventT"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
@@ -31,7 +31,7 @@
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvRole"
+                android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adress :"
@@ -48,7 +48,7 @@
                 android:text="EVENT Summary :"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_above="@+id/tvSummary2"
                 android:layout_alignParentStart="true" />
 
             <Button
@@ -65,16 +65,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BEGINNING TIME :"
-                android:id="@+id/tvAdress"
-                android:layout_below="@+id/tvUserN"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvLastN2"
-                android:layout_below="@+id/tvAdress"
+                android:id="@+id/tvBeginning"
+                android:layout_below="@+id/tvEventT"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -82,16 +74,24 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvRole"
-                android:layout_alignStart="@+id/tvRole" />
+                android:layout_below="@+id/tvAdrerss2"
+                android:layout_alignStart="@+id/tvAdrerss2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvRole"
+                android:id="@+id/tvSummary2"
+                android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tvBeginning2"
+                android:layout_below="@+id/tvBeginning"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 

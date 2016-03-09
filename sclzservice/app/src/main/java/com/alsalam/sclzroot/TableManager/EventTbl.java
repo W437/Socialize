@@ -9,6 +9,9 @@ import java.util.Date;
 public class EventTbl {
     @com.google.gson.annotations.SerializedName("id")
     private String id;
+    private String eventSummary ;
+    private String adress;
+    private String eventTitle;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
     @com.google.gson.annotations.SerializedName("eventBegin")
@@ -20,15 +23,17 @@ public class EventTbl {
     @com.google.gson.annotations.SerializedName("eventMaxParticipators")
     private int    eventMaxParticipators;
 
-    public EventTbl(String id, String eventLocation, Date eventBegin, Date eventEnd, String hostId, int eventMaxParticipators) {
-        setId(id);
-        setEventLocation(eventLocation);
-        setEventBegin(eventBegin);
-        setEventEnd(eventEnd);
-        setHostId(hostId);
-        setEventMaxParticipators(eventMaxParticipators);
+    public EventTbl(String id, String eventSummary, String adress, String eventTitle, String eventLocation, Date eventBegin, Date eventEnd, String hostId, int eventMaxParticipators) {
+        this.id = id;
+        this.eventSummary = eventSummary;
+        this.adress = adress;
+        this.eventTitle = eventTitle;
+        this.eventLocation = eventLocation;
+        this.eventBegin = eventBegin;
+        this.eventEnd = eventEnd;
+        this.hostId = hostId;
+        this.eventMaxParticipators = eventMaxParticipators;
     }
-
 
     public String getId() {
         return id;
@@ -36,6 +41,30 @@ public class EventTbl {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEventSummary() {
+        return eventSummary;
+    }
+
+    public void setEventSummary(String eventSummary) {
+        this.eventSummary = eventSummary;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
     }
 
     public String getEventLocation() {
