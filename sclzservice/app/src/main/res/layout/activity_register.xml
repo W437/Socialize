@@ -278,15 +278,6 @@
             android:id="@+id/btnSubmit"
             android:layout_gravity="center_horizontal" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/registerPB"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#000000"
-            android:indeterminate="true" />
-
     </LinearLayout>
 
 </ScrollView>
