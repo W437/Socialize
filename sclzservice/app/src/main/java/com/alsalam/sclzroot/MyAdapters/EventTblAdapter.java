@@ -7,11 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
 
 /**
@@ -51,26 +50,29 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         }
 
-        TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
+        final TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
         Button btMore=(Button)row.findViewById(R.id.btMore);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.tvEventT);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.tvSummary2);
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvUserN);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
 
         row.setTag(currentItem);
 
         tvBegin2.setText(currentItem.getEventBegin().toString());
-      tvAdress2.setText(currentItem.getAdress());
-        tvSummary2.setText(currentItem.getEventSummary());
-        tvEventT.setText(currentItem.getEventTitle());
+      tvAdress2.setText(currentItem.getAdress().toString());
+        tvSummary2.setText(currentItem.getEventSummary().toString());
+        tvEventT.setText(currentItem.getEventTitle().toString());
 
         btMore.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
+                String tvBegin1=tvBegin2.getText().toString();
+
+                Toast.makeText(getContext(),"begin"+tvBegin1.toString(),Toast.LENGTH_LONG).show();
 
 
             }

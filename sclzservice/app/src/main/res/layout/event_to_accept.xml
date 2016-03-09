@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvEventT"
+                android:id="@+id/tvUserN"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
@@ -49,7 +49,7 @@
                 android:text="EVENT Summary :"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvSummary2"
+                android:layout_above="@+id/tvEmail2"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="BEGINNING TIME :"
                 android:id="@+id/tvBeginning"
-                android:layout_below="@+id/tvEventT"
+                android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvSummary2"
+                android:id="@+id/tvEmail2"
                 android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
 
@@ -94,7 +94,7 @@
                 android:background="#FFFFFFF"
                 android:src="@mipmap/ic_disAceept_launcher"
                 android:layout_alignParentBottom="true"
-                android:layout_alignEnd="@+id/tvSummary2" />
+                android:layout_alignEnd="@+id/tvEmail2" />
 
             <TextView
                 android:layout_width="wrap_content"
