@@ -129,15 +129,64 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         return event;
     }
 
-    public boolean areFieldsEmpty()
-    {
-        if(etLocation.getText() == null || etTitle.getText() == null ||
-                etBegT.getText() == null || etEventDate.getText() == null ||
-                etEndT.getText() == null || etParticipantsLimit.getText() == null ||
-                etPurpose.getText() == null || etProp.getText() == null ||
-                location == null || genderPref == null || etAge.getText() == null)
-            return true;
-        return false;
+    public boolean areFieldsFilled() {
+        if (etTitle.getText().toString().length() == 0) {
+            etTitle.requestFocus();
+            etTitle.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etParticipantsLimit.getText().toString().length() == 0) {
+            etParticipantsLimit.requestFocus();
+            etParticipantsLimit.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etProp.getText().toString().length() == 0) {
+            etProp.requestFocus();
+            etProp.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+
+        else if (etEventDate.getText().toString().length() == 0) {
+            etEventDate.requestFocus();
+            etEventDate.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etBegT.getText().toString().length() == 0) {
+            etBegT.requestFocus();
+            etBegT.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etEndT.getText().toString().length() == 0) {
+            etEndT.requestFocus();
+            etEndT.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etAge.getText().toString().length() == 0) {
+            etAge.requestFocus();
+            etAge.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etLocation.getText().toString().length() == 0) {
+            etLocation.requestFocus();
+            etLocation.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (rgLocation.getCheckedRadioButtonId() == -1) {
+            rgLocation.requestFocus();
+            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (rgGender.getCheckedRadioButtonId() == -1) {
+            rgGender.requestFocus();
+            Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (etPurpose.getText().toString().length() == 0) {
+            etPurpose.requestFocus();
+            etPurpose.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        return true;
     }
 
 
@@ -244,6 +293,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
+                //Log.d("testest", rgLocation.getCheckedRadioButtonId() + "");
 
         }
     }

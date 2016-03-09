@@ -108,7 +108,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     }
 //s
 
-    public boolean areFieldsEmpty() {
+    public boolean areFieldsFilled() {
         if (etUsername.getText().toString().length() == 0) {
             etUsername.requestFocus();
             etUsername.setError("FIELD CANNOT BE EMPTY");
@@ -209,7 +209,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                 break;
             case R.id.btnSubmit:
-                if(areFieldsEmpty())
+                if(areFieldsFilled())
                 {
                     addUserToDB(getUserInfo());
                     Log.d("testa", "Clicked submit");
