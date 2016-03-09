@@ -133,6 +133,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                         Toast.makeText(getBaseContext(),"FAILED",Toast.LENGTH_LONG).show();
                         Log.d("AZURE DB", "FAILED");
                         Log.d("AZURE DB", exception.getMessage());
+                        exception.printStackTrace();
                     }
                 }
             });
@@ -151,13 +152,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                 break;
             case R.id.btnSubmit:
-                if(!areFieldsEmpty()) {
                     addUserToDB(getUserInfo());
                     Log.d("testa", "Clicked submit");
-                }
-                else {
-                    Toast.makeText(getBaseContext(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
-                }
                 break;
 
         }
