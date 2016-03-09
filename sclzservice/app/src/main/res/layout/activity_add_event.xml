@@ -47,8 +47,7 @@
             android:paddingTop="40dp"
             android:id="@+id/LIMITWrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="match_parent">
 
             <EditText
                 android:layout_width="match_parent"
@@ -98,7 +97,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
-
 
 
             <android.support.design.widget.TextInputLayout

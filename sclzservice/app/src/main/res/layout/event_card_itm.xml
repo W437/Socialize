@@ -12,12 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/primary_light"
-        card_view:cardCornerRadius="20dp"
+        card_view:cardBackgroundColor="@android:color/transparent"
+        card_view:cardElevation="10dp"
+        card_view:cardCornerRadius="7dp"
         android:layout_margin="5dp">
         <RelativeLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+           >
 
             <TextView
                 android:id="@+id/tvUserN"
@@ -28,7 +31,8 @@
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
-                android:allowUndo="false" />
+                android:allowUndo="false"
+                android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/tvAdrerss2"
@@ -48,7 +52,7 @@
                 android:text="EVENT Summary :"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_below="@+id/tvUserN"
                 android:layout_alignParentStart="true" />
 
             <Button

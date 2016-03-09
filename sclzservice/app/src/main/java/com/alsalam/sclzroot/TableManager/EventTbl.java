@@ -9,7 +9,7 @@ import java.util.Date;
 public class EventTbl {
     @com.google.gson.annotations.SerializedName("id")
     private String id;
-    private String Adress;
+    private String Adress="home";
     private String EventSummary;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
@@ -52,6 +52,10 @@ public class EventTbl {
         this.eventActivityLocation = eventActivityLocation;
         this.eventGenderPref = eventGenderPref;
         EventAgeRange = eventAgeRange;
+    }
+
+    public EventTbl() {
+
     }
 
     public String getId() {

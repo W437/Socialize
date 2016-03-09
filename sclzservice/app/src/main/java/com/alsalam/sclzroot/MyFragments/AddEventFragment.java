@@ -111,21 +111,21 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             location = "Outdoors & Indoors";
 
 
-        EventTbl event = new EventTbl(Math.random()*99999 + "",
-                etLocation.getText().toString(),
-                etTitle.getText().toString(),
-                etBegT.getText().toString(),
-                etEventDate.getText().toString(),
-                etEndT.getText().toString(),
-                Math.random()*9999 + "",
-                Integer.parseInt(etParticipantsLimit.getText().toString()),
-                etPurpose.getText().toString(),
-                etProp.getText().toString(),
-                location,
-                genderPref,
-                etAge.getText().toString());
-
-        Log.d("test", event.toString());
+//        EventTbl event = new EventTbl(Math.random()*99999 + "",
+//                etLocation.getText().toString(),
+//                etTitle.getText().toString(),
+//                etBegT.getText().toString(),
+//                etEventDate.getText().toString(),
+//                etEndT.getText().toString(),
+//                Math.random()*9999 + "",
+//                Integer.parseInt(etParticipantsLimit.getText().toString()),
+//                etPurpose.getText().toString(),
+//                etProp.getText().toString(),
+//                location,
+//                genderPref,
+//                etAge.getText().toString());
+        EventTbl event=new EventTbl();
+//        Log.d("test", event.toString());
         return event;
     }
 
