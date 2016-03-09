@@ -89,11 +89,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     public UserTbl getUserInfo() {
-        if (rgGender.getCheckedRadioButtonId() == rbMale.getId())
-            userGender = "Male";
-        else
-            userGender = "Female";
-
         UserTbl user = new UserTbl(
                 (int) (Math.random() * 99999999) + "",
                 etUsername.getText().toString(),
@@ -220,7 +215,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     Log.d("testa", "Clicked submit");
                 }
                 break;
-
+            case R.id.rgGender:
+                if (rgGender.getCheckedRadioButtonId() == rbMale.getId())
+                    userGender = "Male";
+                else
+                    userGender = "Female";
+                break;
         }
 
 
