@@ -9,6 +9,8 @@ import java.util.Date;
 public class EventTbl {
     @com.google.gson.annotations.SerializedName("id")
     private String id;
+    private String Adress;
+    private String EventSummary;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
     @com.google.gson.annotations.SerializedName("eventBegin")
@@ -34,25 +36,23 @@ public class EventTbl {
     @com.google.gson.annotations.SerializedName("EventAgeRange")
     private String    EventAgeRange;
 
-
-    public EventTbl(String id, String eventLocation, String eventTitle, String eventBegin, String eventDate, String eventEnd, String hostId, int eventMaxParticipators,
-                    String eventPurpose, String eventProp, String eventActivityLocation, String eventGenderPref, String EventAgeRange) {
-        setId(id);
-        setEventLocation(eventLocation);
-        setEventBegin(eventBegin);
-        setEventEnd(eventEnd);
-        setHostId(hostId);
-        setEventMaxParticipators(eventMaxParticipators);
-        setEventTitle(eventTitle);
-        setEventDate(eventDate);
-        setEventPurpose(eventPurpose);
-        setEventProp(eventProp);
-        setEventActivityLocation(eventActivityLocation);
-        setEventGenderPref(eventGenderPref);
-        setEventAgeRange(EventAgeRange);
-
+    public EventTbl(String id, String adress, String eventSummary, String eventLocation, String eventBegin, String eventEnd, String hostId, int eventMaxParticipators, String eventTitle, String eventDate, String eventPurpose, String eventProp, String eventActivityLocation, String eventGenderPref, String eventAgeRange) {
+        this.id = id;
+        Adress = adress;
+        EventSummary = eventSummary;
+        this.eventLocation = eventLocation;
+        this.eventBegin = eventBegin;
+        this.eventEnd = eventEnd;
+        this.hostId = hostId;
+        this.eventMaxParticipators = eventMaxParticipators;
+        this.eventTitle = eventTitle;
+        this.eventDate = eventDate;
+        this.eventPurpose = eventPurpose;
+        this.eventProp = eventProp;
+        this.eventActivityLocation = eventActivityLocation;
+        this.eventGenderPref = eventGenderPref;
+        EventAgeRange = eventAgeRange;
     }
-
 
     public String getId() {
         return id;
@@ -62,20 +62,20 @@ public class EventTbl {
         this.id = id;
     }
 
-    public String getEventTitle() {
-        return eventTitle;
+    public String getAdress() {
+        return Adress;
     }
 
-    public void setEventTitle(String eventTitle) {
-        this.eventTitle = eventTitle;
+    public void setAdress(String adress) {
+        Adress = adress;
     }
 
-    public String getEventDate() {
-        return eventDate;
+    public String getEventSummary() {
+        return EventSummary;
     }
 
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
+    public void setEventSummary(String eventSummary) {
+        EventSummary = eventSummary;
     }
 
     public String getEventLocation() {
@@ -118,6 +118,22 @@ public class EventTbl {
         this.eventMaxParticipators = eventMaxParticipators;
     }
 
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
+    }
+
+    public String getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
+
     public String getEventPurpose() {
         return eventPurpose;
     }
@@ -154,14 +170,16 @@ public class EventTbl {
         return EventAgeRange;
     }
 
-    public void setEventAgeRange(String EventAgeRange) {
-        this.EventAgeRange = EventAgeRange;
+    public void setEventAgeRange(String eventAgeRange) {
+        EventAgeRange = eventAgeRange;
     }
 
     @Override
     public String toString() {
         return "EventTbl{" +
                 "id='" + id + '\'' +
+                ", Adress='" + Adress + '\'' +
+                ", EventSummary='" + EventSummary + '\'' +
                 ", eventLocation='" + eventLocation + '\'' +
                 ", eventBegin='" + eventBegin + '\'' +
                 ", eventEnd='" + eventEnd + '\'' +

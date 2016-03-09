@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
-import com.example.sclzservice.ToDoItem;
 
 /**
  * Created by bana on 01/03/2016.
@@ -24,6 +24,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
     Context mContext;
 
     /**
+     *
      * Adapter View layout
      */
     int mLayoutResourceId;
@@ -47,19 +48,37 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         if (row == null) {
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
             row = inflater.inflate(mLayoutResourceId, parent, false);
+
         }
 
-//s
-        TextView tvBegin2=(TextView)row.findViewById(R.id.tvAdress);
+        final TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
         Button btMore=(Button)row.findViewById(R.id.btMore);
+
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvUserN);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
-        TextView tvProfile=(TextView)row.findViewById(R.id.tvUserN);
+
 
         row.setTag(currentItem);
 
         tvBegin2.setText(currentItem.getEventBegin().toString());
-       //tvAdress2 .setText(currentItem.getAdress());
-        //tvProfile.setText(currentItem.getTitle());
+      tvAdress2.setText(currentItem.getAdress().toString());
+        tvSummary2.setText(currentItem.getEventSummary().toString());
+        tvEventT.setText(currentItem.getEventTitle().toString());
+
+        btMore.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                String tvBegin1=tvBegin2.getText().toString();
+
+                Toast.makeText(getContext(),"begin"+tvBegin1.toString(),Toast.LENGTH_LONG).show();
+
+
+            }
+
+        });
 
         return row;
     }

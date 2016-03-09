@@ -1,6 +1,5 @@
 package com.alsalam.sclzroot.Activities;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,18 +13,20 @@ import android.widget.Toast;
 
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
+import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
+import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
+import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
-import java.sql.Date;
+import java.util.Calendar;
 
 public class MainHomeActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -45,21 +46,46 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
 
+
         //to do
-        fragments=new Fragment[4];
+        fragments=new Fragment[7];
         fragments[0]=new MapListFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
-        fragments[1]=new Profile2Fragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        fragments[1]=new EventStoriesFragments();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
 
         fragments[2]=new AddEventFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
-        fragments[3]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
+        fragments[3]=new MyEventsFragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
 
 
+
+
+        fragments[4]=new EventsToParticipate();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+
+
+
+
+
+
+
+        fragments[5]=new Profile2Fragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        CaldroidFragment caldroidFragment=new CaldroidFragment();
+
+        Calendar cal=Calendar.getInstance();
+        Bundle args=new Bundle();
+        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+
+        args.putInt(CaldroidFragment.YEAR,cal.get(Calendar.YEAR));
+
+        caldroidFragment.setArguments(args);
+
+        fragments[6]=caldroidFragment;
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

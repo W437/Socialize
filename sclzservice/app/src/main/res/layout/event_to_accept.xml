@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffffff">
+    android:background="#FFFFFFF">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -32,7 +32,7 @@
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvRole"
+                android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adress :"
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BEGINNING TIME :"
-                android:id="@+id/tvAdress"
+                android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
 
@@ -64,45 +64,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvLastN2"
-                android:layout_below="@+id/tvAdress"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvRole"
-                android:layout_alignStart="@+id/tvRole" />
+                android:layout_below="@+id/tvAdrerss2"
+                android:layout_alignStart="@+id/tvAdrerss2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvRole"
+                android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Button"
-                android:id="@+id/button"
-                android:background="#FFfFFF"
-                android:src="@mipmap/logo"
-                android:layout_alignTop="@+id/button2"
-                android:layout_alignStart="@+id/tvLastN2" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button2"
-                android:background="#ffffff"
-                android:src="@mipmap/logo"
+                android:id="@+id/btAccept"
+                android:background="#FFFFFFF"
+                android:src="@mipmap/ic_accept333_launcher"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignStart="@+id/tvBeginning2" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/btDisAccept"
+                android:background="#FFFFFFF"
+                android:src="@mipmap/ic_disAceept_launcher"
+                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/tvEmail2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tvBeginning2"
+                android:layout_below="@+id/tvBeginning"
+                android:layout_alignEnd="@+id/tvBeginning" />
 
         </RelativeLayout>
 
