@@ -89,56 +89,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
     }
 
-    public EventTbl getEventInfo()
-    {
-        if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_out)
-            location = "Indoors";
-        else
-            location = "Outdoors";
 
-        EventTbl event = new EventTbl(
-                "1342354657",
-                location,
-                new java.util.Date(1998, 1, 1),
-                new java.util.Date(1998, 1, 2),
-                "099999",
-                22
-        );
-
-        Log.d("test", event.toString());
-        return event;
-    }
-
-
-
-    public void addEventToDB(EventTbl event)
-    {
-        try {
-
-            mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net",getBaseContext());
-            MobileServiceTable<EventTbl> mtable = mClient.getTable(EventTbl.class);
-            mtable.insert(event, new TableOperationCallback<EventTbl>() {
-                @Override
-                public void onCompleted(EventTbl entity, Exception exception, ServiceFilterResponse response) {
-                    if(exception==null)
-                    {
-                        Toast.makeText(getBaseContext(), "EVENT ADDED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "SUCCESS! YAY!");
-
-                    }
-                    else
-                    {
-                        Toast.makeText(getBaseContext(),"FAILED",Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "FAILED");
-                        Log.d("AZURE DB", exception.getMessage());
-                    }
-                }
-            });
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
 
     private  static class MyPagerAdatpter extends FragmentPagerAdapter
     {

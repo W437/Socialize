@@ -18,7 +18,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="ALL FIELDS ARE REQUIRED"
             android:id="@+id/textView2"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:shadowColor="#000000"
+            android:textColor="#ff0000" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/FIRST_NAME_WRAPPER"
@@ -275,6 +277,15 @@
             android:text="REGISTER"
             android:id="@+id/btnSubmit"
             android:layout_gravity="center_horizontal" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/registerPB"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#000000"
+            android:indeterminate="true" />
 
     </LinearLayout>
 
