@@ -24,6 +24,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
     Context mContext;
 
     /**
+     *
      * Adapter View layout
      */
     int mLayoutResourceId;
