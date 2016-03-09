@@ -29,18 +29,26 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
-     private EditText  etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName;
-     private Spinner spnDay,spnMonth,spnYear;
-     private RadioButton rbMale,rbFemale;
-     private RadioGroup rgGender;
-     private Button  btnSubmit;
-     private MobileServiceClient mClient;
-     private String userGender = "";
-     private ProgressBar mProgressBar;
-
-
+    private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName;
+    private Spinner spnDay, spnMonth, spnYear;
+    private RadioButton rbMale, rbFemale;
+    private RadioGroup rgGender;
+    private Button btnSubmit;
+    private MobileServiceClient mClient;
+    private String userGender = "";
+    private ProgressBar mProgressBar;
+    public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+    );
 
 
     @Override
@@ -73,18 +81,21 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     }
-   //jhkjhjhkjkhjsss
+    //jhkjhjhkjkhjsss
+
+    private boolean checkEmail(String email) {
+        return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
+    }
 
 
-    public UserTbl getUserInfo()
-    {
-        if(rgGender.getCheckedRadioButtonId() == rbMale.getId())
+    public UserTbl getUserInfo() {
+        if (rgGender.getCheckedRadioButtonId() == rbMale.getId())
             userGender = "Male";
         else
             userGender = "Female";
 
         UserTbl user = new UserTbl(
-                (int)(Math.random()*99999999) + "",
+                (int) (Math.random() * 99999999) + "",
                 etUsername.getText().toString(),
                 etPass.getText().toString(),
                 etFirstName.getText().toString(),
@@ -102,15 +113,66 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     }
 //s
 
-    public boolean areFieldsEmpty()
-    {
-        if(etUsername.getText().toString() == null || etPass.getText().toString() == null ||
-            etFirstName.getText().toString() == null || etLastName.getText().toString() == null
-                    || etMail_Address.getText().toString() == null || etLocation.getText().toString() == null
-                    || userGender == null || etPhoneNumber.getText().toString() == null)
-            return true;
-        return false;
+    public boolean areFieldsEmpty() {
+        if (etUsername.getText().toString().length() == 0) {
+            etUsername.requestFocus();
+            etUsername.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etPass.getText().toString().length() == 0) {
+            etPass.requestFocus();
+            etPass.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etConfirm_Pass.getText().toString().length() == 0) {
+            etConfirm_Pass.requestFocus();
+            etConfirm_Pass.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (!etConfirm_Pass.getText().toString().equals(etPass.getText().toString())) {
+            etConfirm_Pass.requestFocus();
+            etConfirm_Pass.setError("PASSWORDS DON'T MATCH");
+            return false;
+        }
+
+        else if (etFirstName.getText().toString().length() == 0) {
+            etFirstName.requestFocus();
+            etFirstName.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etLastName.getText().toString().length() == 0) {
+            etLastName.requestFocus();
+            etLastName.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (!checkEmail(etMail_Address.getText().toString())) {
+            etMail_Address.requestFocus();
+            etMail_Address.setError("EMAIL FORMAT NOT CORRECT");
+            return false;
+        }
+        else if (etLocation.getText().toString().length() == 0) {
+            etLocation.requestFocus();
+            etLocation.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (userGender.length() == 0) {
+            rgGender.requestFocus();
+            Toast.makeText(getBaseContext(), "GENDER NOT CHECKED", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (etPhoneNumber.toString().length() == 0) {
+            etPhoneNumber.requestFocus();
+            etPhoneNumber.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        return true;
     }
+
+
+
+
+
+
 
     public void addUserToDB(UserTbl user)
     {
@@ -152,8 +214,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                 break;
             case R.id.btnSubmit:
+                if(areFieldsEmpty())
+                {
                     addUserToDB(getUserInfo());
                     Log.d("testa", "Clicked submit");
+                }
                 break;
 
         }
