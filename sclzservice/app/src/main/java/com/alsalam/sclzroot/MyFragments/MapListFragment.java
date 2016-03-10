@@ -71,8 +71,14 @@ private   MapView mapView;
         // Add a marker in Sydney and move the camera
 
         LatLng sydney = new LatLng(32.9943511, 35.1472984);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום"));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום -דנון"));
+        LatLng sydney1 = new LatLng(33.0155026,35.1359451);
+        mMap.addMarker(new MarkerOptions().position(sydney1).title("נהריה"));
+        LatLng  sydney2 = new LatLng(32.9843018,35.1031843);
+        mMap.addMarker(new MarkerOptions().position(sydney2).title("מזרעה"));
+        LatLng sydney3 = new LatLng(33.0888807,35.2339193);
+        mMap.addMarker(new MarkerOptions().position(sydney3).title("קיבוץ עברון"));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }
 }

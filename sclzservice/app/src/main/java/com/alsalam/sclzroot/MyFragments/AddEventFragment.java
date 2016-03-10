@@ -16,11 +16,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
@@ -30,7 +28,6 @@ import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 
 import java.net.MalformedURLException;
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddEventFragment extends Fragment implements View.OnClickListener{
 
@@ -43,7 +40,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> mToDoTable;
-    private EditText etBegT,etEndT,etLocation,etPurpose,etAge, etTitle, etParticipantsLimit, etEventDate, etProp;
+    private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etSummary,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
     private Spinner spnType;
@@ -64,15 +61,15 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
     protected void init(View view) {
 
-        etBegT=(EditText)view.findViewById(R.id.etBegT); // beginning time
-        etEndT=(EditText)view.findViewById(R.id.etEndT);// ending Time
+        etTime =(EditText)view.findViewById(R.id.etTime); // beginning time
+       // etEndT=(EditText)view.findViewById(R.id.etEndT);// ending Time
         etLocation=(EditText)view.findViewById(R.id.etLocation);// location
         etAge=(EditText)view.findViewById(R.id.etAge);// age range
         etTitle=(EditText)view.findViewById(R.id.etTitle);
-        etParticipantsLimit=(EditText)view.findViewById(R.id.etLimit);
+        etLimitParticipants =(EditText)view.findViewById(R.id.etLimit);
         etEventDate=(EditText)view.findViewById(R.id.etEventDate);
-        etPurpose = (EditText)view.findViewById(R.id.etPurpose);
-        etProp = (EditText)view.findViewById(R.id.etProp);
+        etSummary = (EditText)view.findViewById(R.id.etSummary);
+      //  etSummary = (EditText)view.findViewById(R.id.etProp);
 
         rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
         rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
@@ -82,15 +79,15 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         rbBothLoc=(RadioButton)view.findViewById(R.id.rbBothLoc);
         rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
         rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
-        spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
+      //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
         btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
 
-        //etBegT.setOnClickListener(this);
-        etEndT.setOnClickListener(this);
+        //etTime.setOnClickListener(this);
+       // etEndT.setOnClickListener(this);
         etEventDate.setOnClickListener(this);
         wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
-        //etBegT.setClickable(false);
+        //etTime.setClickable(false);
 
     }
 
@@ -110,83 +107,35 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         else
             location = "Outdoors & Indoors";
 
+        EventTbl event=new EventTbl();
 
-//        EventTbl event = new EventTbl(Math.random()*99999 + "",
+//        EventTbl event = new EventTbl( "",
 //                etLocation.getText().toString(),
 //                etTitle.getText().toString(),
-//                etBegT.getText().toString(),
+//                etTime.getText().toString(),
 //                etEventDate.getText().toString(),
 //                etEndT.getText().toString(),
 //                Math.random()*9999 + "",
-//                Integer.parseInt(etParticipantsLimit.getText().toString()),
+//                Integer.parseInt(etLimitParticipants.getText().toString()),
 //                etPurpose.getText().toString(),
-//                etProp.getText().toString(),
+//                etSummary.getText().toString(),
 //                location,
 //                genderPref,
 //                etAge.getText().toString());
-        EventTbl event=new EventTbl();
+
 //        Log.d("test", event.toString());
         return event;
     }
 
-    public boolean areFieldsFilled() {
-        if (etTitle.getText().toString().length() == 0) {
-            etTitle.requestFocus();
-            etTitle.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etParticipantsLimit.getText().toString().length() == 0) {
-            etParticipantsLimit.requestFocus();
-            etParticipantsLimit.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etProp.getText().toString().length() == 0) {
-            etProp.requestFocus();
-            etProp.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-
-        else if (etEventDate.getText().toString().length() == 0) {
-            etEventDate.requestFocus();
-            etEventDate.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etBegT.getText().toString().length() == 0) {
-            etBegT.requestFocus();
-            etBegT.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etEndT.getText().toString().length() == 0) {
-            etEndT.requestFocus();
-            etEndT.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etAge.getText().toString().length() == 0) {
-            etAge.requestFocus();
-            etAge.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etLocation.getText().toString().length() == 0) {
-            etLocation.requestFocus();
-            etLocation.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (rgLocation.getCheckedRadioButtonId() == -1) {
-            rgLocation.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (rgGender.getCheckedRadioButtonId() == -1) {
-            rgGender.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (etPurpose.getText().toString().length() == 0) {
-            etPurpose.requestFocus();
-            etPurpose.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        return true;
+    public boolean areFieldsEmpty()
+    {
+        if(etLocation.getText() == null || etTitle.getText() == null ||
+                etTime.getText() == null || etEventDate.getText() == null ||
+               etLimitParticipants.getText() == null ||
+                 etSummary.getText() == null ||
+                location == null || genderPref == null || etAge.getText() == null)
+            return true;
+        return false;
     }
 
 
@@ -260,32 +209,32 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
 
-                            etBegT.setText(hourOfDay + ":" + minute);
+                            etTime.setText(hourOfDay + ":" + minute);
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
         }
 
-        if (v == etEndT) {
-
-            // Get Current Time
-            final Calendar c = Calendar.getInstance();
-            mHour = c.get(Calendar.HOUR_OF_DAY);
-            mMinute = c.get(Calendar.MINUTE);
-
-            // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
-                    new TimePickerDialog.OnTimeSetListener() {
-
-                        @Override
-                        public void onTimeSet(TimePicker view, int hourOfDay,
-                                              int minute) {
-
-                            etEndT.setText(hourOfDay + ":" + minute);
-                        }
-                    }, mHour, mMinute, false);
-            timePickerDialog.show();
-        }
+//        if (v == etEndT) {
+//
+//            // Get Current Time
+//            final Calendar c = Calendar.getInstance();
+//            mHour = c.get(Calendar.HOUR_OF_DAY);
+//            mMinute = c.get(Calendar.MINUTE);
+//
+//            // Launch Time Picker Dialog
+//            TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
+//                    new TimePickerDialog.OnTimeSetListener() {
+//
+//                        @Override
+//                        public void onTimeSet(TimePicker view, int hourOfDay,
+//                                              int minute) {
+//
+//                            etEndT.setText(hourOfDay + ":" + minute);
+//                        }
+//                    }, mHour, mMinute, false);
+//            timePickerDialog.show();
+//        }
 
         if (v == btnDone )
         {
@@ -293,7 +242,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
-                //Log.d("testest", rgLocation.getCheckedRadioButtonId() + "");
 
         }
     }
