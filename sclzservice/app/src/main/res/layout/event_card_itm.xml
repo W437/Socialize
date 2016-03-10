@@ -12,12 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/primary_light"
-        card_view:cardCornerRadius="20dp"
+        card_view:cardBackgroundColor="@android:color/transparent"
+        card_view:cardElevation="10dp"
+        card_view:cardCornerRadius="7dp"
         android:layout_margin="5dp">
         <RelativeLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+           >
 
             <TextView
                 android:id="@+id/tvUserN"
@@ -28,10 +31,11 @@
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
-                android:allowUndo="false" />
+                android:allowUndo="false"
+                android:layout_gravity="center" />
 
             <TextView
-                android:id="@+id/tvRole"
+                android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adress :"
@@ -48,7 +52,7 @@
                 android:text="EVENT Summary :"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_below="@+id/tvUserN"
                 android:layout_alignParentStart="true" />
 
             <Button
@@ -65,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BEGINNING TIME :"
-                android:id="@+id/tvAdress"
+                android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
 
@@ -73,25 +77,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvLastN2"
-                android:layout_below="@+id/tvAdress"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvRole"
-                android:layout_alignStart="@+id/tvRole" />
+                android:layout_below="@+id/tvAdrerss2"
+                android:layout_alignStart="@+id/tvAdrerss2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvRole"
+                android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tvBeginning2"
+                android:layout_below="@+id/tvBeginning"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 

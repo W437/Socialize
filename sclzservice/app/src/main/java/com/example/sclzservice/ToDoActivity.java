@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +42,7 @@ import com.microsoft.windowsazure.mobileservices.table.sync.synchandler.SimpleSy
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.*;
 
-public class ToDoActivity extends Activity {
+public class ToDoActivity extends AppCompatActivity {
 
     /**
      * Mobile Service Client reference

@@ -1,58 +1,65 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
+import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 import com.example.sclzservice.ToDoItem;
+import com.example.sclzservice.ToDoItemAdapter;
+import com.google.common.util.concurrent.FutureCallback;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.SettableFuture;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.MobileServiceList;
+import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+import com.microsoft.windowsazure.mobileservices.table.sync.localstore.MobileServiceLocalStoreException;
+import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
+import com.microsoft.windowsazure.mobileservices.table.sync.synchandler.SimpleSyncHandler;
 
 import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
+import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class EventStoriesFragments extends Fragment
 {
-    /**
-     * Mobile Service Client reference
-     */
-    private MobileServiceClient mClient;
 
-    /**
-     * Mobile Service Table used to access data
-     */
-    private MobileServiceTable<EventTbl> mToDoTable;
-    ListView  listView;
-    EventTblAdapter eventTblAdapter;
+
+    private ListView listView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view =inflater.inflate(R.layout.events_stories,container,false);
-
-        eventTblAdapter=new EventTblAdapter(getContext(),R.layout.event_card_itm);
+       // init(view);
         listView= (ListView) view.findViewById(R.id.listView);
-        init();
-        listView.setAdapter(eventTblAdapter);
-
-
-        try {
-            mClient = new MobileServiceClient(
-                    "https://sclzservice.azurewebsites.net",
-                    getContext());
-            mToDoTable = mClient.getTable(EventTbl.class);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
 
         // Get the Mobile Service Table instance to use
 
@@ -60,61 +67,4 @@ public class EventStoriesFragments extends Fragment
         return  view;
     }
 
-    private void init()
-    {
-        Log.d("INITBH"," init starts");
-
-        new AsyncTask<Void, Void, Void>() {
-
-            @Override
-            protected Void doInBackground(Void... params) {
-
-                try {
-                    Log.d("INITBH","doInBackground ");
-
-                    final MobileServiceList<EventTbl> result =  mToDoTable.execute().get();
-                    Log.d("INITBH",result.size()+" befor runonui size");
-
-                    getActivity().runOnUiThread(new Runnable()
-                    {
-
-                        @Override
-                        public void run()
-                        {
-                            eventTblAdapter.clear();
-                            Log.d("INITBH", result.size() + " size");
-                            for (EventTbl item : result)
-                            {
-                                eventTblAdapter.add(item);
-
-                            }
-                        }
-                    });
-                }
-                catch (Exception exception)
-                {
-                    exception.printStackTrace();
-                }
-                return null;
-            }
-
-        }.execute();
-//        new AsyncTask<Void, Void, Void>() {
-//            @Override
-//            protected Void doInBackground(Void... params) {
-//                try {
-//                    final MobileServiceList<EventTbl> result =
-//                            mToDoTable.where().field("complete").eq(false).execute().get();
-//                    for (EventTbl item : result) {
-//                        Log.i("Evnts", "Read object with ID " + item.getId());
-//                    }
-//                } catch (Exception exception)
-//                {
-//
-//                }
-//                return null;
-//            }
-//        }.execute();
-
-    }
 }

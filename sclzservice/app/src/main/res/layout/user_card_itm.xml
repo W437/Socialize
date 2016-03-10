@@ -31,7 +31,7 @@
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvRole"
+                android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Role"
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adress"
-                android:id="@+id/tvAdress"
+                android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
 
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvAdress"
+                android:layout_below="@+id/tvBeginning"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -82,15 +82,15 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvRole2"
-                android:layout_below="@+id/tvRole"
-                android:layout_alignStart="@+id/tvRole" />
+                android:layout_below="@+id/tvAdrerss2"
+                android:layout_alignStart="@+id/tvAdrerss2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvRole"
+                android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
 
         </RelativeLayout>

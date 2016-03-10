@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.example.sclzservice.R;
 
@@ -17,6 +18,7 @@ import com.example.sclzservice.R;
 public class EventsToParticipate extends Fragment
 {
     private ListView listView3;
+    private ListView listView;
 
     @Nullable
     @Override
@@ -24,11 +26,8 @@ public class EventsToParticipate extends Fragment
         View view = inflater.inflate(R.layout.events_to_participate, container, false);
         init(view);
 
-        listView3= (ListView) view.findViewById(R.id.lstvEventsTo);
-        EventTblAdapter eventTblAdapter=new EventTblAdapter(getContext(),R.layout.event_card_itm);
-
-
-        listView3.setAdapter(eventTblAdapter);
+        listView= (ListView) view.findViewById(R.id.listView);
+        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
 
         return view;

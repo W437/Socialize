@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.example.sclzservice.R;
 
@@ -22,6 +23,7 @@ import com.example.sclzservice.R;
 public class MyEventsFragment extends Fragment
 {
     private ListView listView2;
+    private ListView listView;
 
     @Nullable
     @Override
@@ -30,11 +32,10 @@ public class MyEventsFragment extends Fragment
         init(view);
 
 
-        listView2= (ListView) view.findViewById(R.id.lstvMyEvent);
 
-        EventTblAdapter eventTblAdapter=new EventTblAdapter(getContext(),R.layout.event_card_itm);
 
-        listView2.setAdapter(eventTblAdapter);
+        listView= (ListView) view.findViewById(R.id.lstvMyEvent);
+        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
 
 
