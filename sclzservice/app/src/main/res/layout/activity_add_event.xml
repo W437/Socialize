@@ -13,23 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="SELECT EVENT TYPE"
-            android:id="@+id/tvselect_type"
-            />
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spnType"
-            />
 
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/TitleWrapper"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,9 +29,23 @@
                 android:hint="EVENT TITLE" />
 
         </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="0dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etSummary"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:hint="Summary"
+            android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/LIMITWrapper"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -54,13 +55,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etLimit"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="PARTICIPANTS LIMIT" />
+                android:hint="PARTICIPANTS LIMIT"
+                android:inputType="numberSigned" />
 
         </android.support.design.widget.TextInputLayout>
 
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/EVENTPROPERITIESWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,25 +70,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/etProp"
+                android:id="@+id/etRequirments"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT PROPERTIES" />
-
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
-            android:id="@+id/eventDateWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/etEventDate"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT DATE" />
+                android:hint="Requirments"
+                android:inputType="textMultiLine" />
 
 
         </android.support.design.widget.TextInputLayout>
@@ -100,20 +87,38 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:paddingTop="40dp"
-                android:id="@+id/BeginningWrapper"
-                android:layout_width="177dp"
+                android:paddingTop="0dp"
+                android:id="@+id/eventDateWrapper"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/etEventDate"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:hint="DATE" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:paddingTop="0dp"
+                android:id="@+id/BeginningWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="time"
                     android:ems="10"
-                    android:id="@+id/etBegT"
+                    android:id="@+id/etTime"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="BEGINNING TIME "
+                    android:hint="TIME "
                     android:layout_weight="1" />
 
             </android.support.design.widget.TextInputLayout>
@@ -122,19 +127,20 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:paddingTop="40dp"
+                android:paddingTop="0dp"
                 android:id="@+id/EndingWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.57">
+                android:layout_weight="1">
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/etEndT"
-                    android:hint="ENDING TIME"
-                    android:layout_weight="1" />
+                    android:id="@+id/etHours"
+                    android:hint="Hours"
+                    android:layout_weight="1"
+                    android:inputType="number" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -143,7 +149,7 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/AgeWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,7 +167,7 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/LocationWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,9 +182,26 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <Space
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="wrap_content"></LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="0dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etGPS"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:hint="Event GPS" />
+
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -188,11 +211,6 @@
             android:id="@+id/tvRole"
             />
 
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -204,51 +222,35 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:id="@+id/rgLocation"
-                android:weightSum="1">
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.307" />
+                android:weightSum="1"
+                android:layout_weight="1">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="INDOORS"
                     android:id="@+id/rdb_in"
-                    android:checked="false" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.305" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="OUTDOORS"
                     android:id="@+id/rdb_out"
-                    android:checked="false" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.05" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="BOTH"
                     android:id="@+id/rbBothLoc"
-                    android:checked="false" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
             </RadioGroup>
         </LinearLayout>
 
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="23dp"
-            android:layout_gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -257,11 +259,6 @@
             android:text="GENDER PREFERENCE"
             android:id="@+id/tvGen"
             />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -274,41 +271,29 @@
                 android:weightSum="1"
                 android:id="@+id/rgGender">
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.215" />
-
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="FEMALE"
                     android:id="@+id/rdb_female"
-                    android:checked="false" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.27" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="MALE"
                     android:id="@+id/rdb_male"
-                    android:checked="false" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.27" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
 
                 <RadioButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="BOTH"
                     android:id="@+id/rbBothG"
-                    android:checked="false" />
+                    android:checked="false"
+                    android:layout_weight="0.33" />
 
             </RadioGroup>
 
@@ -318,19 +303,11 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:paddingTop="40dp"
+            android:paddingTop="0dp"
             android:id="@+id/PURPOSEWrapperWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etPurpose"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT PURPOSE" />
 
 
         </android.support.design.widget.TextInputLayout>
@@ -340,7 +317,7 @@
             android:layout_height="wrap_content"
             android:text="ADD EVENT"
             android:id="@+id/btnDone"
-            android:layout_alignBottom="@+id/etPurpose"
+            android:layout_alignBottom="@+id/etSummary"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
