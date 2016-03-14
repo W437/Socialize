@@ -2,6 +2,13 @@ package com.alsalam.sclzroot.MyFragments;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -13,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -26,8 +34,11 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class AddEventFragment extends Fragment implements View.OnClickListener{
 
@@ -40,7 +51,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> mToDoTable;
-    private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etSummary,etRequirments;
+    private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etDescription,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
     private Spinner spnType;
@@ -48,6 +59,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private TextInputLayout wBeginTime;
+    private ImageButton getLocBtn;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
     @Nullable
 
 
@@ -68,8 +82,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etTitle=(EditText)view.findViewById(R.id.etTitle);
         etLimitParticipants =(EditText)view.findViewById(R.id.etLimit);
         etEventDate=(EditText)view.findViewById(R.id.etEventDate);
-        etSummary = (EditText)view.findViewById(R.id.etSummary);
-      //  etSummary = (EditText)view.findViewById(R.id.etProp);
+        etDescription = (EditText)view.findViewById(R.id.etDescription);
+
 
         rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
         rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
@@ -81,6 +95,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
       //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
         btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
+        getLocBtn = (ImageButton)view.findViewById(R.id.getLocBtn);
 
         //etTime.setOnClickListener(this);
        // etEndT.setOnClickListener(this);
@@ -91,6 +106,35 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
     }
 
+/*
+    public void onLocationChanged(Location location) {
+        //You had this as int. It is advised to have Lat/Loing as double.
+        double lat = location.getLatitude();
+        double lng = location.getLongitude();
+
+        Geocoder geoCoder = new Geocoder(getActivity(), Locale.getDefault());
+        StringBuilder builder = new StringBuilder();
+        try {
+            List<Address> address = geoCoder.getFromLocation(lat, lng, 1);
+            int maxLines = address.get(0).getMaxAddressLineIndex();
+            for (int i=0; i<maxLines; i++) {
+                String addressStr = address.get(0).getAddressLine(i);
+                builder.append(addressStr);
+                builder.append(" ");
+            }
+
+            String fnialAddress = builder.toString(); //This is the complete address.
+
+            etLocation.setText(fnialAddress); //This will display the final address.
+
+        } catch (IOException e) {
+            // Handle IOException
+        } catch (NullPointerException e) {
+            // Handle NullPointerException
+        }
+    }
+
+*/
     public EventTbl getEventInfo()
     {
         if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
@@ -127,15 +171,64 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         return event;
     }
 
-    public boolean areFieldsEmpty()
-    {
-        if(etLocation.getText() == null || etTitle.getText() == null ||
-                etTime.getText() == null || etEventDate.getText() == null ||
-               etLimitParticipants.getText() == null ||
-                 etSummary.getText() == null ||
-                location == null || genderPref == null || etAge.getText() == null)
-            return true;
-        return false;
+    public boolean areFieldsFilled() {
+        if (etTitle.getText().toString().length() == 0) {
+            etTitle.requestFocus();
+            etTitle.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etLimitParticipants.getText().toString().length() == 0) {
+            etLimitParticipants.requestFocus();
+            etLimitParticipants.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etRequirments.getText().toString().length() == 0) {
+            etRequirments.requestFocus();
+            etRequirments.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+
+        else if (etEventDate.getText().toString().length() == 0) {
+            etEventDate.requestFocus();
+            etEventDate.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etTime.getText().toString().length() == 0) {
+            etTime.requestFocus();
+            etTime.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etHours.getText().toString().length() == 0) {
+            etHours.requestFocus();
+            etHours.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etAge.getText().toString().length() == 0) {
+            etAge.requestFocus();
+            etAge.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (etLocation.getText().toString().length() == 0) {
+            etLocation.requestFocus();
+            etLocation.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (rgLocation.getCheckedRadioButtonId() == -1) {
+            rgLocation.requestFocus();
+            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (rgGender.getCheckedRadioButtonId() == -1) {
+            rgGender.requestFocus();
+            Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (etDescription.getText().toString().length() == 0) {
+            etDescription.requestFocus();
+            etDescription.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        return true;
     }
 
 
@@ -238,10 +331,17 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
         if (v == btnDone )
         {
+            if(areFieldsFilled()) {
                 addEventToDB(getEventInfo());
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
+            }
+
+        }
+
+        if ( v == getLocBtn)
+        {
 
         }
     }

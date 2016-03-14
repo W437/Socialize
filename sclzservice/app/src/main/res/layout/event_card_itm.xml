@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -10,12 +11,13 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="133dp"
         android:background="@color/primary_light"
         card_view:cardBackgroundColor="@android:color/transparent"
-        card_view:cardElevation="10dp"
-        card_view:cardCornerRadius="7dp"
-        android:layout_margin="5dp">
+        card_view:cardElevation="0dp"
+        card_view:cardCornerRadius="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0.04">
         <RelativeLayout
 
             android:layout_width="match_parent"
@@ -42,33 +44,23 @@
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_centerVertical="true"
+                android:layout_above="@+id/tvAdress2"
                 android:layout_alignParentStart="true" />
 
             <TextView
                 android:id="@+id/tvEventS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EVENT Summary :"
+                android:text="EVENT INFO"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentStart="true" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="More "
-                android:id="@+id/btMore"
-                android:layout_marginBottom="23dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="23dp" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BEGINNING TIME :"
+                android:text="TIME"
                 android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
@@ -78,8 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvAdrerss2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_alignTop="@+id/btMore"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,6 +87,15 @@
                 android:text="New Text"
                 android:id="@+id/tvBeginning2"
                 android:layout_below="@+id/tvBeginning"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MORE"
+                android:id="@+id/btMore"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
