@@ -37,9 +37,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/etSummary"
+            android:id="@+id/etDescription"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:hint="Summary"
+            android:hint="DESCRIPTION"
             android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/etRequirments"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="Requirments"
+                android:hint="REQUIREMENTS"
                 android:inputType="textMultiLine" />
 
 
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/etHours"
-                    android:hint="Hours"
+                    android:hint="HOURS"
                     android:layout_weight="1"
                     android:inputType="number" />
 
@@ -164,44 +164,50 @@
 
         </android.support.design.widget.TextInputLayout>
 
-
-
         <android.support.design.widget.TextInputLayout
             android:paddingTop="0dp"
             android:id="@+id/LocationWrapper"
-            android:layout_width="match_parent"
+            android:layout_width="329dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etLocation"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT&apos;S LOCATION" />
 
         </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="match_parent"></LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:paddingTop="0dp"
-
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="match_parent"
+            android:weightSum="1">
 
-            <EditText
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:paddingTop="0dp"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/etGPS"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="Event GPS" />
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/cstm"
+                android:layout_weight="1.15">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etLocation"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:hint="EVENT LOCATION" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/getLocBtn"
+                android:src="@drawable/locate" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -317,7 +323,7 @@
             android:layout_height="wrap_content"
             android:text="ADD EVENT"
             android:id="@+id/btnDone"
-            android:layout_alignBottom="@+id/etSummary"
+            android:layout_alignBottom="@+id/etDescription"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
