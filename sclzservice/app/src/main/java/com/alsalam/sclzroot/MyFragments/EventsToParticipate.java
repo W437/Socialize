@@ -1,5 +1,6 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,10 @@ import android.widget.ListView;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
+
+import java.util.List;
 
 /**
  * Created by hp1 on 08/03/2016.
@@ -38,5 +42,6 @@ public class EventsToParticipate extends Fragment
 
 
     }
+
 
 }
