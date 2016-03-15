@@ -35,7 +35,7 @@
                 android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adress :"
+                android:text="@string/adress"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
@@ -46,7 +46,7 @@
                 android:id="@+id/tvEventS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EVENT Summary :"
+                android:text="@string/Event_summary"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_above="@+id/tvEmail2"
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BEGINNING TIME :"
+                android:text="@string/Beginnig_time"
                 android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
@@ -79,7 +79,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
+                android:text="@string/Logo"
                 android:id="@+id/btAccept"
                 android:background="#ffffffff"
                 android:src="@mipmap/logo"

@@ -131,5 +131,22 @@
     <string name="Username">USERNAME</string>
     <string name="password">PASSWORD</string>
     <string name="Confirm_password">CONFIRM PASSWORD</string>
+    <string name="Birthday">BIRTH DATE</string>
+    <string name="gender">GENDER</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="register">REGISTER</string>
+    <string name="Event_info">EVENT INFO</string>
+    <string name="time">TIME</string>
+    <string name="More">MORE</string>
+    <string name="address">Adress :</string>
+    <string name="Beginnig_time">BEGINNING TIME :</string>
+    <string name="Event_summary">EVENT Summary :</string>
+    <string name="adress">Adress :</string>
+    <string name="Logo">New Button</string>
+    <string name="Adress">Adress</string>
+    <string name="Email">Email</string>
+    <string name="User_role">User Role</string>
+    <string name="Extra">Extra</string>
 
 </resources>

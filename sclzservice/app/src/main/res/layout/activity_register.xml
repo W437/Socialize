@@ -192,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="BIRTH DATE"
+            android:text="@string/Birthday"
             android:id="@+id/tv_Birthday"
             android:layout_gravity="center_horizontal" />
 
@@ -240,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="GENDER"
+            android:text="@string/gender"
             android:id="@+id/textView"
             android:layout_gravity="center_horizontal" />
 
@@ -254,7 +254,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MALE"
+                android:text="@string/male"
                 android:id="@+id/rbMale"
                 android:checked="false" />
 
@@ -265,7 +265,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FEMALE"
+                android:text="@string/female"
                 android:id="@+id/rbFemale"
                 android:checked="false" />
 
@@ -274,7 +274,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="REGISTER"
+            android:text="@string/register"
             android:id="@+id/btnSubmit"
             android:layout_gravity="center_horizontal" />
 

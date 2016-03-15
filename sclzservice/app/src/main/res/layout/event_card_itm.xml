@@ -40,7 +40,7 @@
                 android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adress :"
+                android:text="@string/address"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
@@ -51,7 +51,7 @@
                 android:id="@+id/tvEventS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EVENT INFO"
+                android:text="@string/Event_info"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_below="@+id/tvUserN"
@@ -60,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TIME"
+                android:text="@string/time"
                 android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
@@ -93,7 +93,7 @@
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MORE"
+                android:text="@string/More"
                 android:id="@+id/btMore"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true" />
