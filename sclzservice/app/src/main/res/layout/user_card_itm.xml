@@ -34,7 +34,7 @@
                 android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Role"
+                android:text="@string/User_role"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
@@ -45,7 +45,7 @@
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email "
+                android:text="@string/Email"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_above="@+id/tvEmail2"
@@ -54,7 +54,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Extra"
+                android:text="@string/Extra"
                 android:id="@+id/btExtra"
                 android:layout_marginBottom="23dp"
                 android:layout_alignParentBottom="true"
@@ -64,7 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adress"
+                android:text="@string/Adress"
                 android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />

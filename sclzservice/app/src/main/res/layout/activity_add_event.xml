@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etTitle"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT TITLE" />
+                android:hint="@string/event_title" />
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/etDescription"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:hint="DESCRIPTION"
+            android:hint="@string/Description"
             android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etLimit"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="PARTICIPANTS LIMIT"
+                android:hint="@string/Participants_limit"
                 android:inputType="numberSigned" />
 
         </android.support.design.widget.TextInputLayout>
@@ -72,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/etRequirments"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="REQUIREMENTS"
+                android:hint="@string/Requirements"
                 android:inputType="textMultiLine" />
 
 
@@ -98,7 +98,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/etEventDate"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="DATE" />
+                    android:hint="@string/Date" />
 
 
             </android.support.design.widget.TextInputLayout>
@@ -118,7 +118,7 @@
                     android:ems="10"
                     android:id="@+id/etTime"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="TIME "
+                    android:hint="@string/Time"
                     android:layout_weight="1" />
 
             </android.support.design.widget.TextInputLayout>
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/etHours"
-                    android:hint="HOURS"
+                    android:hint="@string/Hours"
                     android:layout_weight="1"
                     android:inputType="number" />
 
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/etAge"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="AGE RANGE " />
+                android:hint="@string/Age_range" />
 
 
         </android.support.design.widget.TextInputLayout>
@@ -198,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/etLocation"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="EVENT LOCATION" />
+                    android:hint="@string/Event_location" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -213,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="LOCATION :"
+            android:text="@string/Location"
             android:id="@+id/tvRole"
             />
 
@@ -234,7 +234,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="INDOORS"
+                    android:text="@string/In_doors"
                     android:id="@+id/rdb_in"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -242,7 +242,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="OUTDOORS"
+                    android:text="@string/Out_doors"
                     android:id="@+id/rdb_out"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -250,7 +250,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="BOTH"
+                    android:text="@string/Both"
                     android:id="@+id/rbBothLoc"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -262,7 +262,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="GENDER PREFERENCE"
+            android:text="@string/Gender_preference"
             android:id="@+id/tvGen"
             />
 
@@ -280,7 +280,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="FEMALE"
+                    android:text="@string/Female"
                     android:id="@+id/rdb_female"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -288,7 +288,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="MALE"
+                    android:text="@string/Male"
                     android:id="@+id/rdb_male"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -296,7 +296,7 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="BOTH"
+                    android:text="@string/both"
                     android:id="@+id/rbBothG"
                     android:checked="false"
                     android:layout_weight="0.33" />
@@ -321,7 +321,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ADD EVENT"
+            android:text="@string/Add_event"
             android:id="@+id/btnDone"
             android:layout_alignBottom="@+id/etDescription"
             android:layout_alignParentRight="true"
