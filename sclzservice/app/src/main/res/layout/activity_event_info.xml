@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/tv_EventName"
-        android:text="EVENT NAME"
+        android:text="@string/Event_name"
         android:background="#c2bfbf" />
 
     <TextView
@@ -33,14 +33,14 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Large Text"
         android:id="@+id/textView9"
-        android:hint="Info About the Event"
+        android:hint="@string/Large_text"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Details"
+        android:text="@string/Details"
         android:id="@+id/tv_Details"
         android:background="#c2bfbf" />
 
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="HOST NAME"
+        android:text="@string/Host_name"
         android:id="@+id/tv_HostName"
         />
 
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="HOST USERNAME"
+        android:text="@string/Host_username"
         android:id="@+id/tv_HostUser"
         />
 
@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="PARTICIPANTS LIMIT"
+        android:text="@string/participants_limit"
         android:id="@+id/tv_ParL"
         />
 
@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="JOIN REQUESTS"
+        android:text="@string/Join_requests"
         android:id="@+id/tv_JoinReq"
         />
 
@@ -107,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="AGE RANGE"
+        android:text="@string/age_range"
         android:id="@+id/tv_AgeR"
         />
 
@@ -122,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="EVENT LOCATION"
+        android:text="@string/event_location"
         android:id="@+id/tv_EventLocation"
         />
 
@@ -137,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="GENDER PREFERENCE"
+        android:text="@string/gender_preference"
         android:id="@+id/tv_GenderP"
         />
 
@@ -159,7 +159,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PARTICIPATE"
+        android:text="@string/Participate"
         android:id="@+id/btn_PAR"
         />
 

@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="ALL FIELDS ARE REQUIRED"
+            android:text="@string/All_fields_are_required"
             android:id="@+id/textView2"
             android:layout_gravity="center_horizontal"
             android:shadowColor="#000000"
@@ -36,7 +36,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/etFirstName"
-                android:hint="FIRST NAME"
+                android:hint="@string/first_name"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -56,7 +56,7 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/etLastName"
-                android:hint="LAST NAME"
+                android:hint="@string/last_name"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -76,7 +76,7 @@
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 android:id="@+id/etMail_address"
-                android:hint="EMAIL ADDRESS"
+                android:hint="@string/Email_address"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/etUsername"
-                android:hint="USERNAME"
+                android:hint="@string/Username"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -120,7 +120,7 @@
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
                 android:id="@+id/etPass"
-                android:hint="PASSWORD"
+                android:hint="@string/password"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -141,7 +141,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:id="@+id/etConfirm_pass"
-                android:hint="CONFIRM PASSWORD"
+                android:hint="@string/Confirm_password"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 

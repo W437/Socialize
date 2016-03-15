@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:hint="EMAIL OR USERNAME"
+        android:hint="@string/Email_or_username"
         android:id="@+id/et_MAIL"
         android:layout_centerHorizontal="true" />
     </android.support.design.widget.TextInputLayout>
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:hint="PASSWORD"
+        android:hint="@string/Password"
         android:id="@+id/et_PASS"
 
         android:layout_centerHorizontal="true"
@@ -43,7 +43,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remember Password"
+        android:text="@string/Remember_password"
         android:id="@+id/checkBox"
 
         android:layout_marginTop="48dp"
@@ -59,14 +59,14 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="SIGN IN"
+            android:text="@string/Sign_in"
             android:id="@+id/btnSign"
             android:layout_weight="1" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="REGISTER"
+            android:text="@string/Register"
             android:id="@+id/btnRegister"
             android:layout_weight="1" />
     </LinearLayout>
@@ -74,14 +74,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign up with Facebook"
+        android:text="@string/Sign_up_with_facebook"
         android:id="@+id/btnFacebook"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign up with Google+"
+        android:text="@string/Sign_up_with_google"
         android:id="@+id/btnGoogle"
 
         />

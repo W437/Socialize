@@ -139,7 +139,7 @@ public class MngAllEvent extends Fragment {
         } catch (MalformedURLException e)
         {
             e.printStackTrace();
-        });
+        };
 
 
         return  eventTbls;
