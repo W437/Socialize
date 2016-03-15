@@ -137,11 +137,13 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="time"
+
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:id="@+id/etHours"
                     android:hint="@string/Hours"
                     android:layout_weight="1"
-                    android:inputType="number" />
+                     />
 
             </android.support.design.widget.TextInputLayout>
 

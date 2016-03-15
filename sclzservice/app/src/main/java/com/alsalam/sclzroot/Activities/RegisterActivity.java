@@ -81,8 +81,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     }
-    //jhkjhjhkjkhjsss
-
     private boolean checkEmail(String email) {
         return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
     }

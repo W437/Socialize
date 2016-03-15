@@ -28,7 +28,7 @@ public class CalendarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.activity_profile2,container,false);
+        View view=inflater.inflate(R.layout.fragment_calendar,container,false);
         intit(view);
 
 

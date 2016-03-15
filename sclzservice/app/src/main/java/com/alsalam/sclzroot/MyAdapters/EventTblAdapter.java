@@ -71,9 +71,9 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
             @Override
             public void onClick(View v) {
-                String tvBegin1=tvBegin2.getText().toString();
 
-                Toast.makeText(getContext(),"begin"+tvBegin1.toString(),Toast.LENGTH_LONG).show();
+
+                Toast.makeText(getContext(),"begin",Toast.LENGTH_LONG).show();
 
 
             }
