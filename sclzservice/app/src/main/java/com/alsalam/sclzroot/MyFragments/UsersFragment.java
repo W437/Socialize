@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
@@ -31,6 +32,9 @@ public class UsersFragment extends Fragment {
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<UserTbl> mToDoTable;
+    ListView listView;
+    UserTblAdapter userTblAdapter;
+
 
 
     @Override

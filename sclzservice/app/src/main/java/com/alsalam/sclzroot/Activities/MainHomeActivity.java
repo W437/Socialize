@@ -225,7 +225,8 @@ public class MainHomeActivity extends AppCompatActivity {
     /**
      * Refresh the list with the items in the Table
      */
-    public void refreshEventsFromTable(ListView listView,int itmLayout) {
+    public void refreshEventsFromTable(ListView listView,int itmLayout)
+    {
 
         // Get the items that weren't marked as completed and add them in the
         // adapter
