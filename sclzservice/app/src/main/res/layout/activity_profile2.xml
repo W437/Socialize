@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="First Name:"
+            android:text="@string/First_name"
             android:id="@+id/tvName" />
 
 
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Last Name:"
+            android:text="@string/Last_name"
             android:id="@+id/tvLName"
             />
 
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Location:"
+            android:text="@string/location"
             android:id="@+id/tvLoc"
             />
 
@@ -89,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Hobbies:"
+            android:text="@string/Hobbies"
             android:id="@+id/tvHob" />
 
              <EditText
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Gender:"
+            android:text="@string/Gender"
             android:id="@+id/tvGen" />
 
              <EditText
