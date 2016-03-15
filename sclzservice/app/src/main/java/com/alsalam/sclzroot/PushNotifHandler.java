@@ -1,5 +1,6 @@
 package com.alsalam.sclzroot;
 
+import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.example.sclzservice.R;
 import com.example.sclzservice.ToDoActivity;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
@@ -66,8 +67,10 @@ public class PushNotifHandler extends NotificationsHandler {
         mNotificationManager = (NotificationManager)
                 ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
+
+        // TODO
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, ToDoActivity.class), 0);
+                new Intent(ctx, MainHomeActivity.class), 0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(ctx)
