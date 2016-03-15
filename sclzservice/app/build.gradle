@@ -48,10 +48,10 @@ dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:cardview-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
-
     compile'com.roomorama:caldroid:3.0.1'
-
     compile 'com.android.support:support-v4:23.2.0'
-
     compile 'com.roomorama:caldroid:3.0.1'
+    // Push
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
 }

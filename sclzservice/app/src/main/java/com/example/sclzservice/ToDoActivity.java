@@ -39,6 +39,7 @@ import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDat
 import com.microsoft.windowsazure.mobileservices.table.sync.localstore.MobileServiceLocalStoreException;
 import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 import com.microsoft.windowsazure.mobileservices.table.sync.synchandler.SimpleSyncHandler;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.*;
 
@@ -47,7 +48,7 @@ public class ToDoActivity extends AppCompatActivity {
     /**
      * Mobile Service Client reference
      */
-    private MobileServiceClient mClient;
+    public MobileServiceClient mClient;
 
     /**
      * Mobile Service Table used to access data
@@ -87,7 +88,7 @@ public class ToDoActivity extends AppCompatActivity {
 
         // Initialize the progress bar
         mProgressBar.setVisibility(ProgressBar.GONE);
-
+        // unsure!
         try {
             // Create the Mobile Service Client instance, using the provided
 
@@ -142,6 +143,10 @@ public class ToDoActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public MobileServiceClient getmClient() {
+        return mClient;
     }
 
     /**

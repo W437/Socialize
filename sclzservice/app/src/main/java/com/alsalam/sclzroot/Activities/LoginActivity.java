@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.PushNotifHandler;
 import com.example.sclzservice.R;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
    private TextView tvemail,tvPass;
@@ -33,6 +35,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
+
+        NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
 
 
     }

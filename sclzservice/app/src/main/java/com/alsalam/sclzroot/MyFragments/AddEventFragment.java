@@ -62,6 +62,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private ImageButton getLocBtn;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
+    private Geocoder geocoder;
+    private Location location2;
+    String result = "";
     @Nullable
 
 
@@ -102,39 +105,24 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etEventDate.setOnClickListener(this);
         wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
+        getLocBtn.setOnClickListener(this);
         //etTime.setClickable(false);
 
     }
 
-/*
-    public void onLocationChanged(Location location) {
-        //You had this as int. It is advised to have Lat/Loing as double.
-        double lat = location.getLatitude();
-        double lng = location.getLongitude();
 
-        Geocoder geoCoder = new Geocoder(getActivity(), Locale.getDefault());
-        StringBuilder builder = new StringBuilder();
-        try {
-            List<Address> address = geoCoder.getFromLocation(lat, lng, 1);
-            int maxLines = address.get(0).getMaxAddressLineIndex();
-            for (int i=0; i<maxLines; i++) {
-                String addressStr = address.get(0).getAddressLine(i);
-                builder.append(addressStr);
-                builder.append(" ");
-            }
-
-            String fnialAddress = builder.toString(); //This is the complete address.
-
-            etLocation.setText(fnialAddress); //This will display the final address.
-
-        } catch (IOException e) {
-            // Handle IOException
-        } catch (NullPointerException e) {
-            // Handle NullPointerException
+    public String getLocation(Location location) throws IOException {
+        List<Address> list = geocoder.getFromLocation(location
+                .getLatitude(), location.getLongitude(), 1);
+        if (list != null & list.size() > 0) {
+            Address address = list.get(0);
+            result = address.getLocality();
+            return result;
         }
+        return "";
     }
 
-*/
+
     public EventTbl getEventInfo()
     {
         if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
@@ -342,7 +330,11 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
         if ( v == getLocBtn)
         {
-
+            try {
+                etLocation.setText(getLocation(new Location("prov")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

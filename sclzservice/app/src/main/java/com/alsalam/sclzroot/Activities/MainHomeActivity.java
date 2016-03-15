@@ -23,6 +23,7 @@ import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
+import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 import com.google.common.util.concurrent.FutureCallback;
@@ -35,6 +36,7 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
 import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
@@ -47,6 +49,7 @@ public class MainHomeActivity extends AppCompatActivity {
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
     TabLayout tabLayout;
+
 
 
     /**
@@ -70,7 +73,6 @@ public class MainHomeActivity extends AppCompatActivity {
         viewPager= (ViewPager) findViewById(R.id.homepager);
         tabLayout= (TabLayout) findViewById(R.id.tabs);
         //rgLocation = (RadioGroup) findViewById(R.id.rgLocation);
-
         initRemoteData();
 
 
