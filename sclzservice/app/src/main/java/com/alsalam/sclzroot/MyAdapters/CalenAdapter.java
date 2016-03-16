@@ -29,10 +29,8 @@ public class CalenAdapter  extends CaldroidGridAdapter
     }
 
 
-  //    public  View  getView(int position, View convertView, ViewGroup parent){
-
-
-    //  }
-
-
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        return super.getView(position, convertView, parent);
+    }
 }

@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
+import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
 import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
@@ -102,17 +103,11 @@ public class MainHomeActivity extends AppCompatActivity {
 
         fragments[5]=new Profile2Fragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
-        CaldroidFragment caldroidFragment=new CaldroidFragment();
 
-        Calendar cal=Calendar.getInstance();
-        Bundle args=new Bundle();
-        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
 
-        args.putInt(CaldroidFragment.YEAR,cal.get(Calendar.YEAR));
 
-        caldroidFragment.setArguments(args);
-
-        fragments[6]=caldroidFragment;
+        fragments[6]=new CalendarFragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
