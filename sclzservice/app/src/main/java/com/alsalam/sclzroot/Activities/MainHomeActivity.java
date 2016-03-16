@@ -89,11 +89,11 @@ public class MainHomeActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
         fragments[3]=new MyEventsFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
 
 
         fragments[4]=new EventsToParticipate();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event_to_go));
 
 
 
@@ -107,7 +107,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
         fragments[6]=new CalendarFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
