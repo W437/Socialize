@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:layout_height="match_parent">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -25,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="Event Title"
+                android:text="User Name"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
@@ -35,7 +34,7 @@
                 android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/adress"
+                android:text="User Role"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
@@ -43,10 +42,10 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/tvEventS"
+                android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Event_summary"
+                android:text="Email "
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
                 android:layout_above="@+id/tvEmail2"
@@ -55,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Beginnig_time"
+                android:text="Adress"
                 android:id="@+id/tvBeginning"
                 android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
@@ -65,6 +64,14 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
+                android:layout_below="@+id/tvBeginning"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tvRole2"
                 android:layout_below="@+id/tvAdrerss2"
                 android:layout_alignStart="@+id/tvAdrerss2" />
 
@@ -79,30 +86,22 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Logo"
-                android:id="@+id/btAccept"
-                android:background="#ffffffff"
-                android:src="@mipmap/ic_accept333_launcher"
+                android:id="@+id/btDisAccept"
                 android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/tvBeginning2" />
+                android:layout_alignParentStart="true"
+                android:background="#FFFFFFFF"
+
+                android:src="@mipmap/no_launcher" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/btDisAccept"
-                android:background="#ffffffff"
-                android:src="@mipmap/no_launcher"
-                android:layout_alignParentBottom="true"
-                android:layout_alignEnd="@+id/tvEmail2" />
+                android:id="@+id/btAccept"
+                android:layout_alignTop="@+id/btDisAccept"
+                android:layout_alignParentEnd="true"
+                android:background="#FFFFFFFF"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvBeginning2"
-                android:layout_below="@+id/tvBeginning"
-                android:layout_alignEnd="@+id/tvBeginning" />
+                android:src="@mipmap/ic_accept333_launcher" />
 
         </RelativeLayout>
 
