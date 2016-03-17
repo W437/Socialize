@@ -2,6 +2,8 @@ package com.alsalam.sclzroot.MyAdapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.Activities.MainHomeActivity;
+import com.alsalam.sclzroot.MyFragments.JoinEvent;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
+
+import static android.app.PendingIntent.getActivity;
 
 /**
  * Created by bana on 01/03/2016.
@@ -71,17 +77,19 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
             @Override
             public void onClick(View v) {
-
-
-                Toast.makeText(getContext(),"begin",Toast.LENGTH_LONG).show();
-
+showDialog();
 
             }
 
         });
 
+
         return row;
     }
-
+    void showDialog () {
+        // Create the fragment and show it as a dialog.
+        JoinEvent joinEvent=new JoinEvent();
+        joinEvent.show(((MainHomeActivity)mContext).getFragmentManager(),"kkkkk");
+    }
 
 }

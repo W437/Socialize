@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
 
-        NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
+       // NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
 
 
     }

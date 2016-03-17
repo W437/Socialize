@@ -47,7 +47,7 @@ private   MapView mapView;
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         String month_name = month_date.format(cal.getTime());
         tvMonth.setText(month_name);
-        EventTblAdapter eventTblAdapter=new EventTblAdapter(getContext(),R.layout.event_card_itm);
+        EventTblAdapter eventTblAdapter=new EventTblAdapter(getActivity(),R.layout.event_card_itm);
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2000,9,2),new Date(2003,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2012,9,2),new Date(2015,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2010,9,2),new Date(2012,9,2),"3",5));
