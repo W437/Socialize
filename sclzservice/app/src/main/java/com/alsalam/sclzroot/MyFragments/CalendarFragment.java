@@ -15,16 +15,19 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sclzservice.R;
 import com.roomorama.caldroid.CaldroidFragment;
+import com.roomorama.caldroid.CaldroidListener;
 
 import java.util.Calendar;
+import java.util.Date;
 
-public class CalendarFragment extends Fragment {
+public class CalendarFragment extends Fragment  {
 
 
-
+    CaldroidFragment caldroidFragment;
 
     @Nullable
     @Override
@@ -32,12 +35,14 @@ public class CalendarFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_calendar,container,false);
         intit(view);
 
-        CaldroidFragment caldroidFragment = new CaldroidFragment();
+         caldroidFragment = new CaldroidFragment();
         Bundle args = new Bundle();
         Calendar cal = Calendar.getInstance();
         args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
         args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
         caldroidFragment.setArguments(args);
+
+        caldroidFragment.setCaldroidListener(listener);
 
         FragmentTransaction t = getActivity().getSupportFragmentManager().beginTransaction();
         t.replace(R.id.calendar, caldroidFragment);
@@ -54,5 +59,21 @@ public class CalendarFragment extends Fragment {
 
     }
 
+    final CaldroidListener listener = new CaldroidListener() {
 
-}
+        @Override
+        public void onSelectDate(Date date, View view) {
+            Toast.makeText(getActivity(),date.toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        public void onLongClickDate(Date date, View view) {
+            Toast.makeText(getActivity(),date.toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    };
+};
+
+
+
