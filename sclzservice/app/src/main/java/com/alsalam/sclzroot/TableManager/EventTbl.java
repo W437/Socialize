@@ -11,6 +11,8 @@ public class EventTbl {
     private String id;
     private String Adress="home";
     private String EventSummary;
+    private boolean isCompleted=false;
+    private boolean isAccepted;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
     @com.google.gson.annotations.SerializedName("eventBegin")

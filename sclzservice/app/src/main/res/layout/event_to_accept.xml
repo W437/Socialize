@@ -82,7 +82,7 @@
                 android:text="@string/Logo"
                 android:id="@+id/btAccept"
                 android:background="#ffffffff"
-                android:src="@mipmap/ic_accept333_launcher"
+                android:src="@mipmap/logo"
                 android:layout_alignParentBottom="true"
                 android:layout_alignStart="@+id/tvBeginning2" />
 
@@ -92,7 +92,7 @@
                 android:text="New Button"
                 android:id="@+id/btDisAccept"
                 android:background="#ffffffff"
-                android:src="@mipmap/no_launcher"
+                android:src="@mipmap/logo"
                 android:layout_alignParentBottom="true"
                 android:layout_alignEnd="@+id/tvEmail2" />
 
