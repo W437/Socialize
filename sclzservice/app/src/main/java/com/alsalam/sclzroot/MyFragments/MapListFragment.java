@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,7 +30,7 @@ import java.util.Date;
 /**
  * Created by samih on 27/02/2016.
  */
-public class MapListFragment extends Fragment implements OnMapReadyCallback {
+public class MapListFragment extends Fragment implements OnMapReadyCallback,EventsHandler {
 private   MapView mapView;
     private GoogleMap mMap;
     private ListView listView;
@@ -47,7 +49,7 @@ private   MapView mapView;
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         String month_name = month_date.format(cal.getTime());
         tvMonth.setText(month_name);
-        EventTblAdapter eventTblAdapter=new EventTblAdapter(getActivity(),R.layout.event_card_itm);
+      // EventTblAdapter eventTblAdapter=new EventTblAdapter(getActivity(),R.layout.event_card_itm);
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2000,9,2),new Date(2003,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2012,9,2),new Date(2015,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2010,9,2),new Date(2012,9,2),"3",5));
@@ -80,5 +82,10 @@ private   MapView mapView;
         mMap.addMarker(new MarkerOptions().position(sydney3).title("קיבוץ עברון"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+    }
+
+    @Override
+    public void onJoinEvent(JoinEvent e) {
+        Toast.makeText(getContext(),"here calling join activity",Toast.LENGTH_SHORT).show();
     }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import static android.app.PendingIntent.getActivity;
  */
 public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
+    FragmentManager fragmentManager;
     /**
      *       Adapter context
      */
@@ -40,8 +42,16 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         mContext = context;
         mLayoutResourceId = layoutResourceId;
+        if(null==fragmentManager){
+            fragmentManager=((AppCompatActivity)context).getSupportFragmentManager();
+        }
     }
 
+    public EventTblAdapter(Context context,int mLayoutResourceId,FragmentManager fragmentManager)
+    {
+        this(context,mLayoutResourceId);
+        this.fragmentManager=fragmentManager;
+    }
     /**
      * Returns the view for a specific item on the list
      */
@@ -67,7 +77,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         row.setTag(currentItem);
 
-        tvBegin2.setText(currentItem.getEventBegin().toString());
+     //   tvBegin2.setText(currentItem.getEventBegin().toString());
       tvAdress2.setText(currentItem.getAdress());
         tvSummary2.setText(currentItem.getEventSummary());
         tvEventT.setText(currentItem.getEventTitle());
@@ -89,7 +99,7 @@ showDialog();
     void showDialog () {
         // Create the fragment and show it as a dialog.
         JoinEvent joinEvent=new JoinEvent();
-        joinEvent.show(((MainHomeActivity)mContext).getFragmentManager(),"kkkkk");
+        joinEvent.show(fragmentManager,"kkkkk");
     }
 
 }

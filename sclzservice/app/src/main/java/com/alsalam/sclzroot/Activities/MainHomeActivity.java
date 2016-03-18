@@ -15,17 +15,20 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
 import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
+import com.alsalam.sclzroot.MyFragments.JoinEvent;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -45,7 +48,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MainHomeActivity extends AppCompatActivity {
+public class MainHomeActivity extends AppCompatActivity implements EventsHandler {
     ViewPager viewPager;
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
@@ -160,6 +163,12 @@ public class MainHomeActivity extends AppCompatActivity {
             e.printStackTrace();
 
         }
+
+    }
+
+    @Override
+    public void onJoinEvent(JoinEvent e) {
+        Toast.makeText(getBaseContext(), "here calling join activity", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -279,26 +288,20 @@ public class MainHomeActivity extends AppCompatActivity {
         mAdapter = new EventTblAdapter(this,itmLayout);
 
         listView.setAdapter(mAdapter);
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
-            protected Void doInBackground(Void... params) {
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
 
                 try {
                     final List<EventTbl> results = msEnetTbl.execute().get();
-
                     //Offline Sync
-                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAdapter.clear();
-
-                            for (EventTbl item : results) {
-                                mAdapter.add(item);
-                            }
-                        }
-                    });
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
                 } catch (final Exception e){
                     createAndShowDialogFromTask(e, "Error");
                 }
@@ -307,12 +310,18 @@ public class MainHomeActivity extends AppCompatActivity {
             }
 
             @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
             }
         };
-
-        runAsyncTask(task);
+            task.execute();
+       // runAsyncTask(task);
     }
     /**
      * Refresh the list with the items in the Table
