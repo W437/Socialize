@@ -89,6 +89,16 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public UserTbl getUserInfo() {
         UserTbl user=new UserTbl();
         user.setFirstName(etFirstName.getText().toString());
+        user.setLastName(etLastName.getText().toString());
+        user.setId(user.getId().toString());
+        user.setUserAddress(etLocation.getText().toString());
+        user.setUserEmail(etMail_Address.getText().toString());
+        user.setUserPassword(etPass.getText().toString());
+        user.setUserPhone(etPhoneNumber.getText().toString());
+        user.setUserTafkeed(user.getUserTafkeed().toString());
+        user.setUserBirthday(user.getUserBirthday());
+        user.setUserGender(user.getUserGender().toString());
+        user.setUserName(etUsername.getText().toString());
         // TODO complete other fields
 //        UserTbl user = new UserTbl(
 //                (int) (Math.random() * 99999999) + "",

@@ -141,6 +141,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
         EventTbl event=new EventTbl();
         event.setAddress(etLocation.getText().toString());;
+
+
         //TODO complete other fields
 
 //        EventTbl event = new EventTbl( "",
