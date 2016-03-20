@@ -98,6 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/etEventDate"
+                    android:inputType="date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="@string/Date" />
 

@@ -37,6 +37,7 @@ import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -65,6 +66,11 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Geocoder geocoder;
     private Location location2;
     String result = "";
+
+      private Date eventDate;
+      private Time eventTime;
+
+
     @Nullable
 
 
@@ -140,11 +146,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             location = "Outdoors & Indoors";
 
         EventTbl event=new EventTbl();
-        event.setAddress(etLocation.getText().toString());;
+          event.setAddress(etLocation.getText().toString());
+          event.setEventDate(eventDate);
+          event.setEventPurpose(etDescription.getText().toString());
+          event.setEventProp(etRequirments.getText().toString());
+          event.setEventTitle(etTitle.getText().toString());
 
-
-        //TODO complete other fields
-
+        //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
 //                etLocation.getText().toString(),
 //                etTitle.getText().toString(),
@@ -272,7 +280,12 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-
+                            if(eventDate==null)
+                                eventDate=new Date(year,monthOfYear,dayOfMonth);
+                            else {
+                                eventDate.setYear(year);
+                                eventDate.setMonth(monthOfYear);
+                                eventDate.setDate(dayOfMonth);                           }
                             etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
                         }
@@ -293,8 +306,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
-
-                            etTime.setText(hourOfDay + ":" + minute);
+                            if(eventDate==null)
+                                eventDate=new Date(mYear,mMonth,mDay,hourOfDay,minute);
+                            else {
+                                eventDate.setHours(hourOfDay);
+                                eventDate.setMinutes(minute);
+                            }
+                             etTime.setText(hourOfDay + ":" + minute);
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
