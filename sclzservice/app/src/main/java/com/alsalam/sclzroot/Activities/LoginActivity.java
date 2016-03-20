@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.alsalam.sclzroot.PushNotifHandler;
 import com.example.sclzservice.R;
+import com.facebook.FacebookSdk;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getBaseContext());
         setContentView(R.layout.activity_login);
 
     //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
@@ -77,4 +79,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
+
 }

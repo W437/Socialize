@@ -172,7 +172,55 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
     }
 
+    /**
+     * Refresh the list with the items in the Table
+     */
+    public void refreshAllEventsFromTable(ListView listView, int itmLayout) {
 
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    //final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
     private  static class MyPagerAdatpter extends FragmentPagerAdapter
     {
         Fragment[] fragments;
@@ -275,54 +323,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
         runAsyncTask(task);
     }
-    /**
-     * Refresh the list with the items in the Table
-     */
-    public void refreshWaitingEventsFromTable(ListView listView,int itmLayout) {
 
-        // Get the items that weren't marked as completed and add them in the
-        // adapter
-        if(msEnetTbl==null)
-        msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-        mAdapter = new EventTblAdapter(this,itmLayout);
-
-        listView.setAdapter(mAdapter);
-        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
-            @Override
-            protected void onProgressUpdate(Void... values) {
-                super.onProgressUpdate(values);
-            }
-
-            @Override
-            protected List<EventTbl> doInBackground(Void... params) {
-
-                try {
-                    final List<EventTbl> results = msEnetTbl.execute().get();
-                    //Offline Sync
-                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
-                    return results;
-                } catch (final Exception e){
-                    createAndShowDialogFromTask(e, "Error");
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
-//                for (EventTbl item : results) {
-//                    mAdapter.add(item);
-//
-//                }
-
-            }
-        };
-            task.execute();
-       // runAsyncTask(task);
-    }
     /**
      * Refresh the list with the items in the Table
      */

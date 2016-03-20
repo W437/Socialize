@@ -54,4 +54,7 @@ dependencies {
     // Push
     compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+
+    //facebook log in
+    compile 'com.facebook.android:facebook-android-sdk:4.0.0'
 }

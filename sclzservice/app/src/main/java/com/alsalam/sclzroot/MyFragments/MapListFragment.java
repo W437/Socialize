@@ -11,21 +11,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
-import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by samih on 27/02/2016.
@@ -61,7 +57,7 @@ private   MapView mapView;
         mapView.getMapAsync(this);
 
         listView= (ListView) view.findViewById(R.id.lstvEvetnts);
-        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
+        ((MainHomeActivity)getActivity()).refreshAllEventsFromTable(listView, R.layout.event_card_itm);
 
         return view;
     }
