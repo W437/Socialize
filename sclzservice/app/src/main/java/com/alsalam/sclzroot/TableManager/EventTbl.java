@@ -11,7 +11,8 @@ public class EventTbl {
     @com.google.gson.annotations.SerializedName("id")
     private String id;
 
-    public final static String WAITING="waiting";
+    public final static String WAITING="WAITING";
+    public final static String CONCELED="CONCELED";
     public final static String ACCEPTED="ACCEPTED";
     public final static String REJECTED="REJECTED";
     @com.google.gson.annotations.SerializedName("status")

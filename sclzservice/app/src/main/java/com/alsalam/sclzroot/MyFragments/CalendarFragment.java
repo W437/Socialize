@@ -46,8 +46,18 @@ public class CalendarFragment extends Fragment  {
         caldroidFragment.setArguments(args);
 
         caldroidFragment.setCaldroidListener(listener);
+        Date date=new Date(20,3,2016);
+
         ColorDrawable green = new ColorDrawable(Color.GREEN);
-        caldroidFragment.setBackgroundDrawableForDate(green,new Date(2016,3,19));
+        caldroidFragment.setBackgroundDrawableForDate(green, new Date(2,4,2016));
+     //   caldroidFragment.setBackgroundDrawableForDate(green, greenDate);
+
+      //  caldroidFragment.setTextColorForDate(R.color.white, blueDate);
+       // caldroidFragment.setTextColorForDate(R.color.white, greenDate);
+
+
+        // caldroidFragment.setBackgroundDrawableForDate(green,date);
+        caldroidFragment.setBackgroundDrawableForDate(green,new  Date(2016,3,19));
 
         FragmentTransaction t = getActivity().getSupportFragmentManager().beginTransaction();
         t.replace(R.id.calendar, caldroidFragment);

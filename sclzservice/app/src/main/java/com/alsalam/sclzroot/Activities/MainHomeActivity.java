@@ -275,6 +275,57 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         task.execute();
         // runAsyncTask(task);
     }
+    /** CONCELED
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void EventsCONCELEDFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.CONCELED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
     /** accept
      * Refresh the list with the items in the Table
      * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
