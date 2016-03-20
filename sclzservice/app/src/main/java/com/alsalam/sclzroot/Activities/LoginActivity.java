@@ -160,7 +160,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             protected void onPostExecute(List<UserTbl> listRes) {
-                if(listRes.size()>0)
+                if(listRes!=null && listRes.size()>0)
                     userTbl[0] = listRes.get(0);
 //                for (EventTbl item : results) {
 //                    mAdapter.add(item);
