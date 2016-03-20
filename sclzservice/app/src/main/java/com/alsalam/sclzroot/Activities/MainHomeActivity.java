@@ -28,6 +28,7 @@ import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.common.util.concurrent.FutureCallback;
@@ -58,13 +59,14 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
     /**
      * Mobile Service Client reference
-     */
+    */
     private MobileServiceClient mClient;
 
     /**
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> msEnetTbl;
+    private MobileServiceTable<UserTbl> msUsertTbl;
 
     private EventTblAdapter mAdapter;
 
@@ -174,6 +176,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
     /**
      * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
      */
     public void refreshAllEventsFromTable(ListView listView, int itmLayout) {
 
@@ -195,8 +198,8 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
             protected List<EventTbl> doInBackground(Void... params) {
 
                 try {
-                    //final List<EventTbl> results = msEnetTbl.execute().get();
-                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    final List<EventTbl> results = msEnetTbl.execute().get();
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
                     //Offline Sync
                     //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
                     return results;
@@ -220,6 +223,53 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         };
         task.execute();
         // runAsyncTask(task);
+    }
+    /**
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     * check the sign in and retrun user if found ot null if not
+     */
+    public UserTbl refreshAllUsersFromTable(final String user, final String password) {
+        final UserTbl[] userTbl = {null};
+                AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<UserTbl> doInBackground(Void... params) {
+
+                try {
+                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
+
+
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+
+                    //Offline Sync
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(List<UserTbl> listRes) {
+                if(listRes.size()>0)
+                    userTbl[0] = listRes.get(0);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+       return userTbl[0];
     }
     private  static class MyPagerAdatpter extends FragmentPagerAdapter
     {

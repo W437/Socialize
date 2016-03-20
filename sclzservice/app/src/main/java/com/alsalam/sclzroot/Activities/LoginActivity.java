@@ -1,7 +1,9 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,19 +14,60 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.PushNotifHandler;
+import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
 import com.facebook.FacebookSdk;
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
+
+import java.net.MalformedURLException;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
    private TextView tvemail,tvPass;
     private EditText et_MAIL,et_Pass;
     private Button btnSign,btnFacebook,btnGoogle,btnRegister;
+
+    /**
+     * Mobile Service Client reference
+     */
+    private MobileServiceClient mClient;
+
+    /**
+     * Mobile Service Table used to access data
+     */
+
+    private MobileServiceTable<UserTbl> msUsertTbl;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getBaseContext());
         setContentView(R.layout.activity_login);
+        try {
+
+            mClient = new MobileServiceClient(
+                    "https://sclzservice.azurewebsites.net",
+                    this);
+
+            if(msUsertTbl==null)
+                msUsertTbl = mClient.getTable(UserTbl.class);
+            //initLocalStore().get();
+
+
+            // Create an adapter to bind the items with the view
+
+
+            // Load the items from the Mobile Service
+            //refreshItemsFromTable();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+
+        }
 
     //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
 
@@ -74,10 +117,98 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btnSign:
                 if(true) {
-                    startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
+                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                    }
+                    else
+                    createAndShowDialog("user or pass word error","");
                 }
         }
 
+    }
+    /**
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     * check the sign in and retrun user if found ot null if not
+     */
+    public UserTbl checkSignin(final String user, final String password) {
+        final UserTbl[] userTbl = {null};
+        AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<UserTbl> doInBackground(Void... params) {
+
+                try {
+                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
+
+
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+
+                    //Offline Sync
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(List<UserTbl> listRes) {
+                if(listRes.size()>0)
+                    userTbl[0] = listRes.get(0);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+        return userTbl[0];
+    }
+    private void createAndShowDialogFromTask(final Exception exception, String title) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                createAndShowDialog(exception, "Error");
+            }
+        });
+    }
+    /**
+     * Creates a dialog and shows it
+     *
+     * @param exception
+     *            The exception to show in the dialog
+     * @param title
+     *            The dialog title
+     */
+    private void createAndShowDialog(Exception exception, String title) {
+        Throwable ex = exception;
+        if(exception.getCause() != null){
+            ex = exception.getCause();
+        }
+        createAndShowDialog(ex.getMessage(), title);
+    }
+    /**
+     *
+     * @param message
+     *            The dialog message
+     * @param title
+     *            The dialog title
+     */
+    private void createAndShowDialog(final String message, final String title) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(message);
+        builder.setTitle(title);
+        builder.create().show();
     }
 
 }

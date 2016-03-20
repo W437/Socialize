@@ -1,6 +1,9 @@
 package com.alsalam.sclzroot.MyFragments;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -43,6 +46,8 @@ public class CalendarFragment extends Fragment  {
         caldroidFragment.setArguments(args);
 
         caldroidFragment.setCaldroidListener(listener);
+        ColorDrawable green = new ColorDrawable(Color.GREEN);
+        caldroidFragment.setBackgroundDrawableForDate(green,new Date(2016,3,19));
 
         FragmentTransaction t = getActivity().getSupportFragmentManager().beginTransaction();
         t.replace(R.id.calendar, caldroidFragment);
