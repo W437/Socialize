@@ -173,7 +173,57 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         Toast.makeText(getBaseContext(), "here calling join activity", Toast.LENGTH_SHORT).show();
 
     }
+    /** all
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void eventsAllFromTable(ListView listView, int itmLayout) {
 
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.REJECTED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
     /** REJECTED
      * Refresh the list with the items in the Table
      * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK

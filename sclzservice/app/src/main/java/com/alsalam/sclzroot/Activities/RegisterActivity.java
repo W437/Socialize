@@ -76,8 +76,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
 
-        rbFemale.setOnClickListener(this);
-        rbMale.setOnClickListener(this);
+
 
 
     }
@@ -90,14 +89,14 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         UserTbl user=new UserTbl();
         user.setFirstName(etFirstName.getText().toString());
         user.setLastName(etLastName.getText().toString());
-        user.setId(user.getId().toString());
+        //user.setId(user.getId().toString());
         user.setUserAddress(etLocation.getText().toString());
         user.setUserEmail(etMail_Address.getText().toString());
         user.setUserPassword(etPass.getText().toString());
         user.setUserPhone(etPhoneNumber.getText().toString());
-        user.setUserTafkeed(user.getUserTafkeed().toString());
-        user.setUserBirthday(user.getUserBirthday());
-        user.setUserGender(user.getUserGender().toString());
+//        user.setUserTafkeed(user.getUserTafkeed().toString());
+//        user.setUserBirthday(user.getUserBirthday());
+        user.setUserGender(rbFemale.isChecked() ? "female" : "male");
         user.setUserName(etUsername.getText().toString());
         // TODO complete other fields
 //        UserTbl user = new UserTbl(
@@ -161,7 +160,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (userGender.length() == 0) {
+        else
+        if (rgGender.getCheckedRadioButtonId() != R.id.rbMale && rgGender.getCheckedRadioButtonId()!= R.id.rbFemale) {
             rgGender.requestFocus();
             Toast.makeText(getBaseContext(), "GENDER NOT CHECKED", Toast.LENGTH_LONG).show();
             return false;
@@ -216,9 +216,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btnSign:
-                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                break;
+//            case R.id.btnSign:
+//                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                break;
             case R.id.btnSubmit:
                 if(areFieldsFilled())
                 {

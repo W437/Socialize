@@ -57,7 +57,7 @@ private   MapView mapView;
         mapView.getMapAsync(this);
 
         listView= (ListView) view.findViewById(R.id.lstvEvetnts);
-        ((MainHomeActivity)getActivity()).refreshAllEventsFromTable(listView, R.layout.event_card_itm);
+        ((MainHomeActivity)getActivity()).eventsAllFromTable(listView, R.layout.event_card_itm);
 
         return view;
     }

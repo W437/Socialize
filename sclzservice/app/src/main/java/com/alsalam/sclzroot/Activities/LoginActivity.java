@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             protected List<UserTbl> doInBackground(Void... params) {
 
                 try {
-                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
+                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").eq(password).execute().get();
 
 
                     ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
@@ -152,6 +152,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     //Offline Sync
                     return results;
                 } catch (final Exception e){
+                    e.printStackTrace();
                     createAndShowDialogFromTask(e, "Error");
                 }
 
