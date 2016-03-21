@@ -90,14 +90,14 @@ public class DataBaseMngr
      * @param item
      *            The item to Add
      */
-    public EventTbl addEventInTable(EventTbl item) throws ExecutionException, InterruptedException {
+    public  static EventTbl addEventInTable(EventTbl item) throws ExecutionException, InterruptedException {
         EventTbl entity = msEvents.insert(item).get();
         return entity;
     }
     /**
      * Refresh the list with the items in the Table
      */
-    public UserTbl loginUsers(ListView listView,int itmLayout)
+    public static UserTbl loginUsers(ListView listView,int itmLayout)
     {
 
         // Get the items that weren't marked as completed and add them in the
@@ -311,7 +311,7 @@ public class DataBaseMngr
      * @param title
      *            The dialog title
      */
-    private void createAndShowDialogFromTask(final Exception exception, String title) {
+    private static void createAndShowDialogFromTask(final Exception exception, String title) {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -329,7 +329,7 @@ public class DataBaseMngr
      * @param title
      *            The dialog title
      */
-    private void createAndShowDialog(Exception exception, String title) {
+    private static void createAndShowDialog(Exception exception, String title) {
         Throwable ex = exception;
         if(exception.getCause() != null){
             ex = exception.getCause();
@@ -344,7 +344,7 @@ public class DataBaseMngr
      * @param title
      *            The dialog title
      */
-    private void createAndShowDialog(final String message, final String title) {
+    private static void createAndShowDialog(final String message, final String title) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 
         builder.setMessage(message);
