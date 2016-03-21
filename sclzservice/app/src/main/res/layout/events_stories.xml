@@ -9,15 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.alsalam.sclzroot.MyFragments.EventStoriesFragments">
     <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/spinner_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    </Spinner>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/spinner1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

@@ -12,10 +12,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+
+import android.os.Bundle;
+
+import android.app.Activity;
+
+import android.util.Log;
+
+import android.view.Menu;
+
+import android.view.View;
+
+import android.widget.AdapterView;
+
+import android.widget.ArrayAdapter;
+
+import android.widget.Spinner;
+
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
@@ -49,14 +67,15 @@ import java.util.concurrent.ExecutionException;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.ne;
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
-
+import android.widget.AdapterView.OnItemSelectedListener;
 public class EventStoriesFragments extends Fragment
 {
 
 
     private ListView listView;
     private Spinner spinner;
-    private String[] event={};
+    private String[] event=new String[5];
+    String spin_val;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -64,6 +83,29 @@ public class EventStoriesFragments extends Fragment
        // init(view);
         listView= (ListView) view.findViewById(R.id.listView);
         ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
+        spinner=(Spinner)view.findViewById(R.id.spinner_id);
+        event[0] =getResources().getString(R.string.all_events);
+        event[1]=getResources().getString(R.string.accepted_events);
+        event[2]=getResources().getString(R.string.my_own_events);
+        event[3]=getResources().getString(R.string.events_according_time);
+        event[4]=getResources().getString(R.string.events_according_my_location);
+        event[5]=getResources().getString(R.string.past_events);
+
+
+//setting array adaptors to spinners
+
+//ArrayAdapter is a BaseAdapter that is backed by an array of arbitrary objects
+
+        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, event);
+
+// setting adapters to spinners
+
+        spinner.setAdapter(spin_adapter);
+
+
+       /// ((MainHomeActivity)((MainHomeActivity) getActivity()).refreshEventsFromTable(spinner,R.layout.events_stories);
+
+
 
 
 
