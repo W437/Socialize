@@ -27,6 +27,7 @@ import com.alsalam.sclzroot.MyFragments.JoinEvent;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
+import com.alsalam.sclzroot.MyFragments.UsersFragment;
 import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
@@ -91,17 +92,17 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_stories));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
 
         fragments[2]=new AddEventFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
 
         fragments[3]=new MyEventsFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
 
 
-        fragments[4]=new EventsToParticipate();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event_to_go));
+        fragments[4]=new UsersFragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_map2));
 
 
 
