@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
@@ -36,11 +37,13 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
 import com.roomorama.caldroid.CaldroidFragment;
 
@@ -132,7 +135,29 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
+        if(msEnetTbl==null)
+            msEnetTbl=mClient.getTable(EventTbl.class);
+                try {
+                    msEnetTbl.execute(new TableQueryCallback<EventTbl>() {
+                        @Override
+                        public void onCompleted(List<EventTbl> result, int count, Exception exception, ServiceFilterResponse response) {
+                            if(count>0) {
+                                createAndShowDialog(" OK","");
 
+                                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                            }
+                            else
+                                createAndShowDialog("user or pass word error","");
+                        }
+                    });
+                } catch (MobileServiceException e) {
+                    e.printStackTrace();
+                }
+//                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
+//                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                    }
+//                    else
+//                    createAndShowDialog("user or pass word error","");
 
 
         myPagerAdatpter=new MyPagerAdatpter(getSupportFragmentManager(),fragments);

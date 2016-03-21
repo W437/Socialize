@@ -181,13 +181,14 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etLimitParticipants.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (etRequirments.getText().toString().length() == 0) {
-            etRequirments.requestFocus();
-            etRequirments.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-
-        else if (etEventDate.getText().toString().length() == 0) {
+//        else if (etRequirments.getText().toString().length() == 0) {
+//            etRequirments.requestFocus();
+//            etRequirments.setError("FIELD CANNOT BE EMPTY");
+//            return false;
+//        }
+//
+//        else
+         if (etEventDate.getText().toString().length() == 0) {
             etEventDate.requestFocus();
             etEventDate.setError("FIELD CANNOT BE EMPTY");
             return false;
@@ -197,12 +198,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etTime.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (etHours.getText().toString().length() == 0) {
-            etHours.requestFocus();
-            etHours.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etAge.getText().toString().length() == 0) {
+//        else if (etHours.getText().toString().length() == 0) {
+//            etHours.requestFocus();
+//            etHours.setError("FIELD CANNOT BE EMPTY");
+//            return false;
+//        }
+//        else
+        if (etAge.getText().toString().length() == 0) {
             etAge.requestFocus();
             etAge.setError("FIELD CANNOT BE EMPTY");
             return false;
