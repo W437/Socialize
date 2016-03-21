@@ -68,7 +68,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     String result = "";
 
       private Date eventDate;
-      private Time eventTime;
 
 
     @Nullable
