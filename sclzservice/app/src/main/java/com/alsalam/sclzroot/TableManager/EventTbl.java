@@ -9,54 +9,48 @@ import java.util.Date;
 public class EventTbl {
     @com.google.gson.annotations.SerializedName("id")
     private String id;
-    private String Adress="home";
-    private String EventSummary;
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
-    @com.google.gson.annotations.SerializedName("eventBegin")
-    private String   eventBegin;
-    @com.google.gson.annotations.SerializedName("eventEnd")
-    private String   eventEnd;
+    @com.google.gson.annotations.SerializedName("eventTime")
+    private String   eventTime;
+    @com.google.gson.annotations.SerializedName("eventHours")
+    private String   eventHours;
     @com.google.gson.annotations.SerializedName("hostId")
     private String hostId;
-    @com.google.gson.annotations.SerializedName("eventMaxParticipators")
-    private int    eventMaxParticipators;
-    @com.google.gson.annotations.SerializedName("eventTitle")
-    private String    eventTitle;
+    @com.google.gson.annotations.SerializedName("eventParticipantsLimit")
+    private int    eventParticipantsLimit;
+    @com.google.gson.annotations.SerializedName("eventRequirements")
+    private String    eventRequirements;
     @com.google.gson.annotations.SerializedName("eventDate")
     private String    eventDate;
-    @com.google.gson.annotations.SerializedName("eventPurpose")
-    private String    eventPurpose;
-    @com.google.gson.annotations.SerializedName("eventProp")
-    private String    eventProp;
     @com.google.gson.annotations.SerializedName("eventActivityLocation")
     private String    eventActivityLocation;
     @com.google.gson.annotations.SerializedName("eventGenderPref")
     private String    eventGenderPref;
-    @com.google.gson.annotations.SerializedName("EventAgeRange")
-    private String    EventAgeRange;
+    @com.google.gson.annotations.SerializedName("eventAgeRange")
+    private String    eventAgeRange;
+    @com.google.gson.annotations.SerializedName("eventTitle")
+    private String    eventTitle;
+    @com.google.gson.annotations.SerializedName("eventDescription")
+    private String    eventDescription;
 
-    public EventTbl(String id, String adress, String eventSummary, String eventLocation, String eventBegin, String eventEnd, String hostId, int eventMaxParticipators, String eventTitle, String eventDate, String eventPurpose, String eventProp, String eventActivityLocation, String eventGenderPref, String eventAgeRange) {
+    public EventTbl(String id, String eventLocation, String eventTime, String eventHours, String hostId, int eventParticipantsLimit, String eventRequirements, String eventDate, String eventActivityLocation, String eventGenderPref, String eventAgeRange, String eventTitle, String eventDescription) {
         this.id = id;
-        Adress = adress;
-        EventSummary = eventSummary;
         this.eventLocation = eventLocation;
-        this.eventBegin = eventBegin;
-        this.eventEnd = eventEnd;
+        this.eventTime = eventTime;
+        this.eventHours = eventHours;
         this.hostId = hostId;
-        this.eventMaxParticipators = eventMaxParticipators;
-        this.eventTitle = eventTitle;
+        this.eventParticipantsLimit = eventParticipantsLimit;
+        this.eventRequirements = eventRequirements;
         this.eventDate = eventDate;
-        this.eventPurpose = eventPurpose;
-        this.eventProp = eventProp;
         this.eventActivityLocation = eventActivityLocation;
         this.eventGenderPref = eventGenderPref;
-        EventAgeRange = eventAgeRange;
+        this.eventAgeRange = eventAgeRange;
+        this.eventTitle = eventTitle;
+        this.eventDescription = eventDescription;
     }
 
-    public EventTbl() {
-
-    }
+    public EventTbl(){}
 
     public String getId() {
         return id;
@@ -64,22 +58,6 @@ public class EventTbl {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getAdress() {
-        return Adress;
-    }
-
-    public void setAdress(String adress) {
-        Adress = adress;
-    }
-
-    public String getEventSummary() {
-        return EventSummary;
-    }
-
-    public void setEventSummary(String eventSummary) {
-        EventSummary = eventSummary;
     }
 
     public String getEventLocation() {
@@ -90,20 +68,20 @@ public class EventTbl {
         this.eventLocation = eventLocation;
     }
 
-    public String getEventBegin() {
-        return eventBegin;
+    public String getEventTime() {
+        return eventTime;
     }
 
-    public void setEventBegin(String eventBegin) {
-        this.eventBegin = eventBegin;
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
     }
 
-    public String getEventEnd() {
-        return eventEnd;
+    public String getEventHours() {
+        return eventHours;
     }
 
-    public void setEventEnd(String eventEnd) {
-        this.eventEnd = eventEnd;
+    public void setEventHours(String eventHours) {
+        this.eventHours = eventHours;
     }
 
     public String getHostId() {
@@ -114,20 +92,20 @@ public class EventTbl {
         this.hostId = hostId;
     }
 
-    public int getEventMaxParticipators() {
-        return eventMaxParticipators;
+    public int getEventParticipantsLimit() {
+        return eventParticipantsLimit;
     }
 
-    public void setEventMaxParticipators(int eventMaxParticipators) {
-        this.eventMaxParticipators = eventMaxParticipators;
+    public void setEventParticipantsLimit(int eventParticipantsLimit) {
+        this.eventParticipantsLimit = eventParticipantsLimit;
     }
 
-    public String getEventTitle() {
-        return eventTitle;
+    public String getEventRequirements() {
+        return eventRequirements;
     }
 
-    public void setEventTitle(String eventTitle) {
-        this.eventTitle = eventTitle;
+    public void setEventRequirements(String eventRequirements) {
+        this.eventRequirements = eventRequirements;
     }
 
     public String getEventDate() {
@@ -136,22 +114,6 @@ public class EventTbl {
 
     public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
-    }
-
-    public String getEventPurpose() {
-        return eventPurpose;
-    }
-
-    public void setEventPurpose(String eventPurpose) {
-        this.eventPurpose = eventPurpose;
-    }
-
-    public String getEventProp() {
-        return eventProp;
-    }
-
-    public void setEventProp(String eventProp) {
-        this.eventProp = eventProp;
     }
 
     public String getEventActivityLocation() {
@@ -171,31 +133,26 @@ public class EventTbl {
     }
 
     public String getEventAgeRange() {
-        return EventAgeRange;
+        return eventAgeRange;
     }
 
     public void setEventAgeRange(String eventAgeRange) {
-        EventAgeRange = eventAgeRange;
+        this.eventAgeRange = eventAgeRange;
     }
 
-    @Override
-    public String toString() {
-        return "EventTbl{" +
-                "id='" + id + '\'' +
-                ", Adress='" + Adress + '\'' +
-                ", EventSummary='" + EventSummary + '\'' +
-                ", eventLocation='" + eventLocation + '\'' +
-                ", eventBegin='" + eventBegin + '\'' +
-                ", eventEnd='" + eventEnd + '\'' +
-                ", hostId='" + hostId + '\'' +
-                ", eventMaxParticipators=" + eventMaxParticipators +
-                ", eventTitle='" + eventTitle + '\'' +
-                ", eventDate='" + eventDate + '\'' +
-                ", eventPurpose='" + eventPurpose + '\'' +
-                ", eventProp='" + eventProp + '\'' +
-                ", eventActivityLocation='" + eventActivityLocation + '\'' +
-                ", eventGenderPref='" + eventGenderPref + '\'' +
-                ", EventAgeRange='" + EventAgeRange + '\'' +
-                '}';
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public void setEventTitle(String eventTitle) {
+        this.eventTitle = eventTitle;
+    }
+
+    public String getEventDescription() {
+        return eventDescription;
+    }
+
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 }

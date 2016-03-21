@@ -78,7 +78,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
         rbFemale.setOnClickListener(this);
         rbMale.setOnClickListener(this);
-
+        etFirstName.requestFocus();
 
     }
     private boolean checkEmail(String email) {
@@ -147,12 +147,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             etLocation.requestFocus();
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
-        }
+        } /*
         else if (userGender.length() == 0) {
             rgGender.requestFocus();
             Toast.makeText(getBaseContext(), "GENDER NOT CHECKED", Toast.LENGTH_LONG).show();
             return false;
-        }
+        } */
         else if (etPhoneNumber.toString().length() == 0) {
             etPhoneNumber.requestFocus();
             etPhoneNumber.setError("FIELD CANNOT BE EMPTY");

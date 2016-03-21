@@ -5,6 +5,8 @@ import com.example.sclzservice.R;
 import com.example.sclzservice.ToDoActivity;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.notifications.NotificationsHandler;
+
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -63,7 +65,31 @@ public class PushNotifHandler extends NotificationsHandler {
         sendNotification(nhMessage);
     }
 
-    private void sendNotification(String msg) {
+    public void sendNotification(String msg) {
+        mNotificationManager = (NotificationManager)
+                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        // TODO
+        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                new Intent(ctx, MainHomeActivity.class), 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ctx)
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle("Socialize")
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText(msg))
+                        .setContentText(msg);
+
+        mBuilder.setContentIntent(contentIntent);
+        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        NOTIFICATION_ID++;
+        Log.d("PushNotif", "Sent:" + msg);
+        Log.d("PushNotif", "NOTIF_ID:" + NOTIFICATION_ID);
+    }
+
+    public void sendNotification(String msg, String str) {
         mNotificationManager = (NotificationManager)
                 ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 

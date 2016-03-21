@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -24,8 +23,8 @@ import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
-import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -37,11 +36,8 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-import com.microsoft.windowsazure.notifications.NotificationsManager;
-import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
-import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -50,6 +46,7 @@ public class MainHomeActivity extends AppCompatActivity {
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
     TabLayout tabLayout;
+
 
 
 
@@ -62,6 +59,7 @@ public class MainHomeActivity extends AppCompatActivity {
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> msEnetTbl;
+    private MobileServiceTable<UserTbl> msUsersTbl;
 
     private EventTblAdapter mAdapter;
 
@@ -216,6 +214,10 @@ public class MainHomeActivity extends AppCompatActivity {
         EventTbl entity = msEnetTbl.insert(item).get();
         return entity;
     }
+    /**
+     * Refresh the list with the items in the Table
+     */
+
 
     /**
      * Refresh the list with the items in the Table
@@ -266,6 +268,8 @@ public class MainHomeActivity extends AppCompatActivity {
 
         runAsyncTask(task);
     }
+
+
     /**
      * Refresh the list with the items in the Table
      */
@@ -410,6 +414,41 @@ public class MainHomeActivity extends AppCompatActivity {
 
         runAsyncTask(task);
     }
+
+
+    /**
+     * Refresh the list with the items in the Table
+     */
+    public void userLogin(final String userName, final String userPassword) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msUsersTbl==null)
+            msUsersTbl = mClient.getTable(UserTbl.class);
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<UserTbl> results = msUsersTbl.where().field("userName").eq(userName).and().field("userPassword").eq(userPassword).execute().get();
+
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        };
+
+        runAsyncTask(task);
+    }
+
 
     /**
      * Refresh the list with the items in the Mobile Service Table
