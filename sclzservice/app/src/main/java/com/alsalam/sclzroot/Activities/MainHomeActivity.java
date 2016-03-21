@@ -12,19 +12,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
 import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
+import com.alsalam.sclzroot.MyFragments.JoinEvent;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
+import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
+import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -36,12 +41,15 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
+import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MainHomeActivity extends AppCompatActivity {
+public class MainHomeActivity extends AppCompatActivity implements EventsHandler {
     ViewPager viewPager;
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
@@ -49,17 +57,16 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
 
-
     /**
      * Mobile Service Client reference
-     */
+    */
     private MobileServiceClient mClient;
 
     /**
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> msEnetTbl;
-    private MobileServiceTable<UserTbl> msUsersTbl;
+    private MobileServiceTable<UserTbl> msUsertTbl;
 
     private EventTblAdapter mAdapter;
 
@@ -161,7 +168,313 @@ public class MainHomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onJoinEvent(JoinEvent e) {
+        Toast.makeText(getBaseContext(), "here calling join activity", Toast.LENGTH_SHORT).show();
 
+    }
+    /** all
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void eventsAllFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.REJECTED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
+    /** REJECTED
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void EventsREJECTEDFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.REJECTED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
+    /** CONCELED
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void EventsCONCELEDFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.CONCELED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
+    /** accept
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void EventsAcceptFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
+    /**** Watting
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     */
+    public void EventsWattingFromTable(ListView listView, int itmLayout) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msEnetTbl==null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if(mAdapter==null)
+            mAdapter = new EventTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mAdapter);
+        AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<EventTbl> doInBackground(Void... params) {
+
+                try {
+                    ///final List<EventTbl> results = msEnetTbl.execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.WAITING).execute().get();
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+
+            }
+
+            @Override
+            protected void onPostExecute(List<EventTbl> listRes) {
+                mAdapter.clear();
+                mAdapter.addAll(listRes);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+    }
+    /**
+     * Refresh the list with the items in the Table
+     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+     * check the sign in and retrun user if found ot null if not
+     */
+    public UserTbl refreshAllUsersFromTable(final String user, final String password) {
+        final UserTbl[] userTbl = {null};
+                AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected List<UserTbl> doInBackground(Void... params) {
+
+                try {
+                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
+
+
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+
+                    //Offline Sync
+                    return results;
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(List<UserTbl> listRes) {
+                if(listRes.size()>0)
+                    userTbl[0] = listRes.get(0);
+//                for (EventTbl item : results) {
+//                    mAdapter.add(item);
+//
+//                }
+
+            }
+        };
+        task.execute();
+        // runAsyncTask(task);
+       return userTbl[0];
+    }
     private  static class MyPagerAdatpter extends FragmentPagerAdapter
     {
         Fragment[] fragments;
@@ -214,10 +527,6 @@ public class MainHomeActivity extends AppCompatActivity {
         EventTbl entity = msEnetTbl.insert(item).get();
         return entity;
     }
-    /**
-     * Refresh the list with the items in the Table
-     */
-
 
     /**
      * Refresh the list with the items in the Table
@@ -269,55 +578,6 @@ public class MainHomeActivity extends AppCompatActivity {
         runAsyncTask(task);
     }
 
-
-    /**
-     * Refresh the list with the items in the Table
-     */
-    public void refreshWaitingEventsFromTable(ListView listView,int itmLayout) {
-
-        // Get the items that weren't marked as completed and add them in the
-        // adapter
-        if(msEnetTbl==null)
-        msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-        mAdapter = new EventTblAdapter(this,itmLayout);
-
-        listView.setAdapter(mAdapter);
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-            @Override
-            protected Void doInBackground(Void... params) {
-
-                try {
-                    final List<EventTbl> results = msEnetTbl.execute().get();
-
-                    //Offline Sync
-                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAdapter.clear();
-
-                            for (EventTbl item : results) {
-                                mAdapter.add(item);
-                            }
-                        }
-                    });
-                } catch (final Exception e){
-                    createAndShowDialogFromTask(e, "Error");
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-            }
-        };
-
-        runAsyncTask(task);
-    }
     /**
      * Refresh the list with the items in the Table
      */
@@ -414,41 +674,6 @@ public class MainHomeActivity extends AppCompatActivity {
 
         runAsyncTask(task);
     }
-
-
-    /**
-     * Refresh the list with the items in the Table
-     */
-    public void userLogin(final String userName, final String userPassword) {
-
-        // Get the items that weren't marked as completed and add them in the
-        // adapter
-        if(msUsersTbl==null)
-            msUsersTbl = mClient.getTable(UserTbl.class);
-
-        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-            @Override
-            protected Void doInBackground(Void... params) {
-
-                try {
-                    final List<UserTbl> results = msUsersTbl.where().field("userName").eq(userName).and().field("userPassword").eq(userPassword).execute().get();
-
-                } catch (final Exception e){
-                    createAndShowDialogFromTask(e, "Error");
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
-            }
-        };
-
-        runAsyncTask(task);
-    }
-
 
     /**
      * Refresh the list with the items in the Mobile Service Table

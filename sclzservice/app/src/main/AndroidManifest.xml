@@ -7,8 +7,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <permission android:name="com.alsalam.sclzroot.permission.C2D_MESSAGE"
+
+    <permission
+        android:name="com.alsalam.sclzroot.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.alsalam.sclzroot.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -17,19 +20,21 @@
     <application
         android:name="com.alsalam.sclzroot.MainApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+        <receiver
+            android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="com.alsalam.sclzroot" />
             </intent-filter>
         </receiver>
 
-        <meta-data android:name="com.google.android.gms.version"
+        <meta-data
+            android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
@@ -37,13 +42,13 @@
             android:label="@string/app_name" />
         <activity
             android:name="com.alsalam.sclzroot.Activities.IntroActivity"
-            android:label="@string/title_activity_intro" />
+             />
         <activity
             android:name="com.alsalam.sclzroot.Activities.RegisterActivity"
-            android:label="@string/title_activity_register" />
+            />
         <activity
             android:name="com.alsalam.sclzroot.Activities.LoginActivity"
-            android:label="@string/title_activity_login">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,10 +57,10 @@
         </activity>
         <activity
             android:name="com.alsalam.sclzroot.Activities.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            />
         <activity
             android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity"
-            android:label="@string/title_activity_admin_panel" />
+            />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -71,8 +76,8 @@
 
         <activity
             android:name="com.alsalam.sclzroot.Activities.MainHomeActivity"
-            android:label="@string/app_name" />
-
+             />
+       
     </application>
 
 </manifest>

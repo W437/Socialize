@@ -76,9 +76,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
 
-        rbFemale.setOnClickListener(this);
-        rbMale.setOnClickListener(this);
-        etFirstName.requestFocus();
+
+
 
     }
     private boolean checkEmail(String email) {
@@ -87,19 +86,32 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     public UserTbl getUserInfo() {
-        UserTbl user = new UserTbl(
-                (int) (Math.random() * 99999999) + "",
-                etUsername.getText().toString(),
-                etPass.getText().toString(),
-                etFirstName.getText().toString(),
-                etLastName.getText().toString(),
-                etMail_Address.getText().toString(),
-                "normalUser",
-                etLocation.getText().toString(),
-                new Date(1998, 2, 17),
-                userGender,
-                etPhoneNumber.getText().toString()
-        );
+        UserTbl user=new UserTbl();
+        user.setFirstName(etFirstName.getText().toString());
+        user.setLastName(etLastName.getText().toString());
+        user.setId(user.getId().toString());
+        user.setUserAddress(etLocation.getText().toString());
+        user.setUserEmail(etMail_Address.getText().toString());
+        user.setUserPassword(etPass.getText().toString());
+        user.setUserPhone(etPhoneNumber.getText().toString());
+        user.setUserTafkeed(user.getUserTafkeed().toString());
+        user.setUserBirthday(user.getUserBirthday());
+        user.setUserGender(user.getUserGender().toString());
+        user.setUserName(etUsername.getText().toString());
+        // TODO complete other fields
+//        UserTbl user = new UserTbl(
+//                (int) (Math.random() * 99999999) + "",
+//                etUsername.getText().toString(),
+//                etPass.getText().toString(),
+//                etFirstName.getText().toString(),
+//                etLastName.getText().toString(),
+//                etMail_Address.getText().toString(),
+//                "normalUser",
+//                etLocation.getText().toString(),
+//                new Date(1998, 2, 17),
+//                userGender,
+//                etPhoneNumber.getText().toString()
+//        );
 
         Log.d("test", user.toString());
         return user;
@@ -147,12 +159,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             etLocation.requestFocus();
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
-        } /*
-        else if (userGender.length() == 0) {
+        }
+        else
+        if (rgGender.getCheckedRadioButtonId() != R.id.rbMale && rgGender.getCheckedRadioButtonId()!= R.id.rbFemale) {
             rgGender.requestFocus();
             Toast.makeText(getBaseContext(), "GENDER NOT CHECKED", Toast.LENGTH_LONG).show();
             return false;
-        } */
+        }
         else if (etPhoneNumber.toString().length() == 0) {
             etPhoneNumber.requestFocus();
             etPhoneNumber.setError("FIELD CANNOT BE EMPTY");
@@ -203,9 +216,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btnSign:
-                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                break;
+//            case R.id.btnSign:
+//                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                break;
             case R.id.btnSubmit:
                 if(areFieldsFilled())
                 {

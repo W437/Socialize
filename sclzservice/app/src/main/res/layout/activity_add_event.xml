@@ -98,6 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/etEventDate"
+                    android:inputType="date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="@string/Date" />
 
@@ -190,11 +191,11 @@
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
 
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/cstm"
-                android:layout_weight="1.15">
+                android:layout_weight="0.8">
 
                 <EditText
                     android:layout_width="299dp"
@@ -206,10 +207,12 @@
             </android.support.design.widget.TextInputLayout>
 
             <ImageButton
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:id="@+id/getLocBtn"
-                android:src="@drawable/locate" />
+                android:background="#0000"
+                android:src="@drawable/locate"
+                android:layout_weight="0.2" />
         </LinearLayout>
 
         <TextView

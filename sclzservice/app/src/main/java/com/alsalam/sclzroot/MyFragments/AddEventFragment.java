@@ -1,6 +1,5 @@
 package com.alsalam.sclzroot.MyFragments;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -28,8 +27,6 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
@@ -68,7 +65,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Geocoder geocoder;
     private Location location2;
     String result = "";
-    private PushNotifHandler psh;
     @Nullable
 
 
@@ -90,8 +86,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etLimitParticipants =(EditText)view.findViewById(R.id.etLimit);
         etEventDate=(EditText)view.findViewById(R.id.etEventDate);
         etDescription = (EditText)view.findViewById(R.id.etDescription);
-        etRequirments = (EditText)view.findViewById(R.id.etRequirments);
-        etHours = (EditText)view.findViewById(R.id.etHours);
 
 
         rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
@@ -113,7 +107,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
         //etTime.setClickable(false);
-        psh = new PushNotifHandler();
+
     }
 
 
@@ -145,23 +139,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         else
             location = "Outdoors & Indoors";
 
-        EventTbl event = new EventTbl();
-        event.setEventTitle(etTitle.getText().toString());
-        event.setEventGenderPref(genderPref);
-        event.setEventDescription(etDescription.getText().toString());
-        event.setEventActivityLocation(location);
-        event.setEventAgeRange(etAge.getText().toString());
-        event.setEventDate(etEventDate.getText().toString());
-        event.setEventHours(etHours.getText().toString());
-        event.setEventLocation(etLocation.getText().toString());
-        if (etLimitParticipants.getText().toString().length() == 0)
-            event.setEventParticipantsLimit(0);
-        else
-            event.setEventParticipantsLimit(Integer.valueOf(etLimitParticipants.getText().toString()));
-        event.setEventTime(etRequirments.getText().toString());
-        event.setEventRequirements(etRequirments.getText().toString());
-        event.setId( Math.random() * 99999999 + "");
-        event.setHostId( Math.random() * 99999999 + "");
+        EventTbl event=new EventTbl();
 
 //        EventTbl event = new EventTbl( "",
 //                etLocation.getText().toString(),
@@ -337,15 +315,16 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 //                        }
 //                    }, mHour, mMinute, false);
 //            timePickerDialog.show();
-//       }
+//        }
 
         if (v == btnDone )
         {
+            if(areFieldsFilled()) {
                 addEventToDB(getEventInfo());
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
-                //psh.sendNotification("New Event - " + getEventInfo().getEventTitle());
+            }
 
         }
 
