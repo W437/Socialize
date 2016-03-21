@@ -59,8 +59,8 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
         tvBegin2.setText(currentItem.getEventDate().toString());
-        tvAdress2.setText(currentItem.getAddress().toString());
-        tvSummary2.setText(currentItem.getEventPurpose().toString());
+        //tvAdress2.setText(currentItem.getAddress().toString());
+        //tvSummary2.setText(currentItem.getEventPurpose().toString());
         tvEventT.setText(currentItem.getEventTitle().toString());
 
         btAccept.setOnClickListener(new View.OnClickListener() {
@@ -98,8 +98,8 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
         row.setTag(currentItem);
 
         tvBegin2.setText(currentItem.getEventDate().toString());
-      tvAdress2.setText(currentItem.getAddress().toString());
-        tvSummary2.setText(currentItem.getEventPurpose().toString());
+      //tvAdress2.setText(currentItem.getAddress().toString());
+        //tvSummary2.setText(currentItem.getEventPurpose().toString());
         tvEventT.setText(currentItem.getEventTitle().toString());
 
         return row;

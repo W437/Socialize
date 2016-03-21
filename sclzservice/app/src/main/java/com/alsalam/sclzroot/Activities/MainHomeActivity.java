@@ -325,7 +325,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
                 try {
                     ///final List<EventTbl> results = msEnetTbl.execute().get();
-                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.CONCELED).execute().get();
+                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.CANCELED).execute().get();
                     //Offline Sync
                     //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
                     return results;

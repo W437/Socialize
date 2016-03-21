@@ -119,7 +119,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
             case R.id.btnSign:
-
+                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                break;
 //                try {
 //                    msUsertTbl.execute(new TableQueryCallback<UserTbl>() {
 //                        @Override

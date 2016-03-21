@@ -91,8 +91,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etLimitParticipants =(EditText)view.findViewById(R.id.etLimit);
         etEventDate=(EditText)view.findViewById(R.id.etEventDate);
         etDescription = (EditText)view.findViewById(R.id.etDescription);
-
-
+        etRequirments = (EditText)view.findViewById(R.id.etRequirments);
+        etHours = (EditText)view.findViewById(R.id.etHours);
         rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
         rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
         wBeginTime=(TextInputLayout)view.findViewById(R.id.BeginningWrapper);
@@ -145,11 +145,19 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             location = "Outdoors & Indoors";
 
         EventTbl event=new EventTbl();
-          event.setAddress(etLocation.getText().toString());
-          event.setEventDate(eventDate);
-          event.setEventPurpose(etDescription.getText().toString());
-         // event.setEventProp(etRequirments.getText().toString());
-          event.setEventTitle(etTitle.getText().toString());
+        event.setEventTitle(etTitle.getText().toString());
+        event.setEventDescription(etDescription.getText().toString());
+        event.setEventMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
+        event.setEventRequirements(etRequirments.getText().toString());
+        event.setEventDate(etEventDate.getText().toString());
+        event.setEventTime(etTime.getText().toString());
+        event.setEventHours(etHours.getText().toString());
+        event.setEventAgeRange(etAge.getText().toString());
+        event.setEventLocation(etLocation.getText().toString());
+        event.setEventGenderPref(genderPref);
+        event.setEventActivityLocation(location);
+        event.setId(( Math.random() * 9999999) + "");
+        event.setHostId((Math.random() * 9999999) + "");
 
         //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
@@ -166,7 +174,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 //                genderPref,
 //                etAge.getText().toString());
 
-//        Log.d("test", event.toString());
+        Log.d("EVENT TEST", event.toString());
         return event;
     }
 
@@ -347,7 +355,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
-            }
+           }
 
         }
 
