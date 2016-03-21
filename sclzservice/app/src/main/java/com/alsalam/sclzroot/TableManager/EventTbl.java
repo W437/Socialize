@@ -38,6 +38,8 @@ public class EventTbl {
     @com.google.gson.annotations.SerializedName("eventProp")
     private String    eventProp;
 
+
+
     public String getId() {
         return id;
     }

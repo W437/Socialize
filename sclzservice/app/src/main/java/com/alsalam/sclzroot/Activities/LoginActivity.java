@@ -120,25 +120,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btnSign:
 
-                try {
-                    msUsertTbl.execute(new TableQueryCallback<UserTbl>() {
-                        @Override
-                        public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
-                            if(count>0)
-                            {
-                                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                                createAndShowDialog("user and pass OKKKK","");
-                            }
-                            else
-                            {
-                                createAndShowDialog("user or pass error","");
-
-                            }
-                        }
-                    });
-                } catch (MobileServiceException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    msUsertTbl.execute(new TableQueryCallback<UserTbl>() {
+//                        @Override
+//                        public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
+//                            if(count>0)
+//                            {
+//                                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                                createAndShowDialog("user and pass OKKKK","");
+//                            }
+//                            else
+//                            {
+//                                createAndShowDialog("user or pass error","");
+//
+//                            }
+//                        }
+//                    });
+//                } catch (MobileServiceException e) {
+//                    e.printStackTrace();
+//                }
 //                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
 //                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 //                        createAndShowDialog("user or pass word error","");
