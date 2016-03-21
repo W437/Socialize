@@ -89,14 +89,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         UserTbl user=new UserTbl();
         user.setFirstName(etFirstName.getText().toString());
         user.setLastName(etLastName.getText().toString());
-        user.setId(user.getId().toString());
+       // user.setId(user.getId().toString());
         user.setUserAddress(etLocation.getText().toString());
         user.setUserEmail(etMail_Address.getText().toString());
         user.setUserPassword(etPass.getText().toString());
         user.setUserPhone(etPhoneNumber.getText().toString());
-        user.setUserTafkeed(user.getUserTafkeed().toString());
-        user.setUserBirthday(user.getUserBirthday());
-        user.setUserGender(user.getUserGender().toString());
+
         user.setUserName(etUsername.getText().toString());
         // TODO complete other fields
 //        UserTbl user = new UserTbl(
@@ -183,7 +181,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void addUserToDB(UserTbl user)
     {
         try {
-
+            if(mClient==null)
             mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net",getBaseContext());
             MobileServiceTable<UserTbl> mtable = mClient.getTable(UserTbl.class);
             mtable.insert(user, new TableOperationCallback<UserTbl>() {
@@ -193,8 +191,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     {
 
                         Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "SUCCESS! YAY!");
-                        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                        Log.d("AZURE DB", "SUCCESS! YAY!"+entity.toString());
+                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                     }
                     else
                     {
