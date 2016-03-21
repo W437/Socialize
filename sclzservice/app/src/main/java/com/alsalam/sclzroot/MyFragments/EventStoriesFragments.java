@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
@@ -46,6 +47,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.ne;
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
 public class EventStoriesFragments extends Fragment
@@ -53,6 +55,8 @@ public class EventStoriesFragments extends Fragment
 
 
     private ListView listView;
+    private Spinner spinner;
+    private String[] event={};
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -60,6 +64,10 @@ public class EventStoriesFragments extends Fragment
        // init(view);
         listView= (ListView) view.findViewById(R.id.listView);
         ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
+
+
+
+
 
         // Get the Mobile Service Table instance to use
 

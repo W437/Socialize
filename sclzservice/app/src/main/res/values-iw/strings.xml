@@ -26,7 +26,7 @@
     <string name="title_activity_event_card">כרטיס אירוע</string>
     <string name="title_activity_home">הבית</string>
     <string name="title_activity_intro">מבוא</string>
-    <string name="title_activity_login">התחברות </string>
+    <string name="title_activity_login">כניסה</string>
     <string name="title_activity_map_home">מַפָּה</string>
     <string name="title_activity_my_events_fragment">האירועים שלי</string>
     <string name="title_activity_profile">פרופיל</string>
@@ -46,7 +46,7 @@
     <string name="gender">מין</string>
     <string name="gender_preference">מין</string>
     <string name="last_name">שם משפחה</string>
-    <string name="location">כתובת</string>
+    <string name="location">מקום</string>
     <string name="male">זכר</string>
     <string name="participants_limit">הגבלת משתתפים</string>
     <string name="password">סיסמה</string>
@@ -95,9 +95,15 @@
     <string name="Register">הרשמה</string>
     <string name="Remember_password">לזכור סיסמה</string>
     <string name="Requirements">דרישות</string>
-    <string name="Sign_in">הירשם</string>
+    <string name="Sign_in">כניסה</string>
     <string name="Sign_up_with_facebook">הרשמה באמצעות פייסבוק</string>
     <string name="Sign_up_with_google">הרשמה באמצעות גוגל</string>
     <string name="Time">זמן</string>
     <string name="both">שְׁנֵיהֶם</string>
+    <string name="accepted_events">אירועים שאשתתף בהם</string>
+    <string name="all_events">כל האירועים</string>
+    <string name="events_according_my_location">אירועים לפי האיזור שלי</string>
+    <string name="events_according_time">אירועים לפי סדר זמן</string>
+    <string name="my_own_events">אירועים שפתחתי</string>
+    <string name="past_events">כל האירועים שהשתתפתי בהם</string>
 </resources>
