@@ -74,8 +74,12 @@ public class EventStoriesFragments extends Fragment
 
     private ListView listView;
     private Spinner spinner;
+<<<<<<< Updated upstream
     private String[] event=new String[5];
     String spin_val;
+=======
+    private String[] event = new String[6];
+>>>>>>> Stashed changes
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
