@@ -100,4 +100,10 @@
     <string name="title_activity_stories"></string>
     <string name="Join_requests">طلبات الانضمام</string>
     <string name="checkbox_text">نص</string>
+    <string name="accepted_events">لقاءات تمت الموافقة عليها</string>
+    <string name="all_events">جميع اللقاءات</string>
+    <string name="events_according_my_location">لقاءات حسب موقعي </string>
+    <string name="events_according_time">لفاءات حسب ترتيب زمني</string>
+    <string name="my_own_events">لقاءات ساقيمها</string>
+    <string name="past_events">لقاءات اشتركت بها</string>
 </resources>
