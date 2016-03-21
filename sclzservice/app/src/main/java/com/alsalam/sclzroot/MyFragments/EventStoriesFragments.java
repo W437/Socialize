@@ -56,7 +56,8 @@ public class EventStoriesFragments extends Fragment
 
     private ListView listView;
     private Spinner spinner;
-    private String[] event={};
+    private String[] event=new String[5];
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -64,6 +65,17 @@ public class EventStoriesFragments extends Fragment
        // init(view);
         listView= (ListView) view.findViewById(R.id.listView);
         ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
+        spinner=(Spinner)view.findViewById(R.id.spinner1);
+        event[0] =getResources().getString(R.string.all_events);
+        event[1]=getResources().getString(R.string.accepted_events);
+        event[2]=getResources().getString(R.string.my_own_events);
+        event[3]=getResources().getString(R.string.events_according_time);
+        event[4]=getResources().getString(R.string.events_according_my_location);
+        event[5]=getResources().getString(R.string.past_events);
+
+       /// ((MainHomeActivity)((MainHomeActivity) getActivity()).refreshEventsFromTable(spinner,R.layout.events_stories);
+
+
 
 
 
