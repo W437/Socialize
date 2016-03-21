@@ -159,7 +159,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         event.setId(( Math.random() * 9999999) + "");
         event.setHostId((Math.random() * 9999999) + "");
 
-        //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
+          //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
 //                etLocation.getText().toString(),
 //                etTitle.getText().toString(),

@@ -9,12 +9,25 @@ public class GuestsToEvent {
     private String id;
     private String eventid;
     private String userId;//Guest
-    private boolean isApproved=false;
+    private String Status= EventTbl.WAITING;
 
-    public GuestsToEvent(String eventid, String userId, boolean isApproved) {
+    public GuestsToEvent(String id, String eventid, String userId, String status) {
+        this.id = id;
         this.eventid = eventid;
         this.userId = userId;
-        this.isApproved = isApproved;
+        Status = status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public String getStatus() {
+
+        return Status;
+    }
+
+    public GuestsToEvent() {
     }
 
     public String getId() {
@@ -41,21 +54,15 @@ public class GuestsToEvent {
         this.userId = userId;
     }
 
-    public boolean isApproved() {
-        return isApproved;
-    }
-
-    public void setIsApproved(boolean isApproved) {
-        this.isApproved = isApproved;
-    }
-
     @Override
     public String toString() {
         return "GuestsToEvent{" +
                 "id='" + id + '\'' +
                 ", eventid='" + eventid + '\'' +
                 ", userId='" + userId + '\'' +
-                ", isApproved=" + isApproved +
+                ", Status='" + Status + '\'' +
                 '}';
     }
+
+
 }
