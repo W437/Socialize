@@ -148,7 +148,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
           event.setAddress(etLocation.getText().toString());
           event.setEventDate(eventDate);
           event.setEventPurpose(etDescription.getText().toString());
-          event.setEventProp(etRequirments.getText().toString());
+         // event.setEventProp(etRequirments.getText().toString());
           event.setEventTitle(etTitle.getText().toString());
 
         //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
