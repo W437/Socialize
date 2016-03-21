@@ -48,7 +48,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
      */
     private MobileServiceClient mClient;
 
-    /**
+    /** test
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> mToDoTable;
