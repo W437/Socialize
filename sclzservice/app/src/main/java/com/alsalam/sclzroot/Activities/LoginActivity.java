@@ -19,7 +19,10 @@ import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
 import com.facebook.FacebookSdk;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceException;
+import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 import java.net.MalformedURLException;
@@ -116,13 +119,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
             case R.id.btnSign:
-                if(true) {
-                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
-                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                    }
-                    else
-                    createAndShowDialog("user or pass word error","");
+
+                try {
+                    msUsertTbl.execute(new TableQueryCallback<UserTbl>() {
+                        @Override
+                        public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
+                            if(count>0)
+                            {
+                                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                                createAndShowDialog("user and pass OKKKK","");
+                            }
+                            else
+                            {
+                                createAndShowDialog("user or pass error","");
+
+                            }
+                        }
+                    });
+                } catch (MobileServiceException e) {
+                    e.printStackTrace();
                 }
+//                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
+//                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                        createAndShowDialog("user or pass word error","");
+//
+//                    }
+//                    else
+//                    createAndShowDialog("user or pass word error","");
+
         }
 
     }
