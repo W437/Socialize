@@ -1,7 +1,10 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -26,38 +30,41 @@ import java.util.Calendar;
 /**
  * Created by samih on 27/02/2016.
  */
-public class MapListFragment extends Fragment implements OnMapReadyCallback,EventsHandler {
-private   MapView mapView;
+public class MapListFragment extends Fragment implements OnMapReadyCallback, EventsHandler {
+    private MapView mapView;
     private GoogleMap mMap;
     private ListView listView;
     private TextView tvMonth;
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.activity_map_home,container,false);
+        View view = inflater.inflate(R.layout.activity_map_home, container, false);
 
-       mapView= (MapView) view.findViewById(R.id.map);
-        tvMonth= (TextView) view.findViewById(R.id.tvMonth);
-        Calendar cal=Calendar.getInstance();
+        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+       // mapView = (MapView) view.findViewById(R.id.map);
+        tvMonth = (TextView) view.findViewById(R.id.tvMonth);
+        Calendar cal = Calendar.getInstance();
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         String month_name = month_date.format(cal.getTime());
         tvMonth.setText(month_name);
-      // EventTblAdapter eventTblAdapter=new EventTblAdapter(getActivity(),R.layout.event_card_itm);
+        // EventTblAdapter eventTblAdapter=new EventTblAdapter(getActivity(),R.layout.event_card_itm);
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2000,9,2),new Date(2003,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2012,9,2),new Date(2015,9,2),"3",5));
         //eventTblAdapter.add(new EventTbl("1","Danon", new Date(2010,9,2),new Date(2012,9,2),"3",5));
 
-       // listView.setAdapter(eventTblAdapter);
+        // listView.setAdapter(eventTblAdapter);
 
 
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
+//        mapView.onCreate(savedInstanceState);
+//        mapView.getMapAsync(this);
 
-        listView= (ListView) view.findViewById(R.id.lstvEvetnts);
-        ((MainHomeActivity)getActivity()).eventsAllFromTable(listView, R.layout.event_card_itm);
+        listView = (ListView) view.findViewById(R.id.lstvEvetnts);
+        ((MainHomeActivity) getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
         return view;
     }
@@ -70,18 +77,29 @@ private   MapView mapView;
 
         LatLng sydney = new LatLng(32.9943511, 35.1472984);
         mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום -דנון"));
-        LatLng sydney1 = new LatLng(33.0155026,35.1359451);
+        LatLng sydney1 = new LatLng(33.0155026, 35.1359451);
         mMap.addMarker(new MarkerOptions().position(sydney1).title("נהריה"));
-        LatLng  sydney2 = new LatLng(32.9843018,35.1031843);
+        LatLng sydney2 = new LatLng(32.9843018, 35.1031843);
         mMap.addMarker(new MarkerOptions().position(sydney2).title("מזרעה"));
-        LatLng sydney3 = new LatLng(33.0888807,35.2339193);
+        LatLng sydney3 = new LatLng(33.0888807, 35.2339193);
         mMap.addMarker(new MarkerOptions().position(sydney3).title("קיבוץ עברון"));
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }
 
     @Override
-    public void onJoinEvent(JoinEvent e) {
-        Toast.makeText(getContext(),"here calling join activity",Toast.LENGTH_SHORT).show();
+    public void onJoinEvent(JoinEventDialog e) {
+        Toast.makeText(getContext()," MapListFragment here calling join activity",Toast.LENGTH_SHORT).show();
     }
 }

@@ -76,7 +76,6 @@ public class EventStoriesFragments extends Fragment
     private Spinner spinner;
 
     String spin_val;
-
     private String[] event = new String[6];
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

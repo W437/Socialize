@@ -2,6 +2,8 @@ package com.alsalam.sclzroot.TableManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.widget.ListView;
@@ -31,7 +33,7 @@ public class DataBaseMngr
 {
     public static Activity activity;
 
-
+    public static final String MY_PREF="MyPref";
     /**
      * Mobile Service Client reference
      */
@@ -91,6 +93,25 @@ public class DataBaseMngr
 
     }
 
+    public static void saveLogIn(UserTbl userTbl,Context mContext)
+    {
+
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString("UserName",userTbl.getUserName());
+        editor.putString("user_id",userTbl.getId());
+
+
+        editor.commit();
+    }
+    public static void getLogedUserName(Context mContext)
+    {
+
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+
+
+
+    }
     /**
      * Add an item to the Mobile Service Table
      *

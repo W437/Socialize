@@ -157,5 +157,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="hnt_et_location">location</string>
     <string name="str_btn_find">Search</string>
+    <string name="save">Save</string>
+    <string name="cancel">Canel</string>
+    <string name="find">Find</string>
+    <string name="selected_location">selected loaction</string>
 
 </resources>

@@ -29,7 +29,7 @@ import com.example.sclzservice.R;
 /**
  * Created by hp1 on 15/03/2016.
  */
-public class JoinEvent extends DialogFragment
+public class JoinEventDialog extends DialogFragment
 {
 
     protected EventsHandler eventsHandler;

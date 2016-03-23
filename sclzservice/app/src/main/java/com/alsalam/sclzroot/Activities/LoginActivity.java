@@ -124,8 +124,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
                         if (result.size() > 0) {
-                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+
                             createAndShowDialog("user and pass OKKKK", "");
+                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+
                         } else {
                             createAndShowDialog("user or pass error", "");
 

@@ -40,6 +40,11 @@ public class EventTbl {
     private String    eventAgeRange;
     @com.google.gson.annotations.SerializedName("eventRequirements")
     private String    eventRequirements;
+    @com.google.gson.annotations.SerializedName("lang")
+    private double    lang;
+    @com.google.gson.annotations.SerializedName("lat")
+    private double    lat;
+
 
 
     public EventTbl(String id, String eventLocation, String eventDate, String eventTime, String eventHours, String hostId, int eventMaxParticipants, String eventTitle, String eventDescription, String eventActivityLocation, String eventGenderPref, String eventAgeRange, String eventRequirements, String eventSummary) {
@@ -66,6 +71,13 @@ public class EventTbl {
         this.id = id;
     }
 
+    public void setLang(double lang) {
+        this.lang = lang;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
 
     public static String getWAITING() {
         return WAITING;

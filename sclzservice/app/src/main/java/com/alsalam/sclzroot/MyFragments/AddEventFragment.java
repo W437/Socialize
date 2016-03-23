@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +70,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     String result = "";
 
       private Date eventDate;
+    private FragmentManager fragmentManager;
+    private SearchOnMapDialog searchFragment;
+    private EventTbl event;
 
 
     @Nullable
@@ -76,6 +81,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.activity_add_event,container,false);
+        event=new EventTbl();
+
         init(view);
        // return super.onCreateView(inflater, container, savedInstanceState);
       return  view;
@@ -112,6 +119,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
         //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
 
     }
 
@@ -144,7 +154,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         else
             location = "Outdoors & Indoors";
 
-        EventTbl event=new EventTbl();
         event.setEventTitle(etTitle.getText().toString());
         event.setEventDescription(etDescription.getText().toString());
         event.setEventMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
@@ -156,7 +165,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         event.setEventLocation(etLocation.getText().toString());
         event.setEventGenderPref(genderPref);
         event.setEventActivityLocation(location);
-        event.setId(( Math.random() * 9999999) + "");
+       // event.setId(( Math.random() * 9999999) + "");
         event.setHostId((Math.random() * 9999999) + "");
 
           //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
@@ -361,11 +370,19 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
         if ( v == getLocBtn)
         {
-            try {
-                etLocation.setText(getLocation(new Location("prov")));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(searchFragment==null)
+            {
+                searchFragment=new SearchOnMapDialog();
+                searchFragment.setSearch(event,etLocation);
+
             }
+            searchFragment.show(fragmentManager,"search");
+
+//            try {
+//                //etLocation.setText(getLocation(new Location("prov")));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

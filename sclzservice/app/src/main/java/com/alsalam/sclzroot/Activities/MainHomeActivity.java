@@ -1,7 +1,6 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
@@ -13,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,14 +20,12 @@ import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
-import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
-import com.alsalam.sclzroot.MyFragments.JoinEvent;
+import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
-import com.alsalam.sclzroot.MyFragments.MapsActivity;
+import com.alsalam.sclzroot.MyFragments.MapList_Fragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.MyFragments.UsersFragment;
-import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
@@ -39,18 +35,13 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
-import com.microsoft.windowsazure.notifications.NotificationsManager;
-import com.roomorama.caldroid.CaldroidFragment;
 
 import java.net.MalformedURLException;
-import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -88,15 +79,16 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
 
         //to do
-        fragments=new Fragment[8];
-        fragments[0]=new MapListFragment();
+        fragments=new Fragment[7];
+        fragments[0]=new MapListFragment();//
+       //fragments[0]=new MapList_Fragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event_to_go));
 
         fragments[2]=new AddEventFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
 
         fragments[3]=new MyEventsFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
@@ -119,9 +111,6 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         fragments[6]=new CalendarFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-
-
-
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
@@ -139,30 +128,6 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         });
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        if(msEnetTbl==null)
-            msEnetTbl=mClient.getTable(EventTbl.class);
-                try {
-                    msEnetTbl.execute(new TableQueryCallback<EventTbl>() {
-                        @Override
-                        public void onCompleted(List<EventTbl> result, int count, Exception exception, ServiceFilterResponse response) {
-                            if(count>0) {
-                                createAndShowDialog(" OK","");
-
-                                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                            }
-                            else
-                                createAndShowDialog("user or pass word error","");
-                        }
-                    });
-                } catch (MobileServiceException e) {
-                    e.printStackTrace();
-                }
-//                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
-//                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-//                    }
-//                    else
-//                    createAndShowDialog("user or pass word error","");
 
 
         myPagerAdatpter=new MyPagerAdatpter(getSupportFragmentManager(),fragments);
@@ -199,8 +164,8 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
     }
 
     @Override
-    public void onJoinEvent(JoinEvent e) {
-        Toast.makeText(getBaseContext(), "here calling join activity", Toast.LENGTH_SHORT).show();
+    public void onJoinEvent(JoinEventDialog e) {
+        Toast.makeText(getBaseContext(), "MainHomeactivity here calling join ", Toast.LENGTH_SHORT).show();
 
     }
     /** all
@@ -228,7 +193,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
                 try {
                     ///final List<EventTbl> results = msEnetTbl.execute().get();
-                    final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.REJECTED).execute().get();
+                    final List<EventTbl> results = msEnetTbl.execute().get();
                     //Offline Sync
                     //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable()
                     return results;
@@ -593,6 +558,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
                         }
                     });
                 } catch (final Exception e){
+                    e.printStackTrace();
                     createAndShowDialogFromTask(e, "Error");
                 }
 
