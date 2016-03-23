@@ -46,6 +46,9 @@ public class DataBaseMngr
      */
     public static MobileServiceTable<UserTbl> msUsers;
 
+     //1.
+     public static MobileServiceTable<GuestsToEvent> msGuestToEvent;
+
     public static EventTblAdapter mAdapter;
     public static UserTblAdapter mUserAdapter;
 
@@ -80,6 +83,10 @@ public class DataBaseMngr
             msEvents=mClient.getTable(EventTbl.class);
         if(msUsers==null)
             msUsers=mClient.getTable(UserTbl.class);
+
+        if(msGuestToEvent==null)
+            msGuestToEvent=mClient.getTable(GuestsToEvent.class);
+
         DataBaseMngr.mProgressBar=mProgressBar;
 
     }
@@ -90,10 +97,24 @@ public class DataBaseMngr
      * @param item
      *            The item to Add
      */
-    public EventTbl addEventInTable(EventTbl item) throws ExecutionException, InterruptedException {
+    public static EventTbl addEventInTable(EventTbl item) throws ExecutionException, InterruptedException {
         EventTbl entity = msEvents.insert(item).get();
         return entity;
     }
+
+     //3.
+     public static GuestsToEvent JoinEventTable(String userId,String eventId) throws ExecutionException,InterruptedException{
+
+         GuestsToEvent guestsToEvent =  new GuestsToEvent();
+         guestsToEvent.setUserId(userId);
+         guestsToEvent.setEventid(eventId);
+         guestsToEvent.setStatus("Waiting");
+
+         guestsToEvent = msGuestToEvent.insert(guestsToEvent).get();
+
+        return  guestsToEvent;
+
+     }
     /**
      * Refresh the list with the items in the Table
      */

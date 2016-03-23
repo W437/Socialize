@@ -25,6 +25,7 @@ import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
 import com.alsalam.sclzroot.MyFragments.EventsToParticipate;
 import com.alsalam.sclzroot.MyFragments.JoinEvent;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
+import com.alsalam.sclzroot.MyFragments.MapsActivity;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.MyFragments.UsersFragment;
@@ -87,15 +88,15 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
 
         //to do
-        fragments=new Fragment[7];
+        fragments=new Fragment[8];
         fragments[0]=new MapListFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
         fragments[2]=new AddEventFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
         fragments[3]=new MyEventsFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
@@ -118,6 +119,9 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         fragments[6]=new CalendarFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());

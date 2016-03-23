@@ -40,27 +40,17 @@
         <activity
             android:name=".ToDoActivity"
             android:label="@string/app_name" />
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.IntroActivity"
-             />
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.RegisterActivity"
-            />
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.LoginActivity"
-            >
+        <activity android:name="com.alsalam.sclzroot.Activities.IntroActivity" />
+        <activity android:name="com.alsalam.sclzroot.Activities.RegisterActivity" />
+        <activity android:name="com.alsalam.sclzroot.Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.SettingsActivity"
-            />
-        <activity
-            android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity"
-            />
+        <activity android:name="com.alsalam.sclzroot.Activities.SettingsActivity" />
+        <activity android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -74,10 +64,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name="com.alsalam.sclzroot.Activities.MainHomeActivity" />
         <activity
-            android:name="com.alsalam.sclzroot.Activities.MainHomeActivity"
-             />
-       
+            android:name="com.alsalam.sclzroot.MyFragments.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

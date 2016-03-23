@@ -175,6 +175,13 @@
         </LinearLayout>
 
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="View Participants"
+            android:id="@+id/btnView"
+              android:layout_weight="1"
+            android:background="@android:color/white" />
 
         <Space
             android:layout_width="match_parent"
@@ -182,20 +189,13 @@
 
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="Join Event"
             android:id="@+id/btnJoin"
              android:layout_weight="1"
             android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="View Participants"
-            android:id="@+id/btnView"
-              android:layout_weight="1"
-            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
 

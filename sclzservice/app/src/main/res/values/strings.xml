@@ -154,5 +154,8 @@
     <string name="events_according_my_location">Events acoording my location</string>
     <string name="events_according_time">Events according time</string>
     <string name="my_own_events">My own events</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hnt_et_location">location</string>
+    <string name="str_btn_find">Search</string>
 
 </resources>

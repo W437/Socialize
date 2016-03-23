@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.alsalam.sclzroot.Activities.RegisterActivity;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 
@@ -35,7 +37,7 @@ public class JoinEvent extends DialogFragment
     private Button btnJoin;
     private int mYear, mMonth, mDay, mHour, mMinute;
 
-
+    private  Button btnView;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -89,6 +91,8 @@ public class JoinEvent extends DialogFragment
          //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
        // btnDone = (Button) view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
      //   getLocBtn = (ImageButton) view.findViewById(R.id.getLocBtn);
+           btnView =  (Button) view.findViewById(R.id.btnView);
+
 
     }
 

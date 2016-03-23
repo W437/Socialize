@@ -11,7 +11,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="175dp"
         android:id="@+id/img_Pic"
         android:src="@drawable/ic_action_profile"
         android:layout_alignParentTop="true"
@@ -39,7 +39,7 @@
              <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/First_name"
             android:id="@+id/tvName" />
 
@@ -49,15 +49,18 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
                  android:ems="10"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
-
+                 android:textAppearance="?android:attr/textAppearanceSmall"
+  
                  android:id="@+id/editText"
             />
+             <Space
+                 android:layout_width="match_parent"
+                 android:layout_height="15dp" />
 
              <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/Last_name"
             android:id="@+id/tvLName"
             />
@@ -65,15 +68,19 @@
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
 
                  android:id="@+id/et2"
             />
 
+             <Space
+                 android:layout_width="match_parent"
+                 android:layout_height="15dp" />
+
              <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/location"
             android:id="@+id/tvLoc"
             />
@@ -81,35 +88,49 @@
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/et3"
              />
+             
+             
+             <Space
+                 android:layout_width="match_parent"
+                 android:layout_height="15dp" />
 
+             
+             
              <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/Hobbies"
             android:id="@+id/tvHob" />
 
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:id="@+id/et4"
          />
+
+
+
+             <Space
+                 android:layout_width="match_parent"
+                 android:layout_height="15dp" />
+
 
              <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/Gender"
             android:id="@+id/tvGen" />
 
              <EditText
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceMedium"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
                  android:id="@+id/et1"
                  />
 
