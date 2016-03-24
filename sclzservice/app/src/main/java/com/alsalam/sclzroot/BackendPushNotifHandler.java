@@ -12,7 +12,7 @@ import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 /**
- * Created by Wael on 24/03/16.
+ * Created by Wael on 24/03/16. s
  */
 public class BackendPushNotifHandler extends NotificationsHandler {
     @Override
