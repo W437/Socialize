@@ -49,7 +49,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
      * Mobile Service Client reference
      */
     private MobileServiceClient mClient;
-
+    private Spinner spinner;
+    String spin_val;
+    private String[]time = new String[24];
     /** test
      * Mobile Service Table used to access data
      */
@@ -58,14 +60,14 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
     private Spinner spnType;
-    private RadioGroup rgLocation, rgGender;
+    private RadioGroup rgLocation;
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private TextInputLayout wBeginTime;
-    private ImageButton getLocBtn;
+    private ImageButton getLocBtn,imageDate,imageTime,imageHour;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
-    private Geocoder geocoder;
+   // private Geocoder geocoder;
     private Location location2;
     String result = "";
 
@@ -100,14 +102,17 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etDescription = (EditText)view.findViewById(R.id.etDescription);
         etRequirments = (EditText)view.findViewById(R.id.etRequirments);
         etHours = (EditText)view.findViewById(R.id.etHours);
-        rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
-        rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
+        spinner=(Spinner)view.findViewById(R.id.spinner_id);
+
+
+        // rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
+       // rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
         wBeginTime=(TextInputLayout)view.findViewById(R.id.BeginningWrapper);
 
-        rbBothG=(RadioButton)view.findViewById(R.id.rbBothG);
-        rbBothLoc=(RadioButton)view.findViewById(R.id.rbBothLoc);
-        rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
-        rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
+       // rbBothG=(RadioButton)view.findViewById(R.id.rbBothG);
+       // rbBothLoc=(RadioButton)view.findViewById(R.id.rbBothLoc);
+       // rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
+        //rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
       //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
         btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
         getLocBtn = (ImageButton)view.findViewById(R.id.getLocBtn);
@@ -122,37 +127,52 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         if(null==fragmentManager) {
             fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
         }
+        imageHour.setOnClickListener(this);
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
+        imageDate.setOnClickListener(this);
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
+        imageTime.setOnClickListener(this);
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
 
     }
 
 
     public String getLocation(Location location) throws IOException {
-        List<Address> list = geocoder.getFromLocation(location
-                .getLatitude(), location.getLongitude(), 1);
-        if (list != null & list.size() > 0) {
-            Address address = list.get(0);
-            result = address.getLocality();
-            return result;
-        }
+        //List<Address> list = geocoder.getFromLocation(location
+         //       .getLatitude(), location.getLongitude(), 1);
+       // if (list != null & list.size() > 0) {
+         //   Address address = list.get(0);
+           // result = address.getLocality();
+            //return result;
+       // }
         return "";
     }
 
 
     public EventTbl getEventInfo()
     {
-        if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
-            genderPref = "Male";
-        else if(rgGender.getCheckedRadioButtonId() == rdb_female.getId())
-            genderPref = "Female";
-        else
-            genderPref = "Male & Female";
+      //  if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
+           // genderPref = "Male";
+      //  else if(rgGender.getCheckedRadioButtonId() == rdb_female.getId())
+          //  genderPref = "Female";
+       // else
+          //  genderPref = "Male & Female";
 
-        if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_out)
-            location = "Outdoors";
-        else if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_in)
-            location = "Indoors";
-        else
-            location = "Outdoors & Indoors";
+      //  if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_out)
+          //  location = "Outdoors";
+      // else if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_in)
+        //   location = "Indoors";
+      //  else
+        //    location = "Outdoors & Indoors";
 
         event.setEventTitle(etTitle.getText().toString());
         event.setEventDescription(etDescription.getText().toString());
@@ -236,18 +256,18 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (rgGender.getCheckedRadioButtonId() == -1) {
-            rgGender.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
+       // else if (rgGender.getCheckedRadioButtonId() == -1) {
+          //  rgGender.requestFocus();
+          //  Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (etDescription.getText().toString().length() == 0) {
-            etDescription.requestFocus();
-            etDescription.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        return true;
-    }
+       // else if (etDescription.getText().toString().length() == 0) {
+          //  etDescription.requestFocus();
+           // etDescription.setError("FIELD CANNOT BE EMPTY");
+           // return false;
+       // }
+       // return true;
+   // }
 
 
 
