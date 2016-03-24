@@ -63,11 +63,11 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
+        final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         Button btMore=(Button)row.findViewById(R.id.btMore);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.tvUserN);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
+        TextView tvEventT=(TextView)row.findViewById(R.id.eventTitle);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
 
@@ -77,7 +77,6 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
       //tvAdress2.setText(currentItem.getAddress());
         //tvSummary2.setText(currentItem.getEventPurpose());
         tvEventT.setText(currentItem.getEventTitle());
-
         btMore.setOnClickListener(new View.OnClickListener() {
 
 

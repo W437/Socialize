@@ -32,10 +32,10 @@ public class LocalNotif {
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                 new Intent(ctx, MainHomeActivity.class), 0);
         Bitmap icon = BitmapFactory.decodeResource(ctx.getResources(),
-                R.drawable.logo);
+                R.mipmap.logo);
         android.support.v4.app.NotificationCompat.Builder mBuilder =
                 new android.support.v4.app.NotificationCompat.Builder(ctx)
-                        .setSmallIcon(R.drawable.logo)
+                        .setSmallIcon(R.mipmap.logo)
                         .setContentTitle("Socialize")
                         .setLargeIcon(icon)
                         .setStyle(new android.support.v4.app.NotificationCompat.BigTextStyle()
