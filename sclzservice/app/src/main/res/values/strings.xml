@@ -161,5 +161,26 @@
     <string name="cancel">Canel</string>
     <string name="find">Find</string>
     <string name="selected_location">selected loaction</string>
+    <string name="date_number">Date Number</string>
+    <string name="event_number">Event Number</string>
+    <string name="Event_title">Event Title</string>
+    <string name="event_titlee">Event Title</string>
+    <string name="reject">New Button</string>
+    <string name="event_title_">EVENT TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="participants_Limit">PARTICIPANTS LIMIT</string>
+    <string name="requirements">REQUIREMENTS</string>
+    <string name="date">DATE</string>
+    <string name="TIme">TIME</string>
+    <string name="Age_Range">AGE RANGE</string>
+    <string name="gender_prefence">GENDER PREFERENCE</string>
+    <string name="view_participants">View Participants</string>
+    <string name="join_event">Join Event</string>
+    <string name="user_name">User Name</string>
+    <string name="User_name">User Name</string>
+    <string name="ADress">Adress</string>
+    <string name="email">Email</string>
+    <string name="user_role">User Role</string>
+    <string name="hours">event period </string>
 
 </resources>

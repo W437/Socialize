@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="Event Title"
+                android:text="@string/Event_title"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"

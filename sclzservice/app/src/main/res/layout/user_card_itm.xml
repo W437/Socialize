@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
