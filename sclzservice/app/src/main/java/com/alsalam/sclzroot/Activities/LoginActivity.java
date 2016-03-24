@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.PushNotifHandler;
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.example.sclzservice.R;
@@ -49,6 +50,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DataBaseMngr.getLogedUserName(getBaseContext());
+
+
+
         FacebookSdk.sdkInitialize(getBaseContext());
         setContentView(R.layout.activity_login);
         try {
@@ -131,14 +137,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     signinDialog.dismiss();
                                     finish();
                                     startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                            createAndShowDialog("Correct User and Pass", "");
 
+                            DataBaseMngr.saveLogIn(result.get(0),getBaseContext());
 
-                                } else {
-                                    createAndShowDialog("user or pass error", "");
+                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 
-                                }
-                            }
-                        });
+                        } else {
+                            createAndShowDialog("User or Pass error", "");
+
+                        }
+                    }
+                });
                 //                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
 //                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 //                        createAndShowDialog("user or pass word error","");
@@ -233,14 +243,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         builder.setMessage(message);
         builder.setTitle(title);
-       signinDialog= builder.create();
-        signinDialog.show();
-
-    }
-    public void dialog()
-    {
-     createAndShowDialog("wait","signing in");
-
+        builder.create().show();
     }
 
 }

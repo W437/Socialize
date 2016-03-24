@@ -226,6 +226,7 @@
                     android:id="@+id/etLocation"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="@string/Event_location"
+                    android:enabled="false"
                     android:gravity="center_horizontal" />
 
             </android.support.design.widget.TextInputLayout>
