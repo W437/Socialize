@@ -169,7 +169,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         event.setEventGenderPref(genderPref);
         event.setEventActivityLocation(location);
        // event.setId(( Math.random() * 9999999) + "");
-        event.setHostId((Math.random() * 9999999) + "");
+       // event.setHostId((Math.random() * 9999999) + "");
 
           //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
@@ -234,11 +234,11 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (rgLocation.getCheckedRadioButtonId() == -1) {
-            rgLocation.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
-            return false;
-        }
+//        else if (rgLocation.getCheckedRadioButtonId() == -1) {
+//            rgLocation.requestFocus();
+//            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
        // else if (rgGender.getCheckedRadioButtonId() == -1) {
           //  rgGender.requestFocus();
           //  Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
@@ -337,6 +337,23 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
+        }
+        if(v==imageHour)
+        {
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","9","10"};
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Make your selection");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int item) {
+                    // Do something with the selection
+                    etHours.setText(items[item].toString());
+                    event.setEventHours(items[item].toString());
+
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
         }
 
 //        if (v == etEndT) {

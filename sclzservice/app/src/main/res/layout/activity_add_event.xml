@@ -220,6 +220,7 @@
                     android:layout_width="299dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/etLocation"
+                    android:inputType="number"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="@string/Event_location"
                     android:enabled="false"
