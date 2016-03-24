@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
 
     private MobileServiceTable<UserTbl> msUsertTbl;
+    private AlertDialog signinDialog;
 
 
     @Override
@@ -119,21 +120,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
             case R.id.btnSign:
+                createAndShowDialog(getResources().getString(R.string.Wait),getResources().getString(R.string.signing_in));
+
 //                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                msUsertTbl.where().field("userName").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
-                    @Override
-                    public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
-                        if (result.size() > 0) {
+                        msUsertTbl.where().field("userName").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
+                            @Override
+                            public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 
-                            createAndShowDialog("user and pass OKKKK", "");
-                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                                if (result.size() > 0) {
+                                    signinDialog.dismiss();
+                                    finish();
+                                    startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 
-                        } else {
-                            createAndShowDialog("user or pass error", "");
 
-                        }
-                    }
-                });
+                                } else {
+                                    createAndShowDialog("user or pass error", "");
+
+                                }
+                            }
+                        });
                 //                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
 //                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 //                        createAndShowDialog("user or pass word error","");
@@ -228,7 +233,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         builder.setMessage(message);
         builder.setTitle(title);
-        builder.create().show();
+       signinDialog= builder.create();
+        signinDialog.show();
+
+    }
+    public void dialog()
+    {
+     createAndShowDialog("wait","signing in");
+
     }
 
 }

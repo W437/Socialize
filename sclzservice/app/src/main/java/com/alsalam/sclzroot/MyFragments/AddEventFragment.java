@@ -1,8 +1,10 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -59,7 +61,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etDescription,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
-    private Spinner spnType;
     private RadioGroup rgLocation;
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -102,10 +103,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etDescription = (EditText)view.findViewById(R.id.etDescription);
         etRequirments = (EditText)view.findViewById(R.id.etRequirments);
         etHours = (EditText)view.findViewById(R.id.etHours);
-        spinner=(Spinner)view.findViewById(R.id.spinner_id);
-        imageHour= (ImageButton) view.findViewById(R.id.imageHour);
-        imageDate= (ImageButton) view.findViewById(R.id.imageDate);
-        imageTime= (ImageButton) view.findViewById(R.id.imageTime);
 
 
 
@@ -123,16 +120,24 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 
         //etTime.setOnClickListener(this);
        // etEndT.setOnClickListener(this);
-     //   etEventDate.setOnClickListener(this);
-      //  wBeginTime.setOnClickListener(this);
-
+        etEventDate.setOnClickListener(this);
+        wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
-
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
         imageHour.setOnClickListener(this);
-
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
         imageDate.setOnClickListener(this);
-
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
         imageTime.setOnClickListener(this);
         //etTime.setClickable(false);
         if(null==fragmentManager) {
@@ -142,6 +147,16 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     }
 
 
+    public String getLocation(Location location) throws IOException {
+        //List<Address> list = geocoder.getFromLocation(location
+         //       .getLatitude(), location.getLongitude(), 1);
+       // if (list != null & list.size() > 0) {
+         //   Address address = list.get(0);
+           // result = address.getLocality();
+            //return result;
+       // }
+        return "";
+    }
 
 
     public EventTbl getEventInfo()
@@ -289,7 +304,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if (v == imageDate) {
+        if (v == etEventDate) {
 
             // Get Current Date
             final Calendar c = Calendar.getInstance();
@@ -310,13 +325,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                                 eventDate.setYear(year);
                                 eventDate.setMonth(monthOfYear);
                                 eventDate.setDate(dayOfMonth);                           }
-                            etEventDate.setText(dayOfMonth + "." + (monthOfYear + 1) + "." + year);
+                            etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         }
-        if (v == imageTime) {
+        if (v == wBeginTime) {
 
             // Get Current Time
             final Calendar c = Calendar.getInstance();
