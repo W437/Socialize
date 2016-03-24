@@ -76,7 +76,7 @@ public class PushNotifHandler extends NotificationsHandler {
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                 new Intent(ctx, MainHomeActivity.class), 0);
         Bitmap icon = BitmapFactory.decodeResource(ctx.getResources(),
-                R.drawable.logo);
+                R.mipmap.logo);
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(ctx)
                         .setSmallIcon(R.drawable.ic_notifications_black_24dp)

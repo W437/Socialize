@@ -73,10 +73,9 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         row.setTag(currentItem);
 
-     //   tvBegin2.setText(currentItem.getEventBegin().toString());
-      //tvAdress2.setText(currentItem.getAddress());
-        //tvSummary2.setText(currentItem.getEventPurpose());
+
         tvEventT.setText(currentItem.getEventTitle());
+        tvSummary2.setText(currentItem.getEventDescription());
 
         btMore.setOnClickListener(new View.OnClickListener() {
 
