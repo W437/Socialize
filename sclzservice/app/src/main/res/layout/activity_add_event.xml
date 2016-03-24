@@ -87,10 +87,11 @@
             android:layout_gravity="center_horizontal">
 
 
-            <ImageView
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageDate"
+                android:background="#0000"
                 android:src="@mipmap/ic_launcher_date" />
 
             <android.support.design.widget.TextInputLayout
@@ -138,16 +139,11 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView2" />
-
-            <ImageView
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageHour"
+                android:background="#0000"
                 android:src="@mipmap/ic_hmsheh" />
 
             <android.support.design.widget.TextInputLayout
