@@ -123,7 +123,7 @@
     <string name="Last_name">Last Name:</string>
     <string name="location">Location:</string>
     <string name="Hobbies">Hobbies:</string>
-    <string name="Gender">Gender:</string>
+    <string name="Gender">Gender</string>
     <string name="All_fields_are_required">ALL FIELDS ARE REQUIRED</string>
     <string name="first_name">FIRST NAME</string>
     <string name="last_name">LAST NAME</string>
@@ -182,5 +182,7 @@
     <string name="email">Email</string>
     <string name="user_role">User Role</string>
     <string name="hours">event period </string>
+    <string name="Wait">wait</string>
+    <string name="signing_in">Signing in</string>
 
 </resources>
