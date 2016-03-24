@@ -11,6 +11,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
@@ -73,11 +75,13 @@ public class PushNotifHandler extends NotificationsHandler {
         // TODO
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                 new Intent(ctx, MainHomeActivity.class), 0);
-
+        Bitmap icon = BitmapFactory.decodeResource(ctx.getResources(),
+                R.mipmap.logo);
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(ctx)
-                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setSmallIcon(R.drawable.ic_notifications_black_24dp)
                         .setContentTitle("Socialize")
+                        .setLargeIcon(icon)
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))
                         .setContentText(msg);
@@ -89,28 +93,5 @@ public class PushNotifHandler extends NotificationsHandler {
         Log.d("PushNotif", "NOTIF_ID:" + NOTIFICATION_ID);
     }
 
-    public void sendNotification(String msg, String str) {
-        mNotificationManager = (NotificationManager)
-                ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-        // TODO
-        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainHomeActivity.class), 0);
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(ctx)
-                        .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle("Socialize")
-                        .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(msg))
-                        .setContentText(msg);
-
-        mBuilder.setContentIntent(contentIntent);
-        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-        NOTIFICATION_ID++;
-        Log.d("PushNotif", "Sent:" + msg);
-        Log.d("PushNotif", "NOTIF_ID:" + NOTIFICATION_ID);
-    }
 
 }

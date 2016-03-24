@@ -2,10 +2,16 @@ package com.alsalam.sclzroot.Activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.LocalNotif;
 import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
@@ -33,6 +40,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
    private TextView tvemail,tvPass;
     private EditText et_MAIL,et_Pass;
     private Button btnSign,btnFacebook,btnGoogle,btnRegister;
+    public static int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+    android.support.v4.app.NotificationCompat.Builder builder;
+    Context ctx;
+
 
     /**
      * Mobile Service Client reference
@@ -79,6 +91,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
 
+
+
     //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
 
         et_MAIL=(EditText)findViewById(R.id.et_MAIL);// writing an email
@@ -90,8 +104,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
+        btnFacebook.setOnClickListener(this);
 
-       // NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
+        NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
 
 
     }
@@ -118,6 +133,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
+
+    //asd
     @Override
     public void onClick(View v) {
         switch (v.getId())
@@ -125,6 +142,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnRegister:
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
+
+            case R.id.btnFacebook:
+                new LocalNotif().sendNotification("Heynow", this);
+                break;
+
             case R.id.btnSign:
                 createAndShowDialog(getResources().getString(R.string.Wait),getResources().getString(R.string.signing_in));
 
