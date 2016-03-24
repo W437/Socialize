@@ -76,6 +76,8 @@ public class ToDoActivity extends AppCompatActivity {
      */
     private ProgressBar mProgressBar;
 
+
+
     /**
      * Initializes the activity
      */
@@ -132,6 +134,12 @@ public class ToDoActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+
+    public void setmClient(MobileServiceClient mClient) {
+        this.mClient = mClient;
+    }
+
+
 
     /**
      * Select an option from the menu
@@ -487,4 +495,6 @@ public class ToDoActivity extends AppCompatActivity {
             return resultFuture;
         }
     }
+
+
 }
