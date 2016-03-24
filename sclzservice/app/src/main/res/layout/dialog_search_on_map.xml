@@ -18,15 +18,20 @@
             android:text="@string/find"
             android:layout_alignParentRight="true" />
 
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_toStartOf="@+id/btn_find">
         <EditText
             android:id="@+id/et_location"
-
+            android:imeOptions="actionGo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="@string/hnt_et_location"
             android:layout_toLeftOf="@id/btn_find" />
-
+</android.support.design.widget.TextInputLayout>
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/map"
             android:layout_width="match_parent"
@@ -59,10 +64,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/selected_location"
             android:id="@+id/tvSelectedLoc"
             android:layout_above="@+id/linearLayout"
+            android:gravity="center"
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>

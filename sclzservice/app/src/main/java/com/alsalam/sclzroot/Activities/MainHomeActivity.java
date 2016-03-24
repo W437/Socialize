@@ -22,7 +22,6 @@ import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.MyFragments.MapListFragment;
-import com.alsalam.sclzroot.MyFragments.MapList_Fragment;
 import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.Profile2Fragment;
 import com.alsalam.sclzroot.MyFragments.UsersFragment;

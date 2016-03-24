@@ -2,6 +2,7 @@ package com.alsalam.sclzroot.MyFragments;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -10,9 +11,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,6 +47,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
     private EditText etLocation;
     private EventTbl event;
     private EditText etEvntLoactioan;
+    private SupportMapFragment mapFragment;
 
 
     @Override
@@ -61,6 +65,14 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
         super.onDetach();
     }
 
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        getFragmentManager().beginTransaction().remove(mapFragment).commit();
+        super.onDismiss(dialog);
+    }
+
+
+
     @Nullable
 
     @Override
@@ -77,10 +89,20 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
         btnSave = (Button) view.findViewById(R.id.btnSave);
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
         tvSelectedLoc= (TextView) view.findViewById(R.id.tvSelectedLoc);
-        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
+         mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
+        etLocation.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    find();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
         // Getting reference to btn_find of the layout activity_main
 
     }
@@ -99,6 +121,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
                 event.setEventLocation("");
                 event.setLang(0);
                 event.setLat(0);
+                dismiss();
             }
         });
         View.OnClickListener findClickListener = new View.OnClickListener() {
@@ -106,13 +129,8 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
             public void onClick(View v) {
                 // Getting reference to EditText to get the user input location
 
+                find();
 
-                // Getting user input location
-                location = etLocation.getText().toString();
-
-                if(location!=null && !location.equals("")) {
-                    new GeocoderTask().execute(location);
-                }
             }
             // Setting button click event listener for the find button
 
@@ -120,11 +138,22 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
         btn_find.setOnClickListener(findClickListener);
     }
 
+
+
     public void setSearch(EventTbl event, EditText etEvntLoactioan) {
         this.event=event;
         this.etEvntLoactioan=etEvntLoactioan;
+        //etLocation.setText(etEvntLoactioan.getText());
     }
 
+    private void find() {
+        // Getting user input location
+        location = etLocation.getText().toString();
+
+        if(location!=null && !location.equals("")) {
+            new GeocoderTask().execute(location);
+        }
+    }
 
     // An AsyncTask class for accessing the GeoCoding Web Service
     private class GeocoderTask extends AsyncTask<String, Void, List<Address>> {
@@ -187,7 +216,13 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
 
                 // Locate the first location
                 if (i == 0) {
+
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                    tvSelectedLoc.setText(addressText);
+                    etEvntLoactioan.setText(addressText);
+                    event.setEventLocation(addressText);
+                    event.setLang(latLng.longitude);
+                    event.setLat(latLng.latitude);
                 }
             }
 
