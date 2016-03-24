@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Log.d("PushNotif", "Sent:" + msg);
         Log.d("PushNotif", "NOTIF_ID:" + NOTIFICATION_ID);
     }
-
+    //asd
     @Override
     public void onClick(View v) {
         switch (v.getId())
