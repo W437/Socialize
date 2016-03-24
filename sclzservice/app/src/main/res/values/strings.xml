@@ -151,7 +151,7 @@
     <string name="accepted_events">Accepted Events</string>
     <string name="all_events">All Events</string>
     <string name="past_events">Past Events</string>
-    <string name="events_according_my_location">Events acoording my location</string>
+    <string name="events_according_my_location">Events according to my location</string>
     <string name="events_according_time">Events according time</string>
     <string name="my_own_events">My own events</string>
     <string name="title_activity_maps">Map</string>
