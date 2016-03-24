@@ -107,6 +107,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         imageDate= (ImageButton) view.findViewById(R.id.imageDate);
         imageTime= (ImageButton) view.findViewById(R.id.imageTime);
 
+
+
         // rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
        // rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
         wBeginTime=(TextInputLayout)view.findViewById(R.id.BeginningWrapper);
@@ -125,7 +127,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
       //  wBeginTime.setOnClickListener(this);
 
         btnDone.setOnClickListener(this);
-
         getLocBtn.setOnClickListener(this);
 
         imageHour.setOnClickListener(this);
