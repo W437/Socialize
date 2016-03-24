@@ -59,9 +59,9 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
 
         row.setTag(currentItem);
 
-        tvEmail2.setText(currentItem.getUserEmail().toString());
-        tvAdress2.setText(currentItem.getUserAddress().toString());
-        tvRole2.setText(currentItem.getUserTafkeed().toString());
+        tvEmail2.setText(currentItem.getUserEmail());
+        tvAdress2.setText(currentItem.getUserAddress());
+        tvRole2.setText(currentItem.getUserTafkeed());
         tvUserN.setText(currentItem.getFirstName().toString());
 
         btExtra.setOnClickListener(new View.OnClickListener() {

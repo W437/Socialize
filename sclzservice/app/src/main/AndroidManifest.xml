@@ -50,7 +50,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.alsalam.sclzroot.Activities.SettingsActivity" />
-        <activity android:name="com.alsalam.sclzroot.Activities.AdminPanelActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
