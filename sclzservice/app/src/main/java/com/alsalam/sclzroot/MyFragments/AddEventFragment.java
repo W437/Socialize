@@ -59,7 +59,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etDescription,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
-    private Spinner spnType;
     private RadioGroup rgLocation;
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -102,7 +101,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etDescription = (EditText)view.findViewById(R.id.etDescription);
         etRequirments = (EditText)view.findViewById(R.id.etRequirments);
         etHours = (EditText)view.findViewById(R.id.etHours);
-        spinner=(Spinner)view.findViewById(R.id.spinner_id);
+
 
 
         // rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
