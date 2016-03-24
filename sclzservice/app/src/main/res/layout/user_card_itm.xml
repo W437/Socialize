@@ -5,6 +5,13 @@
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView3"
+        android:layout_gravity="right" />
+
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
@@ -56,17 +63,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Extra"
                 android:id="@+id/btExtra"
-                android:layout_marginBottom="23dp"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="23dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Adress"
-                android:id="@+id/tvBeginning"
-                android:layout_below="@+id/tvUserN"
                 android:layout_alignParentEnd="true" />
 
             <TextView
@@ -74,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvBeginning"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tvUserN" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,6 +89,22 @@
                 android:id="@+id/tvEmail2"
                 android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPhone"
+                android:layout_below="@+id/tvRole2"
+                android:layout_alignParentStart="true"
+                android:hint="Phone number" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBirth"
+                android:layout_below="@+id/etPhone"
+                android:layout_alignStart="@+id/tvRole2"
+                android:hint="Birthday" />
 
         </RelativeLayout>
 

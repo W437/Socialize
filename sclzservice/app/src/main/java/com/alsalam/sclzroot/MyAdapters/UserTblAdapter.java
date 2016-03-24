@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,14 +56,22 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
+        TextView tvEmail=(TextView)row.findViewById(R.id.tvEmail);
+        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss2);
+        EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
+        TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
 
 
         row.setTag(currentItem);
 
-        tvEmail2.setText(currentItem.getUserEmail().toString());
-        tvAdress2.setText(currentItem.getUserAddress().toString());
-        tvRole2.setText(currentItem.getUserTafkeed().toString());
-        tvUserN.setText(currentItem.getFirstName().toString());
+        tvEmail2.setText(currentItem.getUserEmail());
+        tvAdress2.setText(currentItem.getUserAddress());
+        tvRole2.setText(currentItem.getUserTafkeed());
+        tvUserN.setText(currentItem.getUserName());
+        tvEmail.setText(currentItem.getUserEmail());
+        tvAdrerss2.setText(currentItem.getUserAddress());
+        etPhone.setText(currentItem.getUserPhone());
+
 
         btExtra.setOnClickListener(new View.OnClickListener() {
 

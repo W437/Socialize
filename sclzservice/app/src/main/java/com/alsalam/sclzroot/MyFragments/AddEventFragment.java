@@ -318,6 +318,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                  AlertDialog alert = builder.create(); alert.show();
 
 
+
+
+
         }
         if (v == etEventDate) {
 
@@ -401,6 +404,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
            }
+
 
         }
 
