@@ -72,7 +72,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Location location2;
     String result = "";
 
-      private Date eventDate;
+    private Date eventDate;
     private FragmentManager fragmentManager;
     private SearchOnMapDialog searchFragment;
     private EventTbl event;
@@ -118,28 +118,19 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
         getLocBtn = (ImageButton)view.findViewById(R.id.getLocBtn);
 
+        imageDate= (ImageButton)view.findViewById(R.id.imageDate);
+        imageHour= (ImageButton)view.findViewById(R.id.imageHour);
+        imageTime= (ImageButton)view.findViewById(R.id.imageTime);
+        imageHour.setOnClickListener(this);;
+        imageDate.setOnClickListener(this);
+        imageTime.setOnClickListener(this);
         //etTime.setOnClickListener(this);
        // etEndT.setOnClickListener(this);
-        etEventDate.setOnClickListener(this);
-        wBeginTime.setOnClickListener(this);
+//        etEventDate.setOnClickListener(this);
+//        wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
-        //etTime.setClickable(false);
-        if(null==fragmentManager) {
-            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
-        }
-        imageHour.setOnClickListener(this);
-        //etTime.setClickable(false);
-        if(null==fragmentManager) {
-            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
-        }
-        imageDate.setOnClickListener(this);
-        //etTime.setClickable(false);
-        if(null==fragmentManager) {
-            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
-        }
-        imageTime.setOnClickListener(this);
-        //etTime.setClickable(false);
+
         if(null==fragmentManager) {
             fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
         }
@@ -147,16 +138,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     }
 
 
-    public String getLocation(Location location) throws IOException {
-        //List<Address> list = geocoder.getFromLocation(location
-         //       .getLatitude(), location.getLongitude(), 1);
-       // if (list != null & list.size() > 0) {
-         //   Address address = list.get(0);
-           // result = address.getLocality();
-            //return result;
-       // }
-        return "";
-    }
+
 
 
     public EventTbl getEventInfo()
@@ -304,7 +286,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if (v == etEventDate) {
+        if (v == imageDate) {
 
             // Get Current Date
             final Calendar c = Calendar.getInstance();
@@ -331,7 +313,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         }
-        if (v == wBeginTime) {
+        if (v == imageTime) {
 
             // Get Current Time
             final Calendar c = Calendar.getInstance();
