@@ -182,5 +182,13 @@
     <string name="email">Email</string>
     <string name="user_role">User Role</string>
     <string name="hours">event period </string>
+    <string name="one_hour">one hour</string>
+    <string name="two_hours">two hours</string>
+    <string name="three_hours">three hours</string>
+    <string name="four_hours">four hours</string>
+    <string name="five_hours">five hours</string>
+    <string name="six_hours">six hours</string>
+    <string name="siven_hours">siven hours</string>
+    <string name="up_to_ten">up to ten hours</string>
 
 </resources>

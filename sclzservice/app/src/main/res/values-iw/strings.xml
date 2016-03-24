@@ -134,4 +134,6 @@
     <string name="user_name">שם משתמש</string>
     <string name="user_role">תפקיד המשתמש</string>
     <string name="view_participants">משתתפים צפו</string>
+    <string name="Wait">המתן</string>
+    <string name="signing_in">כניסה</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -59,7 +61,6 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etDescription,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
-    private Spinner spnType;
     private RadioGroup rgLocation;
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
@@ -102,7 +103,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etDescription = (EditText)view.findViewById(R.id.etDescription);
         etRequirments = (EditText)view.findViewById(R.id.etRequirments);
         etHours = (EditText)view.findViewById(R.id.etHours);
-        spinner=(Spinner)view.findViewById(R.id.spinner_id);
+
 
 
         // rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
@@ -303,6 +304,21 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+        if (v==imageHour)
+        {
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","8","9","10","11", "12", "13","14","15","16","17","18","19","20","21","22","23","24"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Make your selection");
+            builder.setItems(items, new DialogInterface.OnClickListener()
+            { public void onClick(DialogInterface dialog, int item)
+                { // Do something with the selection
+                 etHours.setText(items[item]);
+                }
+            });
+                 AlertDialog alert = builder.create(); alert.show();
+
+
+        }
         if (v == etEventDate) {
 
             // Get Current Date
