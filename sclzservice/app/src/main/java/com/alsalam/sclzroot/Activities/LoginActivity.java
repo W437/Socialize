@@ -127,30 +127,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendNotification(String msg) {
-        mNotificationManager = (NotificationManager)
-                this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-
-        // TODO
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, MainHomeActivity.class), 0);
-
-        android.support.v4.app.NotificationCompat.Builder mBuilder =
-                new android.support.v4.app.NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.logo)
-                        .setContentTitle("Socialize")
-                        .setStyle(new android.support.v4.app.NotificationCompat.BigTextStyle()
-                                .bigText(msg))
-                        .setContentText(msg);
-
-        mBuilder.setContentIntent(contentIntent);
-        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-        NOTIFICATION_ID++;
-        Log.d("PushNotif", "Sent:" + msg);
-        Log.d("PushNotif", "NOTIF_ID:" + NOTIFICATION_ID);
-    }
-
+    //asd
     @Override
     public void onClick(View v) {
         switch (v.getId())
