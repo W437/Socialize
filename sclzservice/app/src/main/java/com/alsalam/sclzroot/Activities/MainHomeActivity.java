@@ -84,17 +84,17 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event_to_go));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
 
         fragments[2]=new AddEventFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
 
         fragments[3]=new MyEventsFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_my_event));
 
 
         fragments[4]=new UsersFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_map2));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
 
 
 
