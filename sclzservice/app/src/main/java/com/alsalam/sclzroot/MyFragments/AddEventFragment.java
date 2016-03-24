@@ -1,8 +1,10 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -302,6 +304,21 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+        if (v==imageHour)
+        {
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","8","9","10","11", "12", "13","14","15","16","17","18","19","20","21","22","23","24"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Make your selection");
+            builder.setItems(items, new DialogInterface.OnClickListener()
+            { public void onClick(DialogInterface dialog, int item)
+                { // Do something with the selection
+                 etHours.setText(items[item]);
+                }
+            });
+                 AlertDialog alert = builder.create(); alert.show();
+
+
+        }
         if (v == etEventDate) {
 
             // Get Current Date
