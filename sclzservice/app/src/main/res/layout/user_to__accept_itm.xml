@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvTime"
+                android:layout_below="@+id/tvBeginning"
                 android:layout_alignParentEnd="true" />
 
             <TextView

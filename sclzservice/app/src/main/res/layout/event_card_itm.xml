@@ -25,7 +25,7 @@
            >
 
             <TextView
-                android:id="@+id/eventTitle"
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
@@ -62,12 +62,12 @@
                 android:layout_alignParentEnd="true" />
 
             <TextView
-                android:layout_width="96dp"
-                android:layout_height="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="adress"
-                android:id="@+id/tvAdress"
-                android:layout_above="@+id/tvAdrerss2"
+                android:text="Summary"
+                android:id="@+id/tvSummary12"
+                android:layout_alignTop="@+id/tvTime2"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -117,9 +117,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="participants"
-                android:id="@+id/btRej"
-                android:layout_below="@+id/linearLayout2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="adress"
+                android:id="@+id/tvAdress"
+                android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
 
         </RelativeLayout>

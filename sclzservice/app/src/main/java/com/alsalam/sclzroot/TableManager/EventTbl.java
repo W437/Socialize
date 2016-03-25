@@ -16,134 +16,72 @@ public class EventTbl {
     public final static String ACCEPTED = "ACCEPTED";
     public final static String CANCELED = "CANCELED";
     public final static String REJECTED = "REJECTED";
+    @com.google.gson.annotations.SerializedName("addressLocation")
+    private String addressLocation;
+    @com.google.gson.annotations.SerializedName("date")
+    private Date date;
+    @com.google.gson.annotations.SerializedName("month")
+    private int month   ;
+    @com.google.gson.annotations.SerializedName("year")
+    private int year   ;
 
-    public String getSatus() {
-        return satus;
-    }
-
-    public void setSatus(String satus) {
-        this.satus = satus;
-    }
-
-    public double getLang() {
-        return lang;
-    }
-
-    public double getLat() {
-        return lat;
-    }
-
-    @com.google.gson.annotations.SerializedName("eventLocation")
-    private String  satus;
-
-    private String eventLocation;
-    @com.google.gson.annotations.SerializedName("eventDate")
-    private String   eventDate;
-    @com.google.gson.annotations.SerializedName("eventTime")
-    private String   eventTime;
-    @com.google.gson.annotations.SerializedName("eventHours")
-    private String   eventHours;
+    @com.google.gson.annotations.SerializedName("hours")
+    private int hours;
     @com.google.gson.annotations.SerializedName("hostId")
     private String hostId;
-    @com.google.gson.annotations.SerializedName("eventMaxParticipants")
-    private int    eventMaxParticipants;
-    @com.google.gson.annotations.SerializedName("eventTitle")
-    private String    eventTitle;
-    @com.google.gson.annotations.SerializedName("eventDescription")
-    private String    eventDescription;
-    @com.google.gson.annotations.SerializedName("eventActivityLocation")
-    private String    eventActivityLocation;
-    @com.google.gson.annotations.SerializedName("eventGenderPref")
-    private String    eventGenderPref;
-    @com.google.gson.annotations.SerializedName("eventAgeRange")
-    private String    eventAgeRange;
-    @com.google.gson.annotations.SerializedName("eventRequirements")
-    private String    eventRequirements;
+    @com.google.gson.annotations.SerializedName("maxParticipants")
+    private int maxParticipants;
+    @com.google.gson.annotations.SerializedName("title")
+    private String title;
+    @com.google.gson.annotations.SerializedName("description")
+    private String description;
+
+
+    @com.google.gson.annotations.SerializedName("requirements")
+    private String requirements;
     @com.google.gson.annotations.SerializedName("lang")
     private double    lang;
     @com.google.gson.annotations.SerializedName("lat")
     private double    lat;
 
-
-
-    public EventTbl(String id, String eventLocation, String eventDate, String eventTime, String eventHours, String hostId, int eventMaxParticipants, String eventTitle, String eventDescription, String eventActivityLocation, String eventGenderPref, String eventAgeRange, String eventRequirements, String eventSummary) {
-        this.id = id;
-        this.eventLocation = eventLocation;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
-        this.eventHours = eventHours;
-        this.hostId = hostId;
-        this.eventMaxParticipants = eventMaxParticipants;
-        this.eventTitle = eventTitle;
-        this.eventDescription = eventDescription;
-        this.eventActivityLocation = eventActivityLocation;
-        this.eventGenderPref = eventGenderPref;
-        this.eventAgeRange = eventAgeRange;
-        this.eventRequirements = eventRequirements;
+    public String getAddressLocation() {
+        return addressLocation;
     }
 
-    public String getId() {
-        return id;
+    public void setAddressLocation(String addressLocation) {
+        this.addressLocation = addressLocation;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Date getDate() {
+        return date;
     }
 
-    public void setLang(double lang) {
-        this.lang = lang;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public void setLat(double lat) {
-        this.lat = lat;
+    public int getMonth() {
+        return month;
     }
 
-    public static String getWAITING() {
-        return WAITING;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    public static String getACCEPTED() {
-        return ACCEPTED;
+    public int getYear() {
+        return year;
     }
 
-    public static String getCANCELED() {
-        return CANCELED;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public static String getREJECTED() {
-        return REJECTED;
+    public int getHours() {
+        return hours;
     }
 
-    public String getEventLocation() {
-        return eventLocation;
-    }
-
-    public void setEventLocation(String eventLocation) {
-        this.eventLocation = eventLocation;
-    }
-
-    public String getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public String getEventTime() {
-        return eventTime;
-    }
-
-    public void setEventTime(String eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    public String getEventHours() {
-        return eventHours;
-    }
-
-    public void setEventHours(String eventHours) {
-        this.eventHours = eventHours;
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 
     public String getHostId() {
@@ -154,83 +92,63 @@ public class EventTbl {
         this.hostId = hostId;
     }
 
-    public int getEventMaxParticipants() {
-        return eventMaxParticipants;
+    public int getMaxParticipants() {
+        return maxParticipants;
     }
 
-    public void setEventMaxParticipants(int eventMaxParticipants) {
-        this.eventMaxParticipants = eventMaxParticipants;
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 
-    public String getEventTitle() {
-        return eventTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEventTitle(String eventTitle) {
-        this.eventTitle = eventTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getEventDescription() {
-        return eventDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
-    }
-
-    public String getEventActivityLocation() {
-        return eventActivityLocation;
-    }
-
-    public void setEventActivityLocation(String eventActivityLocation) {
-        this.eventActivityLocation = eventActivityLocation;
-    }
-
-    public String getEventGenderPref() {
-        return eventGenderPref;
-    }
-
-    public void setEventGenderPref(String eventGenderPref) {
-        this.eventGenderPref = eventGenderPref;
-    }
-
-    public String getEventAgeRange() {
-        return eventAgeRange;
-    }
-
-    public void setEventAgeRange(String eventAgeRange) {
-        this.eventAgeRange = eventAgeRange;
-    }
-
-    public String getEventRequirements() {
-        return eventRequirements;
-    }
-
-    public void setEventRequirements(String eventRequirements) {
-        this.eventRequirements = eventRequirements;
-    }
-
-    public EventTbl() {
-
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 
-    @Override
-    public String toString() {
-        return "EventTbl{" +
-                "id='" + id + '\'' +
-                ", eventLocation='" + eventLocation + '\'' +
-                ", eventDate='" + eventDate + '\'' +
-                ", eventTime='" + eventTime + '\'' +
-                ", eventHours='" + eventHours + '\'' +
-                ", hostId='" + hostId + '\'' +
-                ", eventMaxParticipants=" + eventMaxParticipants +
-                ", eventTitle='" + eventTitle + '\'' +
-                ", eventDescription='" + eventDescription + '\'' +
-                ", eventActivityLocation='" + eventActivityLocation + '\'' +
-                ", eventGenderPref='" + eventGenderPref + '\'' +
-                ", eventAgeRange='" + eventAgeRange + '\'' +
-                ", eventRequirements='" + eventRequirements + '\'' +
-                '}';
+
+
+
+    public String getRequirements() {
+        return requirements;
+    }
+
+    public void setRequirements(String requirements) {
+        this.requirements = requirements;
+    }
+
+    public double getLang() {
+        return lang;
+    }
+
+    public void setLang(double lang) {
+        this.lang = lang;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

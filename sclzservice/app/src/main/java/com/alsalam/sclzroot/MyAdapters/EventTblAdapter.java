@@ -63,13 +63,12 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
+        //final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         Button btMore=(Button)row.findViewById(R.id.btMore);
-        Button btRej =(Button)row.findViewById(R.id.btRej);
-        TextView tvEventT=(TextView)row.findViewById(R.id.eventTitle);
+
+        TextView tvEventT=(TextView)row.findViewById(R.id.title);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
-        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
-        TextView statTv=(TextView)row.findViewById(R.id.statTv);
+        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss2);
 
 
         row.setTag(currentItem);
@@ -77,25 +76,9 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      //   tvBegin2.setText(currentItem.getEventBegin().toString());
       //tvAdress2.setText(currentItem.getAddress());
         //tvSummary2.setText(currentItem.getEventPurpose());
-        tvEventT.setText(currentItem.getEventTitle());
-        tvAdress2.setText(currentItem.getEventLocation());
-        tvSummary2.setText(currentItem.getEventDescription());
-        statTv.setText(currentItem.getSatus());
-
-
-        btRej.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                showDialog();
-
-            }
-
-        });
-
-
-
+        tvEventT.setText(currentItem.getTitle());
+        tvAdress2.setText(currentItem.getAddressLocation());
+        tvSummary2.setText(currentItem.getDescription());
         btMore.setOnClickListener(new View.OnClickListener() {
 
 
