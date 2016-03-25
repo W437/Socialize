@@ -35,14 +35,14 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     private GoogleMap mMap;
     private ListView listView;
     private TextView tvMonth;
-
+    SupportMapFragment mapFragment;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_map_home, container, false);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) this.getChildFragmentManager()
+         mapFragment = (SupportMapFragment) this.getChildFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -67,6 +67,18 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         ((MainHomeActivity) getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        getFragmentManager().beginTransaction().remove(mapFragment).commit();
+        super.onDetach();
+    }
+
+    @Override
+    public void onPause() {
+        getFragmentManager().beginTransaction().remove(mapFragment).commit();
+        super.onPause();
     }
 
     @Override

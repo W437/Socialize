@@ -72,6 +72,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         tvAdrerss2.setText(currentItem.getUserAddress());
         etPhone.setText(currentItem.getUserPhone());
 
+        tvUserN.setText(currentItem.getFirstName().toString());
 
         btExtra.setOnClickListener(new View.OnClickListener() {
 

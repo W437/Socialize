@@ -64,7 +64,11 @@
                 android:text="@string/Extra"
                 android:id="@+id/btExtra"
                 android:layout_alignParentBottom="true"
+
                 android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="23dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
