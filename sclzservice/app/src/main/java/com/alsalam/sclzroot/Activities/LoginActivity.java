@@ -166,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
 
                         } else {
-                            createAndShowDialog("User or Pass error", "");
+                            createAndShowDialog("User or Pass Error", "");
 
                         }
                     }
@@ -260,7 +260,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * @param title
      *            The dialog title
      */
-    private void createAndShowDialog(final String message, final String title) {
+    private void  createAndShowDialog(final String message, final String title) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setMessage(message);

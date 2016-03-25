@@ -190,5 +190,6 @@
     <string name="six_hours">six hours</string>
     <string name="siven_hours">siven hours</string>
     <string name="up_to_ten">up to ten hours</string>
+    <string name="event_saved">SAVED</string>
 
 </resources>

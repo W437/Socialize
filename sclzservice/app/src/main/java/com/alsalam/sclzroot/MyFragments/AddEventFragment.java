@@ -72,7 +72,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Location location2;
     String result = "";
 
-    private Date eventDate;
+      private Date eventDate;
     private FragmentManager fragmentManager;
     private SearchOnMapDialog searchFragment;
     private EventTbl event;
@@ -126,11 +126,26 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         imageTime.setOnClickListener(this);
         //etTime.setOnClickListener(this);
        // etEndT.setOnClickListener(this);
-//        etEventDate.setOnClickListener(this);
-//        wBeginTime.setOnClickListener(this);
+        etEventDate.setOnClickListener(this);
+        wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
-
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
+        imageHour.setOnClickListener(this);
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
+        imageDate.setOnClickListener(this);
+        //etTime.setClickable(false);
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
+        }
+        imageTime.setOnClickListener(this);
+        //etTime.setClickable(false);
         if(null==fragmentManager) {
             fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
         }
@@ -138,7 +153,16 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     }
 
 
-
+    public String getLocation(Location location) throws IOException {
+        //List<Address> list = geocoder.getFromLocation(location
+         //       .getLatitude(), location.getLongitude(), 1);
+       // if (list != null & list.size() > 0) {
+         //   Address address = list.get(0);
+           // result = address.getLocality();
+            //return result;
+       // }
+        return "";
+    }
 
 
     public EventTbl getEventInfo()
@@ -286,7 +310,22 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if (v == imageDate) {
+        if (v==imageHour)
+        {
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","8","9","10","11", "12", "13","14","15","16","17","18","19","20","21","22","23","24"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Make your selection");
+            builder.setItems(items, new DialogInterface.OnClickListener()
+            { public void onClick(DialogInterface dialog, int item)
+                { // Do something with the selection
+                 etHours.setText(items[item]);
+                }
+            });
+                 AlertDialog alert = builder.create(); alert.show();
+
+
+        }
+        if (v == etEventDate) {
 
             // Get Current Date
             final Calendar c = Calendar.getInstance();
@@ -313,7 +352,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         }
-        if (v == imageTime) {
+        if (v == wBeginTime) {
 
             // Get Current Time
             final Calendar c = Calendar.getInstance();
