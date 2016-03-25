@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -29,13 +30,14 @@ import com.example.sclzservice.R;
 /**
  * Created by hp1 on 15/03/2016.
  */
-public class JoinEventDialog extends DialogFragment
+public class JoinEventDialog extends DialogFragment implements View.OnClickListener
 {
 
     protected EventsHandler eventsHandler;
     private TextView tvTime,tvHours,tvLocation,tvAge, tvTitle, tvLimitParticipants, tvEventDate, tvDescription,tvRequirments,tvGen;
     private Button btnJoin;
     private int mYear, mMonth, mDay, mHour, mMinute;
+    private EditText etNumOfParticipants,iNeed,iBring;
 
     private  Button btnView;
     @Override
@@ -89,13 +91,28 @@ public class JoinEventDialog extends DialogFragment
         tvGen=(TextView)view.findViewById(R.id.tvGen);
         btnJoin=(Button)view.findViewById(R.id.btnJoin);
          //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
-       // btnDone = (Button) view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
-     //   getLocBtn = (ImageButton) view.findViewById(R.id.getLocBtn);
-           btnView =  (Button) view.findViewById(R.id.btnView);
+        // btnDone = (Button) view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
+       //   getLocBtn = (ImageButton) view.findViewById(R.id.getLocBtn);
+
+           etNumOfParticipants=(EditText)view.findViewById(R.id.etNumOfParticipants);
+           iNeed=(EditText)view.findViewById(R.id.iNeed);
+           iBring=(EditText)view.findViewById(R.id.iBring);
 
 
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnJoin:
 
+                etNumOfParticipants.getText().toString();
+                iNeed.getText().toString();
+                iBring.getText().toString();
+
+        }
+
+
+    }
 }

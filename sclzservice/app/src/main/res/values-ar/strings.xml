@@ -137,4 +137,5 @@
     <string name="Wait">انتظر</string>
     <string name="Logo"></string>
     <string name="signing_in">تسجيل الدخول</string>
+    <string name="event_saved">حفظ</string>
 </resources>

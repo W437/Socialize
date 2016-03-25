@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,6 +41,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private MobileServiceClient mClient;
     private String userGender = "";
     private ProgressBar mProgressBar;
+
+    private  ImageButton imageBirthDate;
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                     "\\@" +
@@ -64,17 +67,17 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         etPhoneNumber = (EditText) findViewById(R.id.etPhone);
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
-
-        spnDay = (Spinner) findViewById(R.id.spnDay);// choosing birth day
-        spnMonth = (Spinner) findViewById(R.id.spnMonth);// choosing birth Month
-        spnYear = (Spinner) findViewById(R.id.spnYear);// choosing birth Year
-
+ 
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
         rbMale = (RadioButton) findViewById(R.id.rbMale);// choosig female or male
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
+
+        imageBirthDate= (ImageButton)findViewById(R.id.imageBirthDate);
+
+        imageBirthDate.setOnClickListener(this);
 
 
 
@@ -222,6 +225,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 {
                     addUserToDB(getUserInfo());
                     Log.d("testa", "Clicked submit");
+
+                     //...
+                    finish();
                 }
                 break;
             case R.id.rgGender:

@@ -136,4 +136,5 @@
     <string name="view_participants">משתתפים צפו</string>
     <string name="Wait">המתן</string>
     <string name="signing_in">כניסה</string>
+    <string name="event_saved">שמירה</string>
 </resources>
