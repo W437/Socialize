@@ -15,7 +15,9 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -96,7 +98,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
-                if (actionId == EditorInfo.IME_ACTION_GO) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     find();
                     handled = true;
                 }
@@ -118,7 +120,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                event.setEventLocation("");
+                event.setAddressLocation("");
                 event.setLang(0);
                 event.setLat(0);
                 dismiss();
@@ -149,12 +151,19 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
     private void find() {
         // Getting user input location
         location = etLocation.getText().toString();
-
+      // getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        etLocation.clearFocus();
+        hideSoftKeyboard();
         if(location!=null && !location.equals("")) {
             new GeocoderTask().execute(location);
         }
     }
-
+    private void hideSoftKeyboard(){
+        if(getActivity().getCurrentFocus()!=null && getActivity().getCurrentFocus() instanceof EditText){
+            InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(etLocation.getWindowToken(), 0);
+        }
+    }
     // An AsyncTask class for accessing the GeoCoding Web Service
     private class GeocoderTask extends AsyncTask<String, Void, List<Address>> {
 
@@ -206,7 +215,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
                     public boolean onMarkerClick(Marker marker) {
                         tvSelectedLoc.setText(marker.getTitle()+marker.getPosition().toString());
                         etEvntLoactioan.setText(marker.getTitle());
-                        event.setEventLocation(marker.getTitle());
+                        event.setAddressLocation(marker.getTitle());
                         event.setLang(marker.getPosition().longitude);
                         event.setLat(marker.getPosition().latitude);
                         return true;
@@ -220,7 +229,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
                     tvSelectedLoc.setText(addressText);
                     etEvntLoactioan.setText(addressText);
-                    event.setEventLocation(addressText);
+                    event.setAddressLocation(addressText);
                     event.setLang(latLng.longitude);
                     event.setLat(latLng.latitude);
                 }

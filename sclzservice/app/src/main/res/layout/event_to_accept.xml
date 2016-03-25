@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/eventTitle"
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Beginnig_time"
                 android:id="@+id/tvBeginning"
-                android:layout_below="@+id/eventTitle"
+                android:layout_below="@+id/title"
                 android:layout_alignParentEnd="true" />
 
             <TextView

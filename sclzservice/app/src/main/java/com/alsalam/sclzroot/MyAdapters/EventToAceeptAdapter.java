@@ -54,14 +54,14 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.eventTitle);
+        TextView tvEventT=(TextView)row.findViewById(R.id.title);
         TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
-        tvBegin2.setText(currentItem.getEventDate().toString());
+        tvBegin2.setText(currentItem.getDate().toString());
         //tvAdress2.setText(currentItem.getAddress().toString());
         //tvSummary2.setText(currentItem.getEventPurpose().toString());
-        tvEventT.setText(currentItem.getEventTitle().toString());
+        tvEventT.setText(currentItem.getTitle().toString());
 
         btAccept.setOnClickListener(new View.OnClickListener() {
 
@@ -97,10 +97,10 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
 
         row.setTag(currentItem);
 
-        tvBegin2.setText(currentItem.getEventDate().toString());
+        tvBegin2.setText(currentItem.getDate().toString());
       //tvAdress2.setText(currentItem.getAddress().toString());
         //tvSummary2.setText(currentItem.getEventPurpose().toString());
-        tvEventT.setText(currentItem.getEventTitle().toString());
+        tvEventT.setText(currentItem.getTitle().toString());
 
         return row;
     }

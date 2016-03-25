@@ -69,11 +69,11 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         return view;
     }
 
-    @Override
-    public void onDetach() {
-        getFragmentManager().beginTransaction().remove(mapFragment).commit();
-        super.onDetach();
-    }
+//    @Override
+//    public void onDetach() {
+//        getFragmentManager().beginTransaction().remove(mapFragment).commit();
+//        super.onDetach();
+//    }
 
     @Override
     public void onPause() {

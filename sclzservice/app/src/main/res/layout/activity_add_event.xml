@@ -180,21 +180,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etAge"
-
+                android:inputType="numberSigned"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/Age_range" />
 
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:paddingTop="0dp"
-            android:id="@+id/LocationWrapper"
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
 
-        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:orientation="horizontal"

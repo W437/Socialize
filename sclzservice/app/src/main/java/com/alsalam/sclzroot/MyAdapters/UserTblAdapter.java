@@ -50,7 +50,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.eventTitle);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.title);
         Button btExtra=(Button)row.findViewById(R.id.btExtra);
 
         TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
@@ -127,7 +127,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
 //        row.setTag(currentItem);
 //
 //        tvBegin2.setText(currentItem.getEventBegin().toString());
-//        tvLocation2.setText(currentItem.getEventLocation());
+//        tvLocation2.setText(currentItem.getAddressLocation());
 
 
 }
