@@ -161,6 +161,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                             createAndShowDialog("Correct User and Pass", "");
 
+                              //.**
                             DataBaseMngr.saveLogIn(result.get(0),getBaseContext());
 
                             startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
