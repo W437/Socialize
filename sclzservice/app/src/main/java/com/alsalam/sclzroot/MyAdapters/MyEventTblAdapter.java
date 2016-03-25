@@ -15,12 +15,10 @@ import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 
-import static android.app.PendingIntent.getActivity;
-
 /**
  * Created by bana on 01/03/2016.
  */
-public class EventTblAdapter extends ArrayAdapter<EventTbl> {
+public class MyEventTblAdapter extends ArrayAdapter<EventTbl> {
 
     FragmentManager fragmentManager;
     /**
@@ -34,7 +32,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      */
     int mLayoutResourceId;
 
-    public EventTblAdapter(Context context, int layoutResourceId) {
+    public MyEventTblAdapter(Context context, int layoutResourceId) {
         super(context, layoutResourceId);
 
         mContext = context;
@@ -44,7 +42,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         }
     }
 
-    public EventTblAdapter(Context context,int mLayoutResourceId,FragmentManager fragmentManager)
+    public MyEventTblAdapter(Context context, int mLayoutResourceId, FragmentManager fragmentManager)
     {
         this(context,mLayoutResourceId);
         this.fragmentManager=fragmentManager;
@@ -65,11 +63,11 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         Button btMore=(Button)row.findViewById(R.id.btMore);
-        Button btRej =(Button)row.findViewById(R.id.btRej);
+        Button btEdit =(Button)row.findViewById(R.id.btEdit);
+        TextView statTv=(TextView)row.findViewById(R.id.statTv);
         TextView tvEventT=(TextView)row.findViewById(R.id.eventTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
-        TextView statTv=(TextView)row.findViewById(R.id.statTv);
 
 
         row.setTag(currentItem);
@@ -78,12 +76,10 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
       //tvAdress2.setText(currentItem.getAddress());
         //tvSummary2.setText(currentItem.getEventPurpose());
         tvEventT.setText(currentItem.getEventTitle());
+        statTv.setText(currentItem.getSatus());
         tvAdress2.setText(currentItem.getEventLocation());
         tvSummary2.setText(currentItem.getEventDescription());
-        statTv.setText(currentItem.getSatus());
-
-
-        btRej.setOnClickListener(new View.OnClickListener() {
+        btEdit.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
@@ -93,8 +89,6 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             }
 
         });
-
-
 
         btMore.setOnClickListener(new View.OnClickListener() {
 

@@ -16,7 +16,26 @@ public class EventTbl {
     public final static String ACCEPTED = "ACCEPTED";
     public final static String CANCELED = "CANCELED";
     public final static String REJECTED = "REJECTED";
+
+    public String getSatus() {
+        return satus;
+    }
+
+    public void setSatus(String satus) {
+        this.satus = satus;
+    }
+
+    public double getLang() {
+        return lang;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
     @com.google.gson.annotations.SerializedName("eventLocation")
+    private String  satus;
+
     private String eventLocation;
     @com.google.gson.annotations.SerializedName("eventDate")
     private String   eventDate;

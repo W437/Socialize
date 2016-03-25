@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ADress"
-                android:id="@+id/tvBeginning"
+                android:id="@+id/tvTime"
                 android:layout_below="@+id/eventTitle"
                 android:layout_alignParentEnd="true" />
 
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvBeginning"
+                android:layout_below="@+id/tvTime"
                 android:layout_alignParentEnd="true" />
 
             <TextView
