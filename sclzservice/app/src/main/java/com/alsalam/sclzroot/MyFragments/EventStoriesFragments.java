@@ -70,8 +70,6 @@ import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperati
 import android.widget.AdapterView.OnItemSelectedListener;
 public class EventStoriesFragments extends Fragment
 {
-
-
     private ListView listView;
     private Spinner spinner;
 
@@ -91,6 +89,8 @@ public class EventStoriesFragments extends Fragment
         event[3]=getResources().getString(R.string.events_according_time);
         event[4]=getResources().getString(R.string.events_according_my_location);
         event[5]=getResources().getString(R.string.past_events);
+
+
 
 
 //setting array adaptors to spinners
