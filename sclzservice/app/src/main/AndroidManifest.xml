@@ -64,9 +64,7 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name="com.alsalam.sclzroot.Activities.MainHomeActivity" />
-        <activity
-            android:name="com.alsalam.sclzroot.MyFragments.SearchOnMapDialog"
-            android:label="@string/title_activity_maps"></activity>
+
     </application>
 
 </manifest>
