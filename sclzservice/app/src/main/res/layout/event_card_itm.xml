@@ -25,7 +25,7 @@
            >
 
             <TextView
-                android:id="@+id/tvUserN"
+                android:id="@+id/eventTitle"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
@@ -40,52 +40,26 @@
                 android:id="@+id/tvAdrerss2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/address"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_above="@+id/tvAdress2"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/tvEventS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Event_info"
-                android:textSize="10dp"
-                android:layout_marginRight="150dp"
-                android:layout_below="@+id/tvUserN"
-                android:layout_alignParentStart="true" />
+                android:layout_above="@+id/btMore"
+                android:layout_alignParentStart="true"
+                android:text="small Text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/time"
                 android:id="@+id/tvBeginning"
-                android:layout_below="@+id/tvUserN"
+                android:layout_below="@+id/eventTitle"
                 android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvAdress2"
-                android:layout_alignTop="@+id/btMore"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvAdrerss2"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvBeginning2"
+                android:id="@+id/tvTime2"
                 android:layout_below="@+id/tvBeginning"
                 android:layout_alignParentEnd="true" />
 
@@ -97,6 +71,33 @@
                 android:id="@+id/btMore"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Summary"
+                android:id="@+id/tvSummary12"
+                android:layout_alignTop="@+id/tvTime2"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/summary2"
+                android:layout_below="@+id/tvSummary12"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="adress"
+                android:id="@+id/tvAdress"
+                android:layout_above="@+id/tvAdrerss2"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
