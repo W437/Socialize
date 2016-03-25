@@ -50,7 +50,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.title);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
         Button btExtra=(Button)row.findViewById(R.id.btExtra);
 
         TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);

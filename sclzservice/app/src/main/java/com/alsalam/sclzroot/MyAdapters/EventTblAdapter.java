@@ -66,7 +66,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         //final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         Button btMore=(Button)row.findViewById(R.id.btMore);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.title);
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss2);
 

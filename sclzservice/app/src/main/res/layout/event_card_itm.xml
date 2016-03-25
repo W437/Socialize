@@ -17,111 +17,115 @@
         card_view:cardElevation="0dp"
         card_view:cardCornerRadius="0dp"
         android:layout_margin="5dp"
-        android:layout_weight="0.04">
+        android:layout_weight="0.14">
         <RelativeLayout
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
            >
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/primary"
-                android:text="@string/Event_title"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:textSize="14dp"
-                android:allowUndo="false"
-                android:layout_gravity="center" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/time"
-                android:id="@+id/tvTime"
-                android:layout_below="@+id/eventTitle"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvTime2"
-                android:layout_below="@+id/tvTime"
-                android:layout_alignParentEnd="true" />
-
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/More"
-                android:id="@+id/btMore"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Summary"
-                android:id="@+id/tvSummary12"
-                android:layout_alignTop="@+id/tvTime2"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/tvAdrerss2"
-                android:layout_width="133dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:textSize="10dp"
-                android:layout_marginLeft="5dp"
-                android:text="small Text"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/btMore"
-                android:layout_alignTop="@+id/btMore" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Small Text"
-                android:id="@+id/summary2"
-                android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/tvTime2" />
-
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/tvTime2"
-                android:layout_above="@+id/btMore"
-                android:weightSum="1"
-                android:id="@+id/linearLayout2">
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@color/primary"
+                    android:text="@string/Event_title"
+                    android:gravity="center_vertical"
+                    android:textColor="@android:color/white"
+                    android:textSize="14dp"
+                    android:allowUndo="false"
+                    android:layout_gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Status"
-                    android:id="@+id/statusTv" />
+                    android:text="@string/time"
+                    android:id="@+id/tvTime"
+                    android:layout_below="@+id/eventTitle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="right" />
 
                 <TextView
-                    android:layout_width="75dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:id="@+id/statTv" />
-            </LinearLayout>
+                    android:id="@+id/tvTime2"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="right" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="adress"
-                android:id="@+id/tvAdress"
-                android:layout_above="@+id/tvAdrerss2"
-                android:layout_alignParentStart="true" />
+                <TextView
+                    android:layout_width="71dp"
+                    android:layout_height="34dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="text"
+                    android:id="@+id/summary2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/tvTime2" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_above="@+id/btMore"
+                    android:layout_below="@+id/tvTime2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status"
+                        android:id="@+id/statusTv" />
+
+                    <TextView
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:text="New Text"
+                        android:id="@+id/statTv" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAdrerss2"
+                    android:layout_width="133dp"
+                    android:layout_height="22dp"
+                    android:gravity="center_vertical"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="small Text"
+                    android:layout_alignParentStart="true"
+                    android:layout_above="@+id/btMore"
+                    android:layout_alignTop="@+id/btMore" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:layout_width="187dp"
+                        android:layout_height="65dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Participation"
+                        android:id="@+id/btPartic"
+                        android:layout_below="@+id/tvAdrerss2"
+                        android:layout_alignParentStart="true" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="187dp"
+                        android:layout_height="65dp"
+                        android:text="@string/More"
+                        android:id="@+id/btMore"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </RelativeLayout>
 

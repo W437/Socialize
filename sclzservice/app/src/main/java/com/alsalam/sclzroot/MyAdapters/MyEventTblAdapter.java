@@ -63,9 +63,9 @@ public class MyEventTblAdapter extends ArrayAdapter<EventTbl> {
 
         final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         Button btMore=(Button)row.findViewById(R.id.btMore);
-        Button btEdit =(Button)row.findViewById(R.id.btEdit);
+        Button btPartic =(Button)row.findViewById(R.id.btPartic);
         TextView statTv=(TextView)row.findViewById(R.id.statTv);
-        TextView tvEventT=(TextView)row.findViewById(R.id.eventTitle);
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
@@ -75,11 +75,11 @@ public class MyEventTblAdapter extends ArrayAdapter<EventTbl> {
      //   tvBegin2.setText(currentItem.getEventBegin().toString());
       //tvAdress2.setText(currentItem.getAddress());
         //tvSummary2.setText(currentItem.getEventPurpose());
-        tvEventT.setText(currentItem.getEventTitle());
-        statTv.setText(currentItem.getSatus());
-        tvAdress2.setText(currentItem.getEventLocation());
-        tvSummary2.setText(currentItem.getEventDescription());
-        btEdit.setOnClickListener(new View.OnClickListener() {
+        tvEventT.setText(currentItem.getTitle());
+        statTv.setText(currentItem.getStatus());
+        tvAdress2.setText(currentItem.getAddressLocation());
+        tvSummary2.setText(currentItem.getAddressLocation());
+        btPartic.setOnClickListener(new View.OnClickListener() {
 
 
             @Override

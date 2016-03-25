@@ -12,6 +12,9 @@ public class EventTbl {
     private String id;
 
 
+
+    private String status;
+
     public final static String WAITING = "WAITING";
     public final static String ACCEPTED = "ACCEPTED";
     public final static String CANCELED = "CANCELED";
@@ -51,7 +54,13 @@ public class EventTbl {
     public void setAddressLocation(String addressLocation) {
         this.addressLocation = addressLocation;
     }
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
     public Date getDate() {
         return date;
     }

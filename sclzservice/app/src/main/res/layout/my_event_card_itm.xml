@@ -66,7 +66,7 @@
                 android:layout_height="32dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="adress"
-                android:id="@+id/tvAdress"
+                android:id="@+id/btPartic"
                 android:layout_below="@+id/tvTime2"
                 android:layout_alignParentStart="true" />
 
@@ -80,7 +80,7 @@
                 android:text="small Text"
                 android:layout_alignParentStart="true"
                 android:layout_above="@+id/btMore"
-                android:layout_below="@+id/tvAdress" />
+                android:layout_below="@+id/btPartic" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/statTv"
-                android:layout_above="@+id/tvAdress"
+                android:layout_above="@+id/btPartic"
                 android:layout_toEndOf="@+id/btEdit" />
 
         </RelativeLayout>

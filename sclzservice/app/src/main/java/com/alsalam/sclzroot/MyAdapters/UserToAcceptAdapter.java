@@ -49,7 +49,7 @@ public class UserToAcceptAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.title);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
         TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
