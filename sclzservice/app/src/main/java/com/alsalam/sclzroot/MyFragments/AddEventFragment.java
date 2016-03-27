@@ -331,7 +331,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         }
         if(v==imageHour)
         {
-            final CharSequence[] items = {"1", "2", "3","4","5","6","7","9","10"};
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle("Make your selection");

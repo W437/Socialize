@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/Birthday"
-                android:id="@+id/tv_Birthday"
+                android:id="@+id/etEventDate"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1" />
 

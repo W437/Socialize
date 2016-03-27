@@ -33,7 +33,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
-    private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName;
+    private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName,etEventDate;
     private Spinner spnDay, spnMonth, spnYear;
     private RadioButton rbMale, rbFemale;
     private RadioGroup rgGender;
@@ -41,6 +41,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private MobileServiceClient mClient;
     private String userGender = "";
     private ProgressBar mProgressBar;
+    private java.util.Date eventDate;
+    private int mYear, mMonth, mDay;
+
 
     private  ImageButton imageBirthDate;
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
@@ -215,6 +218,35 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+
+        if (v == imageBirthDate) {
+
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            if(eventDate==null)
+                                eventDate=new java.util.Date(year,monthOfYear,dayOfMonth);
+                            else {
+                                eventDate.setYear(year);
+                                eventDate.setMonth(monthOfYear);
+                                eventDate.setDate(dayOfMonth);                           }
+                            etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        }
         switch(v.getId())
         {
 //            case R.id.btnSign:
