@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sclzservice">
+    package="com.example.sclzservice" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -22,10 +22,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <receiver
             android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
@@ -42,7 +42,7 @@
             android:label="@string/app_name" />
         <activity android:name="com.alsalam.sclzroot.Activities.IntroActivity" />
         <activity android:name="com.alsalam.sclzroot.Activities.RegisterActivity" />
-        <activity android:name="com.alsalam.sclzroot.Activities.LoginActivity">
+        <activity android:name="com.alsalam.sclzroot.Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,7 +64,6 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name="com.alsalam.sclzroot.Activities.MainHomeActivity" />
-
     </application>
 
 </manifest>
