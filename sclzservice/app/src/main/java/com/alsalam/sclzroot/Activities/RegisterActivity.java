@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
     private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName,etEventDate;
-    private Spinner spnDay, spnMonth, spnYear;
+    // private Spinner spnDay, spnMonth, spnYear;
     private RadioButton rbMale, rbFemale;
     private RadioGroup rgGender;
     private Button btnSubmit;
@@ -70,7 +70,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         etPhoneNumber = (EditText) findViewById(R.id.etPhone);
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
- 
+        etEventDate=(EditText)findViewById(R.id.etEventDate);
+
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
         rbMale = (RadioButton) findViewById(R.id.rbMale);// choosig female or male
