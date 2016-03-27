@@ -64,7 +64,10 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name="com.alsalam.sclzroot.Activities.MainHomeActivity" />
-
+        <activity
+            android:name="com.alsalam.sclzroot.Activities.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
