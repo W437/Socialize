@@ -106,23 +106,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <Button
+                    <ImageButton
                         android:layout_width="187dp"
                         android:layout_height="65dp"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Participation"
                         android:id="@+id/btPartic"
                         android:layout_below="@+id/tvAdrerss2"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:src="@mipmap/ic_count"
+                        android:background="#0000" />
 
-                    <Button
+                    <ImageButton
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="187dp"
                         android:layout_height="65dp"
                         android:text="@string/More"
                         android:id="@+id/btMore"
                         android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        android:src="@mipmap/ic_sahim"
+                        android:background="#0000" />
                 </LinearLayout>
 
             </LinearLayout>
