@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
+import com.alsalam.sclzroot.MyFragments.ParticipatorsFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.example.sclzservice.R;
 
@@ -70,6 +71,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss2);
 
+        Button btPartic=(Button)row.findViewById(R.id.btPartic);
 
         row.setTag(currentItem);
 
@@ -79,12 +81,24 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         tvEventT.setText(currentItem.getTitle());
         tvAdress2.setText(currentItem.getAddressLocation());
         tvSummary2.setText(currentItem.getDescription());
+
+        btPartic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                 showParDialog();
+            }
+        });
+
+
+
+
         btMore.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
-                    showDialog();
+                showDialog();
 
             }
 
@@ -93,10 +107,19 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         return row;
     }
-    void showDialog () {
+
+        void showParDialog(){
+            ParticipatorsFragment participatorsFragment =new ParticipatorsFragment();
+             participatorsFragment.show(fragmentManager,"AAAA");
+        }
+      void showDialog () {
         // Create the fragment and show it as a dialog.
         JoinEventDialog joinEvent=new JoinEventDialog();
         joinEvent.show(fragmentManager,"kkkkk");
     }
+
+
+
+
 
 }

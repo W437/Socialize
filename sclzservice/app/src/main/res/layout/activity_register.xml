@@ -176,10 +176,11 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPhonetic"
+                android:inputType="phone"
                 android:ems="10"
                 android:id="@+id/etPhone"
                 android:hint="PHONE NUMBER"
+
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 

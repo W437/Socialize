@@ -161,6 +161,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 
+                        // it appears for me and error here, ** remember to ask about it
                         if (result.size() > 0) {
                             DataBaseMngr.saveLogIn(result.get(0), getBaseContext());
                             signinDialog.dismiss();

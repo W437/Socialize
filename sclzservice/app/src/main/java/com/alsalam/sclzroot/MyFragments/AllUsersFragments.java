@@ -31,9 +31,9 @@ public class AllUsersFragments extends  Fragment
         //
         //
 
-        UserTblAdapter UsertTblAdapter=new UserTblAdapter(getContext(),R.layout.user_card_itm);
+        UserTblAdapter userTblAdapter =new UserTblAdapter(getContext(),R.layout.user_card_itm);
 
-       // listView.setAdapter(UserTblAdapter);
+        listView.setAdapter(userTblAdapter);
 
         return  view;
     }
