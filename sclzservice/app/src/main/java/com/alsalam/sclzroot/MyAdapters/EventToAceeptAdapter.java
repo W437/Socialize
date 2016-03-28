@@ -55,7 +55,7 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
 
         TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.statTv);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
         tvBegin2.setText(currentItem.getDate().toString());

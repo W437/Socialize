@@ -52,8 +52,8 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
 
         final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
         Button btExtra=(Button)row.findViewById(R.id.btExtra);
-
-        TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
+         TextView statTv2=(TextView)row.findViewById(R.id.statTv2);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
         TextView tvEmail=(TextView)row.findViewById(R.id.tvEmail);
@@ -63,7 +63,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
 
 
         row.setTag(currentItem);
-
+        statTv2.setText(currentItem.getStatus());
         tvEmail2.setText(currentItem.getUserEmail());
         tvAdress2.setText(currentItem.getUserAddress());
         tvRole2.setText(currentItem.getUserTafkeed());

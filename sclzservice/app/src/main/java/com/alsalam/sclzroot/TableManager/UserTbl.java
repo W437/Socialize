@@ -11,7 +11,13 @@ public class UserTbl {
     @com.google.gson.annotations.SerializedName("firstName")
     private String firstName;
     @com.google.gson.annotations.SerializedName("lastName")
-    private String lastName;
+     private String lastName ;
+
+
+    @com.google.gson.annotations.SerializedName("status")
+
+    private String status;
+
     @com.google.gson.annotations.SerializedName("userEmail")
     private String userEmail;
     @com.google.gson.annotations.SerializedName("userTafkeed")
@@ -51,6 +57,8 @@ public class UserTbl {
     public String getId() {
         return id;
     }
+
+
 
     public void setId(String id) {
         this.id = id;
@@ -115,6 +123,14 @@ public class UserTbl {
     public String getUserPassword() {
         return userPassword;
     }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;

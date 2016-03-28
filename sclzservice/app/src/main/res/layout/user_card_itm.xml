@@ -55,7 +55,7 @@
                 android:text="@string/Email"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_above="@+id/statTv"
                 android:layout_alignParentStart="true" />
 
             <Button
@@ -89,10 +89,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvAdrerss2"
-                android:layout_alignParentStart="true" />
+                android:text="Status"
+                android:id="@+id/statTv"
+                android:layout_below="@+id/tvAdress2"
+                android:layout_alignStart="@+id/tvAdrerss2" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -109,6 +109,23 @@
                 android:layout_below="@+id/etPhone"
                 android:layout_alignStart="@+id/tvRole2"
                 android:hint="Birthday" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/textView4"
+                android:layout_alignBaseline="@+id/tvAdrerss2"
+                android:layout_alignBottom="@+id/tvAdrerss2"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/statTv2"
+                android:layout_below="@+id/tvEmail"
+                android:layout_toEndOf="@+id/statTv" />
 
         </RelativeLayout>
 

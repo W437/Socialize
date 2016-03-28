@@ -12,7 +12,7 @@ public class EventTbl {
     private String id;
 
 
-
+    @com.google.gson.annotations.SerializedName("status")
     private String status;
 
     public final static String WAITING = "WAITING";

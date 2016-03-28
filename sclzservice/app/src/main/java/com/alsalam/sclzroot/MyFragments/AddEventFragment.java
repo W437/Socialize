@@ -143,6 +143,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         //    location = "Outdoors & Indoors";
 
         event.setTitle(etTitle.getText().toString());
+        event.setStatus(EventTbl.WAITING);
         event.setDescription(etDescription.getText().toString());
         event.setMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
         event.setRequirements(etRequirments.getText().toString());

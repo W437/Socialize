@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.example.sclzservice.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -86,6 +87,11 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
+        for (int i = 0; i < listView.getAdapter().getCount(); i++) {
+            EventTbl eventTbl=(EventTbl)listView.getAdapter().getItem(i);
+            ///to gps loc-> marker->add to map+ listener for markers
+        }
+
 
         LatLng sydney = new LatLng(32.9943511, 35.1472984);
         mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום -דנון"));

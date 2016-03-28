@@ -48,7 +48,7 @@
                 android:text="@string/email"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_above="@+id/statTv"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvEmail2"
+                android:id="@+id/statTv"
                 android:layout_above="@+id/tvAdrerss2"
                 android:layout_alignParentStart="true" />
 

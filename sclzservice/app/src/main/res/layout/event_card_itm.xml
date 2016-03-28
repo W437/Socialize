@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:weightSum="1">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
@@ -11,7 +11,7 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="133dp"
+        android:layout_height="wrap_content"
         android:background="@color/primary_light"
         card_view:cardBackgroundColor="@android:color/transparent"
         card_view:cardElevation="0dp"
@@ -27,7 +27,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:weightSum="1">
 
                 <TextView
@@ -104,7 +104,7 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <Button
                         android:layout_width="187dp"
