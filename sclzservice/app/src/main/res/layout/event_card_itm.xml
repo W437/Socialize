@@ -108,7 +108,7 @@
 
                     <ImageButton
                         android:layout_width="187dp"
-                        android:layout_height="65dp"
+                        android:layout_height="match_parent"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:text="Participation"
                         android:id="@+id/btPartic"
@@ -119,8 +119,8 @@
 
                     <ImageButton
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="187dp"
-                        android:layout_height="65dp"
+                        android:layout_width="181dp"
+                        android:layout_height="match_parent"
                         android:text="@string/More"
                         android:id="@+id/btMore"
                         android:layout_alignParentBottom="true"
