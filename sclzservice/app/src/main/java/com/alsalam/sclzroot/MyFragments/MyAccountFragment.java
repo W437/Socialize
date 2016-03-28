@@ -29,5 +29,6 @@ public class MyAccountFragment extends Fragment {
     protected void init(View view) {
 
     }
-    }
+
+}
 
