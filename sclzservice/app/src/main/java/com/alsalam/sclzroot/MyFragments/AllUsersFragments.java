@@ -12,7 +12,7 @@ import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by hp1 on 07/03/2016.

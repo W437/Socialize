@@ -25,7 +25,8 @@ import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.handlers.MyHandler;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
@@ -258,6 +259,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     {
                         Toast.makeText(getContext(), "EVENT ADDED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                         Log.d("AZUREDB", "SUCCESS! YAY!");
+                        MyHandler.mainActivity.sendNotification(entity.getTitle()+","+entity.getAddressLocation());
 
                     }
                     else
@@ -376,6 +378,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 Log.d("Azure", "Event Added!");
                // Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
+
            }
             else
             {

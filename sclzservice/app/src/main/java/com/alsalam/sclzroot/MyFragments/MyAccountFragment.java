@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 public class MyAccountFragment extends Fragment {
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by hp1 on 08/03/2016.

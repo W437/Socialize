@@ -29,7 +29,7 @@ import com.alsalam.sclzroot.Activities.RegisterActivity;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.GuestsToEvent;
 import com.alsalam.sclzroot.handlers.EventsHandler;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;

@@ -35,7 +35,8 @@ import com.alsalam.sclzroot.MyFragments.UsersFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.handlers.MyHandler;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -51,13 +52,46 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.AsyncTask;
+import com.google.android.gms.gcm.*;
+import com.microsoft.windowsazure.messaging.*;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
+import android.widget.Toast;
+
+import java.net.URLEncoder;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import android.util.Base64;
+import android.view.View;
+import android.widget.EditText;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 public class MainHomeActivity extends AppCompatActivity implements EventsHandler  {
     ViewPager viewPager;
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
     TabLayout tabLayout;
 
+    private String SENDER_ID = "7025779782";
+    private GoogleCloudMessaging gcm;
+    private NotificationHub hub;
+    private String HubName = "samih_hub";
+    private String HubListenConnectionString = "Endpoint=sb://samihnamespace.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=LGmW1DkDanDORII/f3RZ8f5gpTYqXhtnUCZCYjRdTxY=";
+    private static Boolean isVisible = false;
 
+    private String HubEndpoint = null;
+    private String HubSasKeyName = null;
+    private String HubSasKeyValue = null;
+    private String HubFullAccess = "Endpoint=sb://samihnamespace.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=QS4g4cxA2Z9z5UzXayiO226sLz7N3OcHlMIVRGDSWlQ=";
 
     /**
      * Mobile Service Client reference
@@ -83,7 +117,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout= (TabLayout) findViewById(R.id.tabs);
         //rgLocation = (RadioGroup) findViewById(R.id.rgLocation);
         initRemoteData();
-
+        initForPush();
 
 
 
@@ -145,6 +179,186 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
 
 
+    }
+
+    private void initForPush() {
+        MyHandler.mainActivity = this;
+        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+        gcm = GoogleCloudMessaging.getInstance(this);
+        hub = new NotificationHub(HubName, HubListenConnectionString, this);
+        registerWithNotificationHubs();
+    }
+    @SuppressWarnings("unchecked")
+    private void registerWithNotificationHubs() {
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object... params) {
+                try {
+                    String regid = gcm.register(SENDER_ID);
+                    ToastNotify("Registered Successfully - RegId : " +
+                            hub.register(regid).getRegistrationId());
+                } catch (Exception e) {
+                    ToastNotify("Registration Exception Message - " + e.getMessage());
+                    return e;
+                }
+                return null;
+            }
+        }.execute(null, null, null);
+    }
+    /**
+     * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
+     * to parse the connection string so a SaS authentication token can be
+     * constructed.
+     *
+     * @param connectionString This must be the DefaultFullSharedAccess connection
+     *                         string for this example.
+     */
+    private void ParseConnectionString(String connectionString)
+    {
+        String[] parts = connectionString.split(";");
+        if (parts.length != 3)
+            throw new RuntimeException("Error parsing connection string: "
+                    + connectionString);
+
+        for (int i = 0; i < parts.length; i++) {
+            if (parts[i].startsWith("Endpoint")) {
+                this.HubEndpoint = "https" + parts[i].substring(11);
+            } else if (parts[i].startsWith("SharedAccessKeyName")) {
+                this.HubSasKeyName = parts[i].substring(20);
+            } else if (parts[i].startsWith("SharedAccessKey")) {
+                this.HubSasKeyValue = parts[i].substring(16);
+            }
+        }
+    }
+    /**
+     * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
+     * construct a SaS token from the access key to authenticate a request.
+     *
+     * @param uri The unencoded resource URI string for this operation. The resource
+     *            URI is the full URI of the Service Bus resource to which access is
+     *            claimed. For example,
+     *            "http://<namespace>.servicebus.windows.net/<hubName>"
+     */
+    private String generateSasToken(String uri) {
+
+        String targetUri;
+        try {
+            targetUri = URLEncoder
+                    .encode(uri.toString().toLowerCase(), "UTF-8")
+                    .toLowerCase();
+
+            long expiresOnDate = System.currentTimeMillis();
+            int expiresInMins = 60; // 1 hour
+            expiresOnDate += expiresInMins * 60 * 1000;
+            long expires = expiresOnDate / 1000;
+            String toSign = targetUri + "\n" + expires;
+
+            // Get an hmac_sha1 key from the raw key bytes
+            byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
+            SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
+
+            // Get an hmac_sha1 Mac instance and initialize with the signing key
+            Mac mac = Mac.getInstance("HmacSHA256");
+            mac.init(signingKey);
+
+            // Compute the hmac on input data bytes
+            byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
+
+            // Using android.util.Base64 for Android Studio instead of
+            // Apache commons codec
+            String signature = URLEncoder.encode(
+                    Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
+
+            // Construct authorization string
+            String token = "SharedAccessSignature sr=" + targetUri + "&sig="
+                    + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
+            return token;
+        } catch (Exception e) {
+            createAndShowDialog( e.getMessage().toString(),"Exception Generating SaS");
+        }
+
+        return null;
+    }
+    /**
+     * Send Notification button click handler. This method parses the
+     * DefaultFullSharedAccess connection string and generates a SaS token. The
+     * token is added to the Authorization header on the POST request to the
+     * notification hub. The text in the editTextNotificationMessage control
+     * is added as the JSON body for the request to add a GCM message to the hub.
+     *
+     *
+     */
+    public void sendNotification(String toSend) {
+        //EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
+        final String json = "{\"data\":{\"message\":\"" + toSend + "\"}}";
+
+        new Thread()
+        {
+            public void run()
+            {
+                try
+                {
+                    HttpClient client = new DefaultHttpClient();
+
+                    // Based on reference documentation...
+                    // http://msdn.microsoft.com/library/azure/dn223273.aspx
+                    ParseConnectionString(HubFullAccess);
+                    String url = HubEndpoint + HubName + "/messages/?api-version=2015-01";
+                    HttpPost post = new HttpPost(url);
+
+                    // Authenticate the POST request with the SaS token
+                    post.setHeader("Authorization", generateSasToken(url));
+
+                    // JSON content for GCM
+                    post.setHeader("Content-Type", "application/json;charset=utf-8");
+
+                    // Notification format should be GCM
+                    post.setHeader("ServiceBusNotification-Format", "gcm");
+                    post.setEntity(new StringEntity(json));
+
+                    HttpResponse response = client.execute(post);
+                }
+                catch(Exception e)
+                {
+                    createAndShowDialog( e.getMessage().toString(),"Exception");
+                }
+            }
+        }.start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isVisible = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isVisible = false;
+    }
+
+    public void ToastNotify(final String notificationMessage)
+    {
+        if (isVisible == true)
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getBaseContext(), notificationMessage, Toast.LENGTH_LONG).show();
+                }
+            });
     }
 
     private void initRemoteData() {

@@ -81,7 +81,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_calendar_agenda">CalendarAgenda</string>
-    <string name="title_activity_register" />
+    <string name="title_activity_register" >register</string>
     <string name="title_activity_my_events_fragment">MyEventsFragment</string>
     <string name="event_title">EVENT TITLE</string>
     <string name="Description">DESCRIPTION</string>
@@ -192,5 +192,7 @@
     <string name="up_to_ten">up to ten hours</string>
     <string name="event_saved">SAVED</string>
     <string name="title_activity_my_event1">MyEvent1</string>
+    <string name="Wait">wait</string>
+    <string name="signing_in">Signing in...</string>
 
 </resources>

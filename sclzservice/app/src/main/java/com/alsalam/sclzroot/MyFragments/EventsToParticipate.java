@@ -12,7 +12,7 @@ import android.widget.ListView;
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 import java.util.List;
 

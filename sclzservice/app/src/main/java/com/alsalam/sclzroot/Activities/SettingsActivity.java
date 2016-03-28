@@ -21,7 +21,8 @@ import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
-import com.example.sclzservice.R;
+
+import com.alsalam.sclzroot.R;
 
 import java.util.List;
 

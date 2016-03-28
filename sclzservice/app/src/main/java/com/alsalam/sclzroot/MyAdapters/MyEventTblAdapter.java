@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by bana on 01/03/2016.

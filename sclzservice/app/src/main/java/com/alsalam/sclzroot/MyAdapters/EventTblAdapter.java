@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.MyFragments.ParticipatorsFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 import static android.app.PendingIntent.getActivity;
 

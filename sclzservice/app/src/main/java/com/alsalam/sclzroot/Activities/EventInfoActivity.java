@@ -5,7 +5,8 @@ import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
+
 
 public class EventInfoActivity extends Activity {
     private TextView tv_EventName,tv_Details,tv_HostName, tv_Parl,tv_JoinReq,tv_Ager,tv_EventLocation,tv_GenderP;

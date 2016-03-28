@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

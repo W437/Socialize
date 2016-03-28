@@ -10,8 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+
 
 /**
  * Created by bana on 01/03/2016.

@@ -28,7 +28,7 @@ import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.Activities.RegisterActivity;
 import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
 import com.alsalam.sclzroot.handlers.EventsHandler;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by hp1 on 15/03/2016.

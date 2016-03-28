@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sclzservice" >
+    package="com.alsalam.sclzroot" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -38,7 +38,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".ToDoActivity"
+            android:name="com.example.sclzservice.ToDoActivity"
             android:label="@string/app_name" />
         <activity android:name="com.alsalam.sclzroot.Activities.IntroActivity" />
         <activity android:name="com.alsalam.sclzroot.Activities.RegisterActivity" />

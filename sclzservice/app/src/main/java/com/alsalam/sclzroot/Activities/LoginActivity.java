@@ -1,19 +1,12 @@
 package com.alsalam.sclzroot.Activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.NotificationCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,15 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.alsalam.sclzroot.LocalNotif;
-import com.alsalam.sclzroot.PushNotifHandler;
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
-import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.facebook.FacebookSdk;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
@@ -112,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnSign.setOnClickListener(this);
         btnFacebook.setOnClickListener(this);
 
-        NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
+
 
 
     }
@@ -149,12 +138,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.btnFacebook:
-                new LocalNotif().sendNotification("Heynow", this);
+
                 break;
 
             case R.id.btnSign:
 
                 signinDialog=createAndReturnDialog(getResources().getString(R.string.Wait), getResources().getString(R.string.signing_in));
+               // signinDialog=createAndReturnDialog("wait", "signing_i");
                 signinDialog.setCancelable(false);
                 signinDialog.show();
                 msUsertTbl.where().field("userName").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {

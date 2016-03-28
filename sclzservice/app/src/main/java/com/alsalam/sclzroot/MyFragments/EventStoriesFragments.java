@@ -38,7 +38,7 @@ import android.widget.Spinner;
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.example.sclzservice.ToDoItem;
 import com.example.sclzservice.ToDoItemAdapter;
 import com.google.common.util.concurrent.FutureCallback;

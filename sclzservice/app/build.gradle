@@ -25,6 +25,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    useLibrary 'org.apache.http.legacy'
+
 
     repositories {
         flatDir {
@@ -39,11 +41,11 @@ dependencies {
     //   compile 'com.google.android.gms:play-services:8.4.0'
     // compile 'com.github.tibolte:agendacalendarview:1.0.3'
     // Push
-    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
 
     //facebook log in
     compile 'com.roomorama:caldroid:3.0.1'
     compile 'com.roomorama:caldroid:3.0.1'
+  //  compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
     compile 'com.microsoft.azure:azure-mobile-android:3.0'
     compile 'com.google.code.gson:gson:2.4'
@@ -58,4 +60,11 @@ dependencies {
     compile 'com.google.android.gms:play-services-gcm:8.4.0'
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.android.gms:play-services-base:6.5.87'
+    compile files('libs/notification-hubs-0.4.jar')
+}
+repositories {
+    maven {
+        url "http://dl.bintray.com/microsoftazuremobile/SDK"
+    }
 }
