@@ -9,22 +9,24 @@ public class GuestsToEvent {
     private String id;
     @com.google.gson.annotations.SerializedName("eventid")
 
+    @com.google.gson.annotations.SerializedName("eventid")
     private String eventid;
+
     @com.google.gson.annotations.SerializedName("userId")
-
     private String userId;//Guest
+
     @com.google.gson.annotations.SerializedName("Status")
-
     private String Status= EventTbl.WAITING;
+
     @com.google.gson.annotations.SerializedName("iNeed")
-
     private String iNeed;
-    @com.google.gson.annotations.SerializedName("iBring")
 
+    @com.google.gson.annotations.SerializedName("iBring")
     private  String iBring;
     @com.google.gson.annotations.SerializedName("countP")
 
-    private int countP;
+    @com.google.gson.annotations.SerializedName("countP")
+    private String countP;
 
 
 
@@ -70,11 +72,11 @@ public class GuestsToEvent {
         this.iBring = iBring;
     }
 
-    public int getCountP() {
+    public String getCountP() {
         return countP;
     }
 
-    public void setCountP(int countP) {
+    public void setCountP(String countP) {
         this.countP = countP;
     }
 
