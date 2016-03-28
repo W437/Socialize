@@ -23,7 +23,6 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.SimpleDateFormat;
@@ -121,6 +120,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        mMap.setMyLocationEnabled(true);
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }

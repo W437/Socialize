@@ -45,7 +45,7 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_users, container, false);
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView, R.layout.user_card_itm);
+        ((MainHomeActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
 
 //
 //        try {

@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
+import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
 import com.alsalam.sclzroot.MyFragments.AddEventFragment;
 import com.alsalam.sclzroot.MyFragments.CalendarFragment;
 import com.alsalam.sclzroot.MyFragments.EventStoriesFragments;
@@ -69,7 +70,8 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
     private MobileServiceTable<EventTbl> msEnetTbl;
     private MobileServiceTable<UserTbl> msUsertTbl;
 
-    private EventTblAdapter mAdapter;
+    private EventTblAdapter mEventAdapter;
+    private UserTblAdapter mUserTblAdapter;
 
     private ProgressBar mProgressBar;
 
@@ -92,21 +94,18 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
        //fragments[0]=new MapList_Fragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
-        fragments[1]=new EventStoriesFragments();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
+        fragments[1]=new MyEventsFragment();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
 
         fragments[2]=new AddEventFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
 
-        fragments[3]=new MyEventsFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
 
+        fragments[3]=new EventStoriesFragments();
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
 
         fragments[4]=new UsersFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
-
-
-
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_count));
 
 
 
@@ -189,10 +188,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -218,10 +217,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             @Override
             protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
+                mEventAdapter.clear();
+                mEventAdapter.addAll(listRes);
 //                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//                    mEventAdapter.add(item);
 //
 //                }
 
@@ -240,10 +239,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -269,10 +268,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             @Override
             protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
+                mEventAdapter.clear();
+                mEventAdapter.addAll(listRes);
 //                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//                    mEventAdapter.add(item);
 //
 //                }
 
@@ -291,10 +290,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -320,10 +319,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             @Override
             protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
+                mEventAdapter.clear();
+                mEventAdapter.addAll(listRes);
 //                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//                    mEventAdapter.add(item);
 //
 //                }
 
@@ -342,10 +341,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -371,10 +370,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             @Override
             protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
+                mEventAdapter.clear();
+                mEventAdapter.addAll(listRes);
 //                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//                    mEventAdapter.add(item);
 //
 //                }
 
@@ -393,10 +392,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, List<EventTbl>> task = new AsyncTask<Void,Void,List<EventTbl>>(){
             @Override
             protected void onProgressUpdate(Void... values) {
@@ -422,10 +421,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             @Override
             protected void onPostExecute(List<EventTbl> listRes) {
-                mAdapter.clear();
-                mAdapter.addAll(listRes);
+                mEventAdapter.clear();
+                mEventAdapter.addAll(listRes);
 //                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//                    mEventAdapter.add(item);
 //
 //                }
 
@@ -434,53 +433,53 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         task.execute();
         // runAsyncTask(task);
     }
-    /**
-     * Refresh the list with the items in the Table
-     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-     * check the sign in and retrun user if found ot null if not
-     */
-    public UserTbl refreshAllUsersFromTable(final String user, final String password) {
-        final UserTbl[] userTbl = {null};
-                AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
-            @Override
-            protected void onProgressUpdate(Void... values) {
-                super.onProgressUpdate(values);
-            }
-
-            @Override
-            protected List<UserTbl> doInBackground(Void... params) {
-
-                try {
-                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
-
-
-                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
-                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
-
-                    //Offline Sync
-                    return results;
-                } catch (final Exception e){
-                    createAndShowDialogFromTask(e, "Error");
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(List<UserTbl> listRes) {
-                if(listRes.size()>0)
-                    userTbl[0] = listRes.get(0);
-//                for (EventTbl item : results) {
-//                    mAdapter.add(item);
+//    /**
+//     * Refresh the list with the items in the Table
+//     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+//     * check the sign in and retrun user if found ot null if not
+//     */
+//    public UserTbl refreshAllUsersFromTable(final String user, final String password) {
+//        final UserTbl[] userTbl = {null};
+//                AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
+//            @Override
+//            protected void onProgressUpdate(Void... values) {
+//                super.onProgressUpdate(values);
+//            }
 //
+//            @Override
+//            protected List<UserTbl> doInBackground(Void... params) {
+//
+//                try {
+//                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").execute().get();
+//
+//
+//                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+//                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
+//
+//                    //Offline Sync
+//                    return results;
+//                } catch (final Exception e){
+//                    createAndShowDialogFromTask(e, "Error");
 //                }
-
-            }
-        };
-        task.execute();
-        // runAsyncTask(task);
-       return userTbl[0];
-    }
+//
+//                return null;
+//            }
+//
+//            @Override
+//            protected void onPostExecute(List<UserTbl> listRes) {
+//                if(listRes.size()>0)
+//                    userTbl[0] = listRes.get(0);
+////                for (EventTbl item : results) {
+////                    mEventAdapter.add(item);
+////
+////                }
+//
+//            }
+//        };
+//        task.execute();
+//        // runAsyncTask(task);
+//       return userTbl[0];
+//    }
     private  static class MyPagerAdatpter extends FragmentPagerAdapter
     {
         Fragment[] fragments;
@@ -544,10 +543,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
         msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-        mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+        mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -561,11 +560,61 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter.clear();
+                            mEventAdapter.clear();
 
                             for (EventTbl item : results) {
-                                mAdapter.add(item);
+                                mEventAdapter.add(item);
                             }
+                        }
+                    });
+                } catch (final Exception e){
+                    e.printStackTrace();
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        };
+
+        runAsyncTask(task);
+    }
+    /**
+     * Refresh the list with the items in the Table
+     */
+    public void refreshAllUsersFromTable(ListView listView,int itmLayout)
+    {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msUsertTbl==null)
+            msUsertTbl = mClient.getTable(UserTbl.class);
+        if(mUserTblAdapter ==null)
+            mUserTblAdapter = new UserTblAdapter(this,itmLayout);
+
+        listView.setAdapter(mUserTblAdapter);
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<UserTbl> results = msUsertTbl.execute().get();
+
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mUserTblAdapter.clear();
+                            mUserTblAdapter.addAll(results);
+//                            for ( item : results) {
+//                                mEventAdapter.add(item);
+//                            }
                         }
                     });
                 } catch (final Exception e){
@@ -594,10 +643,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -611,10 +660,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter.clear();
+                            mEventAdapter.clear();
 
                             for (EventTbl item : results) {
-                                mAdapter.add(item);
+                                mEventAdapter.add(item);
                             }
                         }
                     });
@@ -642,10 +691,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // adapter
         if(msEnetTbl==null)
             msEnetTbl = mClient.getTable(EventTbl.class);
-        if(mAdapter==null)
-            mAdapter = new EventTblAdapter(this,itmLayout);
+        if(mEventAdapter ==null)
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
-        listView.setAdapter(mAdapter);
+        listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -659,10 +708,10 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter.clear();
+                            mEventAdapter.clear();
 
                             for (EventTbl item : results) {
-                                mAdapter.add(item);
+                                mEventAdapter.add(item);
                             }
                         }
                     });
