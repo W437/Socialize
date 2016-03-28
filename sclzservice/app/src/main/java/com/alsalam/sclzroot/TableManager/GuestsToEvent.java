@@ -7,23 +7,23 @@ public class GuestsToEvent {
 
     @com.google.gson.annotations.SerializedName("id")
     private String id;
+
     @com.google.gson.annotations.SerializedName("eventid")
-
     private String eventid;
+
     @com.google.gson.annotations.SerializedName("userId")
-
     private String userId;//Guest
+
     @com.google.gson.annotations.SerializedName("Status")
-
     private String Status= EventTbl.WAITING;
+
     @com.google.gson.annotations.SerializedName("iNeed")
-
     private String iNeed;
+
     @com.google.gson.annotations.SerializedName("iBring")
-
     private  String iBring;
-    @com.google.gson.annotations.SerializedName("countP")
 
+    @com.google.gson.annotations.SerializedName("countP")
     private String countP;
 
 
