@@ -1,5 +1,7 @@
 package com.alsalam.sclzroot.TableManager;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by samih on 14/03/2016.
  */
@@ -7,7 +9,6 @@ public class GuestsToEvent {
 
     @com.google.gson.annotations.SerializedName("id")
     private String id;
-    @com.google.gson.annotations.SerializedName("eventid")
 
     @com.google.gson.annotations.SerializedName("eventid")
     private String eventid;
@@ -23,10 +24,9 @@ public class GuestsToEvent {
 
     @com.google.gson.annotations.SerializedName("iBring")
     private  String iBring;
-    @com.google.gson.annotations.SerializedName("countP")
 
-    @com.google.gson.annotations.SerializedName("countP")
-    private String countP;
+    @SerializedName("countP")
+    private int countP;
 
 
 
@@ -72,11 +72,11 @@ public class GuestsToEvent {
         this.iBring = iBring;
     }
 
-    public String getCountP() {
+    public int getCountP() {
         return countP;
     }
 
-    public void setCountP(String countP) {
+    public void setCountP(int countP) {
         this.countP = countP;
     }
 

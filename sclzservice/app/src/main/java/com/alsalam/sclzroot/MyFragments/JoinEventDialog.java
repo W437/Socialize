@@ -156,6 +156,7 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
                             {
                                 Toast.makeText(getContext(), "JOINED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                                 Log.d("AZUREDB", "SUCCESS! YAY!");
+
                                 dismiss();
 
                             }

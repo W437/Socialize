@@ -81,6 +81,8 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     public void onPause() {
         getFragmentManager().beginTransaction().remove(mapFragment).commit();
         super.onPause();
+
+
     }
 
 
