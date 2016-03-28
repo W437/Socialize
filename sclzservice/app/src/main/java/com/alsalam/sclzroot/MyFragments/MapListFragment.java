@@ -23,6 +23,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.SimpleDateFormat;
@@ -131,10 +132,9 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     }
 
     @Override
-    public boolean onMarkerClick(Marker marker)
-    {
+    public boolean onMarkerClick(Marker marker) {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 13));
 
-        return true;
+        return  true;
     }
 }
