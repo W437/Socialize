@@ -2,12 +2,14 @@ package com.alsalam.sclzroot.MyAdapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +52,8 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
-        Button btExtra=(Button)row.findViewById(R.id.btExtra);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.tvUserN);
+        ImageButton btExtra=(ImageButton)row.findViewById(R.id.btExtra);
          TextView statTv2=(TextView)row.findViewById(R.id.statTv2);
         TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
@@ -72,7 +74,10 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         tvAdrerss2.setText(currentItem.getUserAddress());
         etPhone.setText(currentItem.getUserPhone());
         tvUserN.setText(currentItem.getFirstName());
-        tvBirth.setText(currentItem.getUserBirthday().toString());
+        String date="";
+        if(currentItem.getUserBirthday()!=null)
+             date= DateFormat.getDateFormat(getContext()).format(currentItem.getUserBirthday());
+        tvBirth.setText(date);
 
         btExtra.setOnClickListener(new View.OnClickListener() {
 

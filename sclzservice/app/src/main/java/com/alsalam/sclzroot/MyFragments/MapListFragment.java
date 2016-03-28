@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.MyFragments;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -70,17 +71,17 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         return view;
     }
 
-//    @Override
-//    public void onDetach() {
-//        getFragmentManager().beginTransaction().remove(mapFragment).commit();
-//        super.onDetach();
-//    }
-
     @Override
-    public void onPause() {
+    public void onDetach() {
         getFragmentManager().beginTransaction().remove(mapFragment).commit();
-        super.onPause();
+        super.onDetach();
     }
+
+//    @Override
+//    public void onPause() {
+//        getFragmentManager().beginTransaction().remove(mapFragment).commit();
+//        super.onPause();
+//    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -120,4 +121,11 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     public void onJoinEvent(JoinEventDialog e) {
         Toast.makeText(getContext()," MapListFragment here calling join activity",Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+
 }
