@@ -72,9 +72,9 @@ public class ParticipatorsFragment extends DialogFragment
     protected void init(View view)
     {
         lstvParticipants =(ListView)view.findViewById(R.id.lstvParticipants);
-        //UserTblAdapter userTblAdapter =new UserTblAdapter(getContext(),R.layout.user_card_itm);
+        UserTblAdapter userTblAdapter =new UserTblAdapter(getContext(),R.layout.user_card_itm);
 
-       // lstvParticipants.setAdapter(userTblAdapter);
+       lstvParticipants.setAdapter(userTblAdapter);
 
     }
 

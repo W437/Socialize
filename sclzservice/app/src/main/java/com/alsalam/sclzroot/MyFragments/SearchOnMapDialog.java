@@ -226,7 +226,7 @@ public class SearchOnMapDialog extends DialogFragment implements OnMapReadyCallb
                 // Locate the first location
                 if (i == 0) {
 
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
                     tvSelectedLoc.setText(addressText);
                     etEvntLoactioan.setText(addressText);
                     event.setAddressLocation(addressText);

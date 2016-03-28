@@ -23,6 +23,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ import java.util.Calendar;
 /**
  * Created by samih on 27/02/2016.
  */
-public class MapListFragment extends Fragment implements OnMapReadyCallback, EventsHandler {
+public class MapListFragment extends Fragment implements OnMapReadyCallback, EventsHandler,GoogleMap.OnMarkerClickListener {
     private MapView mapView;
     private GoogleMap mMap;
     private ListView listView;
@@ -82,25 +83,32 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         super.onPause();
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
 
         // Add a marker in Sydney and move the camera
         for (int i = 0; i < listView.getAdapter().getCount(); i++) {
             EventTbl eventTbl=(EventTbl)listView.getAdapter().getItem(i);
-            ///to gps loc-> marker->add to map+ listener for markers
+            ///to  Get gps loc-> marker->add to map+ listener for markers
+            LatLng loc = new LatLng(eventTbl.getLat(),eventTbl.getLang());
+            MarkerOptions markerOptions=new MarkerOptions().position(loc).title(eventTbl.getTitle());
+            mMap.addMarker(markerOptions);
+
+
         }
 
 
-        LatLng sydney = new LatLng(32.9943511, 35.1472984);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום -דנון"));
-        LatLng sydney1 = new LatLng(33.0155026, 35.1359451);
-        mMap.addMarker(new MarkerOptions().position(sydney1).title("נהריה"));
-        LatLng sydney2 = new LatLng(32.9843018, 35.1031843);
-        mMap.addMarker(new MarkerOptions().position(sydney2).title("מזרעה"));
-        LatLng sydney3 = new LatLng(33.0888807, 35.2339193);
-        mMap.addMarker(new MarkerOptions().position(sydney3).title("קיבוץ עברון"));
+//        LatLng sydney = new LatLng(32.9943511, 35.1472984);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("מקיף השלום -דנון"));
+//        LatLng sydney1 = new LatLng(33.0155026, 35.1359451);
+//        mMap.addMarker(new MarkerOptions().position(sydney1).title("נהריה"));
+//        LatLng sydney2 = new LatLng(32.9843018, 35.1031843);
+//        mMap.addMarker(new MarkerOptions().position(sydney2).title("מזרעה"));
+//        LatLng sydney3 = new LatLng(33.0888807, 35.2339193);
+//        mMap.addMarker(new MarkerOptions().position(sydney3).title("קיבוץ עברון"));
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -111,13 +119,20 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        mMap.setMyLocationEnabled(true);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10));
     }
 
     @Override
     public void onJoinEvent(JoinEventDialog e) {
         Toast.makeText(getContext()," MapListFragment here calling join activity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker)
+    {
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 13));
+
+        return true;
     }
 }

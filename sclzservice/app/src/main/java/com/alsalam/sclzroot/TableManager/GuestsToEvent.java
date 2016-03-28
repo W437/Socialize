@@ -24,7 +24,7 @@ public class GuestsToEvent {
     private  String iBring;
     @com.google.gson.annotations.SerializedName("countP")
 
-    private String countP;
+    private int countP;
 
 
 
@@ -70,11 +70,11 @@ public class GuestsToEvent {
         this.iBring = iBring;
     }
 
-    public String getCountP() {
+    public int getCountP() {
         return countP;
     }
 
-    public void setCountP(String countP) {
+    public void setCountP(int countP) {
         this.countP = countP;
     }
 

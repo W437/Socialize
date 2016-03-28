@@ -1,15 +1,21 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -44,7 +50,7 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MainHomeActivity extends AppCompatActivity implements EventsHandler {
+public class MainHomeActivity extends AppCompatActivity implements EventsHandler  {
     ViewPager viewPager;
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
@@ -75,6 +81,9 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout= (TabLayout) findViewById(R.id.tabs);
         //rgLocation = (RadioGroup) findViewById(R.id.rgLocation);
         initRemoteData();
+
+
+
 
 
         //to do
@@ -111,6 +120,9 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
+
+
+
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
             }
@@ -794,4 +806,8 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
     public void checkItemInTable(EventTbl item) throws ExecutionException, InterruptedException {
         msEnetTbl.update(item).get();
     }
+
+
+
+
 }
