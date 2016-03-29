@@ -139,4 +139,5 @@
     <string name="event_saved">שמירה</string>
     <string name="Coordinators">רכזים</string>
     <string name="Guide">מדריכים</string>
+    <string name="Waiting_to_approval">ממתין לאישור</string>
 </resources>
