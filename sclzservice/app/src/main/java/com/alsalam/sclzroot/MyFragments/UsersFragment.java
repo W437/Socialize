@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.Activities.MainHomeActivity;
@@ -28,6 +30,10 @@ import java.net.MalformedURLException;
 
 public class UsersFragment extends Fragment {
     private MobileServiceClient mClient;
+    private Spinner spinner;
+
+    String spin_val;
+    private String[] event = new String[3];
 
     /**
      * Mobile Service Table used to access data
@@ -46,7 +52,10 @@ public class UsersFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_users, container, false);
         listView= (ListView) view.findViewById(R.id.listView);
         ((MainHomeActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
-
+        spinner=(Spinner)view.findViewById(R.id.spinner_id);
+        event[0] =getResources().getString(R.string.Guide);
+        event[1]=getResources().getString(R.string.Waiting_to_approval);
+        event[2]=getResources().getString(R.string.Coordinators);
 //
 //        try {
 //            mClient = new MobileServiceClient(
@@ -60,6 +69,12 @@ public class UsersFragment extends Fragment {
 //
 //        // Get the Mobile Service Table instance to use
 //
+
+        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, event);
+
+// setting adapters to spinners
+
+        spinner.setAdapter(spin_adapter);
 
         return  view;
 

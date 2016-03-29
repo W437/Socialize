@@ -194,5 +194,8 @@
     <string name="title_activity_my_event1">MyEvent1</string>
     <string name="Wait">wait</string>
     <string name="signing_in">Signing in...</string>
+    <string name="Coordinators">Coordinators</string>
+    <string name="Waiting_to_approval">Waiting to approval</string>
+    <string name="Guide">Guide</string>
 
 </resources>

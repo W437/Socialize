@@ -138,4 +138,6 @@
     <string name="Logo"></string>
     <string name="signing_in">تسجيل الدخول</string>
     <string name="event_saved">حفظ</string>
+    <string name="Coordinators">مسؤولون </string>
+    <string name="Guide">مرشدون</string>
 </resources>

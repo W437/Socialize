@@ -64,25 +64,16 @@
                 android:background="#0000" />
 
             <TextView
-                android:layout_width="96dp"
-                android:layout_height="32dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="adress"
-                android:id="@+id/btPartic"
-                android:layout_below="@+id/tvTime2"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/tvAdrerss2"
+                android:id="@+id/tvAdrerss"
                 android:layout_width="133dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
-                android:text="small Text"
+                android:text="Adress"
                 android:layout_alignParentStart="true"
                 android:layout_above="@+id/btMore"
-                android:layout_below="@+id/btPartic" />
+                android:layout_below="@+id/tvTime2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -98,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="Edit"
                 android:id="@+id/btEdit"
-                android:layout_below="@+id/tvAdrerss2"
+                android:layout_below="@+id/tvAdrerss"
                 android:layout_alignParentStart="true"
                 android:src="@mipmap/ic_edit"
                 android:background="#0000" />
@@ -108,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delete  "
                 android:id="@+id/delEven"
-                android:layout_below="@+id/tvAdrerss2"
+                android:layout_below="@+id/tvAdrerss"
                 android:layout_toEndOf="@+id/btEdit"
                 android:src="@mipmap/ic_delete"
                 android:background="#0000" />
@@ -119,15 +110,24 @@
                 android:text="Status"
                 android:id="@+id/statusTv"
                 android:layout_below="@+id/summary2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_alignStart="@+id/tvAdrerss" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/statTv"
-                android:layout_above="@+id/btPartic"
-                android:layout_toEndOf="@+id/btEdit" />
+                android:layout_above="@+id/tvAdrerss"
+                android:layout_alignEnd="@+id/tvAdrerss" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/tvAdress2"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/statusTv" />
 
         </RelativeLayout>
 

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -71,7 +70,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         ImageButton btPartic=(ImageButton)row.findViewById(R.id.btPartic);
         TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
-        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss2);
+        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss);
 
 
 

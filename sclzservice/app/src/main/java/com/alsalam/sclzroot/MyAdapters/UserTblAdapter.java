@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -59,7 +58,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
         TextView tvEmail=(TextView)row.findViewById(R.id.tvEmail);
-        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss2);
+        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss);
         EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
         TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
 

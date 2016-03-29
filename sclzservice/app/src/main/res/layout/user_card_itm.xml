@@ -32,7 +32,7 @@
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvAdrerss2"
+                android:id="@+id/tvAdrerss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/User_role"
@@ -79,8 +79,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvRole2"
-                android:layout_below="@+id/tvAdrerss2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_below="@+id/tvAdrerss"
+                android:layout_alignStart="@+id/tvAdrerss" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
                 android:text="Status"
                 android:id="@+id/statTv"
                 android:layout_below="@+id/tvAdress2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_alignStart="@+id/tvAdrerss" />
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
                 android:id="@+id/TitleWrapper"

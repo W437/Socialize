@@ -33,7 +33,7 @@
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvAdrerss2"
+                android:id="@+id/tvAdrerss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/adress"
@@ -66,15 +66,15 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvAdrerss2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_below="@+id/tvAdrerss"
+                android:layout_alignStart="@+id/tvAdrerss" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/statTv"
-                android:layout_above="@+id/tvAdrerss2"
+                android:layout_above="@+id/tvAdrerss"
                 android:layout_alignParentStart="true" />
 
             <ImageButton
