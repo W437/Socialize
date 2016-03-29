@@ -192,7 +192,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
 
             <ImageButton
@@ -204,24 +205,17 @@
                 android:layout_weight="1" />
 
 
-            <TextView
+            <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/Birthday"
+                android:enabled="false"
                 android:id="@+id/etEventDate"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:inputType="date" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/gender"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -229,6 +223,14 @@
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
             android:id="@+id/rgGender">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/gender"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal" />
 
             <RadioButton
                 android:layout_width="wrap_content"
