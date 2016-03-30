@@ -99,7 +99,8 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
             @Override
             public void onClick(View v) {
-                showDialog();
+                showDialog(currentItem);
+
 
             }
 
@@ -113,9 +114,10 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             ParticipatorsFragment participatorsFragment =new ParticipatorsFragment();
              participatorsFragment.show(fragmentManager,"AAAA");
         }
-      void showDialog () {
+      void showDialog(EventTbl currentItem) {
         // Create the fragment and show it as a dialog.
         JoinEventDialog joinEvent=new JoinEventDialog();
+          joinEvent.setEventTbl(currentItem);
         joinEvent.show(fragmentManager,"kkkkk");
     }
 

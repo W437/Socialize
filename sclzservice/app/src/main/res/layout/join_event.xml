@@ -28,7 +28,8 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
@@ -42,7 +43,8 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
@@ -56,7 +58,8 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
@@ -70,7 +73,8 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                     android:layout_width="match_parent"
@@ -81,7 +85,8 @@
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
         <TextView
@@ -95,7 +100,8 @@
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
                 <TextView
@@ -109,7 +115,8 @@
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
              <TextView
@@ -154,7 +161,8 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
         <LinearLayout
@@ -170,7 +178,7 @@
             android:paddingTop="0dp"
             android:id="@+id/NumberOfParticipants"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
             <EditText
@@ -190,7 +198,7 @@
             android:paddingTop="0dp"
             android:id="@+id/Ineed"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
             <EditText
@@ -210,7 +218,7 @@
             android:paddingTop="0dp"
             android:id="@+id/Ibring"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1">
             <EditText
@@ -224,14 +232,30 @@
 
         </android.support.design.widget.TextInputLayout>
 
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+
         <Button
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:text="@string/join_event"
             android:id="@+id/btnJoin"
              android:layout_weight="1"
             android:layout_gravity="center_horizontal" />
 
+              <Button
+                  android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                  android:text="cancel"
+                  android:id="@+id/btnCancel"
+                  android:layout_weight="1"
+                  android:layout_gravity="center_horizontal" />
+
+
+          </LinearLayout>
     </LinearLayout>
 
 

@@ -46,7 +46,7 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
 
     protected EventsHandler eventsHandler;
     private TextView tvTime,tvHours,tvLocation,tvAge, tvTitle, tvLimitParticipants, tvEventDate, tvDescription,tvRequirments;
-    private Button btnJoin;
+    private Button btnJoin,btnCancel;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private EditText etNumOfParticipants,iNeed,iBring;
      private EventTbl eventTbl;
@@ -62,12 +62,12 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
         tvRequirments.setText(this.eventTbl.getRequirements());
 
 
-        //DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-        //tvEventDate.setText("Time: " + dateFormat.format(eventTbl.getDate()));
+        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getContext());
+        tvEventDate.setText("Time: " + dateFormat.format(eventTbl.getDate()));
 
     }
 
-    private  Button btnView;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -126,56 +126,85 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
            iNeed=(EditText)view.findViewById(R.id.iNeed);
            iBring=(EditText)view.findViewById(R.id.iBring);
 
+           btnCancel=(Button)view.findViewById(R.id.btnCancel);
+
+
 
 
     }
 
+    public boolean areFieldsFilled() {
+        if (etNumOfParticipants.getText().toString().length() == 0) {
+            etNumOfParticipants.requestFocus();
+            etNumOfParticipants.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+        else if (iBring.getText().toString().length() == 0) {
+            iBring.requestFocus();
+            iBring.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+
+        if (iNeed.getText().toString().length() == 0) {
+            iNeed.requestFocus();
+            iNeed.setError("FIELD CANNOT BE EMPTY");
+            return false;
+        }
+
+              return  true;
+     }
+
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnJoin:
 
-            int num=Integer.parseInt( etNumOfParticipants.getText().toString());
-              String ineed=iNeed.getText().toString();
-                String ibring= iBring.getText().toString();
-                GuestsToEvent guestsToEvent= new GuestsToEvent();
-                guestsToEvent.setCountP(num);
-                guestsToEvent.setiBring(ibring);
-                guestsToEvent.setiNeed(ineed);
+                 if(areFieldsFilled()) {
 
 
-                try {
-
-                    mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net", getContext());
-                    MobileServiceTable<GuestsToEvent> mtable = mClient.getTable(GuestsToEvent.class);
-                    mtable.insert(guestsToEvent, new TableOperationCallback<GuestsToEvent>() {
-                        @Override
-                        public void onCompleted(GuestsToEvent entity, Exception exception, ServiceFilterResponse response) {
-                            if(exception==null)
-                            {
-                                Toast.makeText(getContext(), "JOINED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                                Log.d("AZUREDB", "SUCCESS! YAY!");
-
-                                dismiss();
-
-                            }
-                            else
-                            {
-                                exception.printStackTrace();
-                                Toast.makeText(getContext(),"Joining FAILED",Toast.LENGTH_LONG).show();
-                                Log.d("AZUREDB", "FAILED");
-                                Log.d("AZUREDB", exception.getMessage());
-                            }
-                        }
-                    });
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                     int num = Integer.parseInt(etNumOfParticipants.getText().toString());
+                     String ineed = iNeed.getText().toString();
+                     String ibring = iBring.getText().toString();
+                     GuestsToEvent guestsToEvent = new GuestsToEvent();
+                     guestsToEvent.setCountP(num);
+                     guestsToEvent.setiBring(ibring);
+                     guestsToEvent.setiNeed(ineed);
 
 
+                     try {
 
+                         mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net", getContext());
+                         MobileServiceTable<GuestsToEvent> mtable = mClient.getTable(GuestsToEvent.class);
+                         mtable.insert(guestsToEvent, new TableOperationCallback<GuestsToEvent>() {
+                             @Override
+                             public void onCompleted(GuestsToEvent entity, Exception exception, ServiceFilterResponse response) {
+                                 if (exception == null) {
+                                     Toast.makeText(getContext(), "JOINED SUCCESSFULY!", Toast.LENGTH_LONG).show();
+                                     Log.d("AZUREDB", "SUCCESS! YAY!");
+
+                                     dismiss();
+
+                                 } else {
+                                     exception.printStackTrace();
+                                     Toast.makeText(getContext(), "Joining FAILED", Toast.LENGTH_LONG).show();
+                                     Log.d("AZUREDB", "FAILED");
+                                     Log.d("AZUREDB", exception.getMessage());
+                                 }
+                             }
+                         });
+
+                     } catch (MalformedURLException e) {
+                         e.printStackTrace();
+                     }
+                 }
+                break;
+
+
+
+              case R.id.btnCancel :
+                   dismiss();
+                  break;
         }
 
 
