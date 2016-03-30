@@ -11,14 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
-import android.os.Bundle;
 
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
-import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.R;
 
@@ -61,11 +57,11 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> implements RadioGroup.
         final TextView tvUserN=(TextView)row.findViewById(R.id.tvUserN);
         ImageButton btExtra=(ImageButton)row.findViewById(R.id.btExtra);
          TextView statTv2=(TextView)row.findViewById(R.id.statTv2);
-        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.summaryTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
         TextView tvEmail=(TextView)row.findViewById(R.id.tvEmail);
-        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss);
+        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdress);
         EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
         TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
 
@@ -101,10 +97,8 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> implements RadioGroup.
 
         tvRole2.setText(currentItem.getUserTafkeed());
         tvUserN.setText(currentItem.getUserName());
-        tvEmail.setText(currentItem.getUserEmail());
-        tvAdrerss2.setText(currentItem.getUserAddress());
+
         etPhone.setText(currentItem.getUserPhone());
-        tvUserN.setText(currentItem.getFirstName());
         String date="";
         if(currentItem.getUserBirthday()!=null)
              date= DateFormat.getDateFormat(getContext()).format(currentItem.getUserBirthday());
