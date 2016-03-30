@@ -50,10 +50,10 @@ public class UserToAcceptAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.userName);
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
-        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
@@ -64,7 +64,6 @@ public class UserToAcceptAdapter extends ArrayAdapter<UserTbl> {
         tvAdress2.setText(currentItem.getUserAddress().toString());
         tvRole2.setText(currentItem.getUserTafkeed().toString());
         tvUserN.setText(currentItem.getFirstName().toString());
-
         btAccept.setOnClickListener(new View.OnClickListener() {
 
 
