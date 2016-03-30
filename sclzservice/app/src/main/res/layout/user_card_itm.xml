@@ -129,48 +129,6 @@
                 android:layout_alignParentStart="true"
                 android:inputType="phone" />
 
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/etPhone"
-                android:layout_alignParentBottom="true"
-                android:layout_toStartOf="@+id/btExtra">
-
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wait " />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Maneger"
-                    android:checked="false" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Teenager"
-                    android:checked="false" />
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Coordinator"
-                    android:checked="false" />
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Guide"
-                    android:checked="false" />
-            </RadioGroup>
-
 
         </RelativeLayout>
 
