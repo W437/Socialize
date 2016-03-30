@@ -54,13 +54,14 @@ public class UserToConfirmAdapter extends ArrayAdapter<UserTbl>
         final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
-        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.summaryTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
+        TextView tvPhone =(TextView)row.findViewById(R.id.tvPhone);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
 
         row.setTag(currentItem);
-
+         tvPhone.setText(currentItem.getUserPhone().toString());
         tvEmail2.setText(currentItem.getUserEmail().toString());
         tvAdress2.setText(currentItem.getUserAddress().toString());
         tvRole2.setText(currentItem.getUserTafkeed().toString());
