@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -62,10 +61,10 @@ public class MyEventTblAdapter extends ArrayAdapter<EventTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
+        final TextView eventTitle=(TextView)row.findViewById(R.id.userName);
         ImageButton btMore=(ImageButton)row.findViewById(R.id.btMore);
         ImageButton btPartic =(ImageButton)row.findViewById(R.id.btPartic);
-        TextView statTv=(TextView)row.findViewById(R.id.statTv);
+        TextView statTv=(TextView)row.findViewById(R.id.summaryTv);
         TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
