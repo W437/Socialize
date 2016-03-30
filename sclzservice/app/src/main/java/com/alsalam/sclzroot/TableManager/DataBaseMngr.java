@@ -31,6 +31,9 @@ import java.util.concurrent.ExecutionException;
  */
 public class DataBaseMngr
 {
+    public static final String USER_MAIL ="USER_EMAIL" ;
+    private static final String USER_ID ="USER_ID" ;
+    private static final String FIRST_NAME ="FIRST_NAME" ;
     public static Activity activity;
 
     public static final String MY_PREF="MyPref";
@@ -94,8 +97,9 @@ public class DataBaseMngr
 
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mPrefs.edit();
-        editor.putString("UserName",userTbl.getUserName());
-        editor.putString("user_id",userTbl.getId());
+        editor.putString(USER_MAIL,userTbl.getUserEmail());
+        editor.putString(USER_ID,userTbl.getId());
+        editor.putString(FIRST_NAME,userTbl.getFirstName());
 
 
         editor.commit();
@@ -106,19 +110,24 @@ public class DataBaseMngr
 
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mPrefs.edit();
-        editor.remove("UserName");
-        editor.remove("user_id");
+        editor.remove(USER_MAIL);
+        editor.remove(USER_ID);
         editor.commit();
     }
     public static String getLogedUserName(Context mContext)
     {
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
-        return  mPrefs.getString("UserName",null);
+        return  mPrefs.getString(USER_MAIL,null);
+    }
+    public static String getLogedFirstName(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(FIRST_NAME,null);
     }
     public static String getLogedUserId(Context mContext)
     {
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
-        return  mPrefs.getString("user_id",null);
+        return  mPrefs.getString(USER_ID,null);
     }
 
     /**
