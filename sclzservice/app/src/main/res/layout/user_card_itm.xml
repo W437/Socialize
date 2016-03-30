@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -10,8 +11,9 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="152dp"
         android:background="@color/primary_light"
+
         card_view:cardCornerRadius="20dp"
         card_view:cardElevation="14dp"
         android:layout_margin="5dp">
@@ -28,28 +30,25 @@
                 android:text="@string/user_name"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
-                android:textSize="14dp"
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvAdrerss"
+                android:id="@+id/tvAdress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/User_role"
                 android:gravity="center_vertical"
-                android:textSize="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_below="@+id/textView4"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/statTv2" />
 
             <TextView
                 android:id="@+id/tvEmail"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Email"
-                android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/statTv"
+                android:layout_above="@+id/summaryTv"
                 android:layout_alignParentStart="true" />
 
             <ImageButton
@@ -57,13 +56,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Extra"
                 android:id="@+id/btExtra"
-                android:layout_alignParentBottom="true"
 
-                android:layout_alignParentEnd="true"
                 android:src="@mipmap/ic_sahim"
-                android:background="#0000" />
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="23dp" />
+                android:background="#0000"
+                android:layout_below="@+id/tvRole2"
+                android:layout_alignParentRight="true" />
+
 
 
             <TextView
@@ -71,63 +69,56 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvUserN"
-                android:layout_toStartOf="@+id/btExtra" />
+                android:layout_below="@+id/tvAdress1"
+                android:layout_alignRight="@+id/btExtra" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvRole2"
-                android:layout_below="@+id/tvAdrerss"
-                android:layout_alignStart="@+id/tvAdrerss" />
+                android:layout_below="@+id/statTv2"
+                android:layout_toRightOf="@+id/tvAdress"
+                android:layout_marginLeft="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Status"
-                android:id="@+id/statTv"
+                android:id="@+id/summaryTv"
                 android:layout_below="@+id/tvAdress2"
-                android:layout_alignStart="@+id/tvAdrerss" />
+                android:layout_alignStart="@+id/tvAdress" />
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
                 android:id="@+id/TitleWrapper"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvBirth"
-                android:layout_alignStart="@+id/tvRole2"
-                android:hint="Birthday" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/textView4"
-                android:layout_below="@+id/statTv"
-                android:layout_alignStart="@+id/statTv" />
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"></android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/statTv2"
-                android:layout_below="@+id/tvEmail"
-                android:layout_toEndOf="@+id/statTv" />
+                android:layout_alignTop="@+id/summaryTv"
+                android:layout_toRightOf="@+id/tvAdress" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:editable="false"
-                android:id="@+id/etPhone"
+                android:text="New Text"
+                android:id="@+id/tvEmail"
+                android:layout_above="@+id/summaryTv"
+                android:layout_toRightOf="@+id/summaryTv" />
 
-                android:hint="Phone number"
-                android:layout_below="@+id/tvRole2"
-                android:layout_alignParentStart="true"
-                android:inputType="phone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adress"
+                android:id="@+id/tvAdress1"
+                android:layout_below="@+id/tvUserN"
+                android:layout_alignRight="@+id/tvAdress2" />
 
 
         </RelativeLayout>
