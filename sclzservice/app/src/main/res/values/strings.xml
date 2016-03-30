@@ -81,7 +81,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_calendar_agenda">CalendarAgenda</string>
-    <string name="title_activity_register">register</string>
+    <string name="title_activity_register" >register</string>
     <string name="title_activity_my_events_fragment">MyEventsFragment</string>
     <string name="event_title">EVENT TITLE</string>
     <string name="Description">DESCRIPTION</string>
@@ -196,10 +196,10 @@
     <string name="signing_in">Signing in...</string>
     <string name="Coordinators">Coordinators</string>
     <string name="Waiting_to_approval">Waiting to approval</string>
-    <string name="Guide">Guide</string>
-    <string name="title_activity_mainpage">MainpageActivity</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="Guide">Guides</string>
+    <string name="Maneger">Maneger</string>
+    <string name="Coordinator">Coordinator</string>
+    <string name="Guide_1">Guide</string>
+    <string name="Teenager">Teenager</string>
 
 </resources>

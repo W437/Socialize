@@ -22,6 +22,13 @@ public class UserTbl {
     private String userEmail;
     @com.google.gson.annotations.SerializedName("userTafkeed")
     private String userTafkeed;
+
+    public final static String Wait = "Wait";
+    public final static String Maneger = "Maneger";
+    public final static String Teenager = "Teenager";
+
+    public final static String Coordinator = "Coordinator";
+    public final static String Guide = "Guide";
     @com.google.gson.annotations.SerializedName("userAddress")
     private String userAddress;
     @com.google.gson.annotations.SerializedName("userBirthday")

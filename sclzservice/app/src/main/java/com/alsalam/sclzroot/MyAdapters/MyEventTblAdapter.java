@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
@@ -62,8 +63,8 @@ public class MyEventTblAdapter extends ArrayAdapter<EventTbl> {
         }
 
         final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
-        Button btMore=(Button)row.findViewById(R.id.btMore);
-        Button btPartic =(Button)row.findViewById(R.id.btPartic);
+        ImageButton btMore=(ImageButton)row.findViewById(R.id.btMore);
+        ImageButton btPartic =(ImageButton)row.findViewById(R.id.btPartic);
         TextView statTv=(TextView)row.findViewById(R.id.statTv);
         TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
         TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);

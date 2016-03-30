@@ -141,4 +141,8 @@
     <string name="Coordinators">مسؤولون </string>
     <string name="Guide">مرشدون</string>
     <string name="Waiting_to_approval">في انتظار الموافقة</string>
+    <string name="Coordinator">مسؤول</string>
+    <string name="Guide_1">مرشد</string>
+    <string name="Maneger">مدير</string>
+    <string name="Teenager">عضو</string>
 </resources>
