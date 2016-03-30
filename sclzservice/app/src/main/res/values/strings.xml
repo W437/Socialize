@@ -196,6 +196,10 @@
     <string name="signing_in">Signing in...</string>
     <string name="Coordinators">Coordinators</string>
     <string name="Waiting_to_approval">Waiting to approval</string>
-    <string name="Guide">Guide</string>
+    <string name="Guide">Guides</string>
+    <string name="Maneger">Maneger</string>
+    <string name="Coordinator">Coordinator</string>
+    <string name="Guide_1">Guide</string>
+    <string name="Teenager">Teenager</string>
 
 </resources>

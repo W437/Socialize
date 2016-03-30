@@ -33,7 +33,7 @@ public class UsersFragment extends Fragment {
     private Spinner spinner;
 
     String spin_val;
-    private String[] event = new String[3];
+    private String[] user = new String[3];
 
     /**
      * Mobile Service Table used to access data
@@ -53,9 +53,9 @@ public class UsersFragment extends Fragment {
         listView= (ListView) view.findViewById(R.id.listView);
         ((MainHomeActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
         spinner=(Spinner)view.findViewById(R.id.spinner_id);
-        event[0] =getResources().getString(R.string.Guide);
-        event[1]=getResources().getString(R.string.Waiting_to_approval);
-        event[2]=getResources().getString(R.string.Coordinators);
+        user[0] =getResources().getString(R.string.Guide);
+        user[1]=getResources().getString(R.string.Waiting_to_approval);
+        user[2]=getResources().getString(R.string.Coordinators);
 //
 //        try {
 //            mClient = new MobileServiceClient(
@@ -70,7 +70,7 @@ public class UsersFragment extends Fragment {
 //        // Get the Mobile Service Table instance to use
 //
 
-        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, event);
+        ArrayAdapter<String> spin_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, user);
 
 // setting adapters to spinners
 
