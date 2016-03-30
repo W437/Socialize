@@ -71,7 +71,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
         etEventDate=(EditText)findViewById(R.id.etEventDate);
-
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
         rbMale = (RadioButton) findViewById(R.id.rbMale);// choosig female or male
@@ -126,43 +125,43 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public boolean areFieldsFilled() {
         if (etUsername.getText().toString().length() == 0) {
             etUsername.requestFocus();
-            etUsername.setError("FIELD CANNOT BE EMPTY");
+            etUsername.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else if (etPass.getText().toString().length() == 0) {
             etPass.requestFocus();
-            etPass.setError("FIELD CANNOT BE EMPTY");
+            etPass.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else if (etConfirm_Pass.getText().toString().length() == 0) {
             etConfirm_Pass.requestFocus();
-            etConfirm_Pass.setError("FIELD CANNOT BE EMPTY");
+            etConfirm_Pass.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else if (!etConfirm_Pass.getText().toString().equals(etPass.getText().toString())) {
             etConfirm_Pass.requestFocus();
-            etConfirm_Pass.setError("PASSWORDS DON'T MATCH");
+            etConfirm_Pass.setError(getResources().getString(R.string.PASSWORDS_DONT_MATCH));
             return false;
         }
 
         else if (etFirstName.getText().toString().length() == 0) {
             etFirstName.requestFocus();
-            etFirstName.setError("FIELD CANNOT BE EMPTY");
+            etFirstName.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else if (etLastName.getText().toString().length() == 0) {
             etLastName.requestFocus();
-            etLastName.setError("FIELD CANNOT BE EMPTY");
+            etLastName.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else if (!checkEmail(etMail_Address.getText().toString())) {
             etMail_Address.requestFocus();
-            etMail_Address.setError("EMAIL FORMAT NOT CORRECT");
+            etMail_Address.setError(getResources().getString(R.string.EMAIL_FORMAT_NOT_CORRECT));
             return false;
         }
         else if (etLocation.getText().toString().length() == 0) {
             etLocation.requestFocus();
-            etLocation.setError("FIELD CANNOT BE EMPTY");
+            etLocation.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         else
@@ -173,7 +172,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         }
         else if (etPhoneNumber.toString().length() == 0) {
             etPhoneNumber.requestFocus();
-            etPhoneNumber.setError("FIELD CANNOT BE EMPTY");
+            etPhoneNumber.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
             return false;
         }
         return true;
