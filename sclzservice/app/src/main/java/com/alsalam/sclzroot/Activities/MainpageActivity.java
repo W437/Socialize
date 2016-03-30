@@ -1,5 +1,18 @@
 package com.alsalam.sclzroot.Activities;
 
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -75,7 +88,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-public class MainHomeActivity extends AppCompatActivity implements EventsHandler  {
+import com.alsalam.sclzroot.R;
+
+public class MainpageActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,EventsHandler {
+
     ViewPager viewPager;
     Fragment[] fragments;
     MyPagerAdatpter myPagerAdatpter;
@@ -95,7 +112,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
     /**
      * Mobile Service Client reference
-    */
+     */
     private MobileServiceClient mClient;
 
     /**
@@ -109,10 +126,33 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
     private ProgressBar mProgressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_home);
+        setContentView(R.layout.activity_mainpage);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
         viewPager= (ViewPager) findViewById(R.id.homepager);
         tabLayout= (TabLayout) findViewById(R.id.tabs);
         //rgLocation = (RadioGroup) findViewById(R.id.rgLocation);
@@ -125,7 +165,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         //to do
         fragments=new Fragment[7];
         fragments[0]=new MapListFragment();//
-       //fragments[0]=new MapList_Fragment();
+        //fragments[0]=new MapList_Fragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new MyEventsFragment();
@@ -153,11 +193,9 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-
-
-
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override
@@ -170,7 +208,6 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
 
             }
         });
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
 
@@ -178,8 +215,66 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         viewPager.setAdapter(myPagerAdatpter);
 
 
-
     }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.mainpage, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 
     private void initForPush() {
         MyHandler.mainActivity = this;
@@ -647,7 +742,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         task.execute();
         // runAsyncTask(task);
     }
-//    /**
+    //    /**
 //     * Refresh the list with the items in the Table
 //     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
 //     * check the sign in and retrun user if found ot null if not
@@ -729,7 +824,7 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_refresh) {
-           // refreshItemsFromTable();
+            // refreshItemsFromTable();
         }
 
         return true;
@@ -756,9 +851,9 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
         // Get the items that weren't marked as completed and add them in the
         // adapter
         if(msEnetTbl==null)
-        msEnetTbl = mClient.getTable(EventTbl.class);
+            msEnetTbl = mClient.getTable(EventTbl.class);
         if(mEventAdapter ==null)
-        mEventAdapter = new EventTblAdapter(this,itmLayout);
+            mEventAdapter = new EventTblAdapter(this,itmLayout);
 
         listView.setAdapter(mEventAdapter);
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -1069,8 +1164,5 @@ public class MainHomeActivity extends AppCompatActivity implements EventsHandler
     public void checkItemInTable(EventTbl item) throws ExecutionException, InterruptedException {
         msEnetTbl.update(item).get();
     }
-
-
-
 
 }

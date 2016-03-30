@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(DataBaseMngr.getLogedUserName(getBaseContext())!=null)
         {
-            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
             finish();
         }
 
@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             DataBaseMngr.saveLogIn(result.get(0), getBaseContext());
                             signinDialog.dismiss();
 
-                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
                             finish();
 
                         } else {

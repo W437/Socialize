@@ -1,32 +1,20 @@
 package com.alsalam.sclzroot.MyFragments;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
-import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.R;
-import com.example.sclzservice.ToDoItem;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceList;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
-
-import java.net.MalformedURLException;
 
 public class UsersFragment extends Fragment {
     private MobileServiceClient mClient;
@@ -51,7 +39,7 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_users, container, false);
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainHomeActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
+        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
         spinner=(Spinner)view.findViewById(R.id.spinner_id);
         user[0] =getResources().getString(R.string.Guide);
         user[1]=getResources().getString(R.string.Waiting_to_approval);
