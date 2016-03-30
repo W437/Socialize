@@ -22,66 +22,71 @@
                 android:layout_height="match_parent"
                 android:id="@+id/tvTitle"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="EVENT TITLE"
+                android:hint="@string/event_title_"
                  android:gravity="center"
                 android:layout_weight="1" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                android:id="@+id/tvDescription"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="DESCRIPTION"
+                android:hint="@string/description"
                 android:inputType="textMultiLine"
                  android:layout_weight="1" />
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                android:id="@+id/tvLimit"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="PARTICIPANTS LIMIT"
+                android:hint="@string/participants_Limit"
                 android:inputType="numberSigned"
                 android:height="50dp"
                 android:layout_weight="1" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                android:id="@+id/tvRequirments"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="REQUIREMENTS"
+                android:hint="@string/requirements"
                 android:inputType="textMultiLine"
                  android:layout_weight="1" />
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
         <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/tvEventDate"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="DATE"
+                    android:hint="@string/date"
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
         <TextView
@@ -91,11 +96,12 @@
                     android:ems="10"
                    android:id="@+id/tvTime"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="TIME "
+                    android:hint="@string/TIme"
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
                 <TextView
@@ -105,11 +111,12 @@
 
                     android:textAppearance="?android:attr/textAppearanceSmall"
                    android:id="@+id/tvHours"
-                    android:hint="HOURS"
+                    android:hint="@string/hours"
                     android:layout_weight="1" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="20dp"
+            android:layout_weight="1" />
 
 
              <TextView
@@ -117,7 +124,7 @@
                 android:layout_height="0dp"
                android:id="@+id/tvAge"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:hint="AGE RANGE "
+                android:hint="@string/Age_Range"
                 android:focusable="false"
                  android:layout_weight="1" />
 
@@ -128,7 +135,9 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"></LinearLayout>
+            android:layout_weight="1">
+
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -138,7 +147,7 @@
             android:layout_weight="1">
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="28dp" />
+                android:layout_height="20dp" />
 
                 <TextView
                     android:layout_width="299dp"
@@ -152,19 +161,9 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="GENDER PREFERENCE"
-            android:id="@+id/tvGen"
+            android:layout_height="20dp"
             android:layout_weight="1" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="28dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,27 +174,88 @@
         </LinearLayout>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:text="View Participants"
-            android:id="@+id/btnView"
-              android:layout_weight="1"
-            android:background="@android:color/white" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="28dp" />
-
-
-        <Button
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="0dp"
+            android:id="@+id/NumberOfParticipants"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="Join Event"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/etNumOfParticipants"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:hint="Number Of Participants" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="0dp"
+            android:id="@+id/Ineed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iNeed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:hint="I Need..." />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:paddingTop="0dp"
+            android:id="@+id/Ibring"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/iBring"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:hint="I Bring..." />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/join_event"
             android:id="@+id/btnJoin"
              android:layout_weight="1"
             android:layout_gravity="center_horizontal" />
 
+              <Button
+                  android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                  android:text="cancel"
+                  android:id="@+id/btnCancel"
+                  android:layout_weight="1"
+                  android:layout_gravity="center_horizontal" />
+
+
+          </LinearLayout>
     </LinearLayout>
 
 

@@ -87,6 +87,13 @@
             android:layout_gravity="center_horizontal">
 
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageDate"
+                android:background="#0000"
+                android:src="@mipmap/ic_launcher_date" />
+
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
                 android:id="@+id/eventDateWrapper"
@@ -104,6 +111,13 @@
 
 
             </android.support.design.widget.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageTime"
+                android:src="@mipmap/i_timee"
+                android:background="#0000" />
 
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
@@ -125,8 +139,12 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageHour"
+                android:background="#0000"
+                android:src="@mipmap/ic_hmsheh" />
 
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
@@ -162,21 +180,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etAge"
-
+                android:inputType="numberSigned"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/Age_range" />
 
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:paddingTop="0dp"
-            android:id="@+id/LocationWrapper"
-            android:layout_width="329dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
 
-        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -202,8 +213,11 @@
                     android:layout_width="299dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/etLocation"
+                    android:inputType="number"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="@string/Event_location" />
+                    android:hint="@string/Event_location"
+                    android:enabled="false"
+                    android:gravity="center_horizontal" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -212,66 +226,10 @@
                 android:layout_height="match_parent"
                 android:id="@+id/getLocBtn"
                 android:background="#0000"
-                android:src="@drawable/locate"
+                android:src="@mipmap/ic_location"
                 android:layout_weight="0.2" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Location"
-            android:id="@+id/tvRole"
-            />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:id="@+id/rgLocation"
-                android:weightSum="1"
-                android:layout_weight="1">
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/In_doors"
-                    android:id="@+id/rdb_in"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Out_doors"
-                    android:id="@+id/rdb_out"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Both"
-                    android:id="@+id/rbBothLoc"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
-            </RadioGroup>
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Gender_preference"
-            android:id="@+id/tvGen"
-            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -283,30 +241,6 @@
                 android:orientation="horizontal"
                 android:weightSum="1"
                 android:id="@+id/rgGender">
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Female"
-                    android:id="@+id/rdb_female"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Male"
-                    android:id="@+id/rdb_male"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
-
-                <RadioButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/both"
-                    android:id="@+id/rbBothG"
-                    android:checked="false"
-                    android:layout_weight="0.33" />
 
             </RadioGroup>
 

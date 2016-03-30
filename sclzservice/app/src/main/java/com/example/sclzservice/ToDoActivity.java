@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.alsalam.sclzroot.R;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -75,6 +76,8 @@ public class ToDoActivity extends AppCompatActivity {
      * Progress spinner to use for table operations
      */
     private ProgressBar mProgressBar;
+
+
 
     /**
      * Initializes the activity
@@ -132,6 +135,12 @@ public class ToDoActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
+
+    public void setmClient(MobileServiceClient mClient) {
+        this.mClient = mClient;
+    }
+
+
 
     /**
      * Select an option from the menu
@@ -487,4 +496,6 @@ public class ToDoActivity extends AppCompatActivity {
             return resultFuture;
         }
     }
+
+
 }

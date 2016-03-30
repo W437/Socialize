@@ -6,16 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by hp1 on 08/03/2016.
@@ -35,7 +29,7 @@ public class MyEventsFragment extends Fragment
 
 
         listView= (ListView) view.findViewById(R.id.lstvMyEvent);
-        ((MainHomeActivity)getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
+        ((MainpageActivity)getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
 
 

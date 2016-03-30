@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,7 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
@@ -32,14 +33,19 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
-    private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName;
-    private Spinner spnDay, spnMonth, spnYear;
+    private EditText etMail_Address, etUsername, etPass, etConfirm_Pass, etLocation, etPhoneNumber, etFirstName, etLastName,etEventDate;
+    // private Spinner spnDay, spnMonth, spnYear;
     private RadioButton rbMale, rbFemale;
     private RadioGroup rgGender;
     private Button btnSubmit;
     private MobileServiceClient mClient;
     private String userGender = "";
     private ProgressBar mProgressBar;
+    private java.util.Date eventDate;
+    private int mYear, mMonth, mDay;
+
+
+    private  ImageButton imageBirthDate;
     public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
             "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                     "\\@" +
@@ -64,10 +70,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         etPhoneNumber = (EditText) findViewById(R.id.etPhone);
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
-
-        spnDay = (Spinner) findViewById(R.id.spnDay);// choosing birth day
-        spnMonth = (Spinner) findViewById(R.id.spnMonth);// choosing birth Month
-        spnYear = (Spinner) findViewById(R.id.spnYear);// choosing birth Year
+        etEventDate=(EditText)findViewById(R.id.etEventDate);
 
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
@@ -75,6 +78,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
+
+        imageBirthDate= (ImageButton)findViewById(R.id.imageBirthDate);
+
+        imageBirthDate.setOnClickListener(this);
 
 
 
@@ -89,7 +96,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         UserTbl user=new UserTbl();
         user.setFirstName(etFirstName.getText().toString());
         user.setLastName(etLastName.getText().toString());
-       // user.setId(user.getId().toString());
+        // user.setId(user.getId().toString());
         user.setUserAddress(etLocation.getText().toString());
         user.setUserEmail(etMail_Address.getText().toString());
         user.setUserPassword(etPass.getText().toString());
@@ -192,7 +199,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
                         Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                         Log.d("AZURE DB", "SUCCESS! YAY!"+entity.toString());
-                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                        startActivity(new Intent(getBaseContext(), MainpageActivity.class));
                     }
                     else
                     {
@@ -212,6 +219,35 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+
+        if (v == imageBirthDate) {
+
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            if(eventDate==null)
+                                eventDate=new java.util.Date(year,monthOfYear,dayOfMonth);
+                            else {
+                                eventDate.setYear(year);
+                                eventDate.setMonth(monthOfYear);
+                                eventDate.setDate(dayOfMonth);                           }
+                            etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        }
         switch(v.getId())
         {
 //            case R.id.btnSign:
@@ -222,6 +258,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 {
                     addUserToDB(getUserInfo());
                     Log.d("testa", "Clicked submit");
+
+                     //...
+                    finish();
                 }
                 break;
             case R.id.rgGender:

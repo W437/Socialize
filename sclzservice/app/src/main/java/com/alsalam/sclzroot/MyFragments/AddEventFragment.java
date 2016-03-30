@@ -1,18 +1,15 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
-import android.location.Address;
-import android.location.Criteria;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,23 +20,21 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.handlers.MyHandler;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 public class AddEventFragment extends Fragment implements View.OnClickListener{
 
@@ -55,19 +50,18 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private EditText etTime,etHours,etLocation,etAge, etTitle, etLimitParticipants, etEventDate, etDescription,etRequirments;
     private Button btnDone;
     private RadioButton rdb_male,rdb_female, rbBothLoc, rbBothG;
-    private Spinner spnType;
-    private RadioGroup rgLocation, rgGender;
+    private RadioGroup rgLocation;
     private String location, genderPref;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private TextInputLayout wBeginTime;
-    private ImageButton getLocBtn;
-    protected LocationManager locationManager;
-    protected LocationListener locationListener;
-    private Geocoder geocoder;
-    private Location location2;
-    String result = "";
+    private ImageButton getLocBtn,imageDate,imageTime,imageHour;
 
-      private Date eventDate;
+
+    private Date eventDate;
+    private FragmentManager fragmentManager;
+    private SearchOnMapDialog searchFragment;
+    private EventTbl event;
+    private int hours=1;
 
 
     @Nullable
@@ -76,6 +70,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.activity_add_event,container,false);
+        event=new EventTbl();
+
         init(view);
        // return super.onCreateView(inflater, container, savedInstanceState);
       return  view;
@@ -93,71 +89,79 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etDescription = (EditText)view.findViewById(R.id.etDescription);
         etRequirments = (EditText)view.findViewById(R.id.etRequirments);
         etHours = (EditText)view.findViewById(R.id.etHours);
-        rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
-        rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
+
+
+
+        // rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
+       // rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
         wBeginTime=(TextInputLayout)view.findViewById(R.id.BeginningWrapper);
 
-        rbBothG=(RadioButton)view.findViewById(R.id.rbBothG);
-        rbBothLoc=(RadioButton)view.findViewById(R.id.rbBothLoc);
-        rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
-        rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
+       // rbBothG=(RadioButton)view.findViewById(R.id.rbBothG);
+       // rbBothLoc=(RadioButton)view.findViewById(R.id.rbBothLoc);
+       // rdb_male=(RadioButton)view.findViewById(R.id.rdb_male);// choosing gendet (male)
+        //rdb_female=(RadioButton)view.findViewById(R.id.rdb_female);//choosing gendet (female)
       //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
         btnDone=(Button)view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
         getLocBtn = (ImageButton)view.findViewById(R.id.getLocBtn);
 
+        imageDate= (ImageButton)view.findViewById(R.id.imageDate);
+        imageHour= (ImageButton)view.findViewById(R.id.imageHour);
+        imageTime= (ImageButton)view.findViewById(R.id.imageTime);
+        imageHour.setOnClickListener(this);;
+        imageDate.setOnClickListener(this);
+        imageTime.setOnClickListener(this);
         //etTime.setOnClickListener(this);
        // etEndT.setOnClickListener(this);
-        etEventDate.setOnClickListener(this);
-        wBeginTime.setOnClickListener(this);
+//        etEventDate.setOnClickListener(this);
+//        wBeginTime.setOnClickListener(this);
         btnDone.setOnClickListener(this);
         getLocBtn.setOnClickListener(this);
-        //etTime.setClickable(false);
 
-    }
-
-
-    public String getLocation(Location location) throws IOException {
-        List<Address> list = geocoder.getFromLocation(location
-                .getLatitude(), location.getLongitude(), 1);
-        if (list != null & list.size() > 0) {
-            Address address = list.get(0);
-            result = address.getLocality();
-            return result;
+        if(null==fragmentManager) {
+            fragmentManager = ((AppCompatActivity) getContext()).getSupportFragmentManager();
         }
-        return "";
+
     }
+
+
+
 
 
     public EventTbl getEventInfo()
     {
-        if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
-            genderPref = "Male";
-        else if(rgGender.getCheckedRadioButtonId() == rdb_female.getId())
-            genderPref = "Female";
-        else
-            genderPref = "Male & Female";
+      //  if(rgGender.getCheckedRadioButtonId() == rdb_male.getId())
+           // genderPref = "Male";
+      //  else if(rgGender.getCheckedRadioButtonId() == rdb_female.getId())
+          //  genderPref = "Female";
+       // else
+          //  genderPref = "Male & Female";
 
-        if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_out)
-            location = "Outdoors";
-        else if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_in)
-            location = "Indoors";
-        else
-            location = "Outdoors & Indoors";
+      //  if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_out)
+          //  location = "Outdoors";
+      // else if(rgLocation.getCheckedRadioButtonId() == R.id.rdb_in)
+        //   location = "Indoors";
+      //  else
+        //    location = "Outdoors & Indoors";
 
-        EventTbl event=new EventTbl();
-        event.setEventTitle(etTitle.getText().toString());
-        event.setEventDescription(etDescription.getText().toString());
-        event.setEventMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
-        event.setEventRequirements(etRequirments.getText().toString());
-        event.setEventDate(etEventDate.getText().toString());
-        event.setEventTime(etTime.getText().toString());
-        event.setEventHours(etHours.getText().toString());
-        event.setEventAgeRange(etAge.getText().toString());
-        event.setEventLocation(etLocation.getText().toString());
-        event.setEventGenderPref(genderPref);
-        event.setEventActivityLocation(location);
-        event.setId(( Math.random() * 9999999) + "");
-        event.setHostId((Math.random() * 9999999) + "");
+        event.setTitle(etTitle.getText().toString());
+        event.setStatus(EventTbl.WAITING);
+        event.setDescription(etDescription.getText().toString());
+        event.setMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
+        event.setRequirements(etRequirments.getText().toString());
+        event.setDate(eventDate);
+
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(eventDate);
+        event.setMonth(calendar.get(Calendar.MONTH));
+
+        event.setYear(calendar.get(Calendar.YEAR));
+
+        event.setHours(hours);
+        event.setAddressLocation(etLocation.getText().toString());
+       // event.setEventGenderPref(genderPref);
+
+       // event.setId(( Math.random() * 9999999) + "");
+       event.setHostId(DataBaseMngr.getLogedUserId(getContext()));
 
           //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
@@ -174,7 +178,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 //                genderPref,
 //                etAge.getText().toString());
 
-        Log.d("EVENT TEST", event.toString());
+        Log.d("EVENTTEST", event.toString());
         return event;
     }
 
@@ -222,23 +226,23 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (rgLocation.getCheckedRadioButtonId() == -1) {
-            rgLocation.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
-            return false;
+//        else if (rgLocation.getCheckedRadioButtonId() == -1) {
+//            rgLocation.requestFocus();
+//            Toast.makeText(getContext(), "PLEASE CHECK A LOCATION TYPE", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+       // else if (rgGender.getCheckedRadioButtonId() == -1) {
+          //  rgGender.requestFocus();
+          //  Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
+            return true;
         }
-        else if (rgGender.getCheckedRadioButtonId() == -1) {
-            rgGender.requestFocus();
-            Toast.makeText(getContext(), "PLEASE CHECK A GENDER PREFERENCE", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (etDescription.getText().toString().length() == 0) {
-            etDescription.requestFocus();
-            etDescription.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        return true;
-    }
+       // else if (etDescription.getText().toString().length() == 0) {
+          //  etDescription.requestFocus();
+           // etDescription.setError("FIELD CANNOT BE EMPTY");
+           // return false;
+       // }
+       // return true;
+   // }
 
 
 
@@ -254,14 +258,16 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     if(exception==null)
                     {
                         Toast.makeText(getContext(), "EVENT ADDED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "SUCCESS! YAY!");
+                        Log.d("AZUREDB", "SUCCESS! YAY!");
+                        MyHandler.mainActivity.sendNotification(entity.getTitle()+","+entity.getAddressLocation());
 
                     }
                     else
                     {
+                        exception.printStackTrace();
                         Toast.makeText(getContext(),"FAILED",Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "FAILED");
-                        Log.d("AZURE DB", exception.getMessage());
+                        Log.d("AZUREDB", "FAILED");
+                        Log.d("AZUREDB", exception.getMessage());
                     }
                 }
             });
@@ -274,7 +280,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if (v == etEventDate) {
+        if (v == imageDate) {
 
             // Get Current Date
             final Calendar c = Calendar.getInstance();
@@ -301,7 +307,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         }
-        if (v == wBeginTime) {
+        if (v == imageTime) {
 
             // Get Current Time
             final Calendar c = Calendar.getInstance();
@@ -325,6 +331,23 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
+        }
+        if(v==imageHour)
+        {
+            final CharSequence[] items = {"1", "2", "3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Make your selection");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int item) {
+                    // Do something with the selection
+                    etHours.setText(items[item].toString());
+                    hours=Integer.parseInt( items[item].toString());
+
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
         }
 
 //        if (v == etEndT) {
@@ -353,19 +376,34 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             if(areFieldsFilled()) {
                 addEventToDB(getEventInfo());
                 Log.d("Azure", "Event Added!");
-                //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
+
            }
+            else
+            {
+                Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
+
+            }
 
         }
 
         if ( v == getLocBtn)
         {
-            try {
-                etLocation.setText(getLocation(new Location("prov")));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(searchFragment==null)
+            {
+                searchFragment=new SearchOnMapDialog();
+
+
             }
+            searchFragment.setSearch(event,etLocation);
+            searchFragment.show(fragmentManager,"search");
+
+//            try {
+//                //etLocation.setText(getLocation(new Location("prov")));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

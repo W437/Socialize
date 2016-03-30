@@ -176,10 +176,11 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPhonetic"
+                android:inputType="phone"
                 android:ems="10"
                 android:id="@+id/etPhone"
                 android:hint="PHONE NUMBER"
+
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
 
@@ -188,61 +189,33 @@
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/Birthday"
-            android:id="@+id/tv_Birthday"
-            android:layout_gravity="center_horizontal" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
 
-            <Spinner
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageBirthDate"
+                android:background="#0000"
+                android:src="@mipmap/ic_launcher_date"
+                android:layout_weight="1" />
+
+
+            <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/spnDay"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignBottom="@+id/spnYear"
-                android:layout_alignRight="@+id/tvBirthD"
-                android:layout_alignEnd="@+id/tvBirthD"
-                android:layout_below="@+id/tvBirthD"
+                android:text="@string/Birthday"
+                android:enabled="false"
+                android:id="@+id/etEventDate"
+                android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:spinnerMode="dropdown" />
+                android:inputType="date" />
 
-            <Spinner
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spnMonth"
-                android:layout_toRightOf="@+id/spnDay"
-                android:layout_below="@+id/etConfirm_pass"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="1"
-                android:spinnerMode="dropdown" />
-
-            <Spinner
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spnYear"
-                android:layout_alignTop="@+id/spnMonth"
-                android:layout_toRightOf="@+id/spnMonth"
-                android:layout_toEndOf="@+id/spnMonth"
-                android:layout_weight="1"
-                android:spinnerMode="dropdown" />
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/gender"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
 
         <RadioGroup
             android:layout_width="wrap_content"
@@ -250,6 +223,14 @@
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
             android:id="@+id/rgGender">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/gender"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal" />
 
             <RadioButton
                 android:layout_width="wrap_content"

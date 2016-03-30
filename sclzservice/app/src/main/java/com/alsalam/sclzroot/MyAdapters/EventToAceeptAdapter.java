@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
 
 /**
  * Created by bana on 01/03/2016.
@@ -50,18 +50,18 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
 
         }
 
-        TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
+        TextView tvBegin2=(TextView)row.findViewById(R.id.tvTime2);
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.tvUserN);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.statTv);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
-        tvBegin2.setText(currentItem.getEventDate().toString());
+        tvBegin2.setText(currentItem.getDate().toString());
         //tvAdress2.setText(currentItem.getAddress().toString());
         //tvSummary2.setText(currentItem.getEventPurpose().toString());
-        tvEventT.setText(currentItem.getEventTitle().toString());
+        tvEventT.setText(currentItem.getTitle().toString());
 
         btAccept.setOnClickListener(new View.OnClickListener() {
 
@@ -97,10 +97,10 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
 
         row.setTag(currentItem);
 
-        tvBegin2.setText(currentItem.getEventDate().toString());
+        tvBegin2.setText(currentItem.getDate().toString());
       //tvAdress2.setText(currentItem.getAddress().toString());
         //tvSummary2.setText(currentItem.getEventPurpose().toString());
-        tvEventT.setText(currentItem.getEventTitle().toString());
+        tvEventT.setText(currentItem.getTitle().toString());
 
         return row;
     }

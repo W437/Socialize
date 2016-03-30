@@ -1,7 +1,8 @@
 package com.alsalam.sclzroot.Activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,13 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.alsalam.sclzroot.PushNotifHandler;
-import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.facebook.FacebookSdk;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-import com.microsoft.windowsazure.mobileservices.MobileServiceException;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
@@ -29,9 +28,14 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-   private TextView tvemail,tvPass;
-    private EditText et_MAIL,et_Pass;
-    private Button btnSign,btnFacebook,btnGoogle,btnRegister;
+    private TextView tvemail, tvPass;
+    private EditText et_MAIL, et_Pass;
+    private Button btnSign, btnFacebook, btnGoogle, btnRegister;
+    public static int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+    //android.support.v4.app.NotificationCompat.Builder builder;
+    Context ctx;
+
 
     /**
      * Mobile Service Client reference
@@ -42,12 +46,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * Mobile Service Table used to access data
      */
 
+
     private MobileServiceTable<UserTbl> msUsertTbl;
+    private AlertDialog signinDialog;
+    private AlertDialog.Builder builder;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(DataBaseMngr.getLogedUserName(getBaseContext())!=null)
+        {
+            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
+            finish();
+        }
+
+
         FacebookSdk.sdkInitialize(getBaseContext());
         setContentView(R.layout.activity_login);
         try {
@@ -56,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     "https://sclzservice.azurewebsites.net",
                     this);
 
-            if(msUsertTbl==null)
+            if (msUsertTbl == null)
                 msUsertTbl = mClient.getTable(UserTbl.class);
             //initLocalStore().get();
 
@@ -72,19 +87,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
 
-    //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
 
-        et_MAIL=(EditText)findViewById(R.id.et_MAIL);// writing an email
-        et_Pass=(EditText)findViewById(R.id.et_PASS);// password
-        btnSign=(Button)findViewById(R.id.btnSign);// Sing in button
-        btnFacebook=(Button)findViewById(R.id.btnFacebook);// Sing in with facebook button
-        btnGoogle=(Button)findViewById(R.id.btnGoogle);// Sing in with Google+ button
-        btnRegister=(Button)findViewById(R.id.btnRegister);// Sing in button
+        //    tvemail=(TextView)findViewById(R.id.tvemail);// "Email Or Username"
+
+        et_MAIL = (EditText) findViewById(R.id.et_MAIL);// writing an email
+        et_Pass = (EditText) findViewById(R.id.et_PASS);// password
+        btnSign = (Button) findViewById(R.id.btnSign);// Sing in button
+        btnFacebook = (Button) findViewById(R.id.btnFacebook);// Sing in with facebook button
+        btnGoogle = (Button) findViewById(R.id.btnGoogle);// Sing in with Google+ button
+        btnRegister = (Button) findViewById(R.id.btnRegister);// Sing in button
 
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
+        btnFacebook.setOnClickListener(this);
 
-       // NotificationsManager.handleNotifications(this, "488253055244", PushNotifHandler.class);
+
 
 
     }
@@ -111,23 +128,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
+
+    //asd
     @Override
     public void onClick(View v) {
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             case R.id.btnRegister:
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
+
+            case R.id.btnFacebook:
+
+                break;
+
             case R.id.btnSign:
-//                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+
+                signinDialog=createAndReturnDialog(getResources().getString(R.string.Wait), getResources().getString(R.string.signing_in));
+               // signinDialog=createAndReturnDialog("wait", "signing_i");
+                signinDialog.setCancelable(false);
+                signinDialog.show();
                 msUsertTbl.where().field("userName").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
                     @Override
                     public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
+
+                        // it appears for me and error here, ** remember to ask about it
                         if (result.size() > 0) {
-                            startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                            createAndShowDialog("user and pass OKKKK", "");
+                            DataBaseMngr.saveLogIn(result.get(0), getBaseContext());
+                            signinDialog.dismiss();
+
+                            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
+                            finish();
+
                         } else {
-                            createAndShowDialog("user or pass error", "");
+                            signinDialog.dismiss();
+                            createAndShowDialog("User or Pass Error", "");
 
                         }
                     }
@@ -143,6 +177,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
+
     /**
      * Refresh the list with the items in the Table
      * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
@@ -150,7 +185,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     public UserTbl checkSignin(final String user, final String password) {
         final UserTbl[] userTbl = {null};
-        AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void,Void,List<UserTbl>>(){
+        AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void, Void, List<UserTbl>>() {
             @Override
             protected void onProgressUpdate(Void... values) {
                 super.onProgressUpdate(values);
@@ -168,7 +203,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     //Offline Sync
                     return results;
-                } catch (final Exception e){
+                } catch (final Exception e) {
                     e.printStackTrace();
                     createAndShowDialogFromTask(e, "Error");
                 }
@@ -178,7 +213,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             protected void onPostExecute(List<UserTbl> listRes) {
-                if(listRes!=null && listRes.size()>0)
+                if (listRes != null && listRes.size() > 0)
                     userTbl[0] = listRes.get(0);
 //                for (EventTbl item : results) {
 //                    mAdapter.add(item);
@@ -191,6 +226,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // runAsyncTask(task);
         return userTbl[0];
     }
+
     private void createAndShowDialogFromTask(final Exception exception, String title) {
         runOnUiThread(new Runnable() {
             @Override
@@ -199,34 +235,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
     /**
      * Creates a dialog and shows it
      *
-     * @param exception
-     *            The exception to show in the dialog
-     * @param title
-     *            The dialog title
+     * @param exception The exception to show in the dialog
+     * @param title     The dialog title
      */
     private void createAndShowDialog(Exception exception, String title) {
         Throwable ex = exception;
-        if(exception.getCause() != null){
+        if (exception.getCause() != null) {
             ex = exception.getCause();
         }
         createAndShowDialog(ex.getMessage(), title);
     }
+
     /**
-     *
-     * @param message
-     *            The dialog message
-     * @param title
-     *            The dialog title
+     * @param message The dialog message
+     * @param title   The dialog title
      */
     private void createAndShowDialog(final String message, final String title) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        if(builder==null)
+            builder = new AlertDialog.Builder(this);
 
         builder.setMessage(message);
         builder.setTitle(title);
-        builder.create().show();
+       builder.create().show();
     }
 
+    private AlertDialog createAndReturnDialog(final String message, final String title) {
+        if(builder==null)
+            builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(message);
+        builder.setTitle(title);
+        return builder.create();
+    }
 }

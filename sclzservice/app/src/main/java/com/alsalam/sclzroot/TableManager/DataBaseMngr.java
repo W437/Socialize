@@ -2,6 +2,8 @@ package com.alsalam.sclzroot.TableManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.widget.ListView;
@@ -31,7 +33,7 @@ public class DataBaseMngr
 {
     public static Activity activity;
 
-
+    public static final String MY_PREF="MyPref";
     /**
      * Mobile Service Client reference
      */
@@ -66,11 +68,7 @@ public class DataBaseMngr
 
 
                 //initLocalStore().get();
-
-
                 // Create an adapter to bind the items with the view
-
-
                 // Load the items from the Mobile Service
                 //refreshItemsFromTable();
 
@@ -89,6 +87,38 @@ public class DataBaseMngr
 
         DataBaseMngr.mProgressBar=mProgressBar;
 
+    }
+
+    public static void saveLogIn(UserTbl userTbl,Context mContext)
+    {
+
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString("UserName",userTbl.getUserName());
+        editor.putString("user_id",userTbl.getId());
+
+
+        editor.commit();
+    }
+
+    public static void logOut(UserTbl userTbl,Context mContext)
+    {
+
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.remove("UserName");
+        editor.remove("user_id");
+        editor.commit();
+    }
+    public static String getLogedUserName(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString("UserName",null);
+    }
+    public static String getLogedUserId(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString("user_id",null);
     }
 
     /**

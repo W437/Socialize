@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * A simple {@link Fragment} subclass.

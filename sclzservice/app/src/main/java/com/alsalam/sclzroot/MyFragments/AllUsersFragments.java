@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
-import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
-import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by hp1 on 07/03/2016.
@@ -31,9 +29,9 @@ public class AllUsersFragments extends  Fragment
         //
         //
 
-        UserTblAdapter UsertTblAdapter=new UserTblAdapter(getContext(),R.layout.user_card_itm);
+        listView= (ListView) view.findViewById(R.id.listView);
+        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
 
-       // listView.setAdapter(UserTblAdapter);
 
         return  view;
     }

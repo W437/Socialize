@@ -2,16 +2,25 @@ package com.alsalam.sclzroot.MyAdapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Activity;
+import android.os.Bundle;
 
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 /**
  * Created by bana on 01/03/2016.
@@ -22,7 +31,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
      * Adapter context
      */
     Context mContext;
-
+    private RadioGroup radioGroup;
     /**
      * Adapter View layout
      */
@@ -50,19 +59,53 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         }
 
         final TextView tvUserN=(TextView)row.findViewById(R.id.tvUserN);
-        Button btExtra=(Button)row.findViewById(R.id.btExtra);
-
-        TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
+        ImageButton btExtra=(ImageButton)row.findViewById(R.id.btExtra);
+         TextView statTv2=(TextView)row.findViewById(R.id.statTv2);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
+        TextView tvEmail=(TextView)row.findViewById(R.id.tvEmail);
+        TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss);
+        EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
+        TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
+        RadioButton Wait=(RadioButton)row.findViewById(R.id.radioButton1);
+        RadioButton Maneger=(RadioButton)row.findViewById(R.id.radioButton2);
+        RadioButton Teenager=(RadioButton)row.findViewById(R.id.radioButton3);
 
+        RadioButton Coordinator=(RadioButton)row.findViewById(R.id.radioButton4);
 
+        RadioButton Guide=(RadioButton)row.findViewById(R.id.radioButton5);
+
+         if(currentItem.getUserTafkeed().equals(UserTbl.Guide)){
+             Guide.setChecked(true);
+         }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Maneger)){
+            Maneger.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Teenager)){
+            Teenager.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Wait)){
+            Wait.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Coordinator)){
+            Coordinator.setChecked(true);
+        }
         row.setTag(currentItem);
+        statTv2.setText(currentItem.getStatus());
+        tvEmail2.setText(currentItem.getUserEmail());
+        tvAdress2.setText(currentItem.getUserAddress());
 
-        tvEmail2.setText(currentItem.getUserEmail().toString());
-        tvAdress2.setText(currentItem.getUserAddress().toString());
-        tvRole2.setText(currentItem.getUserTafkeed().toString());
-        tvUserN.setText(currentItem.getFirstName().toString());
+        tvRole2.setText(currentItem.getUserTafkeed());
+        tvUserN.setText(currentItem.getUserName());
+        tvEmail.setText(currentItem.getUserEmail());
+        tvAdrerss2.setText(currentItem.getUserAddress());
+        etPhone.setText(currentItem.getUserPhone());
+        tvUserN.setText(currentItem.getFirstName());
+        String date="";
+        if(currentItem.getUserBirthday()!=null)
+             date= DateFormat.getDateFormat(getContext()).format(currentItem.getUserBirthday());
+        tvBirth.setText(date);
 
         btExtra.setOnClickListener(new View.OnClickListener() {
 
@@ -117,7 +160,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
 //        row.setTag(currentItem);
 //
 //        tvBegin2.setText(currentItem.getEventBegin().toString());
-//        tvLocation2.setText(currentItem.getEventLocation());
+//        tvLocation2.setText(currentItem.getAddressLocation());
 
 
 }

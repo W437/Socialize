@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 public class Profile2Fragment extends Fragment {
     private TextView tvName;

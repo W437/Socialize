@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <!-- A hhhhhhhCardView that contains a TextView -->
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="133dp"
+        android:background="@color/primary_light"
+        card_view:cardBackgroundColor="@android:color/transparent"
+        card_view:cardElevation="0dp"
+        card_view:cardCornerRadius="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0.04">
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+
+            <TextView
+                android:id="@+id/eventTitle"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/primary"
+                android:text="@string/Event_title"
+                android:gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:textSize="14dp"
+                android:allowUndo="false"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                android:id="@+id/tvTime"
+                android:layout_below="@+id/eventTitle"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/tvTime2"
+                android:layout_below="@+id/tvTime"
+                android:layout_alignParentEnd="true" />
+
+            <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/More"
+                android:id="@+id/btMore"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/ic_sahim"
+                android:background="#0000" />
+
+            <TextView
+                android:id="@+id/tvAdrerss"
+                android:layout_width="133dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="10dp"
+                android:layout_marginLeft="5dp"
+                android:text="Adress"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/btMore"
+                android:layout_below="@+id/tvTime2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/summary2"
+                android:layout_above="@+id/tvTime2"
+                android:layout_alignParentStart="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:id="@+id/btEdit"
+                android:layout_below="@+id/tvAdrerss"
+                android:layout_alignParentStart="true"
+                android:src="@mipmap/ic_edit"
+                android:background="#0000" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete  "
+                android:id="@+id/delEven"
+                android:layout_below="@+id/tvAdrerss"
+                android:layout_toEndOf="@+id/btEdit"
+                android:src="@mipmap/ic_delete"
+                android:background="#0000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:id="@+id/statusTv"
+                android:layout_below="@+id/summary2"
+                android:layout_alignStart="@+id/tvAdrerss" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/statTv"
+                android:layout_above="@+id/tvAdrerss"
+                android:layout_alignEnd="@+id/tvAdrerss" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/tvAdress2"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/statusTv" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="right" android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_weight="0.04"
+        android:background="#0000" />
+
+
+</LinearLayout>

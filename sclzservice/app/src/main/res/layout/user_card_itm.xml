@@ -13,6 +13,7 @@
         android:layout_height="200dp"
         android:background="@color/primary_light"
         card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="14dp"
         android:layout_margin="5dp">
         <RelativeLayout
 
@@ -24,21 +25,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/primary"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="14dp"
                 android:allowUndo="false" />
 
             <TextView
-                android:id="@+id/tvAdrerss2"
+                android:id="@+id/tvAdrerss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/User_role"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_centerVertical="true"
+                android:layout_below="@+id/textView4"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -48,50 +49,128 @@
                 android:text="@string/Email"
                 android:textSize="10dp"
                 android:layout_marginRight="150dp"
-                android:layout_above="@+id/tvEmail2"
+                android:layout_above="@+id/statTv"
                 android:layout_alignParentStart="true" />
 
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Extra"
                 android:id="@+id/btExtra"
-                android:layout_marginBottom="23dp"
                 android:layout_alignParentBottom="true"
+
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/ic_sahim"
+                android:background="#0000" />
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="23dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Adress"
-                android:id="@+id/tvBeginning"
-                android:layout_below="@+id/tvUserN"
-                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvBeginning"
-                android:layout_alignParentEnd="true" />
+                android:layout_below="@+id/tvUserN"
+                android:layout_toStartOf="@+id/btExtra" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/tvRole2"
-                android:layout_below="@+id/tvAdrerss2"
-                android:layout_alignStart="@+id/tvAdrerss2" />
+                android:layout_below="@+id/tvAdrerss"
+                android:layout_alignStart="@+id/tvAdrerss" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:id="@+id/statTv"
+                android:layout_below="@+id/tvAdress2"
+                android:layout_alignStart="@+id/tvAdrerss" />
+            <android.support.design.widget.TextInputLayout
+                android:paddingTop="0dp"
+                android:id="@+id/TitleWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBirth"
+                android:layout_alignStart="@+id/tvRole2"
+                android:hint="Birthday" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tvEmail2"
-                android:layout_above="@+id/tvAdrerss2"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/textView4"
+                android:layout_below="@+id/statTv"
+                android:layout_alignStart="@+id/statTv" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/statTv2"
+                android:layout_below="@+id/tvEmail"
+                android:layout_toEndOf="@+id/statTv" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:id="@+id/etPhone"
+
+                android:hint="Phone number"
+                android:layout_below="@+id/tvRole2"
+                android:layout_alignParentStart="true"
+                android:inputType="phone" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/etPhone"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/btExtra">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wait " />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maneger"
+                    android:checked="false" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teenager"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coordinator"
+                    android:checked="false" />
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guide"
+                    android:checked="false" />
+            </RadioGroup>
+
 
         </RelativeLayout>
 

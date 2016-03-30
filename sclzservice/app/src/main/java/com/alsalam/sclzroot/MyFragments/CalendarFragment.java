@@ -20,7 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 

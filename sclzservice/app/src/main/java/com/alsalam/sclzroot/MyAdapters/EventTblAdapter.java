@@ -2,21 +2,20 @@ package com.alsalam.sclzroot.MyAdapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.MyFragments.JoinEvent;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
+import com.alsalam.sclzroot.MyFragments.ParticipatorsFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
-import com.example.sclzservice.R;
+import com.alsalam.sclzroot.R;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -64,15 +63,15 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         if (row == null) {
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
             row = inflater.inflate(mLayoutResourceId, parent, false);
-
         }
 
-        final TextView tvBegin2=(TextView)row.findViewById(R.id.tvBeginning2);
-        Button btMore=(Button)row.findViewById(R.id.btMore);
+        //final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
+        ImageButton btMore= (ImageButton) row.findViewById(R.id.btMore);
+        ImageButton btPartic=(ImageButton)row.findViewById(R.id.btPartic);
+        TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
+        TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
+        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdrerss);
 
-        TextView tvEventT=(TextView)row.findViewById(R.id.tvUserN);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.tvEmail2);
-        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
 
         row.setTag(currentItem);
@@ -80,14 +79,28 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      //   tvBegin2.setText(currentItem.getEventBegin().toString());
       //tvAdress2.setText(currentItem.getAddress());
         //tvSummary2.setText(currentItem.getEventPurpose());
-        tvEventT.setText(currentItem.getEventTitle());
+        tvEventT.setText(currentItem.getTitle());
+        tvAdress2.setText(currentItem.getAddressLocation());
+        tvSummary2.setText(currentItem.getDescription());
+
+        btPartic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                 showParDialog();
+            }
+        });
+
+
+
 
         btMore.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
-showDialog();
+                showDialog(currentItem);
+
 
             }
 
@@ -96,10 +109,20 @@ showDialog();
 
         return row;
     }
-    void showDialog () {
+
+        void showParDialog(){
+            ParticipatorsFragment participatorsFragment =new ParticipatorsFragment();
+             participatorsFragment.show(fragmentManager,"AAAA");
+        }
+      void showDialog(EventTbl currentItem) {
         // Create the fragment and show it as a dialog.
-        JoinEvent joinEvent=new JoinEvent();
+        JoinEventDialog joinEvent=new JoinEventDialog();
+          joinEvent.setEventTbl(currentItem);
         joinEvent.show(fragmentManager,"kkkkk");
     }
+
+
+
+
 
 }

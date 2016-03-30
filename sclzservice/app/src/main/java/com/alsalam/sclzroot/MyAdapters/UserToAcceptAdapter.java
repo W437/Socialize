@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.TableManager.UserTbl;
-import com.example.sclzservice.R;
+
 
 /**
  * Created by bana on 01/03/2016.
@@ -50,10 +50,10 @@ public class UserToAcceptAdapter extends ArrayAdapter<UserTbl> {
             row = inflater.inflate(mLayoutResourceId, parent, false);
         }
 
-        final TextView tvUserN=(TextView)row.findViewById(R.id.tvUserN);
+        final TextView tvUserN=(TextView)row.findViewById(R.id.tvTitle);
         ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
-        TextView tvEmail2=(TextView)row.findViewById(R.id.tvEmail2);
+        TextView tvEmail2=(TextView)row.findViewById(R.id.statTv);
         TextView tvRole2=(TextView)row.findViewById(R.id.tvRole2);
         final TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
@@ -131,7 +131,7 @@ public class UserToAcceptAdapter extends ArrayAdapter<UserTbl> {
 //        row.setTag(currentItem);
 //
 //        tvBegin2.setText(currentItem.getEventBegin().toString());
-//        tvLocation2.setText(currentItem.getEventLocation());
+//        tvLocation2.setText(currentItem.getAddressLocation());
         
 
 }
