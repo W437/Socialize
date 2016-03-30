@@ -23,7 +23,8 @@
         android:id="@+id/scrollView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/img_Pic">
+        android:layout_below="@+id/img_Pic"
+        android:fillViewport="false">
 
 
          <LinearLayout
@@ -31,111 +32,111 @@
              android:layout_height="match_parent"
              android:orientation="vertical">
 
-             <LinearLayout
-                 android:orientation="horizontal"
+
+
+             <android.support.design.widget.TextInputLayout
+                 android:paddingTop="10dp"
+                 android:id="@+id/NameWrapper"
                  android:layout_width="match_parent"
-                 android:layout_height="match_parent"></LinearLayout>
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal">
 
-             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/First_name"
-            android:id="@+id/tvName" />
-
-
-             <EditText
+                 <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
                  android:ems="10"
                  android:textAppearance="?android:attr/textAppearanceSmall"
-  
-                 android:id="@+id/editText"
-            />
-             <Space
-                 android:layout_width="match_parent"
-                 android:layout_height="15dp" />
+                 android:id="@+id/etProfile_Name"
+                 android:hint="@string/First_name"
+                  android:editable="false" />
 
-             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Last_name"
-            android:id="@+id/tvLName"
-            />
+             </android.support.design.widget.TextInputLayout>
+
+
+
+             <android.support.design.widget.TextInputLayout
+                 android:paddingTop="10dp"
+                 android:id="@+id/LAST_NAME_WRAPPERWrapper"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal">
+
+
 
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceSmall"
+                 android:id="@+id/etProfile_LastName"
+                 android:hint="@string/Last_name"
+                 android:editable="false"
 
-                 android:id="@+id/et2"
-            />
+                 />
+             </android.support.design.widget.TextInputLayout>
 
-             <Space
+
+             <android.support.design.widget.TextInputLayout
+                 android:paddingTop="10dp"
+                 android:id="@+id/Locationwrapper"
                  android:layout_width="match_parent"
-                 android:layout_height="15dp" />
-
-             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/location"
-            android:id="@+id/tvLoc"
-            />
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal">
 
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/et3"
-             />
-             
-             
-             <Space
+            android:id="@+id/etProfile_Location"
+                 android:hint="@string/location"
+
+                 android:editable="false"
+
+                 />
+
+             </android.support.design.widget.TextInputLayout>
+
+             <android.support.design.widget.TextInputLayout
+                 android:paddingTop="10dp"
+                 android:id="@+id/etPhoneNumberWrapperWRAPPERWrapper"
                  android:layout_width="match_parent"
-                 android:layout_height="15dp" />
-
-             
-             
-             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Hobbies"
-            android:id="@+id/tvHob" />
-
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal">
              <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                  android:textAppearance="?android:attr/textAppearanceSmall"
-            android:id="@+id/et4"
-         />
+            android:id="@+id/etProfile_phone"
 
+                 android:hint="Phone Number:"
 
+                 android:editable="false"
 
-             <Space
-                 android:layout_width="match_parent"
-                 android:layout_height="15dp" />
+                 />
+             </android.support.design.widget.TextInputLayout>
 
+             <android.support.design.widget.TextInputLayout
+                 android:paddingTop="10dp"
+                 android:id="@+id/genderWRAPPERWrapper"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal">
 
-             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/Gender"
-            android:id="@+id/tvGen" />
 
              <EditText
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:textAppearance="?android:attr/textAppearanceSmall"
-                 android:id="@+id/et1"
+                  android:textAppearance="?android:attr/textAppearanceSmall"
+                 android:id="@+id/etProfile_gender"
+                 android:hint="@string/Gender"
+                 android:editable="false"
+
                  />
+             </android.support.design.widget.TextInputLayout>
 
 
-         </LinearLayout>>
+         </LinearLayout>
+
 
     </ScrollView>
 </RelativeLayout>

@@ -250,6 +250,29 @@
 
         </RadioGroup>
 
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+
+            android:id="@+id/firstQuestionEWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4px"
+            android:ems="10"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/firstQuestion"
+                android:hint="Key to Restore Password"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal" />
+
+        </android.support.design.widget.TextInputLayout>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

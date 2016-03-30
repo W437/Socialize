@@ -132,7 +132,7 @@ public class ToDoActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.mainpage, menu);
         return true;
     }
 
@@ -147,7 +147,7 @@ public class ToDoActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_refresh) {
+        if (item.getItemId() == R.id.action_settings) {
             refreshItemsFromTable();
         }
 

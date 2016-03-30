@@ -11,19 +11,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
+import com.alsalam.sclzroot.TableManager.UserTbl;
 
 public class Profile2Fragment extends Fragment {
-    private TextView tvName;
-    private TextView tvLName;
-    private TextView tvLoc;
-    private TextView tvHob;
-    private TextView tvGen;
-    private EditText et1;
-    private EditText et2;
-    private EditText et3;
-    private EditText et4;
-    private EditText et5;
+    private EditText etProfile_Name;
+    private EditText etProfile_LastName;
+    private EditText etProfile_Location;
+    private EditText etProfile_gender;
+    private EditText etProfile_phone;
      //kjkjkjk
+
+
 
 
     @Nullable
@@ -34,17 +33,23 @@ public class Profile2Fragment extends Fragment {
         return view;
     }
 
+
     protected void intit(View view) {
 
-        tvName=(TextView)view.findViewById(R.id.tvName);
-        tvLName=(TextView)view.findViewById(R.id.tvLName);
-        tvLoc=(TextView)view.findViewById(R.id.tvLoc);
-        tvHob=(TextView)view.findViewById(R.id.tvHob);
-        tvGen=(TextView)view.findViewById(R.id.tvGen);
-        et1=(EditText)view.findViewById(R.id.et1);
-        et2=(EditText)view.findViewById(R.id.et2);
-        et3=(EditText)view.findViewById(R.id.et3);
-        et4=(EditText)view.findViewById(R.id.et4);
+        etProfile_Name=(EditText)view.findViewById(R.id.etProfile_Name);
+        etProfile_LastName=(EditText)view.findViewById(R.id.etProfile_LastName);
+        etProfile_phone=(EditText)view.findViewById(R.id.etProfile_phone);
+        etProfile_Location=(EditText)view.findViewById(R.id.etProfile_Location);
+        etProfile_gender=(EditText)view.findViewById(R.id.etProfile_gender);
+
+
+
+        etProfile_Name.setText(DataBaseMngr.getLogedFirstName(getContext()));
+        etProfile_LastName.setText(DataBaseMngr.getLogedUserLastName(getContext()));
+        etProfile_Location.setText(DataBaseMngr.getLogedUserAddress(getContext()));
+        etProfile_phone.setText(DataBaseMngr.getLogedUserPhoneNumber(getContext()));
+        etProfile_gender.setText(DataBaseMngr.getLogedUserGender(getContext()));
+
        }
 
 }
