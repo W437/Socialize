@@ -76,8 +76,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
 
-        rbFemale.setOnClickListener(this);
-        rbMale.setOnClickListener(this);
+
 
 
     }
@@ -87,19 +86,30 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     public UserTbl getUserInfo() {
-        UserTbl user = new UserTbl(
-                (int) (Math.random() * 99999999) + "",
-                etUsername.getText().toString(),
-                etPass.getText().toString(),
-                etFirstName.getText().toString(),
-                etLastName.getText().toString(),
-                etMail_Address.getText().toString(),
-                "normalUser",
-                etLocation.getText().toString(),
-                new Date(1998, 2, 17),
-                userGender,
-                etPhoneNumber.getText().toString()
-        );
+        UserTbl user=new UserTbl();
+        user.setFirstName(etFirstName.getText().toString());
+        user.setLastName(etLastName.getText().toString());
+       // user.setId(user.getId().toString());
+        user.setUserAddress(etLocation.getText().toString());
+        user.setUserEmail(etMail_Address.getText().toString());
+        user.setUserPassword(etPass.getText().toString());
+        user.setUserPhone(etPhoneNumber.getText().toString());
+
+        user.setUserName(etUsername.getText().toString());
+        // TODO complete other fields
+//        UserTbl user = new UserTbl(
+//                (int) (Math.random() * 99999999) + "",
+//                etUsername.getText().toString(),
+//                etPass.getText().toString(),
+//                etFirstName.getText().toString(),
+//                etLastName.getText().toString(),
+//                etMail_Address.getText().toString(),
+//                "normalUser",
+//                etLocation.getText().toString(),
+//                new Date(1998, 2, 17),
+//                userGender,
+//                etPhoneNumber.getText().toString()
+//        );
 
         Log.d("test", user.toString());
         return user;
@@ -148,7 +158,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (userGender.length() == 0) {
+        else
+        if (rgGender.getCheckedRadioButtonId() != R.id.rbMale && rgGender.getCheckedRadioButtonId()!= R.id.rbFemale) {
             rgGender.requestFocus();
             Toast.makeText(getBaseContext(), "GENDER NOT CHECKED", Toast.LENGTH_LONG).show();
             return false;
@@ -170,7 +181,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void addUserToDB(UserTbl user)
     {
         try {
-
+            if(mClient==null)
             mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net",getBaseContext());
             MobileServiceTable<UserTbl> mtable = mClient.getTable(UserTbl.class);
             mtable.insert(user, new TableOperationCallback<UserTbl>() {
@@ -180,8 +191,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     {
 
                         Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "SUCCESS! YAY!");
-                        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                        Log.d("AZURE DB", "SUCCESS! YAY!"+entity.toString());
+                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
                     }
                     else
                     {
@@ -203,9 +214,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId())
         {
-            case R.id.btnSign:
-                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
-                break;
+//            case R.id.btnSign:
+//                startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+//                break;
             case R.id.btnSubmit:
                 if(areFieldsFilled())
                 {

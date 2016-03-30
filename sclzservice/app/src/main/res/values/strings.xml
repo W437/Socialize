@@ -4,6 +4,7 @@
     <string name="add_textbox_hint">Add a ToDo item</string>
     <string name="add_button_text">Add</string>
     <string name="mobile_services">Mobile Services </string>
+    <string name="menu_refresh">Refresh</string>
     <string name="checkbox_text">Item Text</string>
     <string name="title_activity_intro">IntroActivit</string>
 
@@ -147,6 +148,14 @@
     <string name="Email">Email</string>
     <string name="User_role">User Role</string>
     <string name="Extra">Extra</string>
-    <string name="menu_refresh">Refresh</string>
+    <string name="accepted_events">Accepted Events</string>
+    <string name="all_events">All Events</string>
+    <string name="past_events">Past Events</string>
+    <string name="events_according_my_location">Events acoording my location</string>
+    <string name="events_according_time">Events according time</string>
+    <string name="my_own_events">My own events</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hnt_et_location">location</string>
+    <string name="str_btn_find">Search</string>
 
 </resources>

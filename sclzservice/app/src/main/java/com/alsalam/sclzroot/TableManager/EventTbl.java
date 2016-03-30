@@ -7,55 +7,55 @@ import java.util.Date;
  * Created by משתמש on 2/23/2016.
  */
 public class EventTbl {
+
     @com.google.gson.annotations.SerializedName("id")
     private String id;
-    private String Adress="home";
-    private String EventSummary;
+
+
+    public final static String WAITING = "WAITING";
+    public final static String ACCEPTED = "ACCEPTED";
+    public final static String CANCELED = "CANCELED";
+    public final static String REJECTED = "REJECTED";
     @com.google.gson.annotations.SerializedName("eventLocation")
     private String eventLocation;
-    @com.google.gson.annotations.SerializedName("eventBegin")
-    private String   eventBegin;
-    @com.google.gson.annotations.SerializedName("eventEnd")
-    private String   eventEnd;
+    @com.google.gson.annotations.SerializedName("eventDate")
+    private String   eventDate;
+    @com.google.gson.annotations.SerializedName("eventTime")
+    private String   eventTime;
+    @com.google.gson.annotations.SerializedName("eventHours")
+    private String   eventHours;
     @com.google.gson.annotations.SerializedName("hostId")
     private String hostId;
-    @com.google.gson.annotations.SerializedName("eventMaxParticipators")
-    private int    eventMaxParticipators;
+    @com.google.gson.annotations.SerializedName("eventMaxParticipants")
+    private int    eventMaxParticipants;
     @com.google.gson.annotations.SerializedName("eventTitle")
     private String    eventTitle;
-    @com.google.gson.annotations.SerializedName("eventDate")
-    private String    eventDate;
-    @com.google.gson.annotations.SerializedName("eventPurpose")
-    private String    eventPurpose;
-    @com.google.gson.annotations.SerializedName("eventProp")
-    private String    eventProp;
+    @com.google.gson.annotations.SerializedName("eventDescription")
+    private String    eventDescription;
     @com.google.gson.annotations.SerializedName("eventActivityLocation")
     private String    eventActivityLocation;
     @com.google.gson.annotations.SerializedName("eventGenderPref")
     private String    eventGenderPref;
-    @com.google.gson.annotations.SerializedName("EventAgeRange")
-    private String    EventAgeRange;
+    @com.google.gson.annotations.SerializedName("eventAgeRange")
+    private String    eventAgeRange;
+    @com.google.gson.annotations.SerializedName("eventRequirements")
+    private String    eventRequirements;
 
-    public EventTbl(String id, String adress, String eventSummary, String eventLocation, String eventBegin, String eventEnd, String hostId, int eventMaxParticipators, String eventTitle, String eventDate, String eventPurpose, String eventProp, String eventActivityLocation, String eventGenderPref, String eventAgeRange) {
+
+    public EventTbl(String id, String eventLocation, String eventDate, String eventTime, String eventHours, String hostId, int eventMaxParticipants, String eventTitle, String eventDescription, String eventActivityLocation, String eventGenderPref, String eventAgeRange, String eventRequirements, String eventSummary) {
         this.id = id;
-        Adress = adress;
-        EventSummary = eventSummary;
         this.eventLocation = eventLocation;
-        this.eventBegin = eventBegin;
-        this.eventEnd = eventEnd;
-        this.hostId = hostId;
-        this.eventMaxParticipators = eventMaxParticipators;
-        this.eventTitle = eventTitle;
         this.eventDate = eventDate;
-        this.eventPurpose = eventPurpose;
-        this.eventProp = eventProp;
+        this.eventTime = eventTime;
+        this.eventHours = eventHours;
+        this.hostId = hostId;
+        this.eventMaxParticipants = eventMaxParticipants;
+        this.eventTitle = eventTitle;
+        this.eventDescription = eventDescription;
         this.eventActivityLocation = eventActivityLocation;
         this.eventGenderPref = eventGenderPref;
-        EventAgeRange = eventAgeRange;
-    }
-
-    public EventTbl() {
-
+        this.eventAgeRange = eventAgeRange;
+        this.eventRequirements = eventRequirements;
     }
 
     public String getId() {
@@ -66,20 +66,21 @@ public class EventTbl {
         this.id = id;
     }
 
-    public String getAdress() {
-        return Adress;
+
+    public static String getWAITING() {
+        return WAITING;
     }
 
-    public void setAdress(String adress) {
-        Adress = adress;
+    public static String getACCEPTED() {
+        return ACCEPTED;
     }
 
-    public String getEventSummary() {
-        return EventSummary;
+    public static String getCANCELED() {
+        return CANCELED;
     }
 
-    public void setEventSummary(String eventSummary) {
-        EventSummary = eventSummary;
+    public static String getREJECTED() {
+        return REJECTED;
     }
 
     public String getEventLocation() {
@@ -90,20 +91,28 @@ public class EventTbl {
         this.eventLocation = eventLocation;
     }
 
-    public String getEventBegin() {
-        return eventBegin;
+    public String getEventDate() {
+        return eventDate;
     }
 
-    public void setEventBegin(String eventBegin) {
-        this.eventBegin = eventBegin;
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
     }
 
-    public String getEventEnd() {
-        return eventEnd;
+    public String getEventTime() {
+        return eventTime;
     }
 
-    public void setEventEnd(String eventEnd) {
-        this.eventEnd = eventEnd;
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public String getEventHours() {
+        return eventHours;
+    }
+
+    public void setEventHours(String eventHours) {
+        this.eventHours = eventHours;
     }
 
     public String getHostId() {
@@ -114,12 +123,12 @@ public class EventTbl {
         this.hostId = hostId;
     }
 
-    public int getEventMaxParticipators() {
-        return eventMaxParticipators;
+    public int getEventMaxParticipants() {
+        return eventMaxParticipants;
     }
 
-    public void setEventMaxParticipators(int eventMaxParticipators) {
-        this.eventMaxParticipators = eventMaxParticipators;
+    public void setEventMaxParticipants(int eventMaxParticipants) {
+        this.eventMaxParticipants = eventMaxParticipants;
     }
 
     public String getEventTitle() {
@@ -130,28 +139,12 @@ public class EventTbl {
         this.eventTitle = eventTitle;
     }
 
-    public String getEventDate() {
-        return eventDate;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setEventDate(String eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public String getEventPurpose() {
-        return eventPurpose;
-    }
-
-    public void setEventPurpose(String eventPurpose) {
-        this.eventPurpose = eventPurpose;
-    }
-
-    public String getEventProp() {
-        return eventProp;
-    }
-
-    public void setEventProp(String eventProp) {
-        this.eventProp = eventProp;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 
     public String getEventActivityLocation() {
@@ -171,31 +164,42 @@ public class EventTbl {
     }
 
     public String getEventAgeRange() {
-        return EventAgeRange;
+        return eventAgeRange;
     }
 
     public void setEventAgeRange(String eventAgeRange) {
-        EventAgeRange = eventAgeRange;
+        this.eventAgeRange = eventAgeRange;
     }
+
+    public String getEventRequirements() {
+        return eventRequirements;
+    }
+
+    public void setEventRequirements(String eventRequirements) {
+        this.eventRequirements = eventRequirements;
+    }
+
+    public EventTbl() {
+
+    }
+
 
     @Override
     public String toString() {
         return "EventTbl{" +
                 "id='" + id + '\'' +
-                ", Adress='" + Adress + '\'' +
-                ", EventSummary='" + EventSummary + '\'' +
                 ", eventLocation='" + eventLocation + '\'' +
-                ", eventBegin='" + eventBegin + '\'' +
-                ", eventEnd='" + eventEnd + '\'' +
-                ", hostId='" + hostId + '\'' +
-                ", eventMaxParticipators=" + eventMaxParticipators +
-                ", eventTitle='" + eventTitle + '\'' +
                 ", eventDate='" + eventDate + '\'' +
-                ", eventPurpose='" + eventPurpose + '\'' +
-                ", eventProp='" + eventProp + '\'' +
+                ", eventTime='" + eventTime + '\'' +
+                ", eventHours='" + eventHours + '\'' +
+                ", hostId='" + hostId + '\'' +
+                ", eventMaxParticipants=" + eventMaxParticipants +
+                ", eventTitle='" + eventTitle + '\'' +
+                ", eventDescription='" + eventDescription + '\'' +
                 ", eventActivityLocation='" + eventActivityLocation + '\'' +
                 ", eventGenderPref='" + eventGenderPref + '\'' +
-                ", EventAgeRange='" + EventAgeRange + '\'' +
+                ", eventAgeRange='" + eventAgeRange + '\'' +
+                ", eventRequirements='" + eventRequirements + '\'' +
                 '}';
     }
 }

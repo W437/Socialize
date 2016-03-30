@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:padding="20px"
+            android:padding="4px"
             android:gravity="center_horizontal">
 
             <EditText
@@ -39,14 +39,14 @@
                 android:hint="@string/first_name"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal" />
-
+            <requestFocus/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/LAST_NAME_WRAPPER"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
 
@@ -66,7 +66,7 @@
             android:id="@+id/EMAILWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
 
@@ -89,7 +89,7 @@
             android:id="@+id/USERNaMEWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:ems="10"
             android:layout_gravity="center_horizontal">
 
@@ -110,7 +110,7 @@
             android:id="@+id/PASSWORDWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:ems="10" >
@@ -133,7 +133,7 @@
             android:id="@+id/etConfirmWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal">
             <EditText
                 android:layout_width="match_parent"
@@ -152,7 +152,7 @@
             android:id="@+id/etLocationWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal">
             <EditText
                 android:layout_width="match_parent"
@@ -171,7 +171,7 @@
             android:id="@+id/etPhoneNumberWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20px"
+            android:padding="4px"
             android:layout_gravity="center_horizontal">
             <EditText
                 android:layout_width="match_parent"
@@ -198,7 +198,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="82dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
 
@@ -258,9 +258,7 @@
                 android:id="@+id/rbMale"
                 android:checked="false" />
 
-            <Space
-                android:layout_width="68dp"
-                android:layout_height="wrap_content" />
+
 
             <RadioButton
                 android:layout_width="wrap_content"

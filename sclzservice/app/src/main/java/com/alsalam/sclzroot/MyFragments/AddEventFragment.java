@@ -37,6 +37,7 @@ import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,7 +48,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
      */
     private MobileServiceClient mClient;
 
-    /**
+    /** test
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<EventTbl> mToDoTable;
@@ -65,6 +66,10 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private Geocoder geocoder;
     private Location location2;
     String result = "";
+
+      private Date eventDate;
+
+
     @Nullable
 
 
@@ -86,8 +91,8 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         etLimitParticipants =(EditText)view.findViewById(R.id.etLimit);
         etEventDate=(EditText)view.findViewById(R.id.etEventDate);
         etDescription = (EditText)view.findViewById(R.id.etDescription);
-
-
+        etRequirments = (EditText)view.findViewById(R.id.etRequirments);
+        etHours = (EditText)view.findViewById(R.id.etHours);
         rgGender=(RadioGroup)view.findViewById(R.id.rgGender);
         rgLocation=(RadioGroup)view.findViewById(R.id.rgLocation);
         wBeginTime=(TextInputLayout)view.findViewById(R.id.BeginningWrapper);
@@ -140,7 +145,21 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             location = "Outdoors & Indoors";
 
         EventTbl event=new EventTbl();
+        event.setEventTitle(etTitle.getText().toString());
+        event.setEventDescription(etDescription.getText().toString());
+        event.setEventMaxParticipants(Integer.parseInt(etLimitParticipants.getText().toString()));
+        event.setEventRequirements(etRequirments.getText().toString());
+        event.setEventDate(etEventDate.getText().toString());
+        event.setEventTime(etTime.getText().toString());
+        event.setEventHours(etHours.getText().toString());
+        event.setEventAgeRange(etAge.getText().toString());
+        event.setEventLocation(etLocation.getText().toString());
+        event.setEventGenderPref(genderPref);
+        event.setEventActivityLocation(location);
+        event.setId(( Math.random() * 9999999) + "");
+        event.setHostId((Math.random() * 9999999) + "");
 
+          //event.setEventMaxParticipators(etLimitParticipants.getText().toString());
 //        EventTbl event = new EventTbl( "",
 //                etLocation.getText().toString(),
 //                etTitle.getText().toString(),
@@ -155,7 +174,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 //                genderPref,
 //                etAge.getText().toString());
 
-//        Log.d("test", event.toString());
+        Log.d("EVENT TEST", event.toString());
         return event;
     }
 
@@ -170,13 +189,14 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etLimitParticipants.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (etRequirments.getText().toString().length() == 0) {
-            etRequirments.requestFocus();
-            etRequirments.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-
-        else if (etEventDate.getText().toString().length() == 0) {
+//        else if (etRequirments.getText().toString().length() == 0) {
+//            etRequirments.requestFocus();
+//            etRequirments.setError("FIELD CANNOT BE EMPTY");
+//            return false;
+//        }
+//
+//        else
+         if (etEventDate.getText().toString().length() == 0) {
             etEventDate.requestFocus();
             etEventDate.setError("FIELD CANNOT BE EMPTY");
             return false;
@@ -186,12 +206,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
             etTime.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
-        else if (etHours.getText().toString().length() == 0) {
-            etHours.requestFocus();
-            etHours.setError("FIELD CANNOT BE EMPTY");
-            return false;
-        }
-        else if (etAge.getText().toString().length() == 0) {
+//        else if (etHours.getText().toString().length() == 0) {
+//            etHours.requestFocus();
+//            etHours.setError("FIELD CANNOT BE EMPTY");
+//            return false;
+//        }
+//        else
+        if (etAge.getText().toString().length() == 0) {
             etAge.requestFocus();
             etAge.setError("FIELD CANNOT BE EMPTY");
             return false;
@@ -268,7 +289,12 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-
+                            if(eventDate==null)
+                                eventDate=new Date(year,monthOfYear,dayOfMonth);
+                            else {
+                                eventDate.setYear(year);
+                                eventDate.setMonth(monthOfYear);
+                                eventDate.setDate(dayOfMonth);                           }
                             etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
                         }
@@ -289,8 +315,13 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
-
-                            etTime.setText(hourOfDay + ":" + minute);
+                            if(eventDate==null)
+                                eventDate=new Date(mYear,mMonth,mDay,hourOfDay,minute);
+                            else {
+                                eventDate.setHours(hourOfDay);
+                                eventDate.setMinutes(minute);
+                            }
+                             etTime.setText(hourOfDay + ":" + minute);
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
@@ -324,7 +355,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                 Log.d("Azure", "Event Added!");
                 //Toast.makeText(getActivity(),"FILL IN ALL FIELDS!",Toast.LENGTH_LONG).show();
                 Log.d("Azure", getEventInfo().toString());
-            }
+           }
 
         }
 
