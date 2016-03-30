@@ -25,7 +25,7 @@ import com.alsalam.sclzroot.R;
 /**
  * Created by bana on 01/03/2016.
  */
-public class UserTblAdapter extends ArrayAdapter<UserTbl> {
+public class UserTblAdapter extends ArrayAdapter<UserTbl> implements RadioGroup.OnCheckedChangeListener {
 
     /**
      * Adapter context
@@ -68,29 +68,32 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss);
         EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
         TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
-        RadioButton Wait=(RadioButton)row.findViewById(R.id.radioButton1);
-        RadioButton Maneger=(RadioButton)row.findViewById(R.id.radioButton2);
-        RadioButton Teenager=(RadioButton)row.findViewById(R.id.radioButton3);
 
-        RadioButton Coordinator=(RadioButton)row.findViewById(R.id.radioButton4);
+     if(mLayoutResourceId==R.layout.my_user_card_itm) {
+         RadioGroup  radioGroup=(RadioGroup)row.findViewById(R.id.radioGroup);
+         RadioButton Wait = (RadioButton) row.findViewById(R.id.radioButton1);
+         RadioButton Maneger = (RadioButton) row.findViewById(R.id.radioButton2);
+         RadioButton Teenager = (RadioButton) row.findViewById(R.id.radioButton3);
+         RadioButton Coordinator = (RadioButton) row.findViewById(R.id.radioButton4);
+         RadioButton Guide = (RadioButton) row.findViewById(R.id.radioButton5);
 
-        RadioButton Guide=(RadioButton)row.findViewById(R.id.radioButton5);
-
-         if(currentItem.getUserTafkeed().equals(UserTbl.Guide)){
+         radioGroup.setOnCheckedChangeListener(this);
+         if (currentItem.getUserTafkeed().equals(UserTbl.Guide)) {
              Guide.setChecked(true);
          }
-        if(currentItem.getUserTafkeed().equals(UserTbl.Maneger)){
-            Maneger.setChecked(true);
-        }
-        if(currentItem.getUserTafkeed().equals(UserTbl.Teenager)){
-            Teenager.setChecked(true);
-        }
-        if(currentItem.getUserTafkeed().equals(UserTbl.Wait)){
-            Wait.setChecked(true);
-        }
-        if(currentItem.getUserTafkeed().equals(UserTbl.Coordinator)){
-            Coordinator.setChecked(true);
-        }
+         if (currentItem.getUserTafkeed().equals(UserTbl.Maneger)) {
+             Maneger.setChecked(true);
+         }
+         if (currentItem.getUserTafkeed().equals(UserTbl.Teenager)) {
+             Teenager.setChecked(true);
+         }
+         if (currentItem.getUserTafkeed().equals(UserTbl.Wait)) {
+             Wait.setChecked(true);
+         }
+         if (currentItem.getUserTafkeed().equals(UserTbl.Coordinator)) {
+             Coordinator.setChecked(true);
+         }
+     }
         row.setTag(currentItem);
         statTv2.setText(currentItem.getStatus());
         tvEmail2.setText(currentItem.getUserEmail());
@@ -122,6 +125,13 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         });
 
         return row;
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        Toast.makeText(getContext(), "wait" +radioGroup.toString(), Toast.LENGTH_LONG).show();
+
+
     }
 
 
