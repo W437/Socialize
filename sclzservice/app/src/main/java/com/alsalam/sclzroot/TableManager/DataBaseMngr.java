@@ -34,6 +34,10 @@ public class DataBaseMngr
     public static final String USER_MAIL ="USER_EMAIL" ;
     private static final String USER_ID ="USER_ID" ;
     private static final String FIRST_NAME ="FIRST_NAME" ;
+    private static final String LAST_NAME = "LAST NAME";
+    private static final String USER_ADDRESS = "USER ADDRESS";
+    private static final String PHONE_NUMBER ="PHONE NUMBER" ;
+    private static final String USER_GENDER = "USER GENDER";
     public static Activity activity;
 
     public static final String MY_PREF="MyPref";
@@ -100,12 +104,15 @@ public class DataBaseMngr
         editor.putString(USER_MAIL,userTbl.getUserEmail());
         editor.putString(USER_ID,userTbl.getId());
         editor.putString(FIRST_NAME,userTbl.getFirstName());
-
+        editor.putString(LAST_NAME,userTbl.getLastName());
+        editor.putString(USER_ADDRESS,userTbl.getUserAddress());
+        editor.putString(PHONE_NUMBER,userTbl.getUserPhone());
+        editor.putString(USER_GENDER,userTbl.getUserGender());
 
         editor.commit();
     }
 
-    public static void logOut(UserTbl userTbl,Context mContext)
+    public static void logOut(Context mContext)
     {
 
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
@@ -129,6 +136,32 @@ public class DataBaseMngr
         SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
         return  mPrefs.getString(USER_ID,null);
     }
+
+    public static String getLogedUserLastName(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(LAST_NAME,null);
+    }
+
+
+    public static String getLogedUserAddress(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(USER_ADDRESS,null);
+    }
+
+    public static String getLogedUserGender(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(USER_GENDER,null);
+    }
+
+    public static String getLogedUserPhoneNumber(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(PHONE_NUMBER,null);
+    }
+
 
     /**
      * Add an item to the Mobile Service Table

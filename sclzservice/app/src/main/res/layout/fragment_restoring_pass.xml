@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alsalam.sclzroot.MyFragments.RestoringPassFragment">
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:id="@+id/firstQuestionEWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4px"
+        android:ems="10"
+        android:layout_gravity="center_horizontal">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Enter Your Restoring Password Key"
+        android:layout_gravity="center_horizontal"/>
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>

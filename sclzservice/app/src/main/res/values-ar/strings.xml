@@ -145,4 +145,5 @@
     <string name="Guide_1">مرشد</string>
     <string name="Maneger">مدير</string>
     <string name="Teenager">عضو</string>
+    <string name="Restoring_Key">مفتاح لاسترجاع كلمة السر</string>
 </resources>
