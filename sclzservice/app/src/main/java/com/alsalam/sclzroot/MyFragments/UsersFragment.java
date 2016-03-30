@@ -33,7 +33,7 @@ public class UsersFragment extends Fragment {
     private Spinner spinner;
 
     String spin_val;
-    private String[] user = new String[3];
+    private String[] user = new String[4];
 
     /**
      * Mobile Service Table used to access data
@@ -56,7 +56,8 @@ public class UsersFragment extends Fragment {
         user[0] =getResources().getString(R.string.Guide);
         user[1]=getResources().getString(R.string.Waiting_to_approval);
         user[2]=getResources().getString(R.string.Coordinators);
-//
+         user[3]=getResources().getString(R.string.Maneger);
+
 //        try {
 //            mClient = new MobileServiceClient(
 //                    "https://sclzservice.azurewebsites.net",

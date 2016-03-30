@@ -11,7 +11,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Activity;
+import android.os.Bundle;
 
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.R;
 
@@ -24,7 +31,7 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
      * Adapter context
      */
     Context mContext;
-
+    private RadioGroup radioGroup;
     /**
      * Adapter View layout
      */
@@ -61,12 +68,34 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
         TextView tvAdrerss2=(TextView)row.findViewById(R.id.tvAdrerss);
         EditText etPhone=(EditText)row.findViewById(R.id.etPhone);
         TextView tvBirth=(TextView)row.findViewById(R.id.tvBirth);
+        RadioButton Wait=(RadioButton)row.findViewById(R.id.radioButton1);
+        RadioButton Maneger=(RadioButton)row.findViewById(R.id.radioButton2);
+        RadioButton Teenager=(RadioButton)row.findViewById(R.id.radioButton3);
 
+        RadioButton Coordinator=(RadioButton)row.findViewById(R.id.radioButton4);
 
+        RadioButton Guide=(RadioButton)row.findViewById(R.id.radioButton5);
+
+         if(currentItem.getUserTafkeed().equals(UserTbl.Guide)){
+             Guide.setChecked(true);
+         }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Maneger)){
+            Maneger.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Teenager)){
+            Teenager.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Wait)){
+            Wait.setChecked(true);
+        }
+        if(currentItem.getUserTafkeed().equals(UserTbl.Coordinator)){
+            Coordinator.setChecked(true);
+        }
         row.setTag(currentItem);
         statTv2.setText(currentItem.getStatus());
         tvEmail2.setText(currentItem.getUserEmail());
         tvAdress2.setText(currentItem.getUserAddress());
+
         tvRole2.setText(currentItem.getUserTafkeed());
         tvUserN.setText(currentItem.getUserName());
         tvEmail.setText(currentItem.getUserEmail());
