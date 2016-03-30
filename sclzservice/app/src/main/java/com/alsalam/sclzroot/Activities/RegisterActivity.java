@@ -199,7 +199,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
                         Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                         Log.d("AZURE DB", "SUCCESS! YAY!"+entity.toString());
-                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
+                        startActivity(new Intent(getBaseContext(), MainpageActivity.class));
                     }
                     else
                     {

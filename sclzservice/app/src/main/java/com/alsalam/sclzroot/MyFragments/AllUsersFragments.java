@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
-import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
-import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
-import com.alsalam.sclzroot.TableManager.UserTbl;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.R;
 
 /**
@@ -33,7 +30,7 @@ public class AllUsersFragments extends  Fragment
         //
 
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainHomeActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
+        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
 
 
         return  view;

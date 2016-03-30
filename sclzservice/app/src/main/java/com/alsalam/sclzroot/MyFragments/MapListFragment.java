@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
@@ -66,7 +66,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
 //        mapView.getMapAsync(this);
 
         listView = (ListView) view.findViewById(R.id.lstvEvetnts);
-        ((MainHomeActivity) getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
+        ((MainpageActivity) getActivity()).refreshEventsFromTable(listView, R.layout.event_card_itm);
 
         return view;
     }

@@ -7,10 +7,9 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 
-import com.alsalam.sclzroot.Activities.MainHomeActivity;
+import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.R;
 import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
@@ -23,7 +22,7 @@ public class MyHandler extends NotificationsHandler {
     NotificationCompat.Builder builder;
     Context ctx;
 
-    static public MainHomeActivity mainActivity;
+    static public MainpageActivity mainActivity;
 
     @Override
     public void onReceive(Context context, Bundle bundle) {
@@ -39,7 +38,7 @@ public class MyHandler extends NotificationsHandler {
                 ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainHomeActivity.class), 0);
+                new Intent(ctx, MainpageActivity.class), 0);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
         if(alarmSound == null){
             alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);

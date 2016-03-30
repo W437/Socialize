@@ -6,20 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.alsalam.sclzroot.Activities.MainHomeActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <!--<android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:id="@+id/view">
 
-        <android.support.v7.widget.Toolbar
+       &lt;!&ndash; <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay" />&ndash;&gt;
 
-    </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.AppBarLayout>-->
 
     <android.support.design.widget.TabLayout
     android:layout_width="match_parent"
@@ -28,7 +28,7 @@
     app:tabIndicatorHeight="8dp"
     app:tabIndicatorColor="@color/accent"
     android:layout_height="?attr/actionBarSize"
-        android:layout_below="@+id/view"
+
         android:layout_alignParentStart="true">
 
 </android.support.design.widget.TabLayout>
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/homepager"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
