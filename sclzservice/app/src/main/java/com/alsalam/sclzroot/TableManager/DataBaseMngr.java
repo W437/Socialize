@@ -38,6 +38,8 @@ public class DataBaseMngr
     private static final String USER_ADDRESS = "USER ADDRESS";
     private static final String PHONE_NUMBER ="PHONE NUMBER" ;
     private static final String USER_GENDER = "USER GENDER";
+    private static final String RESTORING_KEY = "RESTORING KEY";
+    private static final String USER_PASSWORD = "USER PASSWORD";
     public static Activity activity;
 
     public static final String MY_PREF="MyPref";
@@ -109,6 +111,12 @@ public class DataBaseMngr
         editor.putString(PHONE_NUMBER,userTbl.getUserPhone());
         editor.putString(USER_GENDER,userTbl.getUserGender());
 
+
+        // did it yesterdat
+        editor.putString(RESTORING_KEY,userTbl.getRestoringKey());
+        editor.putString(USER_PASSWORD,userTbl.getUserPassword());
+
+
         editor.commit();
     }
 
@@ -162,6 +170,19 @@ public class DataBaseMngr
         return  mPrefs.getString(PHONE_NUMBER,null);
     }
 
+
+    public static String getLogedUserRestoringKey(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(RESTORING_KEY,null);
+    }
+
+
+    public static String getLogedUserPassword(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(USER_PASSWORD,null);
+    }
 
     /**
      * Add an item to the Mobile Service Table
