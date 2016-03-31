@@ -16,7 +16,6 @@ public class UserTbl {
 
 
     @com.google.gson.annotations.SerializedName("status")
-
     private String status;
 
     @com.google.gson.annotations.SerializedName("userEmail")
@@ -42,7 +41,12 @@ public class UserTbl {
     @com.google.gson.annotations.SerializedName("userPassword")
     private String userPassword;
 
-    public UserTbl(String mid, String userName, String userPassword, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
+    //*** i did it yesterday
+    @com.google.gson.annotations.SerializedName("restoringKey")
+    private String restoringKey;
+
+
+    public UserTbl(String mid,String restoringKey , String userName, String userPassword, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
         setId(mid);
         setFirstName(firstName);
         setLastName(lastName);
@@ -53,6 +57,9 @@ public class UserTbl {
         setUserGender(userGender);
         setUserPhone(userPhone);
         setUserPassword(userPassword);
+
+        //*** i did it yesterday
+        setRestoringKey(restoringKey);
     }
 
 
@@ -147,8 +154,22 @@ public class UserTbl {
         return userPhone;
     }
 
+
+
+
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+
+
+    public String getRestoringKey() {
+        return restoringKey;
+    }
+
+
+    //*** i did it yesterday
+    public void setRestoringKey(String RestoringKey) {
+        this.restoringKey = RestoringKey;
     }
 
     @Override
@@ -157,13 +178,15 @@ public class UserTbl {
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", status='" + status + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userTafkeed='" + userTafkeed + '\'' +
                 ", userAddress='" + userAddress + '\'' +
                 ", userBirthday=" + userBirthday +
                 ", userGender='" + userGender + '\'' +
                 ", userPhone='" + userPhone + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", restoringKey='" + restoringKey + '\'' +
                 '}';
     }
-
 }

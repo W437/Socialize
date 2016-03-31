@@ -6,7 +6,6 @@
     <string name="mobile_services">Mobile Services </string>
     <string name="menu_refresh">Refresh</string>
     <string name="checkbox_text">Item Text</string>
-    <string name="title_activity_intro">IntroActivit</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -205,5 +204,6 @@
     <string name="navigation_drawer_close">close</string>
     <string name="PhoneNumber" >Phone Number</string>
     <string name="Restoring_Key">Key to Restore Password</string>
+    <string name="title_activity_intro">IntroActivity</string>
 
 </resources>
