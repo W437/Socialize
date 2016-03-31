@@ -21,6 +21,8 @@ public class MyHandler extends NotificationsHandler {
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
     Context ctx;
+    long[] vibrate = { 0, 100, 200, 300 };
+
 
     static public MainpageActivity mainActivity;
 
@@ -39,13 +41,15 @@ public class MyHandler extends NotificationsHandler {
 
         PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
                 new Intent(ctx, MainpageActivity.class), 0);
-        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        //Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Uri alarmSound = Uri.parse("android.resource://"
+                + ctx.getPackageName() + "/" + R.raw.notification);
         if(alarmSound == null){
             alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             if(alarmSound == null){
                 alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
             }
-        }
+
         NotificationCompat.Builder mBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(ctx)
                         .setSmallIcon(R.mipmap.logo)
@@ -53,9 +57,11 @@ public class MyHandler extends NotificationsHandler {
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))
                         .setContentText(msg)
+                        .setVibrate(vibrate)
                 .setSound(alarmSound);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
+}
 }
