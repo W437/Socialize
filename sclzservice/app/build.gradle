@@ -62,6 +62,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.google.android.gms:play-services-base:6.5.87'
+    compile 'com.github.paolorotolo:appintro:3.4.0'
 }
 repositories {
     maven {

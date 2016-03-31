@@ -60,7 +60,7 @@
                 android:id="@+id/btMore"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:src="@mipmap/ic_sahim"
+                android:src="@mipmap/ic_more"
                 android:background="#0000" />
 
             <TextView

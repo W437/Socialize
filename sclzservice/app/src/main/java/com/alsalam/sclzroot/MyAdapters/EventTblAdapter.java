@@ -87,7 +87,23 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
              SimpleDateFormat df = new SimpleDateFormat(); //called without pattern
             tvTime.setText(df.format(currentItem.getDate()));
         }
-        tvStatus.setText(currentItem.getStatus());
+
+        if (currentItem.getStatus().equals(EventTbl.WAITING))
+
+            tvStatus.setText(mContext.getResources().getString(R.string.Waiting_to_approval));
+
+        if (currentItem.getStatus().equals(EventTbl.ACCEPTED))
+
+            tvStatus.setText(mContext.getResources().getString(R.string.ACCEPTED));
+
+        if (currentItem.getStatus().equals(EventTbl.CANCELED))
+
+            tvStatus.setText(mContext.getResources().getString(R.string.CANCELED));
+
+        if (currentItem.getStatus().equals(EventTbl.REJECTED))
+
+            tvStatus.setText(mContext.getResources().getString(R.string.REJECTED));
+
         btPartic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

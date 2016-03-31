@@ -123,7 +123,7 @@
     <string name="gender_prefence">מין</string>
     <string name="hnt_et_location">מקום</string>
     <string name="hours">למשך האירוע</string>
-    <string name="join_event">השתתפף</string>
+    <string name="join_event">השתתתף</string>
     <string name="participants_Limit">הגבלת משתתפים</string>
     <string name="reject">דחה</string>
     <string name="requirements">דרישות</string>
@@ -134,7 +134,7 @@
     <string name="user_name">שם משתמש</string>
     <string name="user_role">תפקיד המשתמש</string>
     <string name="view_participants">משתתפים צפו</string>
-    <string name="Wait">המתן</string>
+    <string name="Wait">בהמתנה</string>
     <string name="signing_in">כניסה</string>
     <string name="event_saved">שמירה</string>
     <string name="Coordinators">רכזים</string>
@@ -146,4 +146,7 @@
     <string name="Teenager">בן נוער</string>
     <string name="Restoring_Key">מפתח לשחזור סיסמה</string>
     <string name="PhoneNumber">מספר הטלפון</string>
+    <string name="ACCEPTED">מאושר</string>
+    <string name="CANCELED">בוטל</string>
+    <string name="REJECTED">נדחה</string>
 </resources>
