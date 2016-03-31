@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/lstvEvetnts"
-            android:layout_below="@+id/imageButton" />
+            android:layout_below="@+id/imgPrev" />
 
     <TextView
         android:layout_width="wrap_content"

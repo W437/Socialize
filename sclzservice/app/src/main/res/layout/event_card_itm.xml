@@ -67,7 +67,7 @@
         android:paddingRight="3dp"
         android:paddingLeft="3dp"
         android:layout_below="@+id/tvTitle"
-        android:layout_centerHorizontal="true" />
+        android:layout_toStartOf="@+id/btMore" />
 
     <ImageButton
         android:layout_width="wrap_content"

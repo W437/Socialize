@@ -40,6 +40,14 @@
     </android.support.design.widget.TextInputLayout>
 
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot My Password"
+        android:id="@+id/btnForgot_Password"
+        android:layout_gravity="center_horizontal" />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,26 +79,5 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Sign_up_with_google"
-            android:id="@+id/btnGoogle"
-
-            android:layout_weight="1" />
-
-        <Button
-          android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/Sign_up_with_facebook"
-              android:id="@+id/btnFacebook"
-              android:layout_gravity="center_horizontal"
-            android:layout_weight="1" />
-    </LinearLayout>
 
 </LinearLayout>
