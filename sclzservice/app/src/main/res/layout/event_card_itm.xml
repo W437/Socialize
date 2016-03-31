@@ -15,6 +15,7 @@
         android:layout_height="150dp"
         android:background="@color/primary_light"
         card_view:cardCornerRadius="12dp"
+
         card_view:cardElevation="14dp"
         android:layout_margin="8dp">
 
@@ -81,8 +82,8 @@
 
     <ImageButton
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:text="@string/More"
         android:id="@+id/btMore"
         android:src="@mipmap/ic_more"

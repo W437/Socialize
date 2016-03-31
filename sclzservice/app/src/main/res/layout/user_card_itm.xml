@@ -16,6 +16,7 @@
         android:background="@color/primary_light"
 
         card_view:cardCornerRadius="12dp"
+
         card_view:cardElevation="14dp"
         android:layout_margin="8dp">
         <RelativeLayout
