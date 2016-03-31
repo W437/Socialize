@@ -39,17 +39,15 @@
 
         <activity
             android:name="com.example.sclzservice.ToDoActivity"
-            android:label="@string/app_name" />
-        <activity android:name=".Activities.IntroActivity" />
-        <activity android:name=".Activities.RegisterActivity" />
-        <activity android:name=".Activities.LoginActivity">
+              android:screenOrientation="portrait" />
+        <activity android:name=".Activities.RegisterActivity"  android:screenOrientation="portrait" />
+        <activity android:name=".Activities.LoginActivity"  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.SettingsActivity" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -65,7 +63,7 @@
 
         <activity
             android:name=".Activities.MainpageActivity"
-
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"></activity>
     </application>
 

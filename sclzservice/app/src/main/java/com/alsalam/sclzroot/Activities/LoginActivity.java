@@ -147,7 +147,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                // signinDialog=createAndReturnDialog("wait", "signing_i");
                 signinDialog.setCancelable(false);
                 signinDialog.show();
-                msUsertTbl.where().field("userName").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
+                msUsertTbl.where().field("userEmail").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
                     @Override
                     public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 

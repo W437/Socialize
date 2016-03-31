@@ -83,29 +83,6 @@
         </android.support.design.widget.TextInputLayout>
 
 
-
-        <android.support.design.widget.TextInputLayout
-
-            android:id="@+id/USERNaMEWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4px"
-            android:ems="10"
-            android:layout_gravity="center_horizontal">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/etUsername"
-                android:hint="@string/Username"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal" />
-
-        </android.support.design.widget.TextInputLayout>
-
-
-
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/PASSWORDWrapper"
             android:layout_width="match_parent"
@@ -178,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="10"
-                android:id="@+id/etPhone"
+                android:id="@+id/tvPhone"
                 android:hint="PHONE NUMBER"
 
                 android:layout_centerHorizontal="true"
@@ -210,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Birthday"
                 android:enabled="false"
-                android:id="@+id/etEventDate"
+                android:id="@+id/etBirthDay"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:inputType="date" />
@@ -237,7 +214,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/male"
                 android:id="@+id/rbMale"
-                android:checked="false" />
+                android:checked="true" />
 
 
 

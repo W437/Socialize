@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <!-- A hhhhhhhCardView that contains a TextView -->
+
+
+
+            <include layout="@layout/user_card_itm" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="120dp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true">
+
+                <RadioButton
+                    android:id="@+id/rbWait"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Wait"
+                    android:checked="true"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rbManeger"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Maneger"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rbYoung"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Teenager"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+                <RadioButton
+                    android:id="@+id/rbRkaz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Coordinator"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+                <RadioButton
+                    android:id="@+id/rbGuid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Guide"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+
+</RelativeLayout>
+

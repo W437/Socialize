@@ -1,109 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
+<include layout="@layout/user_card_itm"
+    android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="143dp"
-        android:background="@color/primary_light"
-        card_view:cardCornerRadius="20dp"
-        android:layout_margin="5dp">
-        <RelativeLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/primary"
-                android:text="@string/User_name"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:textSize="14dp"
-                android:allowUndo="false" />
-
-            <TextView
-                android:id="@+id/tvAdress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/user_role"
-                android:gravity="center_vertical"
-                android:textSize="10dp"
-                android:layout_alignBottom="@+id/tvRole2"
-                android:layout_alignParentLeft="true" />
-
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="10dp"
-                android:layout_below="@+id/tvAdress"
-                android:layout_alignParentLeft="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ADress"
-                android:id="@+id/tvAdress"
-                android:layout_below="@+id/userName"
-                android:layout_alignParentRight="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvAdress2"
-                android:layout_alignBottom="@+id/tvEmail"
-                android:layout_alignParentRight="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvRole2"
-                android:layout_below="@+id/tvEmail2"
-                android:layout_alignLeft="@+id/tvEmail2" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btDisAccept"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
+                android:id="@+id/btRefused"
                 android:background="#FFFFFFFF"
-
-                android:src="@mipmap/no_launcher" />
+android:layout_marginRight="4dp"
+                android:src="@mipmap/no_launcher"
+                android:layout_alignTop="@+id/btAccept"
+                android:layout_alignParentEnd="true" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btAccept"
-                android:layout_alignTop="@+id/btDisAccept"
-                android:layout_alignParentEnd="true"
+
                 android:background="#FFFFFFFF"
 
-                android:src="@mipmap/ic_accept333_launcher" />
+                android:src="@mipmap/ic_accept333_launcher"
+                android:layout_marginTop="108dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvEmail2"
-                android:layout_alignTop="@+id/tvEmail"
-                android:layout_toRightOf="@+id/btDisAccept" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Status"
+        android:id="@+id/tvStatus"
+        android:layout_alignBottom="@+id/btRefused"
+        android:layout_toStartOf="@+id/btRefused" />
 
-        </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
+</RelativeLayout>
