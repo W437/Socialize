@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageHour"
                 android:background="#0000"
-                android:src="@mipmap/ic_hmsheh" />
+                android:src="@mipmap/i_timee" />
 
             <android.support.design.widget.TextInputLayout
                 android:paddingTop="0dp"
