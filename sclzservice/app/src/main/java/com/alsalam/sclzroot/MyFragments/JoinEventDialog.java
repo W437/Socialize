@@ -61,7 +61,6 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
     }
 
     public void setEventTbl() {
-        this.eventTbl = eventTbl;
         tvTitle.setText(this.eventTbl.getTitle());
         tvLocation.setText(this.eventTbl.getAddressLocation());
         tvDescription.setText(this.eventTbl.getDescription());
@@ -97,6 +96,7 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
         View view =inflater.inflate(R.layout.join_event, container, false);
         init(view);
         //setListerners();
+        setEventTbl();
         return  view;
     }
 

@@ -85,10 +85,12 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
                     currentMonth= (currentMonth-1)<todayMonth ? todayMonth:currentMonth-1;
                     cal.set(Calendar.MONTH,currentMonth);
                     String month_name = month_date.format(cal.getTime());
-                    tvMonth.setText(month_name);
+                    tvMonth.setText(month_name+":"+currentMonth);
                 }
             }
         };
+        imgNext.setOnClickListener(clickListener);
+        imgPrev.setOnClickListener(clickListener);
 
         listView = (ListView) view.findViewById(R.id.lstvEvetnts);
         listView.setOnItemClickListener(this);
