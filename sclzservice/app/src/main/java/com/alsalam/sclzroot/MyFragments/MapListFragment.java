@@ -68,7 +68,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
         String month_name = month_date.format(cal.getTime());
         tvMonth.setText(month_name);
         imgNext= (ImageView) view.findViewById(R.id.imgNext);
-        imgNext= (ImageView) view.findViewById(R.id.imgPrev);
+        imgPrev= (ImageView) view.findViewById(R.id.imgPrev);
         View.OnClickListener clickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {

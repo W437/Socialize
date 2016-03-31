@@ -30,7 +30,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tvemail, tvPass;
     private EditText et_MAIL, et_Pass;
-    private Button btnSign, btnFacebook, btnGoogle, btnRegister;
+    private Button btnSign, btnRegister;
     public static int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     //android.support.v4.app.NotificationCompat.Builder builder;
@@ -93,13 +93,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         et_MAIL = (EditText) findViewById(R.id.et_MAIL);// writing an email
         et_Pass = (EditText) findViewById(R.id.et_PASS);// password
         btnSign = (Button) findViewById(R.id.btnSign);// Sing in button
-        btnFacebook = (Button) findViewById(R.id.btnFacebook);// Sing in with facebook button
-        btnGoogle = (Button) findViewById(R.id.btnGoogle);// Sing in with Google+ button
+
         btnRegister = (Button) findViewById(R.id.btnRegister);// Sing in button
 
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
-        btnFacebook.setOnClickListener(this);
 
 
 
@@ -137,9 +135,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
                 break;
 
-            case R.id.btnFacebook:
 
-                break;
 
             case R.id.btnSign:
                 if(et_MAIL.getText().toString().length() == 0)
