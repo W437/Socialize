@@ -149,4 +149,5 @@
     <string name="ACCEPTED">מאושר</string>
     <string name="CANCELED">בוטל</string>
     <string name="REJECTED">נדחה</string>
+    <string name="waiting_to_confirm">ממתין לאישור</string>
 </resources>

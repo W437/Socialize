@@ -150,4 +150,5 @@
     <string name="ACCEPTED">تمت المرافقه عليه</string>
     <string name="CANCELED">تم الغاءه</string>
     <string name="REJECTED">تم رفضه</string>
+    <string name="waiting_to_confirm">بانتظار الموافقة</string>
 </resources>
