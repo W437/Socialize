@@ -91,19 +91,19 @@ public class UserTblAdapter extends ArrayAdapter<UserTbl> {
                     Toast.makeText(getContext(), "checkedId:" + checkedId, Toast.LENGTH_LONG).show();
                 }
             });
-            if (currentItem.getUserTafkeed().equals(UserTbl.Guide)) {
+            if (currentItem.getUserTafkeed()!=null && currentItem.getUserTafkeed().equals(UserTbl.Guide)) {
                 Guide.setChecked(true);
             }
-            if (currentItem.getUserTafkeed().equals(UserTbl.Maneger)) {
+            if (currentItem.getUserTafkeed()!=null && currentItem.getUserTafkeed().equals(UserTbl.Maneger)) {
                 Maneger.setChecked(true);
             }
-            if (currentItem.getUserTafkeed().equals(UserTbl.Teenager)) {
+            if (currentItem.getUserTafkeed()!=null && currentItem.getUserTafkeed().equals(UserTbl.Teenager)) {
                 Teenager.setChecked(true);
             }
-            if (currentItem.getUserTafkeed().equals(UserTbl.Wait)) {
+            if (currentItem.getUserTafkeed()!=null && currentItem.getUserTafkeed().equals(UserTbl.Wait)) {
                 Wait.setChecked(true);
             }
-            if (currentItem.getUserTafkeed().equals(UserTbl.Coordinator)) {
+            if (currentItem.getUserTafkeed()!=null && currentItem.getUserTafkeed().equals(UserTbl.Coordinator)) {
                 Coordinator.setChecked(true);
             }
         }

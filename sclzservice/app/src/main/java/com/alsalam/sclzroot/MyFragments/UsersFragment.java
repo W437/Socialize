@@ -39,7 +39,10 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_users, container, false);
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
+        if(userTblAdapter==null) userTblAdapter=new UserTblAdapter(getContext(),R.layout.user_card_toconfirm_itm);
+        listView.setAdapter(userTblAdapter);
+        ((MainpageActivity) getActivity()).refreshAllUsersFromTable(userTblAdapter );
+
         spinner=(Spinner)view.findViewById(R.id.apnrTafked);
         user[0] =getResources().getString(R.string.Guide);
         user[1]=getResources().getString(R.string.Waiting_to_approval);

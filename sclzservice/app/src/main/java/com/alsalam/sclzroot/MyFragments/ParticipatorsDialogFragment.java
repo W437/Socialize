@@ -1,5 +1,6 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
@@ -27,6 +28,7 @@ import android.widget.Spinner;
 import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.Activities.RegisterActivity;
 import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
+import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
 
@@ -38,32 +40,15 @@ public class ParticipatorsDialogFragment extends DialogFragment
 
     //protected EventsHandler eventsHandler;
     private ListView lstvParticipants;
+    EventTbl currentItem;
+    private UserTblAdapter userTblAdapter;
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        //    if(context instanceof EventsHandler){
-        //      this.eventsHandler= (EventsHandler) context;
-        //    }
+    @SuppressLint("ValidFragment")
+    public ParticipatorsDialogFragment(EventTbl currentItem) {
+        super();
+        this.currentItem=currentItem;
+
     }
-
-    @Override
-    public void onDetach() {
-//        this.eventsHandler=null;
-        super.onDetach();
-    }
-
-    @Nullable
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.participators, container, false);
-        init(view);
-
-        return  view;
-    }
-
-
 
 
 
@@ -72,9 +57,9 @@ public class ParticipatorsDialogFragment extends DialogFragment
     protected void init(View view)
     {
         lstvParticipants =(ListView)view.findViewById(R.id.lstvParticipants);
-        UserTblAdapter userTblAdapter =new UserTblAdapter(getContext(),R.layout.user_card_itm);
-        // listView= (ListView) view.findViewById(R.id.listView);
-        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(lstvParticipants, R.layout.user_card_itm);
+        if(userTblAdapter==null) userTblAdapter=new UserTblAdapter(getContext(),R.layout.user_card_itm);
+        lstvParticipants.setAdapter(userTblAdapter);
+        ((MainpageActivity) getActivity()).refreshAllUsersFromTable(userTblAdapter );
 
         // lstvParticipants.setAdapter(userTblAdapter);
 

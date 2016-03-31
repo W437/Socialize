@@ -13,6 +13,9 @@ import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.R;
 import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 /**
  * Created by samih on 28/03/2016.
  */
@@ -30,7 +33,11 @@ public class MyHandler extends NotificationsHandler {
     public void onReceive(Context context, Bundle bundle) {
         ctx = context;
         String nhMessage = bundle.getString("message");
-
+        try {
+            nhMessage = URLDecoder.decode(nhMessage, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         sendNotification(nhMessage);
         mainActivity.ToastNotify(nhMessage);
     }
@@ -43,8 +50,7 @@ public class MyHandler extends NotificationsHandler {
                 new Intent(ctx, MainpageActivity.class), 0);
         //Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Uri alarmSound=null;
-//        Uri alarmSound = Uri.parse("android.resource://"
-//                + ctx.getPackageName() + "/" + R.raw.notification);
+
         if(alarmSound == null){
             alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             if(alarmSound == null){

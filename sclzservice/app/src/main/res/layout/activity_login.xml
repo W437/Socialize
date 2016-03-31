@@ -2,11 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
    android:orientation="vertical"
-    tools:context="com.alsalam.sclzroot.Activities.LoginActivity">
+    tools:context="com.alsalam.sclzroot.Activities.LoginActivity"
+    android:weightSum="1">
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/logo"
+         />
 
     <android.support.design.widget.TextInputLayout
-        android:paddingTop="40dp"
+        android:paddingTop="0dp"
         android:id="@+id/usernameWrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +49,19 @@
     </android.support.design.widget.TextInputLayout>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Sign_in"
+        android:id="@+id/btnSign"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Register"
+            android:id="@+id/btnRegister"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,37 +69,6 @@
         android:text="Forgot My Password"
         android:id="@+id/btnForgot_Password"
         android:layout_gravity="center_horizontal" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Remember_password"
-        android:id="@+id/checkBox"
-
-        android:layout_marginTop="48dp"
-        android:checked="true"
-        android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.0">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/Sign_in"
-            android:id="@+id/btnSign"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/Register"
-            android:id="@+id/btnRegister"
-            android:layout_weight="1" />
-    </LinearLayout>
 
 
 </LinearLayout>

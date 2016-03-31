@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.R;
@@ -24,6 +25,7 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class RestoringPassFragment extends DialogFragment implements View.OnClickListener
@@ -64,6 +66,8 @@ public class RestoringPassFragment extends DialogFragment implements View.OnClic
         btn_Check=(Button)view.findViewById(R.id.btn_Check);
         btn_Ok=(Button)view.findViewById(R.id.btn_Ok);
 
+        btn_Check.setOnClickListener(this);
+        btn_Ok.setOnClickListener(this);
 
     }
 
@@ -72,24 +76,32 @@ public class RestoringPassFragment extends DialogFragment implements View.OnClic
     public void onClick(View v) {
          switch (v.getId()){
              case R.id.btn_Check:
-
-                 msUsertTbl.where().field("restoringKEy").eq(et_EnterKEY.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
+                 try {
+                     mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net",getContext());
+                 MobileServiceTable<UserTbl> msUsertTbl = mClient.getTable(UserTbl.class);
+                 msUsertTbl.where().field("restoringKey").eq(et_EnterKEY.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
                      @Override
                      public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 
 
-                         if (result.size() > 0) {
+                         if (result != null && result.size() > 0) {
+
                              tv_YourPassword.setText(DataBaseMngr.getLogedUserPassword(getContext()));
 
                          } else {
 
-
-
+                             Toast.makeText(getContext(),"Key Not Found",Toast.LENGTH_LONG).show();
                          }
                      }
+
                  });
+                 } catch (MalformedURLException e) {
+                     e.printStackTrace();
+                 }
+                       break;
              case R.id.btn_Ok:
                  dismiss();
+                 break;
          }
 
     }

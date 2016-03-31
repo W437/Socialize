@@ -39,6 +39,8 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      */
     int mLayoutResourceId;
     private String time;
+    private ImageButton btDel;
+    private ImageButton btEdit;
 
     public EventTblAdapter(Context context, int layoutResourceId) {
         super(context, layoutResourceId);
@@ -108,7 +110,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             @Override
             public void onClick(View v) {
 
-                 showParDialog();
+                 showParDialog(currentItem);
             }
         });
 
@@ -127,12 +129,24 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         });
 
+        if( mLayoutResourceId==R.layout.my_event_card_itm)
+        {
+            btDel=(ImageButton)row.findViewById(R.id.delEven);
+            btEdit=(ImageButton)row.findViewById(R.id.btEdit);
+            View.OnClickListener clickListener=new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
+                }
+            };
+            btDel.setOnClickListener(clickListener);
+            btEdit.setOnClickListener(clickListener);
+        }
         return row;
     }
 
-        void showParDialog(){
-            ParticipatorsDialogFragment participatorsFragment =new ParticipatorsDialogFragment();
+        void showParDialog(EventTbl currentItem){
+            ParticipatorsDialogFragment participatorsFragment =new ParticipatorsDialogFragment(currentItem);
              participatorsFragment.show(fragmentManager,"AAAA");
         }
       void showDialog(EventTbl currentItem) {

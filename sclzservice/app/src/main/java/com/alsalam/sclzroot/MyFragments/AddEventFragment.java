@@ -33,6 +33,7 @@ import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 
 import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -62,6 +63,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
     private SearchOnMapDialog searchFragment;
     private EventTbl event;
     private int hours=1;
+    private SimpleDateFormat df;
 
 
     @Nullable
@@ -259,7 +261,9 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
                     {
                         Toast.makeText(getContext(), "EVENT ADDED SUCCESSFULY!", Toast.LENGTH_LONG).show();
                         Log.d("AZUREDB", "SUCCESS! YAY!");
-                        MyHandler.mainActivity.sendNotification(entity.getTitle()+","+entity.getAddressLocation());
+//                        MyHandler.mainActivity.sendNotification(entity.getTitle()+","+entity.getAddressLocation());
+                         if(df==null) df = new SimpleDateFormat(); //called without pattern
+                        MyHandler.mainActivity.sendNotification("New meeting at:"+df.format(entity.getDate()));
 
                     }
                     else

@@ -63,7 +63,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
-        FacebookSdk.sdkInitialize(getBaseContext());
         setContentView(R.layout.activity_login);
         try {
 
@@ -133,6 +132,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.btnRegister:
                 startActivity(new Intent(getBaseContext(), RegisterActivity.class));
+                finish();
                 break;
 
 
@@ -186,54 +186,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    /**
-     * Refresh the list with the items in the Table
-     * OKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-     * check the sign in and retrun user if found ot null if not
-     */
-    public UserTbl checkSignin(final String user, final String password) {
-        final UserTbl[] userTbl = {null};
-        AsyncTask<Void, Void, List<UserTbl>> task = new AsyncTask<Void, Void, List<UserTbl>>() {
-            @Override
-            protected void onProgressUpdate(Void... values) {
-                super.onProgressUpdate(values);
-            }
 
-            @Override
-            protected List<UserTbl> doInBackground(Void... params) {
-
-                try {
-                    final List<UserTbl> results = msUsertTbl.where().field("userName").eq(user).and().field("userPassword").eq(password).execute().get();
-
-
-                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
-                    ///final List<EventTbl> results = msEnetTbl.where().field("status").eq(EventTbl.ACCEPTED).execute().get();
-
-                    //Offline Sync
-                    return results;
-                } catch (final Exception e) {
-                    e.printStackTrace();
-                    createAndShowDialogFromTask(e, "Error");
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(List<UserTbl> listRes) {
-                if (listRes != null && listRes.size() > 0)
-                    userTbl[0] = listRes.get(0);
-//                for (EventTbl item : results) {
-//                    mAdapter.add(item);
-//
-//                }
-
-            }
-        };
-        task.execute();
-        // runAsyncTask(task);
-        return userTbl[0];
-    }
 
     private void createAndShowDialogFromTask(final Exception exception, String title) {
         runOnUiThread(new Runnable() {
