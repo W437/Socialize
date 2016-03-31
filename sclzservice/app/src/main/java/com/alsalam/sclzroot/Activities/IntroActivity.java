@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.SampleSlide;
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
@@ -28,29 +29,37 @@ public class IntroActivity extends AppIntro {
 
         //banner = (ImageView)findViewById(R.id.socializeBanner);
         //banner.setScaleType(ImageView.ScaleType.FIT_XY);
-        showStatusBar(false);
-        setProgressIndicator();
-        setIndicatorColor(Color.parseColor("#ffffff"), Color.parseColor("#9E9E9E") );
-        addSlide(AppIntroFragment.newInstance("Welcome to Socialize.", "Meeting people and organizing events made fun.", R.drawable.sclzlogo, Color.parseColor("#F44336")));
-        addSlide(AppIntroFragment.newInstance("Your Events and Others', all organised!", "Meet people around you and have fun together.", R.drawable.organised, Color.parseColor("#F44336")));
-        addSlide(AppIntroFragment.newInstance("Endless Fun.", "With the variety of events to choose from, you'll always be entertained!", R.drawable.happy, Color.parseColor("#F44336")));
-        addSlide(AppIntroFragment.newInstance("Socialize Yourself in One Click.", "With just a few clicks, you can find a suitable event to participate in, near you.", R.drawable.connected, Color.parseColor("#F44336")));
-        addSlide(AppIntroFragment.newInstance("Everything and Anything.", "Whether it's a football game, a good-deeds-day, a meeting session to discuss relevant daily stuff with people from different cultures, you can find anything!", R.drawable.everything, Color.parseColor("#F44336")));
-        addSlide(AppIntroFragment.newInstance("You are all set. Enjoy Socialize.", "Take a minute to register and get started.", R.drawable.ready, Color.parseColor("#F44336")));
-        // OPTIONAL METHODS
-        // Override bar/separator color.
-        //setBarColor(Color.parseColor("#D32F2F"));
-        //setSeparatorColor(Color.parseColor("#ffffff"));
-        // Hide Skip/Done button.
-        showSkipButton(false);
-        setProgressButtonEnabled(true);
-        //setVibrate(true);
-        //setVibrateIntensity(30);
+        if(DataBaseMngr.getLogedUserName(getBaseContext())!=null)
+        {
+            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
+            finish();
+        }
+        else {
+            showStatusBar(false);
+            setProgressIndicator();
+            setIndicatorColor(Color.parseColor("#ffffff"), Color.parseColor("#9E9E9E"));
+            addSlide(AppIntroFragment.newInstance("Welcome to Socialize.", "Meeting people and organizing events made fun.", R.drawable.sclzlogo, Color.parseColor("#F44336")));
+            addSlide(AppIntroFragment.newInstance("Your Events and Others', all organised!", "Meet people around you and have fun together.", R.drawable.organised, Color.parseColor("#F44336")));
+            addSlide(AppIntroFragment.newInstance("Endless Fun.", "With the variety of events to choose from, you'll always be entertained!", R.drawable.happy, Color.parseColor("#F44336")));
+            addSlide(AppIntroFragment.newInstance("Socialize Yourself in One Click.", "With just a few clicks, you can find a suitable event to participate in, near you.", R.drawable.connected, Color.parseColor("#F44336")));
+            addSlide(AppIntroFragment.newInstance("Everything and Anything.", "Whether it's a football game, a good-deeds-day, a meeting session to discuss relevant daily stuff with people from different cultures, you can find anything!", R.drawable.everything, Color.parseColor("#F44336")));
+            addSlide(AppIntroFragment.newInstance("You are all set. Enjoy Socialize.", "Take a minute to register and get started.", R.drawable.ready, Color.parseColor("#F44336")));
+            // OPTIONAL METHODS
+            // Override bar/separator color.
+            //setBarColor(Color.parseColor("#D32F2F"));
+            //setSeparatorColor(Color.parseColor("#ffffff"));
+            // Hide Skip/Done button.
+            showSkipButton(false);
+            setProgressButtonEnabled(true);
+            //setVibrate(true);
+            //setVibrateIntensity(30);
+        }
     }
 
     private void loadMainActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
