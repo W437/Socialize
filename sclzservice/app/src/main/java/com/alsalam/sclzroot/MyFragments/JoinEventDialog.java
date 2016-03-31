@@ -27,6 +27,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.RegisterActivity;
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.TableManager.GuestsToEvent;
 import com.alsalam.sclzroot.handlers.EventsHandler;
@@ -64,8 +65,8 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
         tvTitle.setText(this.eventTbl.getTitle());
         tvLocation.setText(this.eventTbl.getAddressLocation());
         tvDescription.setText(this.eventTbl.getDescription());
-        tvHours.setText(this.eventTbl.getHours());
-        tvLimitParticipants.setText(this.eventTbl.getMaxParticipants());
+        tvHours.setText(this.eventTbl.getHours()+"");
+        tvLimitParticipants.setText(this.eventTbl.getMaxParticipants()+"");
         tvRequirments.setText(this.eventTbl.getRequirements());
 
 
@@ -123,8 +124,9 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
         tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         tvLimitParticipants = (TextView) view.findViewById(R.id.tvLimit);
         tvDescription = (TextView) view.findViewById(R.id.tvDescription);
-
+        tvHours=(TextView) view.findViewById(R.id.tvHours);
         btnJoin=(Button)view.findViewById(R.id.btnJoin);
+        tvRequirments=(TextView) view.findViewById(R.id.tvRequirments);
          //  spnType=(Spinner)view.findViewById(R.id.spnType);// choosing event_itm type
         // btnDone = (Button) view.findViewById(R.id.btnDone);// the Done button which take you to the home Page
        //   getLocBtn = (ImageButton) view.findViewById(R.id.getLocBtn);
@@ -134,6 +136,9 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
            iBring=(EditText)view.findViewById(R.id.iBring);
 
            btnCancel=(Button)view.findViewById(R.id.btnCancel);
+        btnJoin=(Button)view.findViewById(R.id.btnJoin);
+        btnJoin.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
 
 
 
@@ -177,6 +182,8 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
                      guestsToEvent.setCountP(num);
                      guestsToEvent.setiBring(ibring);
                      guestsToEvent.setiNeed(ineed);
+                     guestsToEvent.setEventid(eventTbl.getId());
+                     guestsToEvent.setUserId(DataBaseMngr.getLogedUserId(getContext()));
 
 
                      try {

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.Activities.MainpageActivity;
+import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
@@ -49,6 +50,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     SupportMapFragment mapFragment;
     private SimpleDateFormat month_date;
     private Calendar cal;
+    private EventTblAdapter eventTblAdapter;
 
 
     @Nullable
@@ -85,7 +87,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
                     currentMonth= (currentMonth-1)<todayMonth ? todayMonth:currentMonth-1;
                     cal.set(Calendar.MONTH,currentMonth);
                     String month_name = month_date.format(cal.getTime());
-                    tvMonth.setText(month_name+":"+currentMonth);
+                    tvMonth.setText(month_name);
                 }
             }
         };
@@ -106,7 +108,9 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
-        ((MainpageActivity) getActivity()).refreshEventsToListAndMap(listView, R.layout.event_card_itm, mMap);
+         if(eventTblAdapter==null) eventTblAdapter=new EventTblAdapter(getContext(), R.layout.event_card_itm);
+        listView.setAdapter(eventTblAdapter);
+        ((MainpageActivity) getActivity()).refreshEventsToListAndMap(eventTblAdapter, mMap);
         mMap.setOnMarkerClickListener(this);
 ////        // Add a marker in Sydney and move the camera
 ////        for (int i = 0; i < listView.getAdapter().getCount(); i++) {

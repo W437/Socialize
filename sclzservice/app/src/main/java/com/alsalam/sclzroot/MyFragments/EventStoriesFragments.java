@@ -11,6 +11,7 @@ import android.widget.Spinner;
 
 
 import com.alsalam.sclzroot.Activities.MainpageActivity;
+import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.R;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.ne;
@@ -23,13 +24,16 @@ public class EventStoriesFragments extends Fragment
 
     String spin_val;
     private String[] event = new String[6];
+    private EventTblAdapter eventTblAdapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view =inflater.inflate(R.layout.events_stories,container,false);
        // init(view);
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainpageActivity)getActivity()).refreshEventsFromTable(listView,R.layout.event_card_itm);
+        if(eventTblAdapter ==null) eventTblAdapter =new EventTblAdapter(getContext(), R.layout.event_to_accept);
+        listView.setAdapter(eventTblAdapter);
+        ((MainpageActivity)getActivity()).refreshEventsFromTable(eventTblAdapter);
         spinner=(Spinner)view.findViewById(R.id.spinner_id);
         event[0] =getResources().getString(R.string.all_events);
         event[1]=getResources().getString(R.string.accepted_events);

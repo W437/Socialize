@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.alsalam.sclzroot.Activities.MainpageActivity;
+import com.alsalam.sclzroot.MyAdapters.UserTblAdapter;
 import com.alsalam.sclzroot.R;
 
 /**
@@ -17,6 +18,7 @@ import com.alsalam.sclzroot.R;
 public class AllUsersFragments extends  Fragment
 {
     private ListView listView;
+    private UserTblAdapter userTblAdapter;
 
     @Nullable
     @Override
@@ -30,7 +32,9 @@ public class AllUsersFragments extends  Fragment
         //
 
         listView= (ListView) view.findViewById(R.id.listView);
-        ((MainpageActivity)getActivity()).refreshAllUsersFromTable(listView, R.layout.user_card_itm);
+        if(userTblAdapter==null) userTblAdapter=new UserTblAdapter(getContext(),R.layout.user_card_itm);
+        listView.setAdapter(userTblAdapter);
+                ((MainpageActivity) getActivity()).refreshAllUsersFromTable(userTblAdapter );
 
 
         return  view;
