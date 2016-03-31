@@ -39,14 +39,14 @@
 
         <activity
             android:name="com.example.sclzservice.ToDoActivity"
-              android:screenOrientation="portrait" />
-        <activity android:name=".Activities.RegisterActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".Activities.LoginActivity"  android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:screenOrientation="portrait">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!--
@@ -64,7 +64,19 @@
         <activity
             android:name=".Activities.MainpageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.IntroActivity"
+            android:label="@string/title_activity_intro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+    </activity>
+
+
     </application>
 
 </manifest>
