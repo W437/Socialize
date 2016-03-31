@@ -67,7 +67,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.IntroActivity"
-            android:label="@string/title_activity_intro">
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
