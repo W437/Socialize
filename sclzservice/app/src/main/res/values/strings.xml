@@ -208,5 +208,6 @@
     <string name="ACCEPTED">ACCEPTED</string>
     <string name="CANCELED">CANCELED</string>
     <string name="REJECTED">REJECTED</string>
+    <string name="yara">yara</string>
 
 </resources>
