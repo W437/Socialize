@@ -1,112 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     android:background="#ffffff">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
+    <include layout="@layout/event_card_itm"
+        android:id="@+id/include" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <!--<android.support.v7.widget.CardView-->
+        <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="158dp"-->
+        <!--android:background="@color/primary_light"-->
+        <!--card_view:cardCornerRadius="20dp"-->
+        <!--card_view:cardElevation="14dp"-->
+        <!--android:layout_margin="5dp">-->
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btAccept"
+        android:background="#fff"
+        android:src="@mipmap/ic_accept333_launcher"
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/primary_light"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardElevation="14dp"
-        android:layout_margin="5dp">
-        <RelativeLayout
+        android:layout_alignTop="@+id/btRefused"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="96dp" />
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/primary"
-                android:text="@string/event_titlee"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:textSize="14dp"
-                android:allowUndo="false" />
 
-            <TextView
-                android:id="@+id/tvAdrerss"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/adress"
-                android:gravity="center_vertical"
-                android:textSize="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true" />
 
-            <TextView
-                android:id="@+id/tvEventS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Event_summary"
-                android:textSize="10dp"
-                android:layout_marginRight="150dp"
-                android:layout_above="@+id/statTv"
-                android:layout_alignParentStart="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Beginnig_time"
-                android:id="@+id/tvBeginning"
-                android:layout_below="@+id/tvTitle"
-                android:layout_alignParentEnd="true" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reject"
+            android:id="@+id/btRefused"
+            android:background="#ffffffff"
+            android:src="@mipmap/no_launcher"
+            android:layout_marginEnd="87dp"
+            android:layout_alignBottom="@+id/include"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="39dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvAdrerss"
-                android:layout_alignStart="@+id/tvAdrerss" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/statTv"
-                android:layout_above="@+id/tvAdrerss"
-                android:layout_alignParentStart="true" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Logo"
-                android:id="@+id/btAccept"
-                android:background="#ffffffff"
-                android:src="@mipmap/ic_accept333_launcher"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/tvTime2" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reject"
-                android:id="@+id/btDisAccept"
-                android:background="#ffffffff"
-                android:src="@mipmap/no_launcher"
-                android:layout_alignParentBottom="true"
-                android:layout_alignEnd="@+id/statTv" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvTime2"
-                android:layout_below="@+id/tvBeginning"
-                android:layout_alignEnd="@+id/tvBeginning" />
+    <!--</android.support.v7.widget.CardView>-->
 
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-</LinearLayout>
+</RelativeLayout>

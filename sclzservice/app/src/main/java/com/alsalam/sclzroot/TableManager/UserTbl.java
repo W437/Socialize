@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.TableManager;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 /**
  * Created by משתמש on 2/23/2016
@@ -37,8 +38,7 @@ public class UserTbl {
     private String userGender;
     @com.google.gson.annotations.SerializedName("userPhone")
     private String userPhone;
-    @com.google.gson.annotations.SerializedName("userName")
-    private String userName;
+//
     @com.google.gson.annotations.SerializedName("userPassword")
     private String userPassword;
 
@@ -52,7 +52,6 @@ public class UserTbl {
         setUserBirthday(userBirthday);
         setUserGender(userGender);
         setUserPhone(userPhone);
-        setUserName(userName);
         setUserPassword(userPassword);
     }
 
@@ -143,13 +142,6 @@ public class UserTbl {
         this.userPassword = userPassword;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getUserPhone() {
         return userPhone;

@@ -1,11 +1,9 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.DatePickerDialog;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +13,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.TableManager.UserTbl;
@@ -26,10 +23,7 @@ import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
 
 import java.net.MalformedURLException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
@@ -55,22 +49,24 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+"
     );
-
+    private EditText etBithDay;
+    UserTbl user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+         user=new UserTbl();
 
         etMail_Address = (EditText) findViewById(R.id.etMail_address);//  type your email address
-        etUsername = (EditText) findViewById(R.id.etUsername);// tpe username
         etPass = (EditText) findViewById(R.id.etPass);// type password
         etConfirm_Pass = (EditText) findViewById(R.id.etConfirm_pass);// confirm your password
         etLocation = (EditText) findViewById(R.id.etLocation);
-        etPhoneNumber = (EditText) findViewById(R.id.etPhone);
+        etPhoneNumber = (EditText) findViewById(R.id.tvPhone);
         etFirstName = (EditText) findViewById(R.id.etFirstName);
         etLastName = (EditText) findViewById(R.id.etLastName);
-        etEventDate=(EditText)findViewById(R.id.etEventDate);
+        etBithDay =(EditText)findViewById(R.id.etBirthDay);
+
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
         rbMale = (RadioButton) findViewById(R.id.rbMale);// choosig female or male
@@ -92,7 +88,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
     public UserTbl getUserInfo() {
-        UserTbl user=new UserTbl();
         user.setFirstName(etFirstName.getText().toString());
         user.setLastName(etLastName.getText().toString());
         // user.setId(user.getId().toString());
@@ -101,7 +96,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         user.setUserPassword(etPass.getText().toString());
         user.setUserPhone(etPhoneNumber.getText().toString());
 
-        user.setUserName(etUsername.getText().toString());
         // TODO complete other fields
 //        UserTbl user = new UserTbl(
 //                (int) (Math.random() * 99999999) + "",
@@ -123,45 +117,42 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 //s
 
     public boolean areFieldsFilled() {
-        if (etUsername.getText().toString().length() == 0) {
-            etUsername.requestFocus();
-            etUsername.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
-            return false;
-        }
-        else if (etPass.getText().toString().length() == 0) {
+
+
+         if (etPass.getText().toString().length() == 0) {
             etPass.requestFocus();
-            etPass.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etPass.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         else if (etConfirm_Pass.getText().toString().length() == 0) {
             etConfirm_Pass.requestFocus();
-            etConfirm_Pass.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etConfirm_Pass.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         else if (!etConfirm_Pass.getText().toString().equals(etPass.getText().toString())) {
             etConfirm_Pass.requestFocus();
-            etConfirm_Pass.setError(getResources().getString(R.string.PASSWORDS_DONT_MATCH));
+            etConfirm_Pass.setError("PASSWORDS DON'T MATCH");
             return false;
         }
 
         else if (etFirstName.getText().toString().length() == 0) {
             etFirstName.requestFocus();
-            etFirstName.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etFirstName.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         else if (etLastName.getText().toString().length() == 0) {
             etLastName.requestFocus();
-            etLastName.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etLastName.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         else if (!checkEmail(etMail_Address.getText().toString())) {
             etMail_Address.requestFocus();
-            etMail_Address.setError(getResources().getString(R.string.EMAIL_FORMAT_NOT_CORRECT));
+            etMail_Address.setError("EMAIL FORMAT NOT CORRECT");
             return false;
         }
         else if (etLocation.getText().toString().length() == 0) {
             etLocation.requestFocus();
-            etLocation.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etLocation.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         else
@@ -172,7 +163,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         }
         else if (etPhoneNumber.toString().length() == 0) {
             etPhoneNumber.requestFocus();
-            etPhoneNumber.setError(getResources().getString(R.string.FIELD_CANNOT_BE_EMPTY));
+            etPhoneNumber.setError("FIELD CANNOT BE EMPTY");
             return false;
         }
         return true;
@@ -241,7 +232,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                                 eventDate.setYear(year);
                                 eventDate.setMonth(monthOfYear);
                                 eventDate.setDate(dayOfMonth);                           }
-                            etEventDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            etBithDay.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            user.setUserBirthday(eventDate);
 
                         }
                     }, mYear, mMonth, mDay);

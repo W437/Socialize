@@ -1,5 +1,6 @@
 package com.alsalam.sclzroot.MyFragments;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
@@ -52,7 +53,14 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
      private EventTbl eventTbl;
     private MobileServiceClient mClient;
 
-    public void setEventTbl(EventTbl eventTbl) {
+    @SuppressLint("ValidFragment")
+    public JoinEventDialog(EventTbl currentItem) {
+        super();
+        this.eventTbl=currentItem;
+
+    }
+
+    public void setEventTbl() {
         this.eventTbl = eventTbl;
         tvTitle.setText(this.eventTbl.getTitle());
         tvLocation.setText(this.eventTbl.getAddressLocation());
@@ -63,7 +71,7 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
 
 
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getContext());
-        tvEventDate.setText("Time: " + dateFormat.format(eventTbl.getDate()));
+        tvTime.setText("Time: " + dateFormat.format(eventTbl.getDate()));
 
     }
 
@@ -114,7 +122,6 @@ public class JoinEventDialog extends DialogFragment implements View.OnClickListe
         tvAge = (TextView) view.findViewById(R.id.tvAge);// age range
         tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         tvLimitParticipants = (TextView) view.findViewById(R.id.tvLimit);
-        tvEventDate = (TextView) view.findViewById(R.id.tvEventDate);
         tvDescription = (TextView) view.findViewById(R.id.tvDescription);
 
         btnJoin=(Button)view.findViewById(R.id.btnJoin);

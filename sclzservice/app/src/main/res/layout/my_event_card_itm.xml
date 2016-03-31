@@ -64,7 +64,7 @@
                 android:background="#0000" />
 
             <TextView
-                android:id="@+id/tvAdrerss"
+                android:id="@+id/tvAddress"
                 android:layout_width="133dp"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Small Text"
-                android:id="@+id/summary2"
+                android:id="@+id/tvDescription"
                 android:layout_above="@+id/tvTime2"
                 android:layout_alignParentStart="true" />
 
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="Edit"
                 android:id="@+id/btEdit"
-                android:layout_below="@+id/tvAdrerss"
+                android:layout_below="@+id/tvAddress"
                 android:layout_alignParentStart="true"
                 android:src="@mipmap/ic_edit"
                 android:background="#0000" />
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="Delete  "
                 android:id="@+id/delEven"
-                android:layout_below="@+id/tvAdrerss"
+                android:layout_below="@+id/tvAddress"
                 android:layout_toEndOf="@+id/btEdit"
                 android:src="@mipmap/ic_delete"
                 android:background="#0000" />
@@ -109,16 +109,16 @@
                 android:layout_height="wrap_content"
                 android:text="Status"
                 android:id="@+id/statusTv"
-                android:layout_below="@+id/summary2"
-                android:layout_alignStart="@+id/tvAdrerss" />
+                android:layout_below="@+id/tvDescription"
+                android:layout_alignStart="@+id/tvAddress" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/statTv"
-                android:layout_above="@+id/tvAdrerss"
-                android:layout_alignEnd="@+id/tvAdrerss" />
+                android:id="@+id/tvStatus"
+                android:layout_above="@+id/tvAddress"
+                android:layout_alignEnd="@+id/tvAddress" />
 
             <TextView
                 android:layout_width="wrap_content"

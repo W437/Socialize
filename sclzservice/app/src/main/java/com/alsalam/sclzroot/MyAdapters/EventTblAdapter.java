@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
-import com.alsalam.sclzroot.MyFragments.ParticipatorsFragment;
+import com.alsalam.sclzroot.MyFragments.ParticipatorsDialogFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.R;
+
+import java.text.SimpleDateFormat;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -35,6 +38,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      * Adapter View layout
      */
     int mLayoutResourceId;
+    private String time;
 
     public EventTblAdapter(Context context, int layoutResourceId) {
         super(context, layoutResourceId);
@@ -68,21 +72,22 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         //final TextView eventTitle=(TextView)row.findViewById(R.id.eventTitle);
         ImageButton btMore= (ImageButton) row.findViewById(R.id.btMore);
         ImageButton btPartic=(ImageButton)row.findViewById(R.id.btPartic);
-        TextView tvEventT=(TextView)row.findViewById(R.id.tvTitle);
-        TextView tvSummary2=(TextView)row.findViewById(R.id.summary2);
-        TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress);
-
-
+        TextView tvTitle=(TextView)row.findViewById(R.id.tvTitle);
+        TextView tvDescription=(TextView)row.findViewById(R.id.tvDescription);
+        TextView tvAddress=(TextView)row.findViewById(R.id.tvAddress);
+        TextView tvTime=(TextView)row.findViewById(R.id.tvTime);
+        TextView tvStatus=(TextView)row.findViewById(R.id.tvStatus);
 
         row.setTag(currentItem);
-
-     //   tvBegin2.setText(currentItem.getEventBegin().toString());
-      //tvAdress2.setText(currentItem.getAddress());
-        //tvSummary2.setText(currentItem.getEventPurpose());
-        tvEventT.setText(currentItem.getTitle());
-        tvAdress2.setText(currentItem.getAddressLocation());
-        tvSummary2.setText(currentItem.getDescription());
-
+        tvTitle.setText(currentItem.getTitle());
+        tvDescription.setText(currentItem.getDescription());
+        tvAddress.setText(currentItem.getAddressLocation());
+        if (currentItem.getDate() != null) {
+            //  time = DateFormat.getDateFormat(getContext()).format(currentItem.getDate());
+             SimpleDateFormat df = new SimpleDateFormat(); //called without pattern
+            tvTime.setText(df.format(currentItem.getDate()));
+        }
+        tvStatus.setText(currentItem.getStatus());
         btPartic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,13 +116,11 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
     }
 
         void showParDialog(){
-            ParticipatorsFragment participatorsFragment =new ParticipatorsFragment();
+            ParticipatorsDialogFragment participatorsFragment =new ParticipatorsDialogFragment();
              participatorsFragment.show(fragmentManager,"AAAA");
         }
       void showDialog(EventTbl currentItem) {
-        // Create the fragment and show it as a dialog.
-        JoinEventDialog joinEvent=new JoinEventDialog();
-          joinEvent.setEventTbl(currentItem);
+        JoinEventDialog joinEvent=new JoinEventDialog(currentItem);
         joinEvent.show(fragmentManager,"kkkkk");
     }
 

@@ -51,16 +51,16 @@ public class EventToAceeptAdapter extends ArrayAdapter<EventTbl> {
         }
 
         TextView tvTime2=(TextView)row.findViewById(R.id.tvTime2);
-        ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btDisAccept);
+        ImageButton btDisAccept=(ImageButton)row.findViewById(R.id.btRefused);
         ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
 
         TextView tvTitle=(TextView)row.findViewById(R.id.tvTitle);
-        TextView summaryTv=(TextView)row.findViewById(R.id.summaryTv);
+        TextView tvDescription=(TextView)row.findViewById(R.id.tvDescription);
         TextView tvAdress2=(TextView)row.findViewById(R.id.tvAdress2);
 
         tvTime2.setText(currentItem.getDate().toString());
         tvAdress2.setText(currentItem.getAddressLocation().toString());
-        summaryTv.setText(currentItem.getDescription().toString());
+        tvDescription.setText(currentItem.getDescription().toString());
         tvTitle.setText(currentItem.getTitle().toString());
 
         btAccept.setOnClickListener(new View.OnClickListener() {

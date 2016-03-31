@@ -15,16 +15,14 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@mipmap/ic_logo2"
-        android:layout_weight="0.82" />
+        android:src="@mipmap/logo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Android Studio"
         android:id="@+id/MyName"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

@@ -25,9 +25,9 @@
     android:layout_width="match_parent"
     android:id="@+id/tabs"
     android:background="@color/primary"
-    app:tabIndicatorHeight="8dp"
+    app:tabIndicatorHeight="4dp"
     app:tabIndicatorColor="@color/accent"
-    android:layout_height="?attr/actionBarSize"
+    android:layout_height="40dp"
 
         android:layout_alignParentStart="true">
 

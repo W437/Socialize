@@ -5,17 +5,17 @@
     android:minWidth="1000px"
     android:padding="4dp"
     android:layout_height="match_parent">
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    tools:context="com.alsalam.sclzroot.MyFragments.AddEventFragment">
-
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+
+        tools:context="com.alsalam.sclzroot.MyFragments.AddEventFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -24,10 +24,9 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/event_title_"
                 android:gravity="center"
-                android:layout_weight="1"
-                android:padding="10dp"/>
+                android:layout_weight="1" />
 
-        <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                android:id="@+id/tvDescription"
@@ -38,38 +37,32 @@
                 android:padding="10dp"/>
 
 
-        <TextView
+
+
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:id="@+id/tvLimit"
+               android:id="@+id/tvLimit"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/participants_Limit"
                 android:inputType="numberSigned"
                 android:height="50dp"
-                android:layout_weight="1"
-                android:padding="10dp" 
-            />
+                android:layout_weight="1" />
 
-        <TextView
+
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                android:id="@+id/tvRequirments"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/requirements"
                 android:inputType="textMultiLine"
-                 android:layout_weight="1"
-            android:padding="10dp" />
+                android:layout_weight="1" />
 
 
-        <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/tvEventDate"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:hint="@string/date"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-            />
+
 
 
         <TextView
@@ -77,55 +70,51 @@
                     android:layout_height="0dp"
                     android:inputType="time"
                     android:ems="10"
-                    android:id="@+id/tvTime"
+                   android:id="@+id/tvTime"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="@string/TIme"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-            />
+                    android:layout_weight="1" />
 
 
-        <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:inputType="time"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/tvHours"
-                    android:hint="@string/hours"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-            />
-
-
-        <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:id="@+id/tvAge"
+                android:inputType="time"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/tvHours"
+                android:hint="@string/hours"
+                android:layout_weight="1" />
+
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+               android:id="@+id/tvAge"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/Age_Range"
                 android:focusable="false"
-                android:layout_weight="1"
-                android:padding="10dp"
-            />
+                 android:layout_weight="1" />
 
 
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_weight="1">
 
-
-        
                 <TextView
                     android:layout_width="299dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tvLocation"
+                   android:id="@+id/tvLocation"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:hint="EVENT LOCATION"
-                    android:padding="10dp"
                      />
 
- 
+        </LinearLayout>
 
-        
 
-        <android.support.design.widget.TextInputLayout
+            <android.support.design.widget.TextInputLayout
             android:paddingTop="0dp"
             android:id="@+id/NumberOfParticipants"
             android:layout_width="match_parent"

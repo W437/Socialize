@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+
+    android:layout_height="match_parent">
 
     <!-- A hhhhhhhCardView that contains a TextView -->
 
@@ -11,12 +12,12 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="152dp"
+        android:layout_height="150dp"
         android:background="@color/primary_light"
 
-        card_view:cardCornerRadius="20dp"
+        card_view:cardCornerRadius="12dp"
         card_view:cardElevation="14dp"
-        android:layout_margin="5dp">
+        android:layout_margin="8dp">
         <RelativeLayout
 
             android:layout_width="match_parent"
@@ -24,101 +25,75 @@
 
             <TextView
                 android:id="@+id/tvUserN"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/primary"
-                android:text="@string/user_name"
-                android:gravity="center_vertical"
-                android:textColor="@android:color/white"
-                android:allowUndo="false" />
-
-            <TextView
-                android:id="@+id/tvAdress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/User_role"
+                android:text="@string/user_name"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/statTv2" />
+               android:textSize="14sp"
+                android:layout_below="@+id/imgProfile"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:gravity="center_vertical"
+                android:layout_below="@+id/tvPhone"
+                android:layout_toEndOf="@+id/imgProfile" />
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Email"
-                android:layout_marginRight="150dp"
-                android:layout_above="@+id/summaryTv"
-                android:layout_alignParentStart="true" />
+                android:autoLink="email"
+                android:textSize="12dp"
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Extra"
-                android:id="@+id/btExtra"
 
-                android:src="@mipmap/ic_sahim"
-                android:background="#0000"
-                android:layout_below="@+id/tvRole2"
-                android:layout_alignParentRight="true" />
+                android:layout_below="@+id/tvAddress"
+                android:layout_toEndOf="@+id/imgProfile" />
+
 
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvAdress2"
-                android:layout_below="@+id/tvAdress1"
-                android:layout_alignRight="@+id/btExtra" />
+                android:text="Tafkeed"
+                android:id="@+id/tvTafkeed"
+                android:layout_alignBottom="@+id/imgProfile"
+                android:layout_toEndOf="@+id/imgProfile" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvRole2"
-                android:layout_below="@+id/statTv2"
-                android:layout_toRightOf="@+id/tvAdress"
-                android:layout_marginLeft="15dp" />
+                android:id="@+id/tvBirth"
+                android:text="@string/Birthday"
+                android:layout_below="@+id/tvEmail"
+                android:layout_toEndOf="@+id/imgProfile" />
+
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
-                android:id="@+id/summaryTv"
-                android:layout_below="@+id/tvAdress2"
-                android:layout_alignStart="@+id/tvAdress" />
-            <android.support.design.widget.TextInputLayout
-                android:paddingTop="0dp"
-                android:id="@+id/TitleWrapper"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:autoLink="phone"
+                android:id="@+id/tvPhone"
+                android:text="PhoneNumber"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"></android.support.design.widget.TextInputLayout>
+                android:layout_toEndOf="@+id/imgProfile"
+                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/statTv2"
-                android:layout_alignTop="@+id/summaryTv"
-                android:layout_toRightOf="@+id/tvAdress" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/tvEmail"
-                android:layout_above="@+id/summaryTv"
-                android:layout_toRightOf="@+id/summaryTv" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adress"
-                android:id="@+id/tvAdress1"
-                android:layout_below="@+id/tvUserN"
-                android:layout_alignRight="@+id/tvAdress2" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+               android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/imgProfile"
+                android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
 
 
         </RelativeLayout>

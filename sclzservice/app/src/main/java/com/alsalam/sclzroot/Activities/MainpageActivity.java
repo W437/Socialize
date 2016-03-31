@@ -51,6 +51,10 @@ import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.handlers.MyHandler;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -135,12 +139,15 @@ public class MainpageActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                viewPager.setCurrentItem(2);
+                fab.setVisibility(View.GONE);
+
             }
         });
 
@@ -155,6 +162,7 @@ public class MainpageActivity extends AppCompatActivity
 
 
         viewPager= (ViewPager) findViewById(R.id.homepager);
+        viewPager.setOffscreenPageLimit(8);
         tabLayout= (TabLayout) findViewById(R.id.tabs);
         //rgLocation = (RadioGroup) findViewById(R.id.rgLocation);
         initRemoteData();
@@ -164,13 +172,13 @@ public class MainpageActivity extends AppCompatActivity
 
 
         //to do
-        fragments=new Fragment[7];
+        fragments=new Fragment[6];
+        int i=0;
         fragments[0]=new MapListFragment();//
-        //fragments[0]=new MapList_Fragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_map));
 
         fragments[1]=new MyEventsFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_event));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_my_event));
 
         fragments[2]=new AddEventFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_add_event));
@@ -180,22 +188,26 @@ public class MainpageActivity extends AppCompatActivity
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_history));
 
         fragments[4]=new UsersFragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_count));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_users));
 
 
 
 
-        fragments[5]=new Profile2Fragment();
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
+//        fragments[5]=new Profile2Fragment();
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_action_profile));
 
 
 
-        fragments[6]=new CalendarFragment();
+        fragments[5]=new CalendarFragment();
         tabLayout.addTab(tabLayout.newTab().setIcon(R.mipmap.ic_calendar));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                if(tab.getPosition()==2)
+                    fab.setVisibility(View.GONE);
+                else
+                    fab.setVisibility(View.VISIBLE);
 
             }
 
@@ -259,7 +271,7 @@ public class MainpageActivity extends AppCompatActivity
 
         if (id == R.id.nav_Profile)
         {
-            startActivity(new Intent(getBaseContext(), Profile2Fragment.class));
+           // startActivity(new Intent(getBaseContext(), Profile2Fragment.class));
 
 
             // Handle the camera action
@@ -496,6 +508,65 @@ public class MainpageActivity extends AppCompatActivity
     public void onJoinEvent(JoinEventDialog e) {
         Toast.makeText(getBaseContext(), "MainHomeactivity here calling join ", Toast.LENGTH_SHORT).show();
 
+    }
+
+    /**
+     * Refresh the list with the items in the Table
+     */
+    public void refreshEventsToListAndMap(final ListView listView, int itmLayout, final GoogleMap mMap) {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if (msEnetTbl == null)
+            msEnetTbl = mClient.getTable(EventTbl.class);
+        if (mEventAdapter == null)
+            mEventAdapter = new EventTblAdapter(this, itmLayout);
+
+        listView.setAdapter(mEventAdapter);
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<EventTbl> results = msEnetTbl.execute().get();
+
+                    //Offline Sync
+                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mEventAdapter.clear();
+                            mMap.clear();
+                            for (int i = 0; i < results.size(); i++) {
+                                EventTbl item = results.get(i);
+                                mEventAdapter.add(results.get(i));
+                                LatLng loc = new LatLng(item.getLat(), item.getLang());
+                                MarkerOptions markerOptions = new MarkerOptions().position(loc).title(item.getTitle());
+                                mMap.addMarker(markerOptions);
+                                // Locate the first location
+                                if (i == 0) {
+
+                                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 13));
+                                }
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    e.printStackTrace();
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        };
+
+        runAsyncTask(task);
     }
     /** all
      * Refresh the list with the items in the Table
@@ -821,12 +892,12 @@ public class MainpageActivity extends AppCompatActivity
 
 
 
-    //data managing
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mainpage, menu);
-        return true;
-    }
+//    //data managing
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.mainpage, menu);
+//        return true;
+//    }
 
     /**
      * Select an option from the menu
