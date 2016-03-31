@@ -134,7 +134,7 @@
     <string name="user_role">دور المستخدم</string>
     <string name="user_name">اسم المستخدم</string>
     <string name="view_participants">عرض المشاركون</string>
-    <string name="Wait">انتظر</string>
+    <string name="Wait">في انتظار الموافقة</string>
     <string name="Logo"></string>
     <string name="signing_in">تسجيل الدخول</string>
     <string name="event_saved">حفظ</string>
@@ -147,4 +147,7 @@
     <string name="Teenager">عضو</string>
     <string name="Restoring_Key">مفتاح لاسترجاع كلمة السر</string>
     <string name="PhoneNumber">رقم الهاتف</string>
+    <string name="ACCEPTED">تمت المرافقه عليه</string>
+    <string name="CANCELED">تم الغاءه</string>
+    <string name="REJECTED">تم رفضه</string>
 </resources>

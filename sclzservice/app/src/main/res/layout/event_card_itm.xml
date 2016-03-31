@@ -49,11 +49,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
         android:id="@+id/tvStatus"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        />
+        android:text="@string/CANCELED" />
 
     <TextView
         android:layout_width="match_parent"
@@ -75,7 +74,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Participation"
         android:id="@+id/btPartic"
-        android:src="@mipmap/ic_count"
+        android:src="@mipmap/ic_user2"
         android:background="#0000"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
