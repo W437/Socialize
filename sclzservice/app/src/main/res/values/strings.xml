@@ -202,7 +202,7 @@
     <string name="Teenager">Teenager</string>
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
-    <string name="PhoneNumber" />
+    <string name="PhoneNumber" >Phone Number</string>
     <string name="Restoring_Key">Key to Restore Password</string>
     <string name="title_activity_intro">IntroActivity</string>
 
