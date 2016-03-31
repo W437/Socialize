@@ -97,7 +97,7 @@
     <string name="title_activity_profile">الصفحة الشخصية</string>
     <string name="title_activity_register">تسجيل</string>
     <string name="title_activity_settings">الاعدادات</string>
-    <string name="title_activity_stories"></string>
+    <string name="title_activity_stories">لقاءات مضت</string>
     <string name="Join_requests">طلبات الانضمام</string>
     <string name="checkbox_text">نص</string>
     <string name="accepted_events">لقاءات تمت الموافقة عليها</string>
@@ -146,4 +146,5 @@
     <string name="Maneger">مدير</string>
     <string name="Teenager">عضو</string>
     <string name="Restoring_Key">مفتاح لاسترجاع كلمة السر</string>
+    <string name="PhoneNumber">رقم الهاتف</string>
 </resources>
