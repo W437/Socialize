@@ -458,7 +458,7 @@ public class MainpageActivity extends AppCompatActivity
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(getBaseContext(), notificationMessage, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), notificationMessage, Toast.LENGTH_SHORT).show();
                 }
             });
     }
