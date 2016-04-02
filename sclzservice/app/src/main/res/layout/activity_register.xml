@@ -14,21 +14,23 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/All_fields_are_required"
             android:id="@+id/textView2"
             android:layout_gravity="center_horizontal"
             android:shadowColor="#000000"
-            android:textColor="#ff0000" />
+            android:textColor="#ff0000"
+            android:layout_weight="1" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/FIRST_NAME_WRAPPER"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:padding="4px"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -45,10 +47,11 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/LAST_NAME_WRAPPER"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
             android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -65,10 +68,11 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/EMAILWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
             android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -86,11 +90,12 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/PASSWORDWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:ems="10" >
+            android:ems="10"
+            android:layout_weight="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -109,9 +114,10 @@
 
             android:id="@+id/etConfirmWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,9 +134,10 @@
 
             android:id="@+id/etLocationWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,9 +154,10 @@
 
             android:id="@+id/etPhoneNumberWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,9 +176,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:layout_weight="1">
 
 
             <ImageButton
@@ -181,25 +190,30 @@
                 android:src="@mipmap/ic_launcher_date"
                 android:layout_weight="1" />
 
-
+<android.support.design.widget.TextInputLayout
+    android:layout_width="191dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1">
             <EditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Birthday"
+                android:hint="@string/Birthday"
                 android:enabled="false"
                 android:id="@+id/etBirthDay"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:inputType="date" />
+</android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:id="@+id/rgGender">
+            android:id="@+id/rgGender"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -235,10 +249,11 @@
 
             android:id="@+id/firstQuestionEWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:padding="4px"
             android:ems="10"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -252,10 +267,11 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="@string/register"
             android:id="@+id/btnSubmit"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
 
     </LinearLayout>
 

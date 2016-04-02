@@ -15,11 +15,12 @@ import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.handlers.Refrashable;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.ne;
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.val;
 
-public class EventStoriesFragments extends Fragment
+public class EventStoriesFragments extends Fragment implements Refrashable
 {
     private ListView listView;
     private Spinner spinner;
@@ -106,4 +107,29 @@ public class EventStoriesFragments extends Fragment
         return  view;
     }
 
+    @Override
+    public void refresh() {
+        switch (spinner.getSelectedItemPosition())
+        {
+            case 1:
+                ((MainpageActivity)getActivity()).refreshEventsFromTable(eventTblAdapter);
+                break;
+            case 0:
+                ((MainpageActivity)getActivity()).refreshEventsFromTable(eventTblAdapter, EventTbl.WAITING);
+                break;
+            case 2:
+                ((MainpageActivity)getActivity()).refreshEventsFromTable(eventTblAdapter, EventTbl.ACCEPTED);
+                break;
+            case 3:
+                ((MainpageActivity)getActivity()).refreshEventsFromTableOrederByDate(eventTblAdapter);
+                break;
+            case 4:
+                ((MainpageActivity)getActivity()).refreshPastEventsFromTableOrederByDate(eventTblAdapter);
+
+                break;
+            case 5:
+                break;
+
+        }
+    }
 }

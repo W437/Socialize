@@ -40,9 +40,9 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      */
     int mLayoutResourceId;
     private String time;
-    private ImageButton btDel;
-    private ImageButton btEdit;
-    private ImageButton btAccept,btRefused;
+//    private ImageButton btDel;
+//    private ImageButton btEdit;
+//    private ImageButton btAccept,btRefused;
 
     public EventTblAdapter(Context context, int layoutResourceId) {
         super(context, layoutResourceId);
@@ -131,10 +131,12 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         });
 
+
+
         if( mLayoutResourceId==R.layout.my_event_card_itm)
         {
-            btDel=(ImageButton)row.findViewById(R.id.delEven);
-            btEdit=(ImageButton)row.findViewById(R.id.btEdit);
+            ImageButton btDel = (ImageButton) row.findViewById(R.id.delEven);
+            ImageButton btEdit = (ImageButton) row.findViewById(R.id.btEdit);
             View.OnClickListener clickListener=new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -147,8 +149,8 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
         }
         if( mLayoutResourceId==R.layout.event_to_accept)
         {
-            btRefused=(ImageButton)row.findViewById(R.id.btRefused);
-            btAccept=(ImageButton)row.findViewById(R.id.btAccept);
+            final ImageButton btRefused = (ImageButton) row.findViewById(R.id.btRefused);
+            final ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
             View.OnClickListener clickListener=new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

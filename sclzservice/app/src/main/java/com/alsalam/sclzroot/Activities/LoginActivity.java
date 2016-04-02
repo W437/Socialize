@@ -154,25 +154,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     signinDialog.setCancelable(false);
                     signinDialog.show();
                     msUsertTbl.where().field("userEmail").eq(et_MAIL.getText().toString()).and().field("userPassword").eq(et_Pass.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
-                        @Override
-                        public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
+                @Override
+                public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 
-                            // it appears for me and error here, ** remember to ask about it
-                            if (result.size() > 0) {
-                                DataBaseMngr.saveLogIn(result.get(0), getBaseContext());
-                                signinDialog.dismiss();
+                    // it appears for me and error here, ** remember to ask about it
+                    if (result!=null && result.size() > 0) {
+                        DataBaseMngr.saveLogIn(result.get(0), getBaseContext());
+                        signinDialog.dismiss();
+                        Intent intent=new Intent(getBaseContext(), MainpageActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        //    finish();
 
-                                startActivity(new Intent(getBaseContext(), MainpageActivity.class));
-                                finish();
+                    } else {
+                        signinDialog.dismiss();
+                        createAndShowDialog("User or Pass Error", "");
 
-                            } else {
-                                signinDialog.dismiss();
-                                createAndShowDialog("User or Pass Error", "");
-
-                            }
-                        }
-                    });
+                    }
                 }
+            });
+        }
 
                 //                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
 //                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));

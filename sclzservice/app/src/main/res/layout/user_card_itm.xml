@@ -13,11 +13,10 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/primary_light"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp"
+        card_view:contentPadding="4dp"
 
-        card_view:cardCornerRadius="12dp"
-
-        card_view:cardElevation="14dp"
         android:layout_margin="8dp">
         <RelativeLayout
 
@@ -87,9 +86,9 @@
                  />
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-               android:layout_marginLeft="3dp"
+                android:layout_width="64dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="3dp"
                 android:layout_marginTop="3dp"
                 android:id="@+id/imgProfile"
                 android:src="@drawable/com_facebook_profile_picture_blank_portrait"

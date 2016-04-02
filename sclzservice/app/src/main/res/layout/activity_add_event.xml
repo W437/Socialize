@@ -180,7 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etAge"
-                android:inputType="numberSigned"
+                android:inputType="text"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:hint="@string/Age_range" />
 

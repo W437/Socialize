@@ -3,6 +3,7 @@ package com.alsalam.sclzroot.Activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,10 +35,12 @@ import com.alsalam.sclzroot.MyFragments.MyEventsFragment;
 import com.alsalam.sclzroot.MyFragments.UsersFragment;
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
+import com.alsalam.sclzroot.TableManager.GuestsToEvent;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.handlers.MyHandler;
+import com.alsalam.sclzroot.handlers.Refrashable;
 import com.example.sclzservice.ToDoItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -107,6 +110,7 @@ public class MainpageActivity extends AppCompatActivity
      */
     private MobileServiceTable<EventTbl> msEventTbl;
     private MobileServiceTable<UserTbl> msUsertTbl;
+    private MobileServiceTable<GuestsToEvent> msGuestsToEvent;
 
 //    private EventTblAdapter mEventAdapter;
 //    private EventTblAdapter mEventAdapterById;
@@ -188,6 +192,10 @@ public class MainpageActivity extends AppCompatActivity
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                if(fragments[tab.getPosition()]instanceof Refrashable)
+                {
+                    ((Refrashable)fragments[tab.getPosition()]).refresh();
+                }
                 if(tab.getPosition()==2)
                     fab.setVisibility(View.GONE);
                 else
@@ -287,7 +295,8 @@ public class MainpageActivity extends AppCompatActivity
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
         gcm = GoogleCloudMessaging.getInstance(this);
         hub = new NotificationHub(HubName, HubListenConnectionString, this);
-        registerWithNotificationHubs();
+       // if(DataBaseMngr.getPushID(this)==null)
+            registerWithNotificationHubs();
     }
     @SuppressWarnings("unchecked")
     private void registerWithNotificationHubs() {
@@ -295,9 +304,28 @@ public class MainpageActivity extends AppCompatActivity
             @Override
             protected Object doInBackground(Object... params) {
                 try {
-                    String regid = gcm.register(SENDER_ID);
-                    ToastNotify("Registered Successfully - RegId : " +
-                            hub.register(regid).getRegistrationId());
+                    final String regid = gcm.register(SENDER_ID);
+//                    DataBaseMngr.savePushId(regid, getBaseContext());
+//                  //  updateUserPushId(regid);
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            try {
+//                                UserTbl userTbl=msUsertTbl.where().field("id").eq(DataBaseMngr.getLogedUserId(getBaseContext())).top(1).execute().get().get(0);
+//                                userTbl.setPushregId(regid);
+//                                msUsertTbl.update(userTbl).get();
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            } catch (ExecutionException e) {
+//                                e.printStackTrace();
+//                            }
+////                            if (eventTbl.getStatus().equals()) {
+////                                mAdapter.remove(item);
+////                            }
+//                        }
+//                    });
+                ToastNotify("Registered Successfully - RegId : " +
+                        hub.register(regid).getRegistrationId());
                 } catch (Exception e) {
                     ToastNotify("Registration Exception Message - " + e.getMessage());
                     return e;
@@ -474,15 +502,6 @@ public class MainpageActivity extends AppCompatActivity
                     this).withFilter(new ProgressFilter());
 
 
-            //initLocalStore().get();
-
-
-            // Create an adapter to bind the items with the view
-
-
-            // Load the items from the Mobile Service
-            //refreshItemsFromTable();
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
 
@@ -624,6 +643,7 @@ public class MainpageActivity extends AppCompatActivity
 
                 try {
                     Calendar calendar=Calendar.getInstance();
+                    calendar.roll(Calendar.DAY_OF_MONTH,-1);
                     final List<EventTbl> results = msEventTbl.where().field("date").le(calendar.getTime()).orderBy("date",QueryOrder.Descending).execute().get();
 
                     //Offline Sync
@@ -804,7 +824,7 @@ public class MainpageActivity extends AppCompatActivity
     /**
      * Refresh the list with the items in the Table
      */
-    public void refreshAllUsersFromTable(final UserTblAdapter mAllUserTblAdapter)
+    public void refreshAllUsersFromTable(final UserTblAdapter mAllUserTblAdapter, final String field)
     {
 
         // Get the items that weren't marked as completed and add them in the
@@ -818,25 +838,116 @@ public class MainpageActivity extends AppCompatActivity
             protected Void doInBackground(Void... params) {
 
                 try {
-                    final List<UserTbl> results = msUsertTbl.execute().get();
+                    if(field.equals("all")) {
+                        final List<UserTbl> results = msUsertTbl.execute().get();
 
-                    //Offline Sync
-                    //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+                        //Offline Sync
+                        //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
 
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAllUserTblAdapter.clear();
-                            mAllUserTblAdapter.addAll(results);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAllUserTblAdapter.clear();
+                                mAllUserTblAdapter.addAll(results);
 //                            for ( item : results) {
 //                                mEventAdapter.add(item);
 //                            }
-                        }
-                    });
+                            }
+                        });
+                    }
+                    else
+                    {
+                        final List<UserTbl> results = msUsertTbl.where().field("userTafkeed").eq(field).execute().get();
+
+                        //Offline Sync
+                        //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAllUserTblAdapter.clear();
+                                mAllUserTblAdapter.addAll(results);
+//                            for ( item : results) {
+//                                mEventAdapter.add(item);
+//                            }
+                            }
+                        });
+                    }
                 } catch (final Exception e){
                     e.printStackTrace();
                     createAndShowDialogFromTask(e, "Error");
                 }
+
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+            }
+        };
+
+        runAsyncTask(task);
+    }
+    /**
+     * Refresh the list with the items in the Table
+     */
+    public void refreshAllUsersFromTableToEvent(final UserTblAdapter mAllUserTblAdapter, final String eventId)
+    {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+        if(msUsertTbl==null)
+            msUsertTbl = mClient.getTable(UserTbl.class);
+        if(msGuestsToEvent==null)
+            msGuestsToEvent = mClient.getTable(GuestsToEvent.class);
+
+
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                     final List<GuestsToEvent> guestsToEvents = msGuestsToEvent.where().field("eventid").eq(eventId).execute().get();
+
+
+
+                        //Offline Sync
+                        //final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAllUserTblAdapter.clear();
+                                for (GuestsToEvent guestsToEvent:guestsToEvents) {
+                                    try {
+                                        UserTbl userTbl=msUsertTbl.where().field("id").eq(guestsToEvent.getUserId()).execute().get().get(0);
+                                        if(userTbl!=null)
+                                        {
+                                            mAllUserTblAdapter.add(userTbl);
+                                        }
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    } catch (ExecutionException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                }
+//                            for ( item : results) {
+//                                mEventAdapter.add(item);
+//                            }
+                            }
+                        });
+
+
+                } catch (final Exception e){
+                    e.printStackTrace();
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
 
                 return null;
             }
@@ -981,6 +1092,7 @@ public class MainpageActivity extends AppCompatActivity
             Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
                 @Override
                 public void onFailure(Throwable e) {
+                    e.printStackTrace();
                     resultFuture.setException(e);
                 }
 
@@ -1007,9 +1119,6 @@ public class MainpageActivity extends AppCompatActivity
         if (mClient == null) {
             return;
         }
-
-
-
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -1046,8 +1155,6 @@ public class MainpageActivity extends AppCompatActivity
             return;
         }
 
-
-
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
@@ -1075,9 +1182,6 @@ public class MainpageActivity extends AppCompatActivity
                 return null;
             }
         };
-
-        runAsyncTask(task);
-
     }
     public MobileServiceTable<EventTbl> getMsEventTbl() {
         return msEventTbl;
@@ -1086,4 +1190,5 @@ public class MainpageActivity extends AppCompatActivity
     public MobileServiceTable<UserTbl> getMsUsertTbl() {
         return msUsertTbl;
     }
+
 }

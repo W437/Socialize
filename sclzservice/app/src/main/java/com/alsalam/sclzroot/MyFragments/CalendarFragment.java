@@ -21,13 +21,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.handlers.Refrashable;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class CalendarFragment extends Fragment  {
+public class CalendarFragment extends Fragment implements Refrashable {
 
 
     CaldroidFragment caldroidFragment;
@@ -88,6 +89,11 @@ public class CalendarFragment extends Fragment  {
         }
 
     };
+
+    @Override
+    public void refresh() {
+
+    }
 };
 
 

@@ -13,10 +13,9 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/primary_light"
-        card_view:cardCornerRadius="12dp"
-
-        card_view:cardElevation="14dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp"
+        card_view:contentPadding="4dp"
         android:layout_margin="8dp">
 
 <RelativeLayout
@@ -82,8 +81,8 @@
 
     <ImageButton
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:text="@string/More"
         android:id="@+id/btMore"
         android:src="@mipmap/ic_more"

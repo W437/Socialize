@@ -23,10 +23,6 @@ public class EventTbl {
     private String addressLocation;
     @com.google.gson.annotations.SerializedName("date")
     private Date date;
-    @com.google.gson.annotations.SerializedName("month")
-    private int month   ;
-    @com.google.gson.annotations.SerializedName("year")
-    private int year   ;
 
     @com.google.gson.annotations.SerializedName("hours")
     private int hours;
@@ -38,6 +34,8 @@ public class EventTbl {
     private String title;
     @com.google.gson.annotations.SerializedName("description")
     private String description;
+    @com.google.gson.annotations.SerializedName("age")
+    private String age;
 
 
     @com.google.gson.annotations.SerializedName("requirements")
@@ -69,21 +67,7 @@ public class EventTbl {
         this.date = date;
     }
 
-    public int getMonth() {
-        return month;
-    }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public int getHours() {
         return hours;
@@ -159,5 +143,13 @@ public class EventTbl {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getAge() {
+        return age;
     }
 }
