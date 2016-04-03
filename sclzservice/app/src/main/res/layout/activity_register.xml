@@ -223,6 +223,10 @@
                 android:id="@+id/textView"
                 android:layout_gravity="center_horizontal" />
 
+            <Space
+                android:layout_width="64dp"
+                android:layout_height="match_parent" />
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -271,7 +275,8 @@
             android:text="@string/register"
             android:id="@+id/btnSubmit"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="#D32F2F" />
 
     </LinearLayout>
 
