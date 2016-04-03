@@ -16,7 +16,7 @@ public class UserTbl {
 
 
     @com.google.gson.annotations.SerializedName("status")
-    private String status;
+    private String status=EventTbl.WAITING;
 
     @com.google.gson.annotations.SerializedName("userEmail")
     private String userEmail;
@@ -45,26 +45,23 @@ public class UserTbl {
     @com.google.gson.annotations.SerializedName("restoringKey")
     private String restoringKey;
 
+    @com.google.gson.annotations.SerializedName("pushregId")
+    private String pushregId="";
 
-    public UserTbl(String mid,String restoringKey , String userName, String userPassword, String firstName, String lastName, String userEmail, String userTafkeed, String userAddress, Date userBirthday, String userGender, String userPhone) {
-        setId(mid);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setUserEmail(userEmail);
-        setUserTafkeed(userTafkeed);
-        setUserAddress(userAddress);
-        setUserBirthday(userBirthday);
-        setUserGender(userGender);
-        setUserPhone(userPhone);
-        setUserPassword(userPassword);
 
-        //*** i did it yesterday
-        setRestoringKey(restoringKey);
-    }
+
 
 
 
     public UserTbl() {
+    }
+
+    public void setPushregId(String pushregId) {
+        this.pushregId = pushregId;
+    }
+
+    public String getPushregId() {
+        return pushregId;
     }
 
     public String getId() {

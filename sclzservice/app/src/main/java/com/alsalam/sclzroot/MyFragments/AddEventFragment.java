@@ -27,6 +27,7 @@ import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.handlers.MyHandler;
+import com.alsalam.sclzroot.handlers.Refrashable;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
@@ -37,8 +38,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddEventFragment extends Fragment implements View.OnClickListener{
-
+public class AddEventFragment extends Fragment implements View.OnClickListener,Refrashable{
     /**
      * Mobile Service Client reference
      */
@@ -152,12 +152,12 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
         event.setRequirements(etRequirments.getText().toString());
         event.setDate(eventDate);
 
-        Calendar calendar=Calendar.getInstance();
-        calendar.setTime(eventDate);
-        event.setMonth(calendar.get(Calendar.MONTH));
-
-        event.setYear(calendar.get(Calendar.YEAR));
-
+//        Calendar calendar=Calendar.getInstance();
+//        calendar.setTime(eventDate);
+//        event.setMonth(calendar.get(Calendar.MONTH));
+//
+//        event.setYear(calendar.get(Calendar.YEAR));
+        event.setAge(etAge.getText().toString());
         event.setHours(hours);
         event.setAddressLocation(etLocation.getText().toString());
        // event.setEventGenderPref(genderPref);
@@ -409,6 +409,12 @@ public class AddEventFragment extends Fragment implements View.OnClickListener{
 //                e.printStackTrace();
 //            }
         }
+    }
+
+
+    @Override
+    public void refresh() {
+
     }
 }
 

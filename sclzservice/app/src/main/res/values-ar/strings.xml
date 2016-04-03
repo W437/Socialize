@@ -41,7 +41,7 @@
     <string name="Register">تسجيل</string>
     <string name="Remember_password">نسيت كلمة السر</string>
     <string name="Requirements">المطلبات</string>
-    <string name="Sign_in">للدخول</string>
+    <string name="Sign_in">دخول</string>
     <string name="Sign_up_with_facebook">تسجيل الدخول عبر الفيسبوك</string>
     <string name="Sign_up_with_google">تسجيل الدخول عبر جوجل</string>
     <string name="Time">الوقت</string>
@@ -136,7 +136,7 @@
     <string name="view_participants">عرض المشاركون</string>
     <string name="Wait">في انتظار الموافقة</string>
     <string name="Logo"></string>
-    <string name="signing_in">تسجيل الدخول</string>
+    <string name="signing_in">تسجيل الدخول...</string>
     <string name="event_saved">حفظ</string>
     <string name="Coordinators">مسؤولون </string>
     <string name="Guide">مرشدون</string>
@@ -150,4 +150,6 @@
     <string name="ACCEPTED">تمت المرافقه عليه</string>
     <string name="CANCELED">تم الغاءه</string>
     <string name="REJECTED">تم رفضه</string>
+    <string name="waiting_to_confirm">بانتظار الموافقة</string>
+    <string name="ALL_USERS">الكل</string>
 </resources>

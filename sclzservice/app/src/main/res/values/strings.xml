@@ -208,6 +208,7 @@
     <string name="ACCEPTED">ACCEPTED</string>
     <string name="CANCELED">CANCELED</string>
     <string name="REJECTED">REJECTED</string>
-    <string name="yara">yara</string>
+    <string name="waiting_to_confirm">Waiting To Confirm</string>
+    <string name="ALL_USERS">All</string>
 
 </resources>

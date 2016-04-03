@@ -22,6 +22,17 @@ public class IntroActivity extends AppIntro {
 
     private ImageView banner;
 
+    private static final String []PERMISSIONS={
+            android.Manifest.permission.READ_CONTACTS,
+            android.Manifest.permission.READ_PHONE_STATE,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.GET_ACCOUNTS,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            android.Manifest.permission.WAKE_LOCK
+    };
+    private static final String rationalTitle="Permission Rational";
+    private static final String rationalMessage="Permissions needed to use this app ";
 
 
     @Override
@@ -31,8 +42,7 @@ public class IntroActivity extends AppIntro {
         //banner.setScaleType(ImageView.ScaleType.FIT_XY);
         if(DataBaseMngr.getLogedUserName(getBaseContext())!=null)
         {
-            startActivity(new Intent(getBaseContext(), MainpageActivity.class));
-            finish();
+            loadMainActivity();
         }
         else {
             showStatusBar(false);
@@ -49,6 +59,8 @@ public class IntroActivity extends AppIntro {
             //setBarColor(Color.parseColor("#D32F2F"));
             //setSeparatorColor(Color.parseColor("#ffffff"));
             // Hide Skip/Done button.
+            askForPermissions(PERMISSIONS,5);
+
             showSkipButton(false);
             setProgressButtonEnabled(true);
             //setVibrate(true);
@@ -58,8 +70,10 @@ public class IntroActivity extends AppIntro {
 
     private void loadMainActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
     }
 
     @Override

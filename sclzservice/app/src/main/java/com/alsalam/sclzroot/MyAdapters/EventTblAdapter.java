@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.MyFragments.JoinEventDialog;
 import com.alsalam.sclzroot.MyFragments.ParticipatorsDialogFragment;
 import com.alsalam.sclzroot.TableManager.EventTbl;
@@ -39,8 +40,9 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
      */
     int mLayoutResourceId;
     private String time;
-    private ImageButton btDel;
-    private ImageButton btEdit;
+//    private ImageButton btDel;
+//    private ImageButton btEdit;
+//    private ImageButton btAccept,btRefused;
 
     public EventTblAdapter(Context context, int layoutResourceId) {
         super(context, layoutResourceId);
@@ -129,19 +131,45 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
 
         });
 
+
+
         if( mLayoutResourceId==R.layout.my_event_card_itm)
         {
-            btDel=(ImageButton)row.findViewById(R.id.delEven);
-            btEdit=(ImageButton)row.findViewById(R.id.btEdit);
+            ImageButton btDel = (ImageButton) row.findViewById(R.id.delEven);
+            ImageButton btEdit = (ImageButton) row.findViewById(R.id.btEdit);
             View.OnClickListener clickListener=new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
 
                 }
             };
             btDel.setOnClickListener(clickListener);
             btEdit.setOnClickListener(clickListener);
         }
+        if( mLayoutResourceId==R.layout.event_to_accept)
+        {
+            final ImageButton btRefused = (ImageButton) row.findViewById(R.id.btRefused);
+            final ImageButton btAccept=(ImageButton)row.findViewById(R.id.btAccept);
+            View.OnClickListener clickListener=new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(v==btAccept)
+                    {
+                        currentItem.setStatus(EventTbl.ACCEPTED);
+                        ((MainpageActivity)mContext).updateEvent(currentItem);
+                    }
+                    if(v==btRefused)
+                    {
+                        currentItem.setStatus(EventTbl.REJECTED);
+                        ((MainpageActivity)mContext).updateEvent(currentItem);
+                    }
+                }
+            };
+            btRefused.setOnClickListener(clickListener);
+            btRefused.setOnClickListener(clickListener);
+        }
+
         return row;
     }
 
@@ -149,6 +177,7 @@ public class EventTblAdapter extends ArrayAdapter<EventTbl> {
             ParticipatorsDialogFragment participatorsFragment =new ParticipatorsDialogFragment(currentItem);
              participatorsFragment.show(fragmentManager,"AAAA");
         }
+
       void showDialog(EventTbl currentItem) {
         JoinEventDialog joinEvent=new JoinEventDialog(currentItem);
         joinEvent.show(fragmentManager,"kkkkk");

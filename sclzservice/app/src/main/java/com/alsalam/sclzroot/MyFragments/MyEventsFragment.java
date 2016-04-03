@@ -12,11 +12,12 @@ import com.alsalam.sclzroot.Activities.MainpageActivity;
 import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.R;
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
+import com.alsalam.sclzroot.handlers.Refrashable;
 
 /**
  * Created by hp1 on 08/03/2016.
  */
-public class MyEventsFragment extends Fragment
+public class MyEventsFragment extends Fragment implements Refrashable
 {
     private ListView listView2;
     private ListView listView;
@@ -43,6 +44,11 @@ public class MyEventsFragment extends Fragment
         listView.setAdapter(my_eventTblAdapter);
         ((MainpageActivity) getActivity()).refreshEventsFromTableByID(my_eventTblAdapter, DataBaseMngr.getLogedUserId(getContext()));
 
+
+    }
+    public void refresh()
+    {
+        ((MainpageActivity) getActivity()).refreshEventsFromTableByID(my_eventTblAdapter, DataBaseMngr.getLogedUserId(getContext()));
 
     }
 

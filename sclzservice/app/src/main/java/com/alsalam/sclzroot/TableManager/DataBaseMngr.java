@@ -34,12 +34,14 @@ public class DataBaseMngr
     public static final String USER_MAIL ="USER_EMAIL" ;
     private static final String USER_ID ="USER_ID" ;
     private static final String FIRST_NAME ="FIRST_NAME" ;
-    private static final String LAST_NAME = "LAST NAME";
-    private static final String USER_ADDRESS = "USER ADDRESS";
-    private static final String PHONE_NUMBER ="PHONE NUMBER" ;
-    private static final String USER_GENDER = "USER GENDER";
-    private static final String RESTORING_KEY = "RESTORING KEY";
-    private static final String USER_PASSWORD = "USER PASSWORD";
+    private static final String LAST_NAME = "LAST_NAME";
+    private static final String USER_ADDRESS = "USER_ADDRESS";
+    private static final String PHONE_NUMBER ="PHONE_NUMBER" ;
+    private static final String USER_GENDER = "USER_GENDER";
+    private static final String RESTORING_KEY = "RESTORING_KEY";
+    private static final String USER_PASSWORD = "USER_PASSWORD";
+    private static final String PUSH_ID = "PUSH_ID";
+
     public static Activity activity;
 
     public static final String MY_PREF="MyPref";
@@ -113,11 +115,22 @@ public class DataBaseMngr
 
 
         // did it yesterdat
-        editor.putString(RESTORING_KEY,userTbl.getRestoringKey());
-        editor.putString(USER_PASSWORD,userTbl.getUserPassword());
+        editor.putString(RESTORING_KEY, userTbl.getRestoringKey());
+        editor.putString(USER_PASSWORD, userTbl.getUserPassword());
 
 
         editor.commit();
+    }
+    public static void savePushId(String pushId,Context mContext) {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString(PUSH_ID,pushId);
+        editor.commit();
+    }
+    public static String getPushID(Context mContext)
+    {
+        SharedPreferences mPrefs = mContext.getSharedPreferences(MY_PREF, Context.MODE_PRIVATE);
+        return  mPrefs.getString(PUSH_ID,null);
     }
 
     public static void logOut(Context mContext)

@@ -23,6 +23,7 @@ import com.alsalam.sclzroot.MyAdapters.EventTblAdapter;
 import com.alsalam.sclzroot.TableManager.EventTbl;
 import com.alsalam.sclzroot.handlers.EventsHandler;
 import com.alsalam.sclzroot.R;
+import com.alsalam.sclzroot.handlers.Refrashable;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -39,7 +40,7 @@ import java.util.Date;
 /**
  * Created by samih on 27/02/2016.
  */
-public class MapListFragment extends Fragment implements OnMapReadyCallback, EventsHandler,GoogleMap.OnMarkerClickListener, AdapterView.OnItemClickListener {
+public class MapListFragment extends Fragment implements OnMapReadyCallback, EventsHandler,GoogleMap.OnMarkerClickListener, AdapterView.OnItemClickListener,Refrashable {
     private MapView mapView;
     private GoogleMap mMap;
     private ListView listView;
@@ -51,6 +52,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     private SimpleDateFormat month_date;
     private Calendar cal;
     private EventTblAdapter eventTblAdapter;
+    private boolean isReady=false;
 
 
     @Nullable
@@ -106,6 +108,7 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        isReady=true;
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
          if(eventTblAdapter==null) eventTblAdapter=new EventTblAdapter(getContext(), R.layout.event_card_itm);
@@ -193,4 +196,14 @@ public class MapListFragment extends Fragment implements OnMapReadyCallback, Eve
     public void onJoinEvent(JoinEventDialog e) {
 
     }
+    public void refresh()
+    {
+        if(isReady)
+            ((MainpageActivity) getActivity()).refreshEventsToListAndMap(eventTblAdapter, mMap);
+        else
+            Toast.makeText(getContext(),"Map Not Ready!",Toast.LENGTH_LONG).show();
+
+    }
+
+
 }

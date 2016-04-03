@@ -135,7 +135,7 @@
     <string name="user_role">תפקיד המשתמש</string>
     <string name="view_participants">משתתפים צפו</string>
     <string name="Wait">בהמתנה</string>
-    <string name="signing_in">כניסה</string>
+    <string name="signing_in">כניסה...</string>
     <string name="event_saved">שמירה</string>
     <string name="Coordinators">רכזים</string>
     <string name="Guide">מדריכים</string>
@@ -149,4 +149,6 @@
     <string name="ACCEPTED">מאושר</string>
     <string name="CANCELED">בוטל</string>
     <string name="REJECTED">נדחה</string>
+    <string name="waiting_to_confirm">ממתין לאישור</string>
+    <string name="ALL_USERS">הכל</string>
 </resources>

@@ -15,15 +15,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.R;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.table.TableOperationCallback;
+import com.microsoft.windowsazure.mobileservices.table.TableQueryCallback;
 
 import java.net.MalformedURLException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
@@ -51,6 +54,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     );
     private EditText etBithDay;
     UserTbl user;
+    private EditText firstQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +74,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);// choosing male or female
         rbMale = (RadioButton) findViewById(R.id.rbMale);// choosig female or male
-
+        firstQuestion=(EditText)findViewById(R.id.firstQuestion);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(this);
 
@@ -95,6 +99,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         user.setUserEmail(etMail_Address.getText().toString());
         user.setUserPassword(etPass.getText().toString());
         user.setUserPhone(etPhoneNumber.getText().toString());
+        user.setUserTafkeed(UserTbl.Wait);
+        user.setRestoringKey(firstQuestion.getText().toString());
+        if(rgGender.getCheckedRadioButtonId()==R.id.rbFemale)
+        user.setUserGender("female");
+        else
+        user.setUserGender("male");
 
         // TODO complete other fields
 //        UserTbl user = new UserTbl(
@@ -165,7 +175,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             etPhoneNumber.requestFocus();
             etPhoneNumber.setError("FIELD CANNOT BE EMPTY");
             return false;
+        }else
+        if (firstQuestion.toString().length() == 0) {
+            firstQuestion.requestFocus();
+            firstQuestion.setError("FIELD CANNOT BE EMPTY");
+            return false;
         }
+
         return true;
     }
 
@@ -175,36 +191,55 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
 
 
-    public void addUserToDB(UserTbl user)
+    public void addUserToDB(final UserTbl user)
     {
         try {
+
             if(mClient==null)
             mClient = new MobileServiceClient("https://sclzservice.azurewebsites.net",getBaseContext());
-            MobileServiceTable<UserTbl> mtable = mClient.getTable(UserTbl.class);
-            mtable.insert(user, new TableOperationCallback<UserTbl>() {
+            final MobileServiceTable<UserTbl> mtable = mClient.getTable(UserTbl.class);
+            mtable.where().field("userEmail").eq(etMail_Address.getText().toString()).execute(new TableQueryCallback<UserTbl>() {
                 @Override
-                public void onCompleted(UserTbl entity, Exception exception, ServiceFilterResponse response) {
-                    if(exception==null)
-                    {
+                public void onCompleted(List<UserTbl> result, int count, Exception exception, ServiceFilterResponse response) {
 
-                        Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "SUCCESS! YAY!"+entity.toString());
-                        startActivity(new Intent(getBaseContext(), MainpageActivity.class));
-                    }
-                    else
-                    {
-                        Toast.makeText(getBaseContext(),"FAILED",Toast.LENGTH_LONG).show();
-                        Log.d("AZURE DB", "FAILED");
-                        Log.d("AZURE DB", exception.getMessage());
-                        exception.printStackTrace();
+                    // it appears for me and error here, ** remember to ask about it
+                    if (result != null && result.size() > 0) {
+                        etMail_Address.setError("Mail Already Found!");
+
+                    } else {
+                        mtable.insert(user, new TableOperationCallback<UserTbl>() {
+                            @Override
+                            public void onCompleted(UserTbl entity, Exception exception, ServiceFilterResponse response) {
+                                if (exception == null) {
+                                    DataBaseMngr.saveLogIn(entity, getBaseContext());
+
+                                    Toast.makeText(getBaseContext(), "REGISTERED SUCCESSFULY!", Toast.LENGTH_LONG).show();
+                                    Log.d("AZURE DB", "SUCCESS! YAY!" + entity.toString());
+                                    Intent intent = new Intent(getBaseContext(), MainpageActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(getBaseContext(), "FAILED", Toast.LENGTH_LONG).show();
+                                    Log.d("AZURE DB", "FAILED");
+                                    Log.d("AZURE DB", exception.getMessage());
+                                    exception.printStackTrace();
+                                }
+                            }
+                        });
+
                     }
                 }
             });
+
+
+
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
+
 
 
     @Override
@@ -232,7 +267,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                                 eventDate.setYear(year);
                                 eventDate.setMonth(monthOfYear);
                                 eventDate.setDate(dayOfMonth);                           }
-                            etBithDay.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            etBithDay.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             user.setUserBirthday(eventDate);
 
                         }
