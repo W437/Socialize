@@ -1,6 +1,7 @@
 package com.alsalam.sclzroot.Activities;
 
 import android.app.AlertDialog;
+import android.app.FragmentManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alsalam.sclzroot.MyFragments.ParticipatorsDialogFragment;
+import com.alsalam.sclzroot.MyFragments.RestoringPassFragment;
 import com.alsalam.sclzroot.TableManager.DataBaseMngr;
 import com.alsalam.sclzroot.TableManager.UserTbl;
 import com.alsalam.sclzroot.R;
@@ -28,9 +31,10 @@ import java.net.MalformedURLException;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    FragmentManager fragmentManager;
     private TextView tvemail, tvPass;
     private EditText et_MAIL, et_Pass;
-    private Button btnSign, btnRegister;
+    private Button btnSign, btnRegister,btnForgot_Password;
     public static int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     //android.support.v4.app.NotificationCompat.Builder builder;
@@ -94,10 +98,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnSign = (Button) findViewById(R.id.btnSign);// Sing in button
 
         btnRegister = (Button) findViewById(R.id.btnRegister);// Sing in button
-
+        btnForgot_Password=(Button) findViewById(R.id. btnForgot_Password);
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
 
+        btnForgot_Password.setOnClickListener(this);
 
 
 
@@ -181,9 +186,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    }
 //                    else
 //                    createAndShowDialog("user or pass word error","");
-
+            case R.id. btnForgot_Password:
+                showRestorePassDialog();
         }
 
+    }
+
+
+
+    void showRestorePassDialog(){
+        RestoringPassFragment restoringPassFragment =new RestoringPassFragment();
+        restoringPassFragment.show(getSupportFragmentManager(),"PPPP");
     }
 
 
