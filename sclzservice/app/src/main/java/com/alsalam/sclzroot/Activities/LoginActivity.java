@@ -32,9 +32,9 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     FragmentManager fragmentManager;
-    private TextView tvemail, tvPass;
+    private TextView tvemail, tvPass, forgotPassword;
     private EditText et_MAIL, et_Pass;
-    private Button btnSign, btnRegister,btnForgot_Password;
+    private Button btnSign, btnRegister;
     public static int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     //android.support.v4.app.NotificationCompat.Builder builder;
@@ -98,11 +98,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnSign = (Button) findViewById(R.id.btnSign);// Sing in button
 
         btnRegister = (Button) findViewById(R.id.btnRegister);// Sing in button
-        btnForgot_Password=(Button) findViewById(R.id. btnForgot_Password);
+        forgotPassword=(TextView) findViewById(R.id. btnForgot_Password);
         btnRegister.setOnClickListener(this);
         btnSign.setOnClickListener(this);
 
-        btnForgot_Password.setOnClickListener(this);
+        //forgotPassword.setOnClickListener(this);
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRestorePassDialog();
+            }
+        });
 
 
 
@@ -174,12 +181,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     } else {
                         signinDialog.dismiss();
-                        createAndShowDialog("User or Pass Error", "");
+                        createAndShowDialog("EMAIL OR PASSWORD WRONG", "");
 
                     }
                 }
             });
         }
+
+
 
                 //                    if(checkSignin(et_MAIL.getText().toString(),et_Pass.getText().toString())!=null) {
 //                        startActivity(new Intent(getBaseContext(), MainHomeActivity.class));
