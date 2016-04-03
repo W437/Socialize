@@ -266,7 +266,8 @@
             android:id="@+id/btnDone"
             android:layout_alignBottom="@+id/etDescription"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:background="#D32F2F" />
 
     </LinearLayout>
 
