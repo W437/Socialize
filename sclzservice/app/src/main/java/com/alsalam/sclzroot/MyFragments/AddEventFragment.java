@@ -263,7 +263,7 @@ public class AddEventFragment extends Fragment implements View.OnClickListener,R
                         Log.d("AZUREDB", "SUCCESS! YAY!");
 //                        MyHandler.mainActivity.sendNotification(entity.getTitle()+","+entity.getAddressLocation());
                          if(df==null) df = new SimpleDateFormat(); //called without pattern
-                        MyHandler.mainActivity.sendNotification("New meeting at:"+df.format(entity.getDate()));
+                        MyHandler.mainActivity.sendNotification("New meeting at: "+df.format(entity.getDate()));
 
                     }
                     else
