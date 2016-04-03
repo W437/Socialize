@@ -161,7 +161,7 @@
         android:layout_height="wrap_content"
         android:text="@string/Participate"
         android:id="@+id/btn_PAR"
-        />
+        android:background="#D32F2F" />
 
 
 </LinearLayout>
