@@ -195,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
+//ss
     void showRestorePassDialog(){
         RestoringPassFragment restoringPassFragment =new RestoringPassFragment();
         restoringPassFragment.show(getSupportFragmentManager(),"PPPP");
