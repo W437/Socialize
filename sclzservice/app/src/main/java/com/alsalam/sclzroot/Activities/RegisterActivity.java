@@ -286,7 +286,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                     Log.d("testa", "Clicked submit");
 
                      //...
-                    finish();
+                    //finish();
+                    //startActivity(new Intent(this, LoginActivity.class));
                 }
                 break;
             case R.id.rgGender:
