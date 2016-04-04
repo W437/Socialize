@@ -1,8 +1,10 @@
 package com.alsalam.sclzroot.Activities;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -53,13 +55,20 @@ public class IntroActivity extends AppIntro {
             addSlide(AppIntroFragment.newInstance("Endless Fun.", "With the variety of events to choose from, you'll always be entertained!", R.drawable.happy, Color.parseColor("#F44336")));
             addSlide(AppIntroFragment.newInstance("Socialize Yourself in One Click.", "With just a few clicks, you can find a suitable event to participate in, near you.", R.drawable.connected, Color.parseColor("#F44336")));
             addSlide(AppIntroFragment.newInstance("Everything and Anything.", "Whether it's a football game, a good-deeds-day, a meeting session to discuss relevant daily stuff with people from different cultures, you can find anything!", R.drawable.everything, Color.parseColor("#F44336")));
+            if (Build.VERSION.SDK_INT >= 23) {
+                addSlide(AppIntroFragment.newInstance("Grant Permissions.", "We just need to access some permissions in order to give you a complete app experience. ", R.drawable.permissions, Color.parseColor("#F44336")));
+                askForPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 6);
+
+            }
             addSlide(AppIntroFragment.newInstance("You are all set. Enjoy Socialize.", "Take a minute to register and get started.", R.drawable.ready, Color.parseColor("#F44336")));
             // OPTIONAL METHODS
             // Override bar/separator color.
             //setBarColor(Color.parseColor("#D32F2F"));
             //setSeparatorColor(Color.parseColor("#ffffff"));
             // Hide Skip/Done button.
-            askForPermissions(PERMISSIONS,5);
+
+
 
             showSkipButton(false);
             setProgressButtonEnabled(true);
