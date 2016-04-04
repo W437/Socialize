@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alsalam.sclzroot.MyFragments.ParticipatorsDialogFragment;
 import com.alsalam.sclzroot.MyFragments.RestoringPassFragment;
@@ -177,6 +178,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
+                        Toast.makeText(getBaseContext(), "WELCOME, " + DataBaseMngr.getLogedFirstName(ctx) + ".", Toast.LENGTH_LONG).show();
                         //    finish();
 
                     } else {
@@ -197,9 +199,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    }
 //                    else
 //                    createAndShowDialog("user or pass word error","");
-            case R.id. btnForgot_Password:
-                showRestorePassDialog();
         }
+
 
     }
 
